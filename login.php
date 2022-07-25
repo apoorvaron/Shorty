@@ -15,7 +15,7 @@
           </div>
 
           <form class="login100-form validate-form">
-            <span class="login100-form-title"> Member Login </span>
+            <span class="login100-form-title"> Login </span>
 
             <div
               class="wrap-input100 validate-input"
@@ -24,8 +24,8 @@
               <input
                 class="input100"
                 type="text"
-                name="email"
-                placeholder="Email"
+                name="name"
+                placeholder="Username"
               />
               <span class="focus-input100"></span>
               <span class="symbol-input100">
@@ -54,16 +54,13 @@
             </div>
 
             <div class="text-center p-t-12">
-              <span class="txt1"> Forgot </span>
-              <a class="txt2" href="#"> Username / Password? </a>
-            </div>
-
-            <div class="text-center p-t-136">
-              <a class="txt2" href="#">
+            <a class="txt2" href="#">
                 Create your Account
                 <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
               </a>
             </div>
+
+        
           </form>
         </div>
       </div>
