@@ -11,17 +11,17 @@ function submitReg(){
     $database = new Database();
     $db = $database->connect();
 
-    $username = $_POST["username"];
-    $password =  $_POST["password"];
+    $username = $_GET["username"];
+    $password =  $_GET["password"];
     $randNum = bin2hex(random_bytes(3));
 
 
 
     $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`) VALUES ('$randNum','$username', '$password')";
     // print_r($sql);
-    // $result =$db -> query($sql) ;
+    $result =$db -> query($sql) ;
     // var_dump($result);
-        if ($db->query($sql) == true) {
+        if ($result) {
             echo json_encode(
                 array('message' => 'Form has been submitted')
             );

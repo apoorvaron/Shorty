@@ -20,15 +20,22 @@
     var formData = new FormData();
     formData.append('username',  username);
     formData.append('password',  password);
+	// formData.append('poster', $("#poster").prop("files")[0]);
+	// console.log( $("#poster").prop("files")[0]);
     
+
+	let check=true;
       for (const value of formData.values()) {
         console.log(value);
-          // if(value=='' || value=='undefined')
+          if(value=='' || value=='undefined'){
+			check=false;
+		  }
       }
 
-      $.ajax({
+	if(check==true){
+		$.ajax({
                 type: "POST",
-                url: "./admin/dBconn/api.php/?q=submitReg",
+                url: "./admin/dBconn/api.php/?q=submitReg&username="+username+"&password="+password,
                 data : formData,
                 cache: false,
                 processData: false,
@@ -47,7 +54,9 @@
 
                     // alert("Fill in the details");
                 },
-      });
+      	});
+	}
+
   }
 </script>
 <body class="antialiased sans-serif bg-gray-200">
@@ -84,7 +93,10 @@
 							
 							<label 
 								for="fileInput"
-								type="button"
+								type="file"
+								name="file" 
+								id="poster"
+								required
 								class="cursor-pointer inine-flex justify-between items-center focus:outline-none border py-2 px-4 rounded-lg shadow-sm text-left text-gray-600 bg-white hover:bg-gray-100 font-medium"
 							>
 								<svg xmlns="http://www.w3.org/2000/svg" class="inline-flex flex-shrink-0 w-6 h-6 -mt-1 mr-1" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -110,13 +122,17 @@
                   id="username"
                   name="username"
                   required
+				  minlength="5"
+				  maxlength="5"
                   placeholder="Enter your firstname...">
               </div>
 
               <div class="mb-5">
-                <label  class="font-bold mb-1 text-gray-700 block">password</label>
+                <label  class="font-bold mb-1 text-gray-700 block">Password</label>
                 <input type="password"
                   id="password"
+				  minlength="5"
+				  maxlength="5"
                   name="password"
                   class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" required
                   placeholder="Enter your email address...">
