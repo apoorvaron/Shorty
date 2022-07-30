@@ -46,6 +46,8 @@
                     // window.location.replace();
                     // window.location.replace('./files/registered.php');
                     console.log("Success");
+					alert("Successfully Reg!!")
+                    window.location.replace('./login.php');
                 },
                 error: function(xhr, status, error){
                     // window.location.reload();
@@ -122,8 +124,6 @@
                   id="username"
                   name="username"
                   required
-				  minlength="5"
-				  maxlength="5"
                   placeholder="Enter your firstname...">
               </div>
 
@@ -131,8 +131,6 @@
                 <label  class="font-bold mb-1 text-gray-700 block">Password</label>
                 <input type="password"
                   id="password"
-				  minlength="5"
-				  maxlength="5"
                   name="password"
                   class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium" required
                   placeholder="Enter your email address...">

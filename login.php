@@ -1,3 +1,35 @@
+<?php
+  if(isset($_POST['submit'])){
+    require('./admin/dBconn/database.php');
+    $database = new Database();
+    $db = $database->connect();
+
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+
+    $query = "SELECT * from users where username='$username' and password ='$password'";
+    $result = mysqli_query($db,$query);
+
+    if(mysqli_num_rows($result)==1){
+      // session_start();
+      // $_SESSION['auth']='true';
+      // $_SESSION['start'] = time();
+      // $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+      // var_dump($_SESSION['start']);
+      // var_dump($_SESSION['expire']);
+      $row = mysqli_fetch_array($result);
+      // header('location: ./index.php?id='.$row['id'].'&uno='.$row['uniqueNo']);
+      header('location: ./user/index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
+      // echo "<script>alert('TRUE AUTH')</script>";
+
+      // echo "Right";
+    }
+    else{
+        echo "<script>alert('Wrong username or password')</script>";
+    }
+
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,7 +46,7 @@
             />
           </div>
 
-          <form class="login100-form validate-form">
+          <form class="login100-form validate-form" method="POST">
             <span class="login100-form-title"> Login </span>
 
             <div
@@ -24,7 +56,8 @@
               <input
                 class="input100"
                 type="text"
-                name="name"
+                name="username"
+                id="username"
                 placeholder="Username"
               />
               <span class="focus-input100"></span>
@@ -40,7 +73,8 @@
               <input
                 class="input100"
                 type="password"
-                name="pass"
+                name="password"
+                id="password"
                 placeholder="Password"
               />
               <span class="focus-input100"></span>
@@ -50,7 +84,7 @@
             </div>
 
             <div class="container-login100-form-btn">
-              <button class="login100-form-btn">Login</button>
+              <button type="submit" name="submit" class="login100-form-btn">Login</button>
             </div>
 
             <div class="text-center p-t-12">

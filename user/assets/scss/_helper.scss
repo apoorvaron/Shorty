@@ -1,0 +1,184 @@
+/* ==============
+  Helper Classes
+===================*/
+
+.p-0 {
+  padding: 0;
+}
+.p-t-10 {
+  padding-top: 10px;
+}
+.p-b-10 {
+  padding-bottom: 10px;
+}
+.m-0 {
+  margin: 0;
+}
+.m-r-5 {
+  margin-right: 5px;
+}
+.m-r-10 {
+  margin-right: 10px;
+}
+.m-r-15 {
+  margin-right: 15px;
+}
+.m-l-10 {
+  margin-left: 10px;
+}
+.m-l-15 {
+  margin-left: 15px;
+}
+.m-t-5 {
+  margin-top: 5px;
+}
+.m-t-10 {
+  margin-top: 10px;
+}
+.m-t-15 {
+  margin-top: 15px;
+}
+.m-t-20 {
+  margin-top: 20px;
+}
+.m-t-30 {
+  margin-top: 30px;
+}
+.m-t-40 {
+  margin-top: 40px;
+}
+.m-b-5 {
+  margin-bottom: 5px;
+}
+.m-b-10 {
+  margin-bottom: 10px;
+}
+.m-b-15 {
+  margin-bottom: 15px;
+}
+.m-b-20 {
+  margin-bottom: 20px;
+}
+.m-b-30 {
+  margin-bottom: 30px;
+}
+.w-xs {
+  min-width: 80px;
+}
+.w-sm {
+  min-width: 95px;
+}
+.w-md {
+  min-width: 110px;
+}
+.w-lg {
+  min-width: 140px;
+}
+.w-30{
+  width: 30px;
+}
+.w-40{
+  width: 40px;
+}
+.w-60{
+  width: 60px;
+}
+.w-80{
+  width: 80px;
+}
+.w-130{
+  width: 130px;
+}
+.width-100{
+  width:100px;
+}
+.w-200{
+  width: 200px;
+}
+.h-300{
+  height: 300px;
+}
+.h-400{
+  height: 400px;
+}
+.m-h-50 {
+  min-height: 50px;
+}
+.l-h-23{
+  line-height: 23px;
+}
+.l-h-34 {
+  line-height: 34px;
+}
+.font-12 {
+  font-size: 12px;
+}
+.font-14 {
+  font-size: 14px;
+}
+.font-16 {
+  font-size: 16px;
+}
+.font-18 {
+  font-size: 18px;
+}
+.font-20 {
+  font-size: 20px;
+}
+.font-24{
+  font-size: 24px;
+}
+.font-30{
+  font-size: 30px;
+}
+.font-32 {
+  font-size: 32px;
+}
+.font-36 {
+  font-size: 36px;
+}
+.font-40 {
+  font-size: 40px;
+}
+.font-80{
+  font-size: 80px;
+}
+.fw-700{
+  font-weight: 700;
+}
+.no-border {
+  border: none;
+}
+.bx-shadow {
+  -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,0.1);
+}
+
+.thumb-sm {
+  height: 32px;
+  width: 32px;
+}
+.thumb-md {
+  height: 48px;
+  width: 48px;
+}
+.thumb-lg {
+  height: 88px;
+  width: 88px;
+}
+
+.text-green{
+  color:$green;
+}
+.text-lightdark3{
+  color: $lightdark3;
+}
+.text-greylight{
+  color: $greylight;
+}
+
+
+.header-title {
+  font-size: 16px;
+}

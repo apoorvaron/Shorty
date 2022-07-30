@@ -1,0 +1,14 @@
+/* ==== =====
+Invoice
+============= */
+
+.table > thead > tr > .no-line {
+  border-bottom: none;
+}
+
+.table > tbody > tr > .no-line {
+  border-top: none;
+}
+.table > tbody > tr > .thick-line {
+  border-top: 2px solid $light;
+}

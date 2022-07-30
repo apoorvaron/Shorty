@@ -1,0 +1,43 @@
+/* ==============
+  Form-elements
+===================*/
+
+label {
+  font-weight: 500;
+}
+
+form{
+  margin-bottom: 0;
+}
+
+.form-control {
+  font-size: 14px;
+  border: 1px solid rgba($light4,0.3);
+  &:focus {
+    border: 1px solid rgba($light4,0.5);
+    box-shadow: none;
+  }
+}
+.form-control-sm {
+  font-size: 12px;
+}
+
+.btn-group-vertical .btn-light,
+.note-editor .btn-group .btn-light{
+  color: $green;
+  background-color: $white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.custom-control-input:checked~.custom-control-indicator {
+  background-color: $primary;
+}
+
+.input-group-addon {
+  border-radius: 2px;
+  border: 1px solid $light;
+}
+
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+  background-color: $primary;
+}
