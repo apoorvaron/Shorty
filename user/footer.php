@@ -1,3 +1,3 @@
 <footer class="footer">
-      © 2022 -  Baga. All rights reserved. Design & Developed by <a href="https://www.webingo.in" style="color:navy;">Webingo</a>
+      © 2022 -  All rights reserved. Design & Developed by <a href="" style="color:navy;">IPU</a>
 </footer>
