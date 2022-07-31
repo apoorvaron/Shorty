@@ -1,3 +1,18 @@
+
+<?php 
+    $username = $_GET['username'];
+    $uno = $_GET['uno'];
+    session_start();
+    if(!$_SESSION['auth']){
+        header('location: ./login.php');
+    }
+    $now = time(); // Checking the time now when home page starts.
+
+    if ($now > $_SESSION['expire']) {
+        session_destroy();
+        header('location: ./login.php');
+    }
+?>
 <style>
 
 #sstSessionModal {
@@ -114,10 +129,10 @@
 -->
                             
                             <li>
-                                <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-account-star"></i><span> Previous Links</span></a>
+                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account-star"></i><span> Previous Links</span></a>
                             </li>
                             <li>
-                                <a href="newLink.php" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span> Make New Link</span></a>
+                                <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span> Make New Link</span></a>
                             </li>
 <!--
                             <li>
@@ -134,10 +149,10 @@
                                 <a href="transcations.php" class="waves-effect waves-light"><i class="mdi mdi-wallet"></i><span> Transaction </span></a>
                             </li> -->
                             <li>
-                                <a href="change-password.php" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
+                                <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
                             </li>
                             <li>
-                                <a href="#" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                                <a href="./logout.php" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>
 
 <!--
@@ -318,7 +333,7 @@
                                         </div>
                                         
                                        
-                                        <a class="dropdown-item text-danger" href="#"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                        <a class="dropdown-item text-danger" href="./logout.php"><i class="mdi mdi-power text-danger"></i> Logout</a>
                                     </div>
                                 </li>
                             </ul>

@@ -1,3 +1,36 @@
+<?php
+  if(isset($_POST['submit'])){
+    require('../admin/dBconn/database.php');
+    $database = new Database();
+    $db = $database->connect();
+
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+
+    $query = "SELECT * from users where username='$username' and password ='$password'";
+    $result = mysqli_query($db,$query);
+
+    if(mysqli_num_rows($result)==1){
+      session_start();
+      $_SESSION['auth']='true';
+      $_SESSION['start'] = time();
+      $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+      // var_dump($_SESSION['start']);
+      // var_dump($_SESSION['expire']);
+      $row = mysqli_fetch_array($result);
+      // header('location: ./index.php?id='.$row['id'].'&uno='.$row['uniqueNo']);
+      header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
+      // echo "<script>alert('TRUE AUTH')</script>";
+
+      // echo "Right";
+    }
+    else{
+        echo "<script>alert('Wrong username or password')</script>";
+    }
+
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,17 +71,17 @@
 
                     <div class="p-3">
                         
-                        <form class="form-horizontal" action="index.html">
+                        <form class="form-horizontal" method="POST">
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Username">
+                                    <input class="form-control" type="text" required="" name="username" placeholder="Username">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password">
                                 </div>
                             </div>
 
@@ -63,7 +96,7 @@
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button class="btn btn-danger btn-block waves-effect waves-light" type="submit">Log In</button>
+                                    <button class="btn btn-danger btn-block waves-effect waves-light" id="submit" name="submit" type="submit">Log In</button>
                                 </div>
                             </div>
 
