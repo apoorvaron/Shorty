@@ -52,7 +52,11 @@
     </head>
 
 
-    <body class="fixed-left" style="background-image:url(assets/images/background.jpg)">
+    <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
+    <body class="fixed-left" style="background: -webkit-linear-gradient(-135deg, #6862d5, #dd2476);
+  background: -o-linear-gradient(-135deg, #6862d5, #dd2476);
+  background: -moz-linear-gradient(-135deg, #6862d5, #dd2476);
+  background: linear-gradient(-135deg, #1C3879, #EB4747);">
         
         <!-- Begin page -->
         <!--<div class="accountbg"></div>-->
@@ -64,7 +68,7 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0">
-                        <a href="index.html" class="logo logo-admin"><img src="assets/images/baga-logo.gif" height="100" alt="logo"></a>
+                        <a href="./login.php" class="logo logo-admin"><img src="https://testbook.com/assets/img/index/home-banner__illust.svg" height="100" alt="logo"></a>
                     </h3>
 
                     <h6 class="text-center">Sign In</h6>
@@ -105,7 +109,7 @@
                                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password ?</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="#" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
+                                    <a href="../register.php" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
                                 </div>
                             </div>
                         </form>

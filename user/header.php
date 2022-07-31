@@ -324,7 +324,7 @@
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                                         aria-haspopup="false" aria-expanded="false">
-                                        <img src="assets/images/images.png" alt="user" class="rounded-circle">
+                                        <img src="../assets/images/logout-logo.png" alt="user" class="rounded-circle">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
@@ -333,7 +333,12 @@
                                         </div>
                                         
                                        
-                                        <a class="dropdown-item text-danger" href="./logout.php"><i class="mdi mdi-power text-danger"></i> Logout</a>
+                                        <a class="dropdown-item text-danger" href=""><i style="color:red;"class="fa fa-sign-in" aria-hidden="true"></i> Login as Admin</a>
+                                        <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
+                                       
+                                       <!-- <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
+                                        -->
+                                  
                                     </div>
                                 </li>
                             </ul>
@@ -345,7 +350,7 @@
                                     </button>
                                 </li>
                                 <li class="hide-phone app-search mt-4">
-                                    <h4 style="color:#fff;">Hello Rakesh kumar!</h4>
+                                    <h4 style="color:#fff;">Hello <?php echo $username?>!</h4>
                                 </li>
                             </ul>
                             <div class="clearfix"></div>

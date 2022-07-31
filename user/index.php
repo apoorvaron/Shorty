@@ -25,6 +25,15 @@
 
     </head>
 
+        <?php
+
+            if(isset($_GET['short'])){
+                $short = $_GET['short'];
+                echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
+                echo "<script>alert('Copied successfully!!')</script>";
+            }
+        ?>
+
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -36,26 +45,24 @@
                     <div class="page-content-wrapper">
 
                         <div class="container-fluid">
+
+
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         
-                                       <a href="newLink.php"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;
-    top: 29px;
-    right: 15px;">
-                                                                Make New Link
-                                                            </button></a>
+                                       <a href="newLink.php"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
+                        </div>
+                        <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         
                                         <!-- <h4 class="page-title">Your Links</h4> -->
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                             <!-- end page title end breadcrumb -->
                            
             
@@ -84,22 +91,49 @@
 
                                                     
                                                 </tr>
+
+
                                                 </thead>
             
             
                                                 <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Rakesh</td>
-                                                    <td>admin@gmail.com</td>
-                                                    <td style="color:green;">0123456789</td>
-                                                    <td class='text-center'><a href=''><i class="fa fa-files-o" aria-hidden="true"></i></a></td>
-                                                    <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
-                                                    <td><a href='./Membership.php'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
 
-                                                    
-                                                </tr>
-                                      
+                                                <?php 
+                                                    require('../admin/dBconn/database.php');
+                                                    $database = new Database();
+                                                    $db = $database->connect();
+                                                    $sno = 1;
+                                                    $uno=$_GET['uno'];
+                                                    // echo $uno;
+                                                    $sql = "SELECT * FROM links WHERE uniqueNo='".$uno."'";
+                                                    if($result = mysqli_query($db, $sql)){
+                                                        if(mysqli_num_rows($result) > 0){
+                                                                while($row = mysqli_fetch_array($result)){  
+                                                                        echo "
+                                                                        <tr>
+                                                                        <td>".$sno."</td>
+                                                                        <td>".$row['linkIsFor']."</td>
+                                                                        <td>".$row['originalLink']."</td>
+                                                                        <td style='color:green;'>".$row['shortenLink']."</td>
+                                                                        <td class='text-center'><a href='./index.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
+                                                                        <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
+                                                                        <td><a href='./Membership.php'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+                    
+                                                                        
+                                                                        </tr>
+                                                                            ";  
+                                                                            $sno++;  
+                                                                }
+                                                            mysqli_free_result($result);
+                                                        } else{
+                                                            echo "<p class='lead'><em>No Record Found.</em></p>";
+                                                        }
+                                                    } else{
+                                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                
+                                                    }
+                                                ?>
+
                                                
                                                
                                                 </tbody>
