@@ -19,7 +19,10 @@ function submitReg(){
 
     $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`) VALUES ('$randNum','$username', '$password')";
     // print_r($sql);
-    $result =$db -> query($sql) ;
+    // $result = $db -> query($sql) ;
+    $result = mysqli_query($db,$sql);
+    // echo("Error description: " . $mysqli -> error);
+    // echo("Error description: " . mysqli_error($db));
     // var_dump($result);
         if ($result) {
             echo json_encode(

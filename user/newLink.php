@@ -16,6 +16,16 @@
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+        <style>
+            /* ::placeholder {
+                text-align: center;
+            }*/
+
+            input:focus {
+                outline: none;
+            } 
+
+        </style>
     </head>
 
 <script>
@@ -132,7 +142,26 @@
                                                         <input type="text" class="form-control" required placeholder="Shortened Link"  id="shortenLink" name="shortenLink"/>
                                                     </div>
                                                 </div>
-                                              
+                                                <div class="col-md-12">
+                                                        <label>Shorten Link</label>
+                                                </div>
+                                                <div class="form-outline  form-control col-md-12"> 
+                                                    <span class="form-group">
+                                                        <label> <b>http://micro.epizy.com/</b> </label>
+                                                        <input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"/>
+                                                    </span>
+                                                          
+                                                </div>
+                                                <div class="col-md-12 text-center">
+                                                    <div class="form-group mb-0">
+                                                        <div>
+                                                            <button type="submit" name="submit" onclick="newLink()" class="btn btn-info waves-effect waves-light">Generate Random Number</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+                                                <br>
                                                 <!-- <div class="col-md-12">
                                                 <label>Shorten Link</label>
                                                     <div class="form-group">

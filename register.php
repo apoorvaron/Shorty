@@ -41,18 +41,13 @@
                 processData: false,
                 contentType: false,
                 success: function(data){
-                    // alert(data.message);
+                    alert(data.message);
                     // console.log(data.message);
-                    // window.location.replace();
-                    // window.location.replace('./files/registered.php');
-                    console.log("Success");
-					alert("Successfully Reg!!")
-                    window.location.replace('./login.php');
+					alert("Successfully Reg!!");
+                    window.location.replace('./user/login.php');
                 },
                 error: function(xhr, status, error){
                     // window.location.reload();
-                    console.log("Nooooo!!!!");
-                    // window.location.replace('./files/registered.php');
 
                     // alert("Fill in the details");
                 },
