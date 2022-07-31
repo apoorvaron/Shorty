@@ -18,7 +18,66 @@
 
     </head>
 
+<script>
+    function newLink(){
+        // console.log("llllllllllll");
+        // console.log("llllllllllll");
+        // console.log("llllllllllll");
+        // console.log("llllllllllll");
+        // console.log("llllllllllll");
+        let linkIsFor = document.querySelector('#linkIsFor').value;
+        let originalLink = document.querySelector('#originalLink').value;
+        let shortenLink = document.querySelector('#shortenLink').value;
 
+        var formData = new FormData();
+        formData.append('linkIsFor',  linkIsFor);
+        formData.append('originalLink',  originalLink);
+        formData.append('shortenLink',  shortenLink);
+
+        <?php
+            $uno = $_GET['uno'];
+        ?>
+
+
+        let check=true;
+        for (const value of formData.values()) {
+            console.log(value);
+            if(value=='' || value=='undefined'){
+                check=false;
+            }
+        }   
+        console.log("../admin/dBconn/api.php?q=addLink&uno=".$uno);
+        if(check==true){
+            $.ajax({
+                    type: "POST",
+                    url: "../admin/dBconn/api.php?q=addLink&uno=<?php echo  $uno?>",
+                    data : formData,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function(data){
+                        // alert(data.message);
+                        // console.log(data.message);
+                        // window.location.replace();
+                        // window.location.replace('./files/registered.php');
+                        console.log("Successf");
+                        alert("Sucess!!")
+                        // window.location.replace('./login.php');
+                    },
+                    error: function(xhr, status, error){
+                        // window.location.reload();
+                        console.log("Nooooo!!!!");
+                        alert("No!!")
+
+                        // window.location.replace('./files/registered.php');
+
+                        // alert("Fill in the details");
+                    },
+            });
+	    }
+
+    }
+</script>
     <body class="fixed-left">
         <!-- Begin page -->
         <div id="wrapper">
@@ -50,7 +109,7 @@
                                                 submission before sending it to your server.</p> -->
            
 
-                                            <form class="repeater" action="#">
+                                            <form class="repeater" method="POST">
                                                 <div data-repeater-list="category-group">
                                                     <div data-repeater-item>
                                                 <div class="row">
@@ -58,27 +117,33 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Link is for</label>
-                                                        <input type="text" class="form-control" required placeholder="Link is for"/>
+                                                        <input type="text" class="form-control" required placeholder="Link is for" name="linkIsFor" id="linkIsFor"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Original Link</label>
-                                                        <input type="text" class="form-control" required placeholder="Original Link"/>
+                                                        <input type="text" class="form-control" required placeholder="Original Link" id="originalLink" name="originalLink"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label>Shorten Link</label>
+                                                        <input type="text" class="form-control" required placeholder="Shortened Link"  id="shortenLink" name="shortenLink"/>
                                                     </div>
                                                 </div>
                                               
-                                                <div class="col-md-12">
+                                                <!-- <div class="col-md-12">
                                                 <label>Shorten Link</label>
                                                     <div class="form-group">
                                              
                                                         <span>
                                                             <span> <b>http://micro.epizy.com/ </b> </span>
-                                                            <input type="text" id="form3Example4" class="form-control"  placeholder="Custom Short Link" />
+                                                            <input type="text" id="form3Example4" class="form-control"  placeholder="Custom Short Link" id="shortenLink" name="shortenLink"/>
                                                         </span>
                                                     </div>
                                                 </div>
-                                               
+                                                -->
                                                 <!-- <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Email Id</label>
@@ -204,7 +269,7 @@
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <button type="submit" class="btn btn-success waves-effect waves-light">
+                                                            <button type="submit" name="submit" onclick="newLink()" class="btn btn-success waves-effect waves-light">
                                                                 Check & Confirm
                                                             </button>
                                                             <button type="reset" class="btn btn-danger waves-effect m-l-5">

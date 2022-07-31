@@ -32,12 +32,44 @@ function submitReg(){
         }
 
 };
+function addLink(){
+    $database = new Database();
+    $db = $database->connect();
+
+    
+    
+    $linkIsFor =  $_POST["linkIsFor"];
+    $originalLink =  $_POST["originalLink"];
+    $shortenLink =  $_POST["shortenLink"];
+    $uno = $_GET["uno"];
+    // $randNum = bin2hex(random_bytes(3));
+
+
+
+    $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
+    // print_r($sql);
+    $result =$db -> query($sql) ;
+    // var_dump($result);
+        if ($result) {
+            echo json_encode(
+                array('message' => 'Form has been submitted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Internal Server Error. Try Again')
+            );
+        }
+
+};
 
     $q = $_GET['q'];
     // echo $q;
     switch ($q) {
         case 'submitReg':
             submitReg();
+            break;
+        case 'addLink':
+            addLink();
             break;
         default:
             echo "Invalid Query";
