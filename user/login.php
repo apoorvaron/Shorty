@@ -30,6 +30,71 @@
 
   }
 ?>
+    <!-- <div class="modal" id="myModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" style="text-align: end;margin-right: 10px;">&times;</button>
+            <section1>
+                <div class="container1">
+                <div class="user signinBx">
+                    <div class="imgBx"><img src="img/baga/logout.jpg" alt="" /></div>
+                    <div class="formBx">
+                    <form method="POST" >
+                        <h2 style="color:#000;margin-bottom:20px;">Sign In</h2>
+                        <div class="checkout__input">
+                                <p>Username<span>*</span></p>
+                                <input type="email" required name="loginEmail">
+                            </div>
+                        <div class="checkout__input">
+                                <p>Password<span>*</span></p>
+                                <input type="text" required name="loginPassword">
+                            </div>
+                        
+                    
+                        <button type="submit" name="loginSubmit"  class="primary-btn" style="border:none;">Submit</button>
+                        <p class="signup">
+                        Don't have an account ?
+                        <a href="#" onclick="toggleForm();">Sign Up.</a>
+                        </p>
+                    </form>
+                    </div>
+                </div>
+                <div class="user signupBx">
+                    <div class="formBx">
+                    <form method="POST">
+                        <h2 style="color:#000;margin-bottom:20px;">Create an account</h2>
+                        <div class="checkout__input">
+                                <p>Name<span>*</span></p>
+                                <input type="text" required id="signUpName" name="signUpName">
+                            </div>
+                        <div class="checkout__input">
+                                <p>Email Address<span>*</span></p>
+                                <input type="email"  required id="signUpEmail" name="signUpEmail">
+                            </div>
+                        <div class="checkout__input">
+                                <p>Create Password<span>*</span></p>
+                                <input type="password"  required id="signUpPass" name="signUpPass">
+                            </div>
+                        <div class="checkout__input">
+                                <p>Confirm Password<span>*</span></p>
+                                <input type="text"  required id="signUpCnfrmPass" name="signUpCnfrmPass">
+                            </div>
+                        
+                        <button type="submit" name="signUpSubmit" class="primary-btn">Sign up</button>
+                        <p class="signup">
+                        Already have an account ?
+                        <a href="#" onclick="toggleForm();">Sign in.</a>
+                        </p>
+                    </form>
+                    </div>
+                    <div class="imgBx"><img src="img/baga/login.jpg" alt="" /></div>
+                </div>
+                </div>
+            </section1>
+            
+        </div>
+        </div>
+    </div> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -109,7 +174,7 @@
                                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password ?</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="../register.php" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
+                                    <a href="" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
                                 </div>
                             </div>
                         </form>

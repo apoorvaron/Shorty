@@ -33,9 +33,10 @@
       }
 
 	if(check==true){
+		// console.log("hii");
 		$.ajax({
                 type: "POST",
-                url: "./admin/dBconn/api.php/?q=submitReg&username="+username+"&password="+password,
+                url: "./admin/dBconn/api.php/?q=submitReg",
                 data : formData,
                 cache: false,
                 processData: false,

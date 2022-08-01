@@ -137,25 +137,19 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                        <label>Shorten Link</label>
-                                                        <input type="text" class="form-control" required placeholder="Shortened Link"  id="shortenLink" name="shortenLink"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12">
                                                         <label>Shorten Link</label>
                                                 </div>
                                                 <div class="form-outline  form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label> <b>http://micro.epizy.com/</b> </label>
-                                                        <input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"/>
+                                                        <input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/>
                                                     </span>
                                                           
                                                 </div>
                                                 <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <button type="submit" name="submit" onclick="newLink()" class="btn btn-info waves-effect waves-light">Generate Random Number</button>
+                                                            <button type="button" name="" onclick="" class="btn btn-info waves-effect waves-light">Generate Random Number</button>
                                                         </div>
                                                     </div>
                                                 </div>

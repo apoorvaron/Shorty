@@ -33,7 +33,20 @@
                 echo "<script>alert('Copied successfully!!')</script>";
             }
         ?>
-
+                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-xl">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close text-dark" data-dismiss="modal" aria-hidden="true">×</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <center>
+                                            <h3>Your link has been copied</h3>
+                                            </center>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -50,8 +63,12 @@
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
+                                        <?php 
+                                            $username = $_GET['username'];
+                                            $uno = $_GET['uno'];
+                                        ?>
                                         
-                                       <a href="newLink.php"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
+                                       <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="submit" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
                                     </div>
                                 </div>
                         </div>
@@ -115,10 +132,9 @@
                                                                         <td>".$row['linkIsFor']."</td>
                                                                         <td>".$row['originalLink']."</td>
                                                                         <td style='color:green;'>".$row['shortenLink']."</td>
-                                                                        <td class='text-center'><a href='./index.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
+                                                                        <td class='text-center'><a data-toggle='modal' data-target='.bd-example-modal-lg' href='./index.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
                                                                         <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
                                                                         <td><a href='./Membership.php'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
-                    
                                                                         
                                                                         </tr>
                                                                             ";  

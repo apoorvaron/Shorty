@@ -9,13 +9,15 @@ header("Content-Type: application/json; charset=UTF-8");
 
 function submitReg(){
     $database = new Database();
+    // print_r('dsfghj');
     $db = $database->connect();
 
-    $username = $_GET["username"];
-    $password =  $_GET["password"];
+    $username = $_POST["username"];
+    $password =  $_POST["password"];
     $randNum = bin2hex(random_bytes(3));
 
-
+    // $query = "SELECT * from users WHERE username=".$username;
+    // $res =  mysqli_query($db,$query);
 
     $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`) VALUES ('$randNum','$username', '$password')";
     // print_r($sql);
@@ -69,6 +71,9 @@ function addLink(){
     // echo $q;
     switch ($q) {
         case 'submitReg':
+            // echo "<script>console.log('called')</script>";
+            // echo $q;
+
             submitReg();
             break;
         case 'addLink':
