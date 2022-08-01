@@ -9,6 +9,17 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<style>
+		.largee{
+			font-size:2.5rem;
+		}
+		body{
+			background: -webkit-linear-gradient(247deg, #1b166a, #dd2476);
+    background: -o-linear-gradient(-135deg, #6862d5, #dd2476);
+    background: -moz-linear-gradient(-135deg, #6862d5, #dd2476);
+    background: linear-gradient(-135deg, #09d6ea, #9f40bc);
+		}
+	</style>
 </head>
 
 <script>
@@ -70,7 +81,7 @@
 					<div class="flex flex-col md:flex-row md:items-center md:justify-between">
 						<div class="flex-1">
 							<div x-show="step === 1">
-								<div class="text-lg font-bold text-gray-700 leading-tight">Registration Form</div>
+								<div class="largee font-bold text-gray-700 leading-tight" style="color:white">Registration Form</div>
 							</div>
 							
 				
@@ -105,7 +116,7 @@
 								Browse Photo
 							</label>
 
-							<div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1">Click to add profile picture</div>
+							<div class="mx-auto w-48 text-gray-500 text-xs text-center mt-1"  style="color:white">Click to add profile picture</div>
 
 							<input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" @change="let file = document.getElementById('fileInput').files[0]; 
 								var reader = new FileReader();
@@ -114,7 +125,7 @@
 						</div>
             <form method="POST">
               <div class="mb-5">
-                <label for="firstname" class="font-bold mb-1 text-gray-700 block">Username</label>
+                <label for="firstname" class="font-bold mb-1 text-gray-700 block"  style="color:white">Username</label>
                 <input type="text"
                   class="w-full px-4 py-3 rounded-lg shadow-sm focus:outline-none focus:shadow-outline text-gray-600 font-medium"
                   id="username"
@@ -124,7 +135,7 @@
               </div>
 
               <div class="mb-5">
-                <label  class="font-bold mb-1 text-gray-700 block">Password</label>
+                <label  class="font-bold mb-1 text-gray-700 block"  style="color:white">Password</label>
                 <input type="password"
                   id="password"
                   name="password"
@@ -135,8 +146,16 @@
                 type="submit"
                 name="submit"
                 onclick="submit_form()"
-                class="w-32 focus:outline-none border border-transparent py-2 px-5 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
+				style="    width: 100%;"
+                class="w-32 focus:outline-none border border-transparent py-2  rounded-lg shadow-sm text-center text-white bg-green-500 hover:bg-green-600 font-medium" 
               >Register</button>
+			  <br>
+			  <br>
+			  <button
+                type="button"
+				style="    width: 100%;"
+                class="w-32 focus:outline-none border border-transparent py-2 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
+              ><a href="./user/login.php">Back to Login</a></button>
             </form>
 					</div>
 
@@ -147,7 +166,8 @@
 			</div>
 
 		</div>
-	</div>
+		<center style="font-weight:bold; color:white; padding-bottom:0.5%">&copy 2022 - IPU. All rights reserved. Design & Developed by IPians</center>
+</div>
 
 	<script>
 		function app() {
