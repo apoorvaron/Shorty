@@ -10,6 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 Page with SVG</title>
   <link rel="stylesheet" media="all" href="./assets/css/404.css" />
+  <link rel="icon" type="image/x-icon" href= "./assets/images/logout-logo.png">
 </head>
 <body>
 <svg class="me404" viewBox="0 0 1000 480">
