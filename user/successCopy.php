@@ -36,6 +36,17 @@
     </head>
 
 <script>
+<?php
+    $username=$_GET['username'];
+    $uno= $_GET['uno'];
+?>
+    let redirect_Page = () => {
+        let tID = setTimeout(function () {
+            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            window.clearTimeout(tID);		// clear time out.
+        }, 5000);
+    }
+    redirect_Page();
     function newLink(){
         // console.log("llllllllllll");
         // console.log("llllllllllll");
