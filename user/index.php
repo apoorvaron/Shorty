@@ -25,28 +25,14 @@
 
     </head>
 
-        <?php
+    <?php
 
-            if(isset($_GET['short'])){
-                $short = $_GET['short'];
-                echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-                echo "<script>alert('Copied successfully!!')</script>";
-            }
-        ?>
-                            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-xl">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close text-dark" data-dismiss="modal" aria-hidden="true">×</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <center>
-                                            <h3>Your link has been copied</h3>
-                                            </center>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        if(isset($_GET['short'])){
+            $short = $_GET['short'];
+            echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
+            // echo "<script>alert('Copied successfully!!')</script>";
+        }
+    ?>
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -132,7 +118,7 @@
                                                                         <td>".$row['linkIsFor']."</td>
                                                                         <td>".$row['originalLink']."</td>
                                                                         <td style='color:green;'>".$row['shortenLink']."</td>
-                                                                        <td class='text-center'><a data-toggle='modal' data-target='.bd-example-modal-lg' href='./index.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
+                                                                        <td class='text-center'><a  href='./successCopy.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."&for=".$row['linkIsFor']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
                                                                         <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
                                                                         <td><a href='./Membership.php'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         

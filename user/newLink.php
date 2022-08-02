@@ -139,10 +139,10 @@
                                                 <div class="col-md-12">
                                                         <label>Shorten Link</label>
                                                 </div>
-                                                <div class="form-outline  form-control col-md-12"> 
+                                                <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label> <b>http://micro.epizy.com/</b> </label>
-                                                        <input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/>
+                                                        <span><input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
