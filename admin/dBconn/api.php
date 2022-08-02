@@ -16,25 +16,54 @@ function submitReg(){
     $password =  $_POST["password"];
     $randNum = bin2hex(random_bytes(3));
 
+    $file = isset($_FILES['poster']) ? $_FILES['poster'] : false;
+
+    if (!$file) {
+        echo json_encode(
+            array('message' => 'Insert the image')
+        );
+    }
+
+    $filename = $file['name'];
+    $filetemppath= $file['tmp_name'];
+    $fileext = explode('.',$filename);
+    $filecheck = strtolower(end($fileext));
+
+    $fileextstored = array('png', 'jpg', 'jpeg');
+
+    if (in_array($filecheck, $fileextstored)) {
+
+        $destinationfile = '../assets/images/reg-user-img/' . $filename;
+        $uploadLocation = '../../assets/images/reg-user-img/' . $filename;
+        move_uploaded_file($filetemppath, $uploadLocation);
+
+
+        $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`,`img`) VALUES ('$randNum','$username', '$password','$destinationfile')";
+        // print_r($sql);
+        // $result = $db -> query($sql) ;
+        $result = mysqli_query($db,$sql);
+        // echo("Error description: " . $mysqli -> error);
+        // echo("Error description: " . mysqli_error($db));
+        // var_dump($result);
+            if ($result) {
+                echo json_encode(
+                    array('message' => 'Form has been submitted')
+                );
+            } else {
+                echo json_encode(
+                    array('message' => 'Internal Server Error. Try Again')
+                );
+            }
+    
+    } else {
+        echo json_encode(
+            array('message' => 'Insert the image')
+        );
+    }
+
     // $query = "SELECT * from users WHERE username=".$username;
     // $res =  mysqli_query($db,$query);
 
-    $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`) VALUES ('$randNum','$username', '$password')";
-    // print_r($sql);
-    // $result = $db -> query($sql) ;
-    $result = mysqli_query($db,$sql);
-    // echo("Error description: " . $mysqli -> error);
-    // echo("Error description: " . mysqli_error($db));
-    // var_dump($result);
-        if ($result) {
-            echo json_encode(
-                array('message' => 'Form has been submitted')
-            );
-        } else {
-            echo json_encode(
-                array('message' => 'Internal Server Error. Try Again')
-            );
-        }
 
 };
 function addLink(){

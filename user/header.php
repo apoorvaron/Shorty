@@ -100,7 +100,21 @@
     }
 
 </style>
+<?php
+        include_once '../admin/dBconn/database.php';
+        $database = new Database();
+        $db = $database->connect();
 
+        $username = $_GET['username'];
+        $uniqueNo = $_GET['uno'];
+
+        $sql = "SELECT * from users WHERE username='".$username."'&uniqueNo='".$uniqueNo."'";
+        $result = mysqli_query($db,$sql);
+
+        $row = mysqli_fetch_array($result);
+        $imgPath = $row['img'];
+    
+?>
 
 <!-- ========== Left Sidebar Start ========== -->
             <div class="left side-menu">
@@ -112,7 +126,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%;" src="../assets/images/user-logo.png" height="100" alt="logo"></a>
+                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%;" src="<?php echo $imgPath ;?>" height="100" alt="logo"></a>
                     </div>
                 </div>
                

@@ -32,6 +32,7 @@
     var formData = new FormData();
     formData.append('username',  username);
     formData.append('password',  password);
+	formData.append('poster', $("#poster").prop("files")[0]);
 	// formData.append('poster', $("#poster").prop("files")[0]);
 	// console.log( $("#poster").prop("files")[0]);
     
@@ -102,7 +103,7 @@
 							<div class="mx-auto w-100 text-gray-500 text-xs text-center mt-1"  style="color:white;font-size: 1.75rem;">Click to add profile picture</div>
 							<br>
 							<center>
-							<input type="file">
+	                        <input type="file" name="file" id="poster" />
 							</center>
 
 							<input name="photo" id="fileInput" accept="image/*" class="hidden" type="file" @change="let file = document.getElementById('fileInput').files[0]; 
