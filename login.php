@@ -1,3 +1,5 @@
+
+
 <?php
   if(isset($_POST['submit'])){
     require('./admin/dBconn/database.php');
@@ -34,6 +36,8 @@
 <html>
   <head>
   <link rel="stylesheet" href="./assets/css/login.css">
+  
+  <link rel="icon" type="image/x-icon" href= "./assets/images/logout-logo.png">
   </head>
   <body>
     <div class="limiter">

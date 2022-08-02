@@ -112,7 +112,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php" class="logo"><img src="assets/images/baga-logo.gif" height="75" alt="logo"></a>
+                        <a href="index.php" class="logo"><img src="../assets/images/logout-logo.png" height="75" alt="logo"></a>
                     </div>
                 </div>
                
