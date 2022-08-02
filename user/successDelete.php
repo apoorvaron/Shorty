@@ -1,10 +1,4 @@
-<?php  
-        if(isset($_GET['short'])){
-            $short = $_GET['short'];
-            echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-            // echo "<script>alert('Copied successfully!!')</script>";
-        }
-?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -35,65 +29,28 @@
         </style>
     </head>
 
+
 <script>
-    function newLink(){
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        let linkIsFor = document.querySelector('#linkIsFor').value;
-        let originalLink = document.querySelector('#originalLink').value;
-        let shortenLink = document.querySelector('#shortenLink').value;
-
-        var formData = new FormData();
-        formData.append('linkIsFor',  linkIsFor);
-        formData.append('originalLink',  originalLink);
-        formData.append('shortenLink',  shortenLink);
-
-        <?php
-            $uno = $_GET['uno'];
-        ?>
-
-
-        let check=true;
-        for (const value of formData.values()) {
-            console.log(value);
-            if(value=='' || value=='undefined'){
-                check=false;
-            }
-        }   
-        console.log("../admin/dBconn/api.php?q=addLink&uno=".$uno);
-        if(check==true){
-            $.ajax({
-                    type: "POST",
-                    url: "../admin/dBconn/api.php?q=addLink&uno=<?php echo  $uno?>",
-                    data : formData,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    success: function(data){
-                        // alert(data.message);
-                        // console.log(data.message);
-                        // window.location.replace();
-                        // window.location.replace('./files/registered.php');
-                        console.log("Successf");
-                        alert("Sucess!!")
-                        // window.location.replace('./login.php');
-                    },
-                    error: function(xhr, status, error){
-                        // window.location.reload();
-                        console.log("Nooooo!!!!");
-                        alert("No!!")
-
-                        // window.location.replace('./files/registered.php');
-
-                        // alert("Fill in the details");
-                    },
-            });
-	    }
-
-    }
+<?php
+    $username=$_GET['username'];
+    $uno= $_GET['uno'];
+?>
+function yesDelete(){
+    // console.log("HI");
+    $.ajax({
+        url: '../admin/dBconn/api.php/?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>',
+        type: 'POST',
+        dataType: 'json',
+        success: function (data, textStatus, xhr) {
+            console.log(data);
+            console.log("mii");
+            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+        }
+    });
+}
 </script>
     <body class="fixed-left">
         <!-- Begin page -->
@@ -118,12 +75,15 @@
                                 <div class="col-md-12 col-xl-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
-                                        <center>
+                                            <center>
                                                 <!-- <h1 >Your Links</h1> -->
                                                 <br>
                                                 <br>
-                                                <h1 class="text-muted  font-30">Your Link has been Deleted !!</h1>
-            <br>
+                                                <h1 class="text-muted  font-30">Are you sure you want to delete this record?</h1>
+                                                <br> 
+
+                                                <br>
+
                                             </center>
 
             
@@ -149,9 +109,11 @@
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
+                                                            <input type="submit" onclick="yesDelete()" class="btn btn-danger" >
                                                             <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">Back to Main Page</a>
+                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">No</a>
                                                             </button>
+
                                                       
                                                         </div>
                                                     </div>

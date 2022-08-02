@@ -120,7 +120,7 @@
                                                                         <td style='color:green;'>".$row['shortenLink']."</td>
                                                                         <td class='text-center'><a  href='./successCopy.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."&for=".$row['linkIsFor']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
                                                                         <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
-                                                                        <td><a href='./delete-link.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+                                                                        <td><a href='./successDelete.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
                                                                         </tr>
                                                                             ";  
