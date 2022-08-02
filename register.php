@@ -151,11 +151,12 @@
               >Register</button>
 			  <br>
 			  <br>
+			  <a href="./user/login.php">
 			  <button
                 type="button"
 				style="    width: 100%;"
                 class="w-32 focus:outline-none border border-transparent py-2 rounded-lg shadow-sm text-center text-white bg-blue-500 hover:bg-blue-600 font-medium" 
-              ><a href="./user/login.php">Back to Login</a></button>
+              >Back to Login</button></a>
             </form>
 					</div>
 
