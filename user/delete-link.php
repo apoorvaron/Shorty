@@ -1,99 +1,4 @@
-<?php
-// Process delete operation after confirmation
-if(isset($_POST["Sno"]) && !empty($_POST["Sno"])){
-    // Include config file
-    require_once "config.php";
-    
-    // Prepare a delete statement
-    $sql = "DELETE FROM blog WHERE Sno = ?";
-    
-    if($stmt = mysqli_prepare($link, $sql)){
-        // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "i", $param_id);
-        
-        // Set parameters
-        $param_id = trim($_POST["Sno"]);
-        
-        // Attempt to execute the prepared statement
-        if(mysqli_stmt_execute($stmt)){
-            // Records deleted successfully. Redirect to landing page
-            header("location: index.php");
-            exit();
-        } else{
-            echo "Oops! Something went wrong. Please try again later.";
-        }
-    }
-     
-    // Close statement
-    mysqli_stmt_close($stmt);
-    
-    // // Close connection
-    // mysqli_close($link);
-    // class Database
-    // {
-    //   private $server;
-    //   private $username;
-    //   private $password;
-    //   private $database;
-    //   private $port;
-    
-    //   public function connect()
-    //   {
-    //     // include(__DIR__.'/../../enviornment.php');
-    //     $env_server = "localhost";
-    //     $env_username = "root";
-    //     $env_password = "root";
-    //     $env_database = "acmbackend";
-    //     $env_port = "8889";
-        
-    //     $this->server = $env_server;
-    //     $this->username = $env_username;
-    //     $this->password = $env_password;
-    //     $this->database = $env_database;
-    //     $this->port = $env_port;
-    //     // echo "ewrty".$env_password;
 
-        
-    //     $conn = new mysqli($this->server, $this->username, $this->password, $this->database, $this->port);
-    //     return $conn;
-    //   }
-    // }
-// echo "dfghj";
-    
-
-    // require('admin/blogAdmin/database.php');
-    // $database = new Database();
-    // $link = $database->connect();
-    // $connection = $link;
-    
-    // if(!$connection){
-    //     // die(mysqli_connect_error());
-    //     echo "error h bhaiya ";
-    //     // die();
-    // }
-    // echo "srdtfg";
-
-    // $sql = "DELETE FROM forms WHERE formID =".$Sno;
-
-    // if($conn->query($sql)==true){
-    //     echo "Sucessfully Deleted";
-    // }else {
-    //     echo "ERROR: $sql <br> $conn->error";
-    // }
-    // mysqli_close($link);
-
-
-    
-
-} else{
-    // Check existence of Sno parameter
-    if(empty(trim($_GET["Sno"]))){
-        // URL doesn't contain Sno parameter. Redirect to error page
-        header("location: error.php");
-        exit();
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,7 +40,34 @@ if(isset($_POST["Sno"]) && !empty($_POST["Sno"])){
         color: white;
     }
     </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
+<?php 
+    $linkID = $_GET["linkID"];
+    $username = $_GET["username"];
+    $uno = $_GET["uno"];
+
+?>
+
+<script>
+
+    function yesDelete(){
+        // console.log("HI");
+        $.ajax({
+            url: '../admin/dBconn/api.php/?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>',
+            type: 'POST',
+            dataType: 'json',
+            success: function (data, textStatus, xhr) {
+                console.log(data);
+                console.log("mii");
+                window.location.replace("./successDelete.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                window.location.replace("./successDelete.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            }
+        });
+    }
+</script>
 <body>
     <div class="wrapper">
         <div class="container-fluid">
@@ -146,11 +78,11 @@ if(isset($_POST["Sno"]) && !empty($_POST["Sno"])){
                     </div>
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                         <div class="alert alert-danger fade in">
-                            <input type="hidden" name="Sno" value="<?php echo trim($_GET["Sno"]); ?>"/>
+                            <!-- <input type="hidden" name="linkID" id="linkID" value="<?php echo trim($_GET["linkID"]); ?>"/> -->
                             <p>Are you sure you want to delete this record?</p><br>
                             <p>
-                                <input type="submit" value="Yes" class="btn btn-danger">
-                                <a href="index.php" class="btn btn-default">No</a>
+                                <input type="submit" onclick="yesDelete()" class="btn btn-danger" >
+                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="btn btn-default">No</a>
                             </p>
                         </div>
                     </form>

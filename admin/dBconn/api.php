@@ -66,6 +66,26 @@ function addLink(){
         }
 
 };
+function deleteLink(){
+    $database = new Database();
+    $db = $database->connect();
+
+    $linkID =$_GET['linkID'];
+
+    $sql = "DELETE FROM links WHERE linkID='".$linkID."'";
+
+    $result = mysqli_query($db,$sql);
+    echo $result;
+    if($result==1){
+        echo json_encode(
+            array('message' => 'Link Deleted Successfully')
+        );
+    }else{
+        echo json_encode(
+            array('message' => 'Internal Server Error. Try Again')
+        );
+    }
+}
 
     $q = $_GET['q'];
     // echo $q;
@@ -78,6 +98,9 @@ function addLink(){
             break;
         case 'addLink':
             addLink();
+            break;
+        case 'deleteLink':
+            deleteLink();
             break;
         default:
             echo "Invalid Query";
