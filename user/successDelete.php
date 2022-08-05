@@ -109,7 +109,7 @@ function yesDelete(){
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <input type="submit" onclick="yesDelete()" class="btn btn-danger" >
+                                                            <input type="submit" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
                                                             <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
                                                                 <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">No</a>
                                                             </button>

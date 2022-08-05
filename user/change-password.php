@@ -74,14 +74,15 @@
 
                         <div class="container-fluid">
 
-                            <div class="row">
+                        <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                        
-                                        <h4 class="page-title"></h4>
+                                        <h4 class="page-title">Change Your Password</h4>
+                                       <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
                                     </div>
                                 </div>
                             </div>
+
                             <!-- end page title end breadcrumb -->
                             <div class="row">
                                 <div class="col-md-12 col-xl-12">
@@ -89,7 +90,7 @@
                                         <div class="card-body">
             
                                             <h4 class="mt-0 header-title">Change Password</h4>
-                                           
+                                            <p class="text-muted font-14">Regularly updating your passwords means that even if someone finds an old or saved password, it will no longer be useful, and your data will be secure.</p>
             
                                             <form method="POST">
                                                 <div class="row">

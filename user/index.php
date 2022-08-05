@@ -45,10 +45,10 @@
 
                         <div class="container-fluid">
 
-
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
+                                    <h4 class="page-title">Shortened Links</h4>
                                         <?php 
                                             $username = $_GET['username'];
                                             $uno = $_GET['uno'];
@@ -58,14 +58,7 @@
                                     </div>
                                 </div>
                         </div>
-                        <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="page-title-box">
-                                        
-                                        <!-- <h4 class="page-title">Your Links</h4> -->
-                                    </div>
-                                </div>
-                        </div>
+                       
                             <!-- end page title end breadcrumb -->
                            
             

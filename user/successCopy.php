@@ -135,6 +135,8 @@
                                                 <br>
                                                 <h1 class="text-muted  font-30">Your Link for  <span style="font-weight:bold; color:#5b6be8"><?php echo $_GET['for'] ?></span>  has been copied !!</h1>
             <br>
+            <h3 class="text-muted  font-30" >Back to Panel in  <span style="font-weight:bold; color:#5b6be8">5</span> Sec !!</h3>
+            <br>
                                             </center>
 
             
