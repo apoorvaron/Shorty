@@ -3,15 +3,15 @@
     $username = $_GET['username'];
     $uno = $_GET['uno'];
     session_start();
-    if(!$_SESSION['auth']){
+    if($_SESSION["".$username.""]==""){
         header('location: ./login.php');
     }
-    $now = time(); // Checking the time now when home page starts.
+    // $now = time(); // Checking the time now when home page starts.
 
-    if ($now > $_SESSION['expire']) {
-        session_destroy();
-        header('location: ./login.php');
-    }
+    // if ($now > $_SESSION['expire']) {
+    //     session_destroy();
+    //     header('location: ./login.php');
+    // }
 ?>
 <style>
 
@@ -166,7 +166,7 @@
                                 <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
                             </li>
                             <li>
-                                <a href="./logout.php" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                                <a href="./logout.php?usernane=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>
 
 <!--

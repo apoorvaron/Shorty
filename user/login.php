@@ -6,18 +6,20 @@
 
     $username=$_POST['username'];
     $password=$_POST['password'];
+    $password = md5($password);
 
     $query = "SELECT * from users where username='$username' and password ='$password'";
     $result = mysqli_query($db,$query);
 
     if(mysqli_num_rows($result)==1){
       session_start();
-      $_SESSION['auth']='true';
-      $_SESSION['start'] = time();
-      $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+      //   $_SESSION['start'] = time();
+      //   $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
       // var_dump($_SESSION['start']);
       // var_dump($_SESSION['expire']);
+      
       $row = mysqli_fetch_array($result);
+      $_SESSION["".$row['username'].""]="".$row['username']."";
       // header('location: ./index.php?id='.$row['id'].'&uno='.$row['uniqueNo']);
       header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
       // echo "<script>alert('TRUE AUTH')</script>";
@@ -109,7 +111,7 @@
                                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password ?</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="../register.php" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
+                                    <a href="./register.php" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
                                 </div>
                             </div>
                         </form>
