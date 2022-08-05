@@ -17,15 +17,16 @@
         $TargetPath=time().$UploadedFileName;
 
         if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
-            // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$UploadedFileName;
             $upload_directory = "../assets/user-img/".$TargetPath;
             $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`) VALUES ('$randNum','$username', '$password', '$upload_directory')";
             $result = mysqli_query($db,$query);
-        
-            $sql = "SELECT * from users WHERE username='".$username."'";
+            // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$result;
 
-            $result = mysqli_query($db,$sql);
-            if(mysqli_num_rows($result)==1){
+        
+
+
+            // $result = mysqli_query($db,$sql);
+            if($result==1){
                 echo "<script>alert('Registration Successful !!')</script>";
                 echo "<script>window.location.replace('./login.php')</script>";
             }else{
