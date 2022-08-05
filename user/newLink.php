@@ -26,6 +26,12 @@
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <?php
+    
+       
+
+        
+
+
         if(isset($_POST['submit'])){
             require('../admin/dBconn/database.php');
             $database = new Database();
@@ -109,7 +115,7 @@
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label> <b>http://micro.epizy.com/</b> </label>
-                                                        <span><input type="text" id="form3Example4"   placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
+                                                        <span><input type="text"    placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
@@ -124,7 +130,7 @@
                                                 <div class="col-md-6 text-center">
                                                     <div class="form-group mb-0">
                                                         <div >
-                                                            <button type="button" name="" id="" onclick="generateRandom()" class="btn btn-success waves-effect waves-light">
+                                                            <button type="button" name="generateRandom" id="generateRandom" class="btn btn-success waves-effect waves-light">
                                                                 Generate Random Number
                                                             </button>
                                                         
@@ -165,6 +171,18 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
+                <?php
+                                $randNum = bin2hex(random_bytes(3));;
+
+                                echo "
+                                        <script>
+                                                document.querySelector('#generateRandom').addEventListener('click',function(){
+                                                        console.log('sadfsdg');
+                                                        document.querySelector('#shortenLink').value='". $randNum."';
+                                                    });
+                                        </script>
+                                ";
+                ?>
                 <?php include'footer.php';?>
 
             </div>

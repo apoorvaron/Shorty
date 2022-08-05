@@ -95,7 +95,7 @@
                                                 <tbody>
 
                                                 <?php 
-                                                    require('../admin/dBconn/database.php');
+                                                    // require('../admin/dBconn/database.php');
                                                     $database = new Database();
                                                     $db = $database->connect();
                                                     $sno = 1;
@@ -110,7 +110,7 @@
                                                                         <td>".$sno."</td>
                                                                         <td>".$row['linkIsFor']."</td>
                                                                         <td>".$row['originalLink']."</td>
-                                                                        <td style='color:green;'>".$row['shortenLink']."</td>
+                                                                        <td ><a style='color:green;' target='_blank' href='".$row['shortenLink']."'>".$row['shortenLink']."</a></td>
                                                                         <td class='text-center'><a  href='./successCopy.php?username=".$username."&uno=".$uno."&short=".$row['shortenLink']."&for=".$row['linkIsFor']."'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
                                                                         <td><a href='preview.php'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
                                                                         <td><a href='./successDelete.php?username=".$username."&uno=".$uno."&linkID=".$row['linkID']."'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>

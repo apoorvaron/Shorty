@@ -101,18 +101,18 @@
 
 </style>
 <?php
-        // include_once '../admin/dBconn/database.php';
-        // $database = new Database();
-        // $db = $database->connect();
+        include_once '../admin/dBconn/database.php';
+        $database = new Database();
+        $db = $database->connect();
 
-        // $username = $_GET['username'];
-        // $uniqueNo = $_GET['uno'];
+        $username = $_GET['username'];
+        $uniqueNo = $_GET['uno'];
 
-        // $sql = "SELECT * from users WHERE username='".$username."'&uniqueNo='".$uniqueNo."'";
-        // $result = mysqli_query($db,$sql);
+        $sql = "SELECT * from users WHERE username='".$username."'";
+        $result = mysqli_query($db,$sql);
 
-        // $row = mysqli_fetch_array($result);
-        // $imgPath = $row['img'];
+        $row = mysqli_fetch_array($result);
+        $imgPath = $row['img'];
     
 ?>
 
@@ -126,7 +126,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%;" src="" height="100" alt="logo"></a>
+                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="<?php echo $imgPath ?>" height="100" alt="logo"></a>
                     </div>
                 </div>
                
@@ -347,7 +347,7 @@
                                         </div>
                                         
                                        
-                                        <a class="dropdown-item text-danger" href=""><i style="color:red;"class="fa fa-sign-in" aria-hidden="true"></i> Login as Admin</a>
+                                        <a class="dropdown-item text-danger" href=""><i style="color:red;"class="fa fa-user" aria-hidden="true"></i> Login as Admin</a>
                                         <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
                                        
                                        <!-- <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>

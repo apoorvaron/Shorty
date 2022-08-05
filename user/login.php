@@ -73,7 +73,7 @@
                         <a href="./login.php" class="logo logo-admin"><img src="https://testbook.com/assets/img/index/home-banner__illust.svg" height="100" alt="logo"></a>
                     </h3>
 
-                    <h6 class="text-center">Sign In</h6>
+                    <h6 class="text-center">Login / Sign In</h6>
 
                     <div class="p-3">
                         

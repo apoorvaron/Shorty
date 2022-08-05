@@ -8,20 +8,33 @@
     $password=$_POST['password'];
     $password = md5($password);
     $randNum = bin2hex(random_bytes(3));
+    $UploadedFileName=$_FILES['UploadImage']['name'];
 
-    $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`) VALUES ('$randNum','$username', '$password')";
-    $result = mysqli_query($db,$query);
 
-    $sql = "SELECT * from users WHERE username='".$username."'";
-//     echo "<script>alert('".$sql."')</script>";
-// echo $sql;
-    $result = mysqli_query($db,$sql);
-    if(mysqli_num_rows($result)==1){
-        echo "<script>alert('Registration Successful !!')</script>";
-        echo "<script>window.location.replace('./login.php')</script>";
-    }else{
-        echo "<script>alert('Try Again with different username !!')</script>";
+    if($UploadedFileName!='')
+    {
+        $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+        $TargetPath=time().$UploadedFileName;
+
+        if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
+            // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$UploadedFileName;
+            $upload_directory = "../assets/user-img/".$TargetPath;
+            $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`) VALUES ('$randNum','$username', '$password', '$upload_directory')";
+            $result = mysqli_query($db,$query);
+        
+            $sql = "SELECT * from users WHERE username='".$username."'";
+
+            $result = mysqli_query($db,$sql);
+            if(mysqli_num_rows($result)==1){
+                echo "<script>alert('Registration Successful !!')</script>";
+                echo "<script>window.location.replace('./login.php')</script>";
+            }else{
+                echo "<script>alert('Try Again with different username !!')</script>";
+            }
+        }
     }
+
+
 
 
   }
@@ -52,7 +65,7 @@
     <body class="fixed-left" style="background: -webkit-linear-gradient(-135deg, #6862d5, #dd2476);
   background: -o-linear-gradient(-135deg, #6862d5, #dd2476);
   background: -moz-linear-gradient(-135deg, #6862d5, #dd2476);
-  background: linear-gradient(-135deg, #EB4747, #1C3879);">
+  background: linear-gradient(-5deg, #EB4747, #1C3879);">
         
         <!-- Begin page -->
         <!--<div class="accountbg"></div>-->
@@ -67,11 +80,11 @@
                         <a href="./register.php" class="logo logo-admin"><img src="https://cdni.iconscout.com/illustration/premium/thumb/user-login-4268415-3551762.png" height="100" alt="logo"></a>
                     </h3>
 
-                    <h6 class="text-center">Sign Up</h6>
+                    <h6 class="text-center">Registration Form</h6>
 
                     <div class="p-3">
                         
-                        <form class="form-horizontal" method="POST">
+                        <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data">
 
                             <div class="form-group row">
                                 <div class="col-12">
@@ -84,15 +97,21 @@
                                     <input class="form-control" type="password" id="password" required placeholder="Password" name="password">
                                 </div>
                             </div>
-
                             <div class="form-group row">
+                                <div class="col-12">
+                                    <label>Upload  Image :    </label>
+                                    <input data-parsley-type="file" type="file" required  name="UploadImage" />
+                                </div>
+                            </div>
+
+                            <!-- <div class="form-group row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember me</label>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
@@ -101,10 +120,8 @@
                             </div>
 
                             <div class="form-group m-t-10 mb-0 row">
-                                <div class="col-sm-7 m-t-20">
-                                    <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password ?</a>
-                                </div>
-                                <div class="col-sm-5 m-t-20">
+                             
+                                <div class="col-sm-5 m-t-20 text-left">
                                     <a href="./login.php" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login</a>
                                 </div>
                             </div>
