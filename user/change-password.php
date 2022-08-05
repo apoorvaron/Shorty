@@ -19,6 +19,49 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
     </head>
 
+    <?php
+        if(isset($_POST['submit'])){
+            require('../admin/dBconn/database.php');
+            $database = new Database();
+            $db = $database->connect();
+        
+            $oldPass = $_POST['oldPass'];
+            $newPass = $_POST['newPass'];
+            $cnfrmPass = $_POST['cnfrmPass'];
+            $oldPass = md5($oldPass);
+            $newPass = md5($newPass);
+            $cnfrmPass = md5($cnfrmPass);
+
+            if($newPass==$cnfrmPass){
+
+                $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                $result = mysqli_query($db,$query);
+                $row = mysqli_fetch_array($result);
+                // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
+
+                if($row['password']==$oldPass){
+                    $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
+                    // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
+                    $result = mysqli_query($db,$sql);
+                    
+                    $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                    $result = mysqli_query($db,$query);
+                    $row = mysqli_fetch_array($result);
+                    if($row['password']==$newPass){
+                        echo "<script>alert('Password Changed !!')</script>";
+                    }else{
+                        echo "<script>alert('Try Again !!')</script>";
+                    }
+                    
+                }else{
+                    echo "<script>alert('Old Password Incorrect !!')</script>";
+                }
+
+            }else{
+                echo "<script>alert('Password Not Matching !!')</script>";
+            }
+        }
+    ?>
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -48,26 +91,26 @@
                                             <h4 class="mt-0 header-title">Change Password</h4>
                                            
             
-                                            <form class="" action="#">
+                                            <form method="POST">
                                                 <div class="row">
                                                 
                                                
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Old Password</label>
-                                                        <input type="text" class="form-control" required placeholder="Old Password"/>
+                                                        <input type="text" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>New password</label>
-                                                        <input type="password" class="form-control" required placeholder="New password"/>
+                                                        <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Confirm Password</label>
-                                                        <input type="text" class="form-control" required placeholder="Confirm password"/>
+                                                        <input type="text" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password"/>
                                                     </div>
                                                 </div>
                                                
@@ -75,7 +118,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <button type="submit" class="btn btn-success waves-effect waves-light">
+                                                            <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
                                                                 Update
                                                             </button>
                                                             
