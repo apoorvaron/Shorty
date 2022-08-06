@@ -133,6 +133,8 @@
                                                             <button type="button" name="generateRandom" id="generateRandom" class="btn btn-success waves-effect waves-light">
                                                                 Generate Random Number
                                                             </button>
+                                                          
+                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Get Preview</button>
                                                         
                                                         </div>
                                                     </div>
@@ -171,6 +173,10 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
+
+
+          <!-- *************************** Generate Random Number   *****************************  -->
+
                 <?php
                                 $randNum = bin2hex(random_bytes(3));;
 
@@ -183,6 +189,45 @@
                                         </script>
                                 ";
                 ?>
+
+          <!-- *************************** Generate Random Number ends  *****************************  -->
+
+
+
+          <!-- *************************** Get preview modal   *****************************  -->
+
+                <div class='modal fade' id='myModal' role='dialog'>
+                    <div class='modal-dialog'>
+                        <div class=modal-content modal-background'>
+                            <div class='modal-header modal-head'>
+                                <button type='button' class='close' data-dismiss='modal'>&times;</button>
+                                <h4 class='modal-title'>Your Shortlink!!</h4>
+                            </div>
+                            <div class='modal-body' id = 'modal'>
+                            
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-default' data-dismiss='modal'>Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    function join(){
+                        let value = $('#shortenLink').val();
+                        let new_text = value.split(' ').join('_');
+                        let shortlink = ''+new_text;
+                        $('#modal').html(shortlink);
+                        console.log(new_text);
+
+                    }
+                </script>
+
+          <!-- *************************** Get preview modal ends   *****************************  -->
+
+
                 <?php include'footer.php';?>
 
             </div>

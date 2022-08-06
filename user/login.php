@@ -111,7 +111,7 @@
                                     <a href="#" class="text-muted"><i class="mdi mdi-lock"></i> Forgot your password ?</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="./register.php" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
+                                    <a href="./register" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
                                 </div>
                             </div>
                         </form>

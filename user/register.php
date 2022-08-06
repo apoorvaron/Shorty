@@ -116,14 +116,14 @@
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button class="btn btn-danger btn-block waves-effect waves-light" id="submit" name="submit" type="submit">Log In</button>
+                                    <button class="btn btn-danger btn-block waves-effect waves-light" id="submit" name="submit" type="submit">Register</button>
                                 </div>
                             </div>
 
                             <div class="form-group m-t-10 mb-0 row">
                              
                                 <div class="col-sm-5 m-t-20 text-left">
-                                    <a href="./login.php" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login</a>
+                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login</a>
                                 </div>
                             </div>
                         </form>
