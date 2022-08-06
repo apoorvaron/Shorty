@@ -166,7 +166,7 @@
                                 <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
                             </li>
                             <li>
-                                <a href="./logout.php?usernane=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                                <a href="./logout.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
                             </li>
 
 <!--

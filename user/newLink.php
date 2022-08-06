@@ -218,7 +218,7 @@
                     function join(){
                         let value = $('#shortenLink').val();
                         let new_text = value.split(' ').join('_');
-                        let shortlink = ''+new_text;
+                        let shortlink = 'http://micro.epizy.com/'+new_text;
                         $('#modal').html(shortlink);
                         console.log(new_text);
 
