@@ -1,3 +1,7 @@
+<?php 
+        include(__DIR__.'/../siteName.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,13 +29,14 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function blockSpecialChar(e){
+            var k;
+            document.all ? k = e.keyCode : k = e.which;
+            return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+        }
+    </script>
     <?php
-    
-       
-
-        
-
-
         if(isset($_POST['submit'])){
             require('../admin/dBconn/database.php');
             $database = new Database();
@@ -41,7 +46,7 @@
             $linkIsFor = $_POST['linkIsFor'];
             $originalLink = $_POST['originalLink'];
             $short = $_POST['shortenLink'];
-            $shortenLink = "http://micro.epizy.com/".$short;
+            $shortenLink = "".$siteName."".$short;
 
 
             $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
@@ -114,8 +119,8 @@
                                             <!-- <div class="row"> -->
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
-                                                        <label> <b>http://micro.epizy.com/</b> </label>
-                                                        <span><input type="text"    placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
+                                                        <label> <b><?php echo $siteName ?></b> </label>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
@@ -218,7 +223,7 @@
                     function join(){
                         let value = $('#shortenLink').val();
                         let new_text = value.split(' ').join('_');
-                        let shortlink = 'http://micro.epizy.com/'+new_text;
+                        let shortlink = "<?php echo $siteName ?>"+new_text;
                         $('#modal').html(shortlink);
                         console.log(new_text);
 
