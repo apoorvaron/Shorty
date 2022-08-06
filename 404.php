@@ -8,7 +8,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 Page with SVG</title>
+  <title>404 Page</title>
   <link rel="stylesheet" media="all" href="./assets/css/404.css" />
   <link rel="icon" type="image/x-icon" href= "./assets/images/logout-logo.png">
 </head>
@@ -145,5 +145,16 @@
 </g>
 </svg>
       <script type="text/javascript" src="./assets/js/404.js"></script>
+	  	<script>
+			let timeleft = 5;
+			let downloadTimer = setInterval(function(){
+			if(timeleft <= 0){
+				window.location.replace("./user/login.php");
+			} else {
+				
+			}
+			timeleft -= 1;
+			}, 1000);
+		</script>
 </body>
 </html>
