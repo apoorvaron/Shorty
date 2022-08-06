@@ -40,13 +40,13 @@
     $username=$_GET['username'];
     $uno= $_GET['uno'];
 ?>
-    let redirect_Page = () => {
-        let tID = setTimeout(function () {
-            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
-            window.clearTimeout(tID);		// clear time out.
-        }, 5000);
-    }
-    redirect_Page();
+    // let redirect_Page = () => {
+    //     let tID = setTimeout(function () {
+    //         window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+    //         window.clearTimeout(tID);		// clear time out.
+    //     }, 5000);
+    // }
+    // redirect_Page();
     function newLink(){
         // console.log("llllllllllll");
         // console.log("llllllllllll");
@@ -135,7 +135,7 @@
                                                 <br>
                                                 <h1 class="text-muted  font-30">Your Link for  <span style="font-weight:bold; color:#5b6be8"><?php echo $_GET['for'] ?></span>  has been copied !!</h1>
             <br>
-            <h3 class="text-muted  font-30" >Back to Panel in  <span style="font-weight:bold; color:#5b6be8">5</span> Sec !!</h3>
+            <h3 class="text-muted  font-30" >Back to Panel in <span style="font-weight:bold; color:#5b6be8" id="countdown"></span> Sec !!</h3>
             <br>
                                             </center>
 
@@ -184,7 +184,17 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
-
+                <script>
+                    let timeleft = 10;
+                    let downloadTimer = setInterval(function(){
+                    if(timeleft <= 0){
+                        window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                    } else {
+                        document.getElementById("countdown").innerHTML = timeleft ;
+                    }
+                    timeleft -= 1;
+                    }, 1000);
+                </script>
                 <?php include'footer.php';?>
 
             </div>
