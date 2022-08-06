@@ -185,7 +185,7 @@
 
                 </div> <!-- content -->
                 <script>
-                    let timeleft = 10;
+                    let timeleft = 5;
                     let downloadTimer = setInterval(function(){
                     if(timeleft <= 0){
                         window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");

@@ -6,13 +6,21 @@
 
     $username=$_POST['username'];
     $password=$_POST['password'];
+    $originalPass = $password;
     $password = md5($password);
 
     $query = "SELECT * from users where username='$username' and password ='$password'";
     $result = mysqli_query($db,$query);
 
+
     if(mysqli_num_rows($result)==1){
-      session_start();
+        session_start();
+        ob_start();
+        if(isset($_POST['rememberme'])){
+            setcookie('usernamecookie',$username,time()+86400);
+            setcookie('passwordcookie',$originalPass,time()+86400);
+        }
+        
       //   $_SESSION['start'] = time();
       //   $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
       // var_dump($_SESSION['start']);
@@ -81,20 +89,20 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" name="username" placeholder="Username">
+                                    <input class="form-control" type="text" required="" name="username" placeholder="Username" value="<?php if(isset($_COOKIE['usernamecookie'])){ echo $_COOKIE['usernamecookie'];} ?>">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password">
+                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                        <input type="checkbox" class="custom-control-input" name="rememberme" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember me</label>
                                     </div>
                                 </div>
