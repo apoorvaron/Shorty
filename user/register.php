@@ -4,6 +4,7 @@
     $database = new Database();
     $db = $database->connect();
 
+    $email=$_POST['email'];
     $username=$_POST['username'];
     $password=$_POST['password'];
     $password = md5($password);
@@ -18,7 +19,7 @@
 
         if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
             $upload_directory = "../assets/user-img/".$TargetPath;
-            $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`) VALUES ('$randNum','$username', '$password', '$upload_directory')";
+            $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
             $result = mysqli_query($db,$query);
             // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$result;
 
@@ -30,7 +31,7 @@
                 echo "<script>alert('Registration Successful !!')</script>";
                 echo "<script>window.location.replace('./login.php')</script>";
             }else{
-                echo "<script>alert('Try Again with different username !!')</script>";
+                echo "<script>alert('Try Again with different username & Email!!')</script>";
             }
         }
     }
@@ -86,6 +87,12 @@
                     <div class="p-3">
                         
                         <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data">
+
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control" type="email" required name="email" id="email" placeholder="Email">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
