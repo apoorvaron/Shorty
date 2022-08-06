@@ -47,15 +47,19 @@
             $originalLink = $_POST['originalLink'];
             $shortenLink = $_POST['shortenLink'];
             // $shortenLink = "".$siteName."".$short;
-
-
-            $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
-            $result = mysqli_query($db,$sql);
-            if($result){
-                echo "<script>alert('Successfully Created !!')</script>";
+            if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+                $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
+                $result = mysqli_query($db,$sql);
+                if($result){
+                    echo "<script>alert('Successfully Created !!')</script>";
+                }else{
+                        echo "<script>alert('Try Again !!')</script>";
+                }
             }else{
-                    echo "<script>alert('Try Again !!')</script>";
+                echo "<script>alert('Please Enter Valid URL !!')</script>";
             }
+
+            
     
             // echo "<br><br><br><br><br><br><br>eqfwgretgfnerwqedgnretrqthdgjrwteqwrhdgtehryw".$result;
             

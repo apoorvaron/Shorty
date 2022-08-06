@@ -38,47 +38,33 @@
     </script>
   
   <?php
-        // if(isset($_POST['submit'])){
-        //     // require('../admin/dBconn/database.php');
-        //     $database = new Database();
-        //     $db = $database->connect();
+        if(isset($_POST['submit'])){
+            require('../admin/dBconn/database.php');
+            $database = new Database();
+            $link = $database->connect();
         
-        //     $linkIsFor = $_POST['linkIsFor'];
-        //     $newPass = $_POST['newPass'];
-        //     $cnfrmPass = $_POST['cnfrmPass'];
-        //     $oldPass = md5($oldPass);
-        //     $newPass = md5($newPass);
-        //     $cnfrmPass = md5($cnfrmPass);
+            $linkIsFor = $_POST['linkIsFor'];
+            $originalLink = $_POST['originalLink'];
+            $shortenLink = $_POST['shortenLink'];
 
-        //     if($newPass==$cnfrmPass){
+            if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+                
+                $sql = "UPDATE links SET linkIsFor = '".$linkIsFor."' ,originalLink = '".$originalLink." ',shortenLink = '".$shortenLink."' WHERE linkID='".$_GET['linkID']."';";
+                $result = mysqli_query($link,$sql);
+    
+                if($result==1){
+                    echo "<script>alert('Successfully Updated !!')</script>";
+                    echo "<script>window.location.replace('./index.php?username=".$_GET['username']."&uno=".$_GET['uno']."')</script>";
 
-        //         $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-        //         $result = mysqli_query($db,$query);
-        //         $row = mysqli_fetch_array($result);
-        //         // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
+                }else{
+                    echo "<script>alert('Try Again !!')</script>";
+                }
+            } else {
+                echo "<script>alert('Please Enter Valid URL !!')</script>";
+            }
+            
 
-        //         if($row['password']==$oldPass){
-        //             $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
-        //             // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
-        //             $result = mysqli_query($db,$sql);
-                    
-        //             $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-        //             $result = mysqli_query($db,$query);
-        //             $row = mysqli_fetch_array($result);
-        //             if($row['password']==$newPass){
-        //                 echo "<script>alert('Password Changed !!')</script>";
-        //             }else{
-        //                 echo "<script>alert('Try Again !!')</script>";
-        //             }
-                    
-        //         }else{
-        //             echo "<script>alert('Old Password Incorrect !!')</script>";
-        //         }
-
-        //     }else{
-        //         echo "<script>alert('Password Not Matching !!')</script>";
-        //     }
-        // }
+        }
     ?>
 
     <body class="fixed-left">
