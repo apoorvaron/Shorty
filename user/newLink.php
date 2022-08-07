@@ -50,13 +50,45 @@
             $shortenLink = join("_",$shortenLink);
             // $shortenLink = "".$siteName."".$short;
             if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-                $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
-                $result = mysqli_query($db,$sql);
-                if($result){
-                    echo "<script>alert('Successfully Created !!')</script>";
+
+
+                $query = "SELECT * from links WHERE shortenLink='".$shortenLink."'";
+                $result = mysqli_query($db,$query);
+                $count_rows = mysqli_num_rows($result);
+                // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$count_rows;
+                if($count_rows>0){
+                    echo "<script>alert('Custom Name Not Available !!')</script>";
                 }else{
-                        echo "<script>alert('Try Again !!')</script>";
+
+                    $query = "SELECT * FROM links WHERE uniqueNo='".$uno."' AND originalLink='".$originalLink."'";
+                    $result = mysqli_query($db,$query);
+                    $row = mysqli_fetch_array($result);
+                    $count_rows = mysqli_num_rows($result);
+                // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$query;
+
+                    if($count_rows>0){
+                        // echo "<script>alert('You Have already Created Short link for Given Link !!')</script>";
+                        echo "<script>window.location.replace('./alreadyOriginal.php?username=".$_GET['username']."&uno=".$_GET['uno']."&linkID=".$row['linkID']."')</script>";
+                    }else{
+                        $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
+                        $result = mysqli_query($db,$sql);
+                        if($result){
+                            echo "<script>alert('Successfully Created !!')</script>";
+                        }else{
+                                echo "<script>alert('Try Again !!')</script>";
+                        }
+                    }
+
                 }
+
+
+
+            
+
+
+
+
+
             }else{
                 echo "<script>alert('Please Enter Valid URL !!')</script>";
             }
