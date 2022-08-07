@@ -52,7 +52,7 @@
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                    <h4 class="page-title">Your Shortened Link</h4>
+                                    <h1 class="page-title text-center">Your Link has been shortned previously.</h1>
                                         <?php 
                                             $username = $_GET['username'];
                                             $uno = $_GET['uno'];
@@ -72,8 +72,8 @@
                                     <div class="card">
                                         <div class="card-body">
             
-                                            <h3 class="mt-0 header-title">Shortned Link</h3>
-                                            <p class="text-muted  font-14">Your Link has been shortned previously.
+                                            <h3 class="mt-0 header-title"></h3>
+                                            <p class="text-muted  font-14">
                                             </p>
             
                                             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
