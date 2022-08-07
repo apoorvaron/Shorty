@@ -6,12 +6,7 @@
     if($_SESSION["".$username.""]==""){
         header('location: ./login.php');
     }
-    // $now = time(); // Checking the time now when home page starts.
 
-    // if ($now > $_SESSION['expire']) {
-    //     session_destroy();
-    //     header('location: ./login.php');
-    // }
 ?>
 <style>
 
@@ -367,7 +362,31 @@
                                     </button>
                                 </li>
                                 <li class="hide-phone app-search mt-4">
-                                    <h4 style="color:#fff;">Hello <?php echo $username?>!</h4>
+                                <?php 
+                                                    // require('../admin/dBconn/database.php');
+                                                    $database = new Database();
+                                                    $link = $database->connect();
+                                                    $sql = "SELECT * FROM users WHERE uniqueNo='".$uno."'";
+                                                    if($result = mysqli_query($db, $sql)){
+                                                        if(mysqli_num_rows($result) > 0){
+                                                                while($row = mysqli_fetch_array($result)){  
+                                                                    $row['originalLink'] = substr($row['originalLink'],0,30);
+                                                                        echo "
+                                                                        <h4 style='color:#fff;'>Hello ".$row['email']." !</h4>
+                                                                            ";  
+                                                                            $sno++;  
+                                                                }
+                                                            mysqli_free_result($result);
+                                                        } else{
+                                                            echo "<p class='lead'><em></em></p>";
+                                                        }
+                                                    } else{
+                                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+                                
+                                                    }
+                                                ?>
+
+                       
                                 </li>
                             </ul>
                             <div class="clearfix"></div>

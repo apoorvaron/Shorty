@@ -46,6 +46,24 @@
 
             if($UploadedFileName!='')
             {
+                    $sql = "SELECT * FROM users WHERE username='".$_GET['username']."'";
+                    if($result = mysqli_query($link, $sql)){
+                        if(mysqli_num_rows($result) > 0){
+                            $row = mysqli_fetch_array($result);
+                            unlink("".$row['img']."");  
+                            mysqli_free_result($result);
+                        } else{
+                            echo "<p class='lead'><em>No Record Found.</em></p>";
+                        }
+                    } else{
+                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+
+                    }
+
+
+
+
+                unlink('data.txt');    
                 $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
                 $TargetPath=time().$UploadedFileName;
         
