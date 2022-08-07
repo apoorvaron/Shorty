@@ -5,6 +5,8 @@ env.php
 .DS_Store
 forms/responsesfile/*
 .htaccess
+users/env
+
 
 # react
 /build
