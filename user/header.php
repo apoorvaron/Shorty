@@ -126,7 +126,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="<?php echo $imgPath ?>" height="100" alt="logo"></a>
+                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU" height="100" alt="logo"></a>
                     </div>
                 </div>
                
@@ -141,9 +141,9 @@
                                 <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
                             </li>
 -->
-                            
+                      
                             <li>
-                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account-star"></i><span> Previous Links</span></a>
+                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
                             </li>
                             <li>
                                 <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span> Make New Link</span></a>
@@ -164,6 +164,9 @@
                             </li> -->
                             <li>
                                 <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
+                            </li>
+                            <li>
+                                <a href="edit-profile?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-pencil"></i><span> Edit Profile </span></a>
                             </li>
                             <li>
                                 <a href="./logout.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
@@ -336,9 +339,9 @@
                                
 
                                 <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
+                                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="" role="button"
                                         aria-haspopup="false" aria-expanded="false">
-                                        <img src="../assets/images/logout-logo.png" alt="user" class="rounded-circle">
+                                        <img src="<?php echo $imgPath ?>" alt="user" class="rounded-circle">
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
                                         <!-- item-->
@@ -346,8 +349,8 @@
                                             <h5>Welcome</h5>
                                         </div>
                                         
-                                       
-                                        <a class="dropdown-item text-danger" href=""><i style="color:red;"class="fa fa-user" aria-hidden="true"></i> Login as Admin</a>
+                                        <a class="dropdown-item text-dark" href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                       
+                                        <a class="dropdown-item text-dark" href=""><i style="color:red;"class="fa fa-user text-dark" aria-hidden="true"></i> Login as Admin</a>
                                         <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
                                        
                                        <!-- <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>

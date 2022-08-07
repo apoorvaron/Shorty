@@ -46,6 +46,8 @@
             $linkIsFor = $_POST['linkIsFor'];
             $originalLink = $_POST['originalLink'];
             $shortenLink = $_POST['shortenLink'];
+            $shortenLink = explode(" ",$shortenLink);
+            $shortenLink = join("_",$shortenLink);
             // $shortenLink = "".$siteName."".$short;
             if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
                 $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
@@ -83,7 +85,7 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Make New Link</h4>
-                                       <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
+                                       <a href=""><button type="" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -124,7 +126,7 @@
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label> <b><?php echo $siteName ?></b> </label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Short Link" style="border:0px"  id="shortenLink" name="shortenLink"/></span>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Short Link" style="border:0px"   required id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
@@ -156,7 +158,7 @@
                                                     <div class="form-group mb-0">
                                                         <div >
                                                             <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
-                                                                Submit
+                                                                Check & Confirm
                                                             </button>
                                                          
                                                  
