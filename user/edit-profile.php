@@ -29,7 +29,40 @@
 }        
 </style>
     </head>
+    <?php
+        if(isset($_POST['submit'])){
+            // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
 
+            require('../admin/dBconn/database.php');
+            $database = new Database();
+            $link = $database->connect();
+        
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $user = $_GET['username'];
+            $uno = $_GET['uno'];
+     
+            $sql = "UPDATE users SET username = '".$username."' ,email = '".$email." 'WHERE username='".$user."';";
+            // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
+            $result = mysqli_query($link,$sql);
+
+            session_start();
+            ob_start();
+            $_SESSION["".$username.""]="".$username."";
+
+
+            if($result==1){
+                echo "<script>alert('Successfully Updated !!')</script>";
+                echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
+
+            }else{
+                echo "<script>alert('Email or Username Already Exist !!')</script>";
+            }
+      
+            
+
+        }
+    ?>
 
     <body class="fixed-left">
         <!-- Begin page -->
@@ -77,7 +110,7 @@
                                                     if(mysqli_num_rows($result) > 0){
                                                            $row = mysqli_fetch_array($result);
                                                         echo "
-                                                        
+                                                        <form method='POST'>
                                                             <div class='form-group row'>
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Username</label>
                                                                 <div class='col-sm-10'>
@@ -99,6 +132,21 @@
                                                                     <img style='border-radius:50%; height:10rem;' src='".$row['img']."' alt=''>
                                                                 </div>
                                                             </div>
+                                                            <div class='col-md-12 text-center'>
+                                                            <div class='form-group mb-0'>
+                                                             
+                                                                <div>
+                                                                    
+                                                                    <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                                                        Edit 
+                                                                       </button>
+                                                                    <a href='./index.php?username=".$username."&uno=".$uno."'><button type='reset' class='btn btn-danger waves-effect m-l-5'>
+                                                                        Cancel
+                                                                        </button></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        </form>
 
                                                         ";
                                                         mysqli_free_result($result);
@@ -119,20 +167,7 @@
 
                       
                                            
-                                                <div class="col-md-12 text-center">
-                                                    <div class="form-group mb-0">
-                                                     
-                                                        <div>
-                                                            
-                                                            <button type="submit" class="btn btn-success waves-effect waves-light">
-                                                                Edit 
-                                                               </button>
-                                                            <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><button type="reset" class="btn btn-danger waves-effect m-l-5">
-                                                                Cancel
-                                                                </button></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                  
                                         </div>
                                     </div>
                                 </div> <!-- end col -->
