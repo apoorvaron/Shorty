@@ -5,7 +5,7 @@
     $db = $database->connect();
 
     $email=$_POST['email'];
-    $username=$_POST['username'];
+    $username=bin2hex(random_bytes(3));
     $password=$_POST['password'];
     $cnfrmPass=$_POST['cnfrmPass'];
     $cnfrmPass = md5($cnfrmPass);
@@ -100,12 +100,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-12">
-                                    <input class="form-control" type="text" required name="username" id="username" placeholder="Username">
-                                </div>
-                            </div>
-
+                          
                             <div class="form-group row">
                                 <div class="col-12">
                                     <input class="form-control" type="password" id="password" required placeholder="Password" name="password">

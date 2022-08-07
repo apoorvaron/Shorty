@@ -4,35 +4,24 @@
     $database = new Database();
     $db = $database->connect();
 
-    $username=$_POST['username'];
+    $email=$_POST['email'];
     $password=$_POST['password'];
     $originalPass = $password;
     $password = md5($password);
 
-    $query = "SELECT * from users where username='$username' and password ='$password'";
+    $query = "SELECT * from users where email='$email' and password ='$password'";
     $result = mysqli_query($db,$query);
-
 
     if(mysqli_num_rows($result)==1){
         session_start();
         ob_start();
         if(isset($_POST['rememberme'])){
-            setcookie('usernamecookie',$username,time()+86400);
+            setcookie('emailcookie',$email,time()+86400);
             setcookie('passwordcookie',$originalPass,time()+86400);
         }
-        
-      //   $_SESSION['start'] = time();
-      //   $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      // var_dump($_SESSION['start']);
-      // var_dump($_SESSION['expire']);
-      
       $row = mysqli_fetch_array($result);
       $_SESSION["".$row['username'].""]="".$row['username']."";
-      // header('location: ./index.php?id='.$row['id'].'&uno='.$row['uniqueNo']);
       header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
-      // echo "<script>alert('TRUE AUTH')</script>";
-
-      // echo "Right";
     }
     else{
         echo "<script>alert('Wrong username or password')</script>";
@@ -89,7 +78,7 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" name="username" placeholder="Username" value="<?php if(isset($_COOKIE['usernamecookie'])){ echo $_COOKIE['usernamecookie'];} ?>">
+                                    <input class="form-control" type="email" required="" name="email" id="email" placeholder="Email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];} ?>">
                                 </div>
                             </div>
 
