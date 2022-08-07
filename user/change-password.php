@@ -78,7 +78,7 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Change Your Password</h4>
-                                       <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
+                                       <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><button type="submit" class="btn btn-danger waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">My Profile</button></a>
                                     </div>
                                 </div>
                             </div>

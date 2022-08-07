@@ -345,11 +345,9 @@
                                         </div>
                                         
                                         <a class="dropdown-item text-dark" href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                       
-                                        <a class="dropdown-item text-dark" href=""><i style="color:red;"class="fa fa-user text-dark" aria-hidden="true"></i> Login as Admin</a>
                                         <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
                                        
-                                       <!-- <a href=""><button type="submit" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
-                                        -->
+                                       
                                   
                                     </div>
                                 </li>

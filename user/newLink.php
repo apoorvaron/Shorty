@@ -117,7 +117,7 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Make New Link</h4>
-                                       <a href=""><button type="" class="btn btn-warning waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Login as Admin</button></a>
+                                       <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="" class="btn btn-danger waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Your Links</button></a>
                                     </div>
                                 </div>
                             </div>
