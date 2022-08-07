@@ -126,13 +126,44 @@
               <input type="text" class="form-control" placeholder="Your Link" />
               <button type="submit" class="btn btn-primary">Shorten</button>
             </form>
+            
+            <?php              
+                      require('./admin/dBconn/database.php');
+                      $database = new Database();
+                      $link = $database->connect();
+
+                      $visitor_ip = $_SERVER['REMOTE_ADDR'];
+                      // $visitor_ip = "54:54:24:54";
+                      $query = "SELECT * FROM counter_table  WHERE ip_address='$visitor_ip'";
+                      $result = mysqli_query($link, $query);
+
+                      if(!$result){
+                          die("Retriving Error");
+                      }
+                      $total_visitors = mysqli_num_rows($result);                                                    
+                      if($total_visitors<1){
+                          $query = "INSERT INTO counter_table(ip_address) VALUES('$visitor_ip')";
+                          $result = mysqli_query($link, $query);
+                      }
+                      
+                      
+                      $query = "SELECT * FROM counter_table ";
+                      $result = mysqli_query($link, $query);
+
+                      if(!$result){
+                          die("Retriving Error");
+                      }
+
+  
+                      $total_visitors = mysqli_num_rows($result);
+            ?>
 
             <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span
                     data-purecounter-start="0"
-                    data-purecounter-end="232"
+                    data-purecounter-end="<?php echo $total_visitors ?>"
                     data-purecounter-duration="1"
                     class="purecounter"
                   ></span>
@@ -140,12 +171,21 @@
                 </div>
               </div>
               <!-- End Stats Item -->
+              <?php 
+                                                    // require('../admin/dBconn/database.php');
+                    $database = new Database();
+                    $link = $database->connect();
+                 
+                    $sql = "SELECT * FROM links";
+                    $result = mysqli_query($link, $sql);
 
+                    $count_links = mysqli_num_rows($result);
+              ?>
               <div class="col-lg-3 col-6">
                 <div class="stats-item text-center w-100 h-100">
                   <span
                     data-purecounter-start="0"
-                    data-purecounter-end="521"
+                    data-purecounter-end="<?php echo $count_links ?>"
                     data-purecounter-duration="1"
                     class="purecounter"
                   ></span>

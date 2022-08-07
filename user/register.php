@@ -132,10 +132,11 @@
                                     <button class="btn btn-danger btn-block waves-effect waves-light" id="submit" name="submit" type="submit">Register</button>
                                 </div>
                             </div>
-
                             <div class="form-group m-t-10 mb-0 row">
-                             
-                                <div class="col-sm-5 m-t-20 text-left">
+                                <div class="col-sm-7 m-t-20">
+                                    <a href="../index.php" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
+                                </div>
+                                <div class="col-sm-5 m-t-20">
                                     <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login</a>
                                 </div>
                             </div>
