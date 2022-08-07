@@ -37,7 +37,7 @@
             $database = new Database();
             $link = $database->connect();
         
-            $username = $_POST['username'];
+            $username = $_GET['username'];
             $email = $_POST['email'];
             $user = $_GET['username'];
             $uno = $_GET['uno'];
@@ -146,12 +146,7 @@
                                                            $row = mysqli_fetch_array($result);
                                                         echo "
                                                         <form method='POST' action='./edit-profile.php?username=".$username."&uno=".$uno."' enctype='multipart/form-data'>
-                                                            <div class='form-group row'>
-                                                                <label for='example-text-input' class='col-sm-2 col-form-label'>Username</label>
-                                                                <div class='col-sm-10'>
-                                                                    <input class='form-control' type='text' value='".$row['username']."' id='username' name='username' >
-                                                                </div>
-                                                            </div>
+                                                            
                                                             <div class='form-group row'>
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Email</label>
                 

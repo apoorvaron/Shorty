@@ -78,12 +78,7 @@
                                                            $row = mysqli_fetch_array($result);
                                                         echo "
                                                         
-                                                            <div class='form-group row'>
-                                                                <label for='example-text-input' class='col-sm-2 col-form-label'>Username</label>
-                                                                <div class='col-sm-10'>
-                                                                    <input class='form-control' type='text' value='".$_GET['username']."' id=' name=' disabled>
-                                                                </div>
-                                                            </div>
+                                                            
                                                             <div class='form-group row'>
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Email</label>
                 
