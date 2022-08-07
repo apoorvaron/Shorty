@@ -7,34 +7,40 @@
     $email=$_POST['email'];
     $username=$_POST['username'];
     $password=$_POST['password'];
+    $cnfrmPass=$_POST['cnfrmPass'];
+    $cnfrmPass = md5($cnfrmPass);
     $password = md5($password);
     $randNum = bin2hex(random_bytes(3));
     $UploadedFileName=$_FILES['UploadImage']['name'];
 
-
-    if($UploadedFileName!='')
-    {
-        $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
-        $TargetPath=time().$UploadedFileName;
-
-        if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
-            $upload_directory = "../assets/user-img/".$TargetPath;
-            $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-            $result = mysqli_query($db,$query);
-            // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$result;
-
-        
-
-
-            // $result = mysqli_query($db,$sql);
-            if($result==1){
-                echo "<script>alert('Registration Successful !!')</script>";
-                echo "<script>window.location.replace('./login.php')</script>";
-            }else{
-                echo "<script>alert('Try Again with different username & Email!!')</script>";
+    if($cnfrmPass == $password){
+        if($UploadedFileName!='')
+        {
+            $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+            $TargetPath=time().$UploadedFileName;
+    
+            if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
+                $upload_directory = "../assets/user-img/".$TargetPath;
+                $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                $result = mysqli_query($db,$query);
+                // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$result;
+    
+            
+    
+    
+                // $result = mysqli_query($db,$sql);
+                if($result==1){
+                    echo "<script>alert('Registration Successful !!')</script>";
+                    echo "<script>window.location.replace('./login.php')</script>";
+                }else{
+                    echo "<script>alert('Try Again with different username & Email!!')</script>";
+                }
             }
         }
+    }else{
+        echo "<script>alert('Password are not Matching !!')</script>";
     }
+
 
 
 
@@ -103,6 +109,11 @@
                             <div class="form-group row">
                                 <div class="col-12">
                                     <input class="form-control" type="password" id="password" required placeholder="Password" name="password">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control" type="text" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
                                 </div>
                             </div>
                             <div class="form-group row">

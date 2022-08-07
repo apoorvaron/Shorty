@@ -4,12 +4,12 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
-        <title>Preview member</title>
+        <title>Edit User Profile</title>
         <meta content="Admin Dashboard" name="description" />
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="assets/images/baga-logo.gif">
+        <link rel="shortcut icon" href="../assets/images/logout-logo.png">
 
         <!-- DataTables -->
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -41,23 +41,58 @@
             $email = $_POST['email'];
             $user = $_GET['username'];
             $uno = $_GET['uno'];
+            $UploadedFileName=$_FILES['UploadImage']['name'];
      
-            $sql = "UPDATE users SET username = '".$username."' ,email = '".$email." 'WHERE username='".$user."';";
-            // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
-            $result = mysqli_query($link,$sql);
 
-            session_start();
-            ob_start();
-            $_SESSION["".$username.""]="".$username."";
+            if($UploadedFileName!='')
+            {
+                $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+                $TargetPath=time().$UploadedFileName;
+        
+                if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
+                    $upload_directory = "../assets/user-img/".$TargetPath;
+                
+        
+                
+                    $sql = "UPDATE users SET username = '".$username."' ,email = '".$email."',img = '".$upload_directory."' WHERE username='".$user."';";
+                    // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
+                    $result = mysqli_query($link,$sql);
+
+                    session_start();
+                    ob_start();
+                    $_SESSION["".$username.""]="".$username."";
 
 
-            if($result==1){
-                echo "<script>alert('Successfully Updated !!')</script>";
-                echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
+                    if($result==1){
+                        echo "<script>alert('Successfully Updated !!')</script>";
+                        echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
 
+                    }else{
+                        echo "<script>alert('Email or Username Already Exist !!')</script>";
+                    }
+        
+                }
             }else{
-                echo "<script>alert('Email or Username Already Exist !!')</script>";
+                $sql = "UPDATE users SET username = '".$username."' ,email = '".$email."' WHERE username='".$user."';";
+                // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
+                $result = mysqli_query($link,$sql);
+
+                session_start();
+                ob_start();
+                $_SESSION["".$username.""]="".$username."";
+
+
+                if($result==1){
+                    echo "<script>alert('Successfully Updated !!')</script>";
+                    echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
+
+                }else{
+                    echo "<script>alert('Email or Username Already Exist !!')</script>";
+                }
             }
+
+
+
       
             
 
@@ -110,7 +145,7 @@
                                                     if(mysqli_num_rows($result) > 0){
                                                            $row = mysqli_fetch_array($result);
                                                         echo "
-                                                        <form method='POST'>
+                                                        <form method='POST' action='./edit-profile.php?username=".$username."&uno=".$uno."' enctype='multipart/form-data'>
                                                             <div class='form-group row'>
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Username</label>
                                                                 <div class='col-sm-10'>
@@ -129,8 +164,13 @@
                 
                                                                 <div class='col-sm-10'>
                                                        
-                                                                    <img style='border-radius:50%; height:10rem;' src='".$row['img']."' alt=''>
+                                                                    <img style='border-radius:50%; height:10rem;' src='".$row['img']."' alt=''> or 
+                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' />
                                                                 </div>
+                                                 
+                                                       
+                                                            
+                                                                
                                                             </div>
                                                             <div class='col-md-12 text-center'>
                                                             <div class='form-group mb-0'>
