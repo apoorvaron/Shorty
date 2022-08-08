@@ -78,7 +78,7 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" required="" name="email" id="email" placeholder="Email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];} ?>">
+                                    <input class="form-control" type="email" required="" name="email" id="email" placeholder="Email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];} ?>"> 
                                 </div>
                             </div>
 
@@ -93,6 +93,7 @@
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" name="rememberme" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember me</label>
+                                        <i class="ti-info-alt tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Save your password"></i>
                                     </div>
                                 </div>
                             </div>
