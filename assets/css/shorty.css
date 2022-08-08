@@ -1762,7 +1762,7 @@ section {
   background-size: cover;
   background-position: center;
   position: relative;
-  padding: 120px 0 60px 0;
+  padding: 120px 0 0px 0;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -1859,7 +1859,7 @@ section {
 .footer {
   font-size: 14px;
   background-color: var(--color-secondary);
-  padding: 50px 0;
+  padding: 0px 0;
   color: white;
 }
 
