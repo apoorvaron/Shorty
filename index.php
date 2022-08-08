@@ -1,3 +1,7 @@
+<?php 
+        include(__DIR__.'/siteName.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +74,63 @@
 
   </style>
   </head>
+  <?php 
+        require('./admin/dBconn/database.php');
+        $database = new Database();
+        $db = $database->connect();
+        // echo "aefgsrdhtfjgk,hfrtwerfhjkgfdf".$db;
+        $random = bin2hex(random_bytes(3));
+        // $random = '209b01';
 
+        $sql = "SELECT * from links WHERE shortenLink='".$random."'";
+        $result = mysqli_query($db,$sql);
+        $rows = mysqli_num_rows($result);
+
+        $avail ;
+        if($rows==0){
+          $avail = $random;
+        }else{
+          $avail = bin2hex(random_bytes(3));;
+        }
+        // echo $avail;
+
+
+    
+    ?>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+  <script>
+    function copy(){
+      // console.log(document.querySelector('#shortInput').value);
+      navigator.clipboard.writeText(document.querySelector('#shortInput').value);
+      
+    }
+
+    function generateShorty(){
+
+          let originalLink = document.querySelector('#originalLink').value;
+          // console.log(Boolean(new URL(originalLink)));
+          let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+          if (regexp.test(originalLink)){
+            let generateShorty =document.querySelector('#generateShorty');
+          generateShorty.innerHTML=`
+                                      <form
+                                            action="#"
+                                            class="form-search d-flex align-items-stretch mb-3"
+                                            data-aos="fade-up"
+                                            data-aos-delay="200"
+                                      >
+                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName.$avail ?>"/>
+                                            <button type="submit" class="btn btn-primary" onclick="copy()">Copy</button>
+                                      </form>
+          `;
+          }else{
+            alert("Enter Valid URL !!");
+          }
+
+
+
+    }
+  </script>
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
@@ -85,7 +145,13 @@
             alt="logo"
             style="border-radius: 10px;"
           />
+             <!-- <h1  class="logo d-flex align-items-center" style="color:white;margin-left:10%">Shorty</h2> -->
         </a>
+       
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+       
+       
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -112,23 +178,25 @@
           <div
             class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
           >
-            <h2 data-aos="fade-up" style="margin-top:15%">Shorty</h2>
+            <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
             <p data-aos="fade-up" data-aos-delay="100">
             To help you grow, scale, and dominate through the power of link management. Our shortened links strive to help brands fulfil their greatest ambitions. Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click.
             </p>
 
             <form
-              action="#"
+            
               class="form-search d-flex align-items-stretch mb-3"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              <input type="text" class="form-control" placeholder="Your Link" />
-              <button type="submit" class="btn btn-primary">Shorten</button>
+              <input type="text" class="form-control" placeholder="Your Link" id="originalLink" />
+              <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
             </form>
+            <div id="generateShorty"></div>
+
             
             <?php              
-                      require('./admin/dBconn/database.php');
+
                       $database = new Database();
                       $link = $database->connect();
 

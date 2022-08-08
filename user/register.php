@@ -158,7 +158,7 @@
                                     <a href="../index.php" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login</a>
+                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login From Here</a>
                                 </div>
                             </div>
                         </form>
