@@ -98,39 +98,7 @@
     
     ?>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
-  <script>
-    function copy(){
-      // console.log(document.querySelector('#shortInput').value);
-      navigator.clipboard.writeText(document.querySelector('#shortInput').value);
-      
-    }
 
-    function generateShorty(){
-
-          let originalLink = document.querySelector('#originalLink').value;
-          // console.log(Boolean(new URL(originalLink)));
-          let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-          if (regexp.test(originalLink)){
-            let generateShorty =document.querySelector('#generateShorty');
-          generateShorty.innerHTML=`
-                                      <form
-                                            action="#"
-                                            class="form-search d-flex align-items-stretch mb-3"
-                                            data-aos="fade-up"
-                                            data-aos-delay="200"
-                                      >
-                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName.$avail ?>"/>
-                                            <button type="submit" class="btn btn-primary" onclick="copy()">Copy</button>
-                                      </form>
-          `;
-          }else{
-            alert("Enter Valid URL !!");
-          }
-
-
-
-    }
-  </script>
   <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header d-flex align-items-center fixed-top">
@@ -306,6 +274,42 @@
           Designed by <a  target="_blank" href="https://github.com/apoorvaron">Apoorv Aron</a>
         </div>
       </div>
+ 
+      <script>
+    function copy(){
+      // console.log(document.querySelector('#shortInput').value);
+      navigator.clipboard.writeText(document.querySelector('#shortInput').value);
+      
+    }
+
+    function generateShorty(){
+
+          let originalLink = document.querySelector('#originalLink').value;
+          // console.log(Boolean(new URL(originalLink)));
+          let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+          if (regexp.test(originalLink)){
+            let generateShorty =document.querySelector('#generateShorty');
+          generateShorty.innerHTML=`
+                                      <form
+                                            action="#"
+                                            class="form-search d-flex align-items-stretch mb-3"
+                                            data-aos="fade-up"
+                                            data-aos-delay="200"
+                                      >
+                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName.$avail ?>"/>
+                                            <button type="submit" class="btn btn-primary" onclick="copy()">Copy</button>
+                                      </form>
+          `;
+          }else{
+            alert("Enter Valid URL !!");
+              // let originalLink =document.querySelector('#originalLink');
+              // originalLink.placeholder=`Enter Valid URL`;
+          }
+
+
+
+    }
+  </script>
     </footer>
     <!-- End Footer -->
     <!-- End Footer -->

@@ -19,50 +19,6 @@
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
     </head>
 
-    <?php
-        if(isset($_POST['submit'])){
-            require('../admin/dBconn/database.php');
-            $database = new Database();
-            $db = $database->connect();
-        
-            $oldPass = $_POST['oldPass'];
-            $newPass = $_POST['newPass'];
-            $cnfrmPass = $_POST['cnfrmPass'];
-            $oldPass = md5($oldPass);
-            $newPass = md5($newPass);
-            $cnfrmPass = md5($cnfrmPass);
-
-            if($newPass==$cnfrmPass){
-
-                $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-                $result = mysqli_query($db,$query);
-                $row = mysqli_fetch_array($result);
-                // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
-
-                if($row['password']==$oldPass){
-                    $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
-                    // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
-                    $result = mysqli_query($db,$sql);
-                    
-                    $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-                    $result = mysqli_query($db,$query);
-                    $row = mysqli_fetch_array($result);
-                    if($row['password']==$newPass){
-                        echo "<script>alert('Password Changed !!')</script>";
-                    }else{
-                        echo "<script>alert('Try Again !!')</script>";
-                    }
-                    
-                }else{
-                    echo "<script>alert('Old Password Incorrect !!')</script>";
-                }
-
-            }else{
-                echo "<script>alert('Password Not Matching !!')</script>";
-            }
-        }
-    ?>
-
     <body class="fixed-left">
         <!-- Begin page -->
         <div id="wrapper">
@@ -82,6 +38,8 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class='row' id="alertModal"></div>
+
 
                             <!-- end page title end breadcrumb -->
                             <div class="row">
@@ -140,6 +98,57 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
+                <?php
+                    if(isset($_POST['submit'])){
+                        // require('../admin/dBconn/database.php');
+                        $database = new Database();
+                        $db = $database->connect();
+                    
+                        $oldPass = $_POST['oldPass'];
+                        $newPass = $_POST['newPass'];
+                        $cnfrmPass = $_POST['cnfrmPass'];
+                        $oldPass = md5($oldPass);
+                        $newPass = md5($newPass);
+                        $cnfrmPass = md5($cnfrmPass);
+
+                        if($newPass==$cnfrmPass){
+
+                            $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                            $result = mysqli_query($db,$query);
+                            $row = mysqli_fetch_array($result);
+                            // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
+
+                            if($row['password']==$oldPass){
+                                $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
+                                // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
+                                $result = mysqli_query($db,$sql);
+                                
+                                $query = "SELECT * from users WHERE username='".$_GET['username']."'";
+                                $result = mysqli_query($db,$query);
+                                $row = mysqli_fetch_array($result);
+                                if($row['password']==$newPass){
+                                    $alertMsz = "Password Changed !!";
+                                    include '../user/alertModal.php';
+        
+                                }else{
+                                    $alertMsz = "Try Again !!";
+                                    include '../user/alertModal.php';
+        
+                                }
+                                
+                            }else{
+                                $alertMsz = "Old Password Incorrect !!";
+                                include '../user/alertModal.php';
+    
+                            }
+
+                        }else{
+                            $alertMsz = "Password Not Matching !!";
+                            include '../user/alertModal.php';
+
+                        }
+                    }
+                ?>
 
                 <?php include'footer.php';?>
 
