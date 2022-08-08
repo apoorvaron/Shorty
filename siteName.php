@@ -1,5 +1,5 @@
 <?php
-    $siteName = "https://micro.epizy.com/";
+    $siteName = "http://localhost:8888/tiny/";
     // $siteName = "https://usict.acm.org/";
    
 ?>
