@@ -65,15 +65,34 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <style>
 
+            img.vert-move {
+                -webkit-animation: mover 1s infinite  alternate;
+                animation: mover 1s infinite  alternate;
+            }
+            img.vert-move {
+                -webkit-animation: mover 1s infinite  alternate;
+                animation: mover 1s infinite  alternate;
+            }
+            @-webkit-keyframes mover {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-10px); }
+            }
+            @keyframes mover {
+                0% { transform: translateY(0); }
+                100% { transform: translateY(-10px); }
+            }
+
+</style>
     </head>
 
 
     <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
-    <body class="fixed-left" style="background: -webkit-linear-gradient(-135deg, #6862d5, #dd2476);
-  background: -o-linear-gradient(-135deg, #6862d5, #dd2476);
-  background: -moz-linear-gradient(-135deg, #6862d5, #dd2476);
-  background: linear-gradient(-5deg, #EB4747, #1C3879);">
+    <body class="fixed-left"  style="   background-color: #0e1d34;
+                                        background-image: url('../assets/img/hero-bg.png');
+                                        background-size: cover;
+                                        background-position: center;">
         
         <!-- Begin page -->
         <!--<div class="accountbg"></div>-->
@@ -85,8 +104,10 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0">
-                        <a href="./register.php" class="logo logo-admin"><img src="https://cdni.iconscout.com/illustration/premium/thumb/user-login-4268415-3551762.png" height="100" alt="logo"></a>
+                        <a href="./register.php" class="vert-move logo logo-admin"><img class="vert-move" src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/hero-img.png" height="100" alt="logo"></a>
                     </h3>
+                   
+
 
                     <h6 class="text-center">Registration Form</h6>
 
@@ -129,7 +150,7 @@
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                    <button class="btn btn-danger btn-block waves-effect waves-light" id="submit" name="submit" type="submit">Register</button>
+                                    <button class="btn  btn-block waves-effect waves-light" style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit">Register</button>
                                 </div>
                             </div>
                             <div class="form-group m-t-10 mb-0 row">
