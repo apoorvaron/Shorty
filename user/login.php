@@ -77,6 +77,10 @@ img.vert-move {
                                 <div class="col-12">
                                     <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>">
                                 </div>
+                                <!-- <div class="col-1"> -->
+                                    <i id="eyei" style="margin-left:-15%;margin-top:2.5%;z-index:9999;" onclick="changeType()" class="fa fa-eye-slash" aria-hidden="true"></i>
+                                <!-- </div> -->
+
                             </div>
                             <div class="form-group row">
                                 <div class="col-12" >
@@ -165,6 +169,23 @@ img.vert-move {
   }
 ?>
 
+        <script>
+            let loop = 0;
+            let password = document.querySelector('#password');
+            let eyei = document.querySelector('#eyei');
+            function changeType(){
+                if(loop%2==0){
+                    eyei.classList.remove("fa-eye-slash");
+                    eyei.classList.add("fa-eye");
+                    password.type="text";
+                }else{
+                    eyei.classList.remove("fa-eye");
+                    eyei.classList.add("fa-eye-slash");
+                    password.type="password";
+                }
+                loop++;
+            }
+        </script>
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
