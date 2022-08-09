@@ -76,7 +76,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-
   <style>
     img.vert-move {
         -webkit-animation: mover 1s infinite  alternate;
@@ -303,7 +302,7 @@
            
             </a>
 
-            <div class="social-links d-flex mt-4" style="justify-content: center;">
+            <div class="social-links d-flex mt-4" style="justify-content: center;padding-bottom: 3%;">
               <a target="_blank"  href="https://github.com/apoorvaron" class="github"><i class="bi bi-github"></i></a>
               <a target="_blank"  href="https://www.linkedin.com/in/apoorv-aron-742882212/" class="linkedin"><i class="bi bi-linkedin"></i></a>
               <a target="_blank"  href="https://twitter.com/AronApoorv" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -323,27 +322,41 @@
         </div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
       <script>
     function copy(){
       // console.log(document.querySelector('#shortInput').value);
       navigator.clipboard.writeText(document.querySelector('#shortInput').value);
       
     }
+    const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
+    function generateString(length) {
+        let result = '';
+        const charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+
+        return result;
+    }
     function generateShorty(){
-
+          let avail = generateString(5);
           let originalLink = document.querySelector('#originalLink').value;
           // console.log(Boolean(new URL(originalLink)));
           let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
           if (regexp.test(originalLink)){
             let generateShorty =document.querySelector('#generateShorty');
+            let full_shortlink ="<?php echo $siteName?>";
+            // full_shortlink.slice(0, -2);
+            console.log(full_shortlink+avail);
           generateShorty.innerHTML=`
                                       <form
                                             class="form-search d-flex align-items-stretch mb-3"
                                             data-aos="fade-up"
                                             data-aos-delay="200"
                                       >
-                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName.$avail ?>"/>
+                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
                                             <input class="btn btn-primary" type="button" onclick="copy()" value="Copy">
                                       </form>
           `;
@@ -352,21 +365,22 @@
             
             var formData = new FormData();
             formData.append('originalLink', originalLink);
+            formData.append('shortenLink', avail);
             for (const value of formData.values()) {
-            console.log(value);
+            // console.log(value);
 
             }   
 
 
             $.ajax({
                 type: "POST",
-                url: "./admin/dBconn/api.php/?q=shorty&shortenLink=<?php echo $avail ?>&originalLink="+originalLink,
+                url: "./admin/dBconn/api.php/?q=shorty&shortenLink=<?php echo $avail ?>&originalLink="+originalLink+"&shortenLink="+avail,
                 data : formData,
                 cache: false,
                 processData: false,
                 contentType: false,
                 success: function(data){
-                    alert(data.message);
+                    // alert(data.message);
                     console.log("success");
                     // window.location.reload();
                 },
@@ -385,7 +399,11 @@
 
 
           }else{
-            alert("Enter Valid URL !!");
+            // alert("Enter Valid URL !!");
+            // let body = "<div>Enter Valid URL !!</div>";
+            // swal(body);
+
+            swal("Enter Valid URL !!", "", "error");
               // let originalLink =document.querySelector('#originalLink');
               // originalLink.placeholder=`Enter Valid URL`;
           }
