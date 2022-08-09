@@ -273,7 +273,7 @@
                     data-purecounter-duration="1"
                     class="purecounter"
                   ></span>
-                  <p>Shorten Links</p>
+                  <p>Total clicks</p>
                 </div>
               </div>
               <!-- End Stats Item -->
@@ -339,13 +339,12 @@
             let generateShorty =document.querySelector('#generateShorty');
           generateShorty.innerHTML=`
                                       <form
-                                            action="#"
                                             class="form-search d-flex align-items-stretch mb-3"
                                             data-aos="fade-up"
                                             data-aos-delay="200"
                                       >
                                             <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName.$avail ?>"/>
-                                            <button type="submit" class="btn btn-primary" onclick="copy()">Copy</button>
+                                            <input class="btn btn-primary" type="button" onclick="copy()" value="Copy">
                                       </form>
           `;
 
