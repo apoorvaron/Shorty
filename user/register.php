@@ -48,6 +48,7 @@
   }
 ?>
 
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -132,6 +133,20 @@
                                     <input class="form-control" type="text" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
                                 </div>
                             </div>
+                            <!-- <div class="form-group row">
+                                <div class="col-12" >
+                                    <center id="warning"></center>
+
+                                </div>
+                            </div> -->
+                            <div class="form-group row">
+                                <div class="col-12" >
+                                    <center id="warnDiv">
+                                    <span id="warning" style="width:50%;display: none; background-color:green;padding:2%;font-size:1rem;margin-top:-100%" class="badge displayBadge">Weak</span>
+                                    </center>
+
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <div class="col-12">
                                     <label>Upload Profile Image :    </label>
@@ -183,5 +198,48 @@
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 
+        <script>
+    let password = document.getElementById('password');
+    // let warning = document.getElementById('warning');
+    let warning = document.querySelector('#warning');
+    // console.log(warning.textContent);
+    // StrengthDisp.value="dfs";
+    let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
+
+
+
+    function StrengthChecker(PasswordParameter){
+        // We then change the badge's color and text based on the password strength
+
+        if(strongPassword.test(PasswordParameter)) {
+            warning.style.display = 'inline-block';
+            warning.style.backgroundColor = "green";
+            warning.textContent="Strong Password";
+            // StrengthDisp.value="Strong";
+        }else{
+            // console.log(2);
+            warning.style.display = 'inline-block';
+            warning.style.backgroundColor = "red";
+            warning.textContent="Weak Password";
+
+        }
+    }
+    password.addEventListener("input", () => {
+
+        setTimeout(() => StrengthChecker(password.value), 500);
+
+        //Incase a user clears the text, the badge is hidden again
+
+        if(password.value.length !== 0){
+            // let warnDiv = document.querySelector('#warnDiv');
+            // warning.style.display = 'none';
+
+        } else{
+            console.log(90);
+            // warnDiv.style.display = 'none';
+            warning.style.display = 'none';
+        }
+        });
+</script>
     </body>
 </html>
