@@ -114,8 +114,34 @@ function deleteLink(){
             array('message' => 'Internal Server Error. Try Again')
         );
     }
-}
+};
 
+function shorty(){
+    $database = new Database();
+    $db = $database->connect();
+
+    
+    
+    $uniqueNo =  $_POST["uniqueNo"];
+    $originalLink =  $_GET["originalLink"];
+    // echo $originalLink;
+    $shortenLink =  $_GET["shortenLink"];
+
+    $sql = "INSERT INTO `links` (`uniqueNo`,`originalLink`, `shortenLink`) VALUES ('shorty','$originalLink', '$shortenLink')";
+    print_r($sql);
+    $result =$db -> query($sql) ;
+    // var_dump($result);
+        if ($result) {
+            echo json_encode(
+                array('message' => 'Form has been submitted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Internal Server Error. Try Again')
+            );
+        }
+
+};
     $q = $_GET['q'];
     // echo $q;
     switch ($q) {
@@ -130,6 +156,9 @@ function deleteLink(){
             break;
         case 'deleteLink':
             deleteLink();
+            break;
+        case 'shorty':
+            shorty();
             break;
         default:
             echo "Invalid Query";

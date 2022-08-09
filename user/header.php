@@ -367,7 +367,7 @@
                                                     if($result = mysqli_query($db, $sql)){
                                                         if(mysqli_num_rows($result) > 0){
                                                                 while($row = mysqli_fetch_array($result)){  
-                                                                    $row['originalLink'] = substr($row['originalLink'],0,30);
+                                                                    $row['email'] =strstr($row['email'] , '@', true);
                                                                         echo "
                                                                         <h4 style='color:#fff;'>Hello ".$row['email']." !</h4>
                                                                             ";  

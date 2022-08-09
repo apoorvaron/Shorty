@@ -112,6 +112,7 @@
         $avail ;
         if($rows==0){
           $avail = $random;
+
         }else{
           $avail = bin2hex(random_bytes(3));;
         }
@@ -179,6 +180,7 @@
               class="form-search d-flex align-items-stretch mb-3"
               data-aos="fade-up"
               data-aos-delay="200"
+              method="POST"
             >
               <input type="text" class="form-control" placeholder="Your Link" id="originalLink" />
               <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
@@ -251,6 +253,29 @@
                   <p>Shorten Links</p>
                 </div>
               </div>
+              <?php 
+                                                    // require('../admin/dBconn/database.php');
+                    $database = new Database();
+                    $link = $database->connect();
+                 
+                    $sql = "SELECT * FROM total_clicks where id=1";
+                    $result = mysqli_query($link, $sql);
+                    $row = mysqli_fetch_array($result);
+
+                    $clicks = $row['total_clicks'];
+              ?>
+
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="<?php echo $clicks ?>"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Shorten Links</p>
+                </div>
+              </div>
               <!-- End Stats Item -->
             </div>
           </div>
@@ -297,7 +322,7 @@
           Designed by <a  target="_blank" href="https://github.com/apoorvaron">Apoorv Aron</a>
         </div>
       </div>
- 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script>
     function copy(){
       // console.log(document.querySelector('#shortInput').value);
@@ -323,6 +348,43 @@
                                             <button type="submit" class="btn btn-primary" onclick="copy()">Copy</button>
                                       </form>
           `;
+
+            let originalLink = document.querySelector('#originalLink').value;
+            
+            var formData = new FormData();
+            formData.append('originalLink', originalLink);
+            for (const value of formData.values()) {
+            console.log(value);
+
+            }   
+
+
+            $.ajax({
+                type: "POST",
+                url: "./admin/dBconn/api.php/?q=shorty&shortenLink=<?php echo $avail ?>&originalLink="+originalLink,
+                data : formData,
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function(data){
+                    alert(data.message);
+                    console.log("success");
+                    // window.location.reload();
+                },
+                error: function(xhr, status, error){
+                    // window.location.reload();
+                    console.log("No");
+
+                    // alert("Fill in the details");
+                },
+            });
+            
+
+
+
+
+
+
           }else{
             alert("Enter Valid URL !!");
               // let originalLink =document.querySelector('#originalLink');

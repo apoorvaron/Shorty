@@ -134,7 +134,7 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <label>Upload  Image :    </label>
+                                    <label>Upload Profile Image :    </label>
                                     <input data-parsley-type="file" type="file" required  name="UploadImage" />
                                 </div>
                             </div>

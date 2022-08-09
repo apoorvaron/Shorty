@@ -1,33 +1,5 @@
 <?php
-  if(isset($_POST['submit'])){
-    require('../admin/dBconn/database.php');
-    $database = new Database();
-    $db = $database->connect();
-
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $originalPass = $password;
-    $password = md5($password);
-
-    $query = "SELECT * from users where email='$email' and password ='$password'";
-    $result = mysqli_query($db,$query);
-
-    if(mysqli_num_rows($result)==1){
         session_start();
-        ob_start();
-        if(isset($_POST['rememberme'])){
-            setcookie('emailcookie',$email,time()+86400);
-            setcookie('passwordcookie',$originalPass,time()+86400);
-        }
-      $row = mysqli_fetch_array($result);
-      $_SESSION["".$row['username'].""]="".$row['username']."";
-      header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
-    }
-    else{
-        echo "<script>alert('Wrong username or password')</script>";
-    }
-
-  }
 ?>
 
 <!DOCTYPE html>
@@ -106,6 +78,12 @@ img.vert-move {
                                     <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <div class="col-12" >
+                                    <center id="warning"></center>
+
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
@@ -136,6 +114,56 @@ img.vert-move {
                 </div>
             </div>
         </div>
+        <?php
+  if(isset($_POST['submit'])){
+    require('../admin/dBconn/database.php');
+    $database = new Database();
+    $db = $database->connect();
+
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $originalPass = $password;
+    $password = md5($password);
+
+    $query = "SELECT * from users where email='$email' and password ='$password'";
+    $result = mysqli_query($db,$query);
+
+    if(mysqli_num_rows($result)==1){
+        session_start();
+        ob_start();
+        if(isset($_POST['rememberme'])){
+            setcookie('emailcookie',$email,time()+86400);
+            setcookie('passwordcookie',$originalPass,time()+86400);
+        }
+      $row = mysqli_fetch_array($result);
+      $_SESSION["".$row['username'].""]="".$row['username']."";
+    //   header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
+      echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
+    }
+    else{
+        // echo "<script>alert('Wrong username or password')</script>";
+        echo "  <script>
+                    let warning =  document.querySelector('#warning');
+                    warning.innerHTML += `  <span style='color:red;font-weight:bold;padding-bottom:0px'>Wrong username or password </span>
+                                            <p style='color:red;font-weight:bold;'>Try Again !! </p>`;
+                                            
+                                            
+                                            let timeleft = 1;
+                                            let downloadTimer = setInterval(function(){
+                                            if(timeleft <= 0){
+                                                warning.innerHTML=``;
+                                            } else {
+                                            }
+                                            timeleft -= 1;
+                                            }, 1000);
+
+
+
+                </script>";
+    }
+
+  }
+?>
 
 
         <!-- jQuery  -->
