@@ -75,12 +75,15 @@ img.vert-move {
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>">
+                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" onblur="removeInclude()" onfocus="addInclude()">
                                 </div>
-                                <!-- <div class="col-1"> -->
                                     <i id="eyei" style="margin-left:-15%;margin-top:2.5%;z-index:9999;" onclick="changeType()" class="fa fa-eye-slash" aria-hidden="true"></i>
-                                <!-- </div> -->
 
+                            </div>
+                            <div id="includeDiv">
+
+
+   
                             </div>
                             <div class="form-group row">
                                 <div class="col-12" >
@@ -184,6 +187,24 @@ img.vert-move {
                     password.type="password";
                 }
                 loop++;
+            }
+
+            let includeDiv = document.querySelector('#includeDiv');
+            function addInclude(){
+                includeDiv.innerHTML = `  
+                                <div class="col-12" style="margin-left: 8%;" >
+                                    <ul style="color:grey">
+                                        <li>Atleast 8 characters</li>
+                                        <li>Atleast one uppercase letter</li>
+                                        <li>Atleast one lowercase letter </li>
+                                        <li>Atleast one digit </li>
+                                        <li>Atleast one special character</li>
+                                    </ul>
+                                </div>
+                                    `;
+            }
+            function removeInclude(){
+                includeDiv.innerHTML = ``;
             }
         </script>
 
