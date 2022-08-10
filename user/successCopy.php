@@ -37,49 +37,7 @@
     $uno= $_GET['uno'];
 ?>
 
-    function newLink(){
-        let linkIsFor = document.querySelector('#linkIsFor').value;
-        let originalLink = document.querySelector('#originalLink').value;
-        let shortenLink = document.querySelector('#shortenLink').value;
 
-        var formData = new FormData();
-        formData.append('linkIsFor',  linkIsFor);
-        formData.append('originalLink',  originalLink);
-        formData.append('shortenLink',  shortenLink);
-
-        <?php
-            $uno = $_GET['uno'];
-        ?>
-
-
-        let check=true;
-        for (const value of formData.values()) {
-            console.log(value);
-            if(value=='' || value=='undefined'){
-                check=false;
-            }
-        }   
-        console.log("../admin/dBconn/api.php?q=addLink&uno=".$uno);
-        if(check==true){
-            $.ajax({
-                    type: "POST",
-                    url: "../admin/dBconn/api.php?q=addLink&uno=<?php echo  $uno?>",
-                    data : formData,
-                    cache: false,
-                    processData: false,
-                    contentType: false,
-                    success: function(data){
-                        console.log("Successf");
-                        alert("Sucess!!")
-                    },
-                    error: function(xhr, status, error){
-                        console.log("Nooooo!!!!");
-                        alert("No!!");
-                    },
-            });
-	    }
-
-    }
 </script>
     <body class="fixed-left">
         <!-- Begin page -->

@@ -19,10 +19,24 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
             input:focus {
                 outline: none;
             } 
+            .swal-overlay {
+                background-color: #0e1d34;
+            }
+            .swal-button {
+                padding: 7px 19px;
+                border-radius: 2px;
+                background-color: #4962B3;
+                font-size: 12px;
+                border: 1px solid #3e549a;
+                text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+            }
+
+
         </style>
     </head>
         <!-- jQuery CDN -->
@@ -36,7 +50,8 @@
             return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
         }
     </script>
-  
+          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
   <?php
         if(isset($_POST['submit'])){
             require('../admin/dBconn/database.php');
@@ -53,14 +68,29 @@
                 $result = mysqli_query($link,$sql);
     
                 if($result==1){
-                    echo "<script>alert('Successfully Updated !!')</script>";
-                    echo "<script>window.location.replace('./index.php?username=".$_GET['username']."&uno=".$_GET['uno']."')</script>";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Successfully Updated !!','','success').then(function() {
+                                        window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
+                                    });
+                                });
+                            </script>";
+
 
                 }else{
-                    echo "<script>alert('Try Again !!')</script>";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Try Again !!','','error');
+                                });
+                            </script>";
                 }
             } else {
-                echo "<script>alert('Please Enter Valid URL !!')</script>";
+      
+                echo "      <script>
+                                $(document).ready(function(){
+                                    swal('Please Enter Valid URL !!','','error');
+                                });
+                            </script>";
             }
             
 

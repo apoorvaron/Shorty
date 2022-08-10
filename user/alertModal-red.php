@@ -9,7 +9,6 @@
                                                                 <div class='card-body'>
                                                                         <div class=' alert-dismissible fade show d-flex align-items-center' role='alert'>
                                                                                 <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
-                                                                                    <span aria-hidden='true'>×</span>
                                                                                 </button>
                                                                                 <h4 style='    margin: 0 0 0px;color:red; '>
                                                                             <i class='mdi mdi-clipboard-alert font-27'></i><strong> ".$alertMsz."</strong> 
