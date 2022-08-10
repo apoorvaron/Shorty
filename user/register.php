@@ -248,41 +248,47 @@
     if($cnfrmPass == $password){
         if($UploadedFileName!='')
         {
-            $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
-            $TargetPath=time().$UploadedFileName;
-    
-            if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
-                $upload_directory = "../assets/user-img/".$TargetPath;
-                $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-                $result = mysqli_query($db,$query);
-                // echo "<br><br><br><br><br><br><br><br><br><br>erteyrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryrutrhegwqrtweyryjtukyiuktyjrtehrk...".$result;
-    
-            
-    
-    
-                // $result = mysqli_query($db,$sql);
-                if($result==1){
-                    echo "  <script>
-                                swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                    window.location = './login.php';
-                                });
-                            </script>";
-                }else{
-                    echo "<script>swal('Email already Registered!!', '', 'info');</script>";
 
+            $filename = $UploadedFileName['name'];
+            $fileext = explode('.',$filename);
+            $filecheck = strtolower(end($fileext));
+            $fileextstored = array('png', 'jpg', 'jpeg','gif','tiff','webp');
+
+            if (in_array($filecheck, $fileextstored)) {
+                $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+                $TargetPath=time().$UploadedFileName;
+        
+                if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){    
+                    $upload_directory = "../assets/user-img/".$TargetPath;
+                    $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                    $result = mysqli_query($db,$query);
+
+
+                    $result = mysqli_query($db,$sql);
+                    if($result==1){
+                        echo "  <script>
+                                    swal('Registration Successful !!','* Please Login *','success').then(function() {
+                                        window.location = './login.php';
+                                    });
+                                </script>";
+                    }else{
+                        echo "<script>swal('Email already Registered!!', '', 'info');</script>";
+    
+                    }
                 }
+            }else{
+                echo "<script>swal('Please Upload an Image','', 'error');</script>";
+
+               
             }
+
+
         }
     }else{
         // echo "<script>swal('Password are not Matching !!')</script>";
         echo "<script>swal('Passwords are not Matching !!', '', 'error');</script>";
 
     }
-
-
-
-
-
   }
 ?>
     </body>

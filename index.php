@@ -362,7 +362,7 @@
             let generateShorty =document.querySelector('#generateShorty');
             let full_shortlink ="<?php echo $siteName?>";
             // full_shortlink.slice(0, -2);
-            console.log(full_shortlink+avail);
+            // console.log(full_shortlink+avail);
           generateShorty.innerHTML=`
                                       <form
                                             class="form-search d-flex align-items-stretch mb-3"
@@ -379,10 +379,10 @@
             var formData = new FormData();
             formData.append('originalLink', originalLink);
             formData.append('shortenLink', avail);
-            for (const value of formData.values()) {
-            // console.log(value);
+            // for (const value of formData.values()) {
+            // // console.log(value);
 
-            }   
+            // }   
 
 
             $.ajax({

@@ -128,7 +128,7 @@ function shorty(){
     // echo $originalLink;
 
     $sql = "INSERT INTO `links` (`uniqueNo`,`originalLink`, `shortenLink`) VALUES ('shorty','$originalLink', '$shortenLink')";
-    print_r($sql);
+    // print_r($sql);
     $result =$db -> query($sql) ;
     // var_dump($result);
         if ($result) {
