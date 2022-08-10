@@ -127,6 +127,12 @@
                                 <div class="col-md-12 col-xl-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
+                                            <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                                <i class="mdi mdi-alert-circle font-32"></i><strong>Shorty&nbsp;</strong> reduces the length of your URL
+                                            </div>
             
                                             <h4 class="mt-0 header-title">Link Shortener</h4>
                                             <p class="text-muted font-14">A website that reduces the length of your URL (Uniform Resource Locator).The idea is to minimize the web page address into something that's easier to remember and track.</p>

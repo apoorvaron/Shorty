@@ -91,9 +91,7 @@
                 
                                                                 <div class='col-sm-10'>
                                                        
-                                                                    <img style='border-radius:100%; height:10rem;' src='".$row['img']."' alt=''>
-                                                                    <img class='rounded-circle z-depth-2' alt='10x10' src='".$row['img']."'
-                                                                    data-holder-rendered='true'>
+                                                                    <img style='border-radius:50%; height:10rem;' src='".$row['img']."' alt=''>
                                                                 </div>
                                                             </div>
 

@@ -125,13 +125,27 @@
                           
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required placeholder="Password" name="password">
+                                    <input class="form-control" type="password" id="password" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <div class="col-12">
                                     <input class="form-control" type="text" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
                                 </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-12" >
+                                    <center id="warnDiv">
+                                    <span id="warning" style="width:50%;display: none; background-color:red;padding:2%;font-size:1rem;margin-top:-100%" class="badge displayBadge">Weak</span>
+                                    </center>
+
+                                </div>
+                            </div>
+                            <div id="includeDiv">
+
+
+   
                             </div>
                             <!-- <div class="form-group row">
                                 <div class="col-12" >
@@ -139,14 +153,7 @@
 
                                 </div>
                             </div> -->
-                            <div class="form-group row">
-                                <div class="col-12" >
-                                    <center id="warnDiv">
-                                    <span id="warning" style="width:50%;display: none; background-color:green;padding:2%;font-size:1rem;margin-top:-100%" class="badge displayBadge">Weak</span>
-                                    </center>
 
-                                </div>
-                            </div>
                             <div class="form-group row">
                                 <div class="col-12">
                                     <label>Upload Profile Image :    </label>
@@ -198,6 +205,9 @@
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 
+        <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script src="assets/pages/form-validation.init.js"></script>
+
         <script>
     let password = document.getElementById('password');
     // let warning = document.getElementById('warning');
@@ -240,6 +250,24 @@
             warning.style.display = 'none';
         }
         });
+
+        let includeDiv = document.querySelector('#includeDiv');
+            function addInclude(){
+                includeDiv.innerHTML = `  
+                                <div class="col-12" style="margin-left: 8%;" >
+                                    <ul style="color:grey">
+                                        <li>Atleast 8 characters</li>
+                                        <li>Atleast one uppercase letter</li>
+                                        <li>Atleast one lowercase letter </li>
+                                        <li>Atleast one digit </li>
+                                        <li>Atleast one special character</li>
+                                    </ul>
+                                </div>
+                                    `;
+            }
+            function removeInclude(){
+                includeDiv.innerHTML = ``;
+            }
 </script>
     </body>
 </html>
