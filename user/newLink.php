@@ -19,10 +19,24 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
             input:focus {
                 outline: none;
             } 
+            .swal-overlay {
+                background-color: #0e1d34;
+            }
+            .swal-button {
+                padding: 7px 19px;
+                border-radius: 2px;
+                background-color: #4962B3;
+                font-size: 12px;
+                border: 1px solid #3e549a;
+                text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+            }
+
+
         </style>
     </head>
         <!-- jQuery CDN -->
@@ -55,9 +69,12 @@
                 $query = "SELECT * from links WHERE shortenLink='".$shortenLink."'";
                 $result = mysqli_query($db,$query);
                 $count_rows = mysqli_num_rows($result);
-                // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$count_rows;
                 if($count_rows>0){
-                    echo "<script>alert('Custom Name Not Available !!')</script>";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Custom Name Not Available !!','','error');
+                                });
+                            </script>";
                 }else{
 
                     $query = "SELECT * FROM links WHERE uniqueNo='".$uno."' AND originalLink='".$originalLink."'";
@@ -72,9 +89,19 @@
                         $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
                         $result = mysqli_query($db,$sql);
                         if($result){
-                            echo "<script>alert('Successfully Created !!')</script>";
+                            echo "  <script>
+                                        $(document).ready(function(){
+                                            swal('Successfully Created !!','','success').then(function() {
+                                                window.location = './index.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
+                                            });
+                                        });
+                                    </script>";
                         }else{
-                                echo "<script>alert('Try Again !!')</script>";
+                                echo "  <script>
+                                            $(document).ready(function(){
+                                                swal('Try Again !!','','error');
+                                            });
+                                        </script>";
                         }
                     }
 
@@ -89,7 +116,11 @@
 
 
             }else{
-                echo "<script>alert('Please Enter Valid URL !!')</script>";
+                echo "  <script>
+                            $(document).ready(function(){
+                                swal('Please Enter Valid URL !!','','info');
+                            });
+                        </script>";
             }
 
             

@@ -21,13 +21,29 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-<style>
-.table_wrapper{
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-}        
-</style>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+        <style>
+        .table_wrapper{
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }   
+        .swal-overlay {
+            background-color: #0e1d34;
+        }
+        .swal-button {
+            padding: 7px 19px;
+            border-radius: 2px;
+            background-color: #4962B3;
+            font-size: 12px;
+            border: 1px solid #3e549a;
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+        }
+
+     
+        </style>
     </head>
     <?php
         if(isset($_POST['submit'])){
@@ -44,8 +60,7 @@
             $UploadedFileName=$_FILES['UploadImage']['name'];
      
 
-            if($UploadedFileName!='')
-            {
+            if($UploadedFileName!=''){
                     $sql = "SELECT * FROM users WHERE username='".$_GET['username']."'";
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
@@ -61,9 +76,7 @@
                     }
 
 
-
-
-                unlink('data.txt');    
+  
                 $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
                 $TargetPath=time().$UploadedFileName;
         
@@ -82,30 +95,49 @@
 
 
                     if($result==1){
-                        echo "<script>alert('Successfully Updated !!')</script>";
-                        echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
+                        echo "  <script>
+                                    $(document).ready(function(){
+                                        swal('Successfully Updated !!','','success').then(function() {
+                                            window.location = './index.php?username=".$username."&uno=".$_GET['uno']."';
+                                        });
+                                    });
+                                </script>";
+
 
                     }else{
-                        echo "<script>alert('Email or Username Already Exist !!')</script>";
+                        echo "  <script>
+                                    $(document).ready(function(){
+                                        swal('Email or Username Already Exist !!','','error');
+                                    });
+                                </script>";
                     }
         
                 }
             }else{
                 $sql = "UPDATE users SET username = '".$username."' ,email = '".$email."' WHERE username='".$user."';";
-                // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
                 $result = mysqli_query($link,$sql);
-
+                
                 session_start();
                 ob_start();
                 $_SESSION["".$username.""]="".$username."";
-
-
+                
+                
+                // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$result;
                 if($result==1){
-                    echo "<script>alert('Successfully Updated !!')</script>";
-                    echo "<script>window.location.replace('./index.php?username=".$username."&uno=".$_GET['uno']."')</script>";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Successfully Updated !!','','success').then(function() {
+                                        window.location = './index.php?username=".$username."&uno=".$_GET['uno']."';
+                                    });
+                                });
+                            </script>";
 
                 }else{
-                    echo "<script>alert('Email or Username Already Exist !!')</script>";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Email or Username Already Exist !!','','error');
+                                });
+                            </script>";
                 }
             }
 
