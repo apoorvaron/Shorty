@@ -123,8 +123,8 @@ function shorty(){
     
     
     $uniqueNo =  $_POST["uniqueNo"];
-    $originalLink =  $_GET["originalLink"];
-    $shortenLink =  $_GET["shortenLink"];
+    $originalLink =  $_POST["originalLink"];
+    $shortenLink =  $_POST["shortenLink"];
     // echo $originalLink;
 
     $sql = "INSERT INTO `links` (`uniqueNo`,`originalLink`, `shortenLink`) VALUES ('shorty','$originalLink', '$shortenLink')";

@@ -387,7 +387,7 @@
 
             $.ajax({
                 type: "POST",
-                url: "./admin/dBconn/api.php/?q=shorty&shortenLink=<?php echo $avail ?>&originalLink="+originalLink+"&shortenLink="+avail,
+                url: "./admin/dBconn/api.php/?q=shorty",
                 data : formData,
                 cache: false,
                 processData: false,
