@@ -330,7 +330,7 @@
       let copyBtn = document.querySelector('#copyBtn');
       copyBtn.value="Copied !!";
       copyBtn.classList.remove("btn-primary");
-      copyBtn.classList.add("btn-success");
+      copyBtn.classList.add("btn-success"); 
       
     }
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
