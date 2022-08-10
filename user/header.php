@@ -371,7 +371,7 @@
                                                                         echo "
                                                                         <h4 style='color:#fff;'>Hello ".$row['email']." !</h4>
                                                                             ";  
-                                                                            $sno++;  
+                                                                       
                                                                 }
                                                             mysqli_free_result($result);
                                                         } else{
