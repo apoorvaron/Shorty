@@ -327,6 +327,10 @@
     function copy(){
       // console.log(document.querySelector('#shortInput').value);
       navigator.clipboard.writeText(document.querySelector('#shortInput').value);
+      let copyBtn = document.querySelector('#copyBtn');
+      copyBtn.value="Copied !!";
+      copyBtn.classList.remove("btn-primary");
+      copyBtn.classList.add("btn-success");
       
     }
     const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -357,7 +361,7 @@
                                             data-aos-delay="200"
                                       >
                                             <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
-                                            <input class="btn btn-primary" type="button" onclick="copy()" value="Copy">
+                                            <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
                                       </form>
           `;
 
