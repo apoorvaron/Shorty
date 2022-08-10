@@ -64,7 +64,8 @@
 
             if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
                 
-                $sql = "UPDATE links SET linkIsFor = '".$linkIsFor."' ,originalLink = '".$originalLink." ',shortenLink = '".$shortenLink."' WHERE linkID='".$_GET['linkID']."';";
+                $sql = "UPDATE links SET linkIsFor = '".$linkIsFor."' ,originalLink = '".$originalLink."',shortenLink = '".$shortenLink."' WHERE linkID='".$_GET['linkID']."';";
+                // echo "<br><br><br><br><br><br><br><br><br><br><br><br>safdghgkfjrwteqrtyjfdthreawaetsdjfhkjdtrysdtjfhkjdtyrsdhtgf".$sql;
                 $result = mysqli_query($link,$sql);
     
                 if($result==1){
