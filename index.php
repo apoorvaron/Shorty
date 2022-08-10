@@ -77,6 +77,15 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
+
+    .swal-button {
+        padding: 7px 19px;
+        border-radius: 2px;
+        background-color: #0d6efd;
+        font-size: 12px;
+        border: 1px solid #0a53be;
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+    }
     img.vert-move {
         -webkit-animation: mover 1s infinite  alternate;
         animation: mover 1s infinite  alternate;
@@ -384,15 +393,10 @@
                 processData: false,
                 contentType: false,
                 success: function(data){
-                    // alert(data.message);
                     console.log("success");
-                    // window.location.reload();
                 },
                 error: function(xhr, status, error){
-                    // window.location.reload();
                     console.log("No");
-
-                    // alert("Fill in the details");
                 },
             });
             
@@ -403,13 +407,8 @@
 
 
           }else{
-            // alert("Enter Valid URL !!");
-            // let body = "<div>Enter Valid URL !!</div>";
-            // swal(body);
 
             swal("Enter Valid URL !!", "", "error");
-              // let originalLink =document.querySelector('#originalLink');
-              // originalLink.placeholder=`Enter Valid URL`;
           }
 
 

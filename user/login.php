@@ -144,7 +144,6 @@ img.vert-move {
       echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
     }
     else{
-        // echo "<script>alert('Wrong username or password')</script>";
         echo "  <script>
                     let warning =  document.querySelector('#warning');
                     warning.innerHTML += `  <span style='color:red;font-weight:bold;padding-bottom:0px'>Wrong username or password </span>

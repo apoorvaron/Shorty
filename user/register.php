@@ -17,6 +17,17 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <style>
+            .swal-overlay {
+                background-color: #0e1d34;
+            }
+            .swal-button {
+                padding: 7px 19px;
+                border-radius: 2px;
+                background-color: #4962B3;
+                font-size: 12px;
+                border: 1px solid #3e549a;
+                text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+            }
 
             img.vert-move {
                 -webkit-animation: mover 1s infinite  alternate;
@@ -251,19 +262,11 @@
     
                 // $result = mysqli_query($db,$sql);
                 if($result==1){
-                    echo "<script>swal('Registration Successful !!', '', 'success');
-                    
-                    
-                    let timeleft = 5;
-                    let downloadTimer = setInterval(function(){
-                    if(timeleft <= 0){
-                        window.location.replace('./login.php');
-                    } else {
-                    }
-                    timeleft -= 1;
-                    }, 1000);
-                    
-                    </script>";
+                    echo "  <script>
+                                swal('Registration Successful !!','* Please Login *','success').then(function() {
+                                    window.location = './login.php';
+                                });
+                            </script>";
                 }else{
                     echo "<script>swal('Email already Registered!!', '', 'info');</script>";
 

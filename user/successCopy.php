@@ -2,7 +2,6 @@
         if(isset($_GET['short'])){
             $short = $_GET['short'];
             echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-            // echo "<script>alert('Copied successfully!!')</script>";
         }
 ?>
 <!DOCTYPE html>
@@ -24,9 +23,6 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
         <style>
-            /* ::placeholder {
-                text-align: center;
-            }*/
 
             input:focus {
                 outline: none;
@@ -40,19 +36,8 @@
     $username=$_GET['username'];
     $uno= $_GET['uno'];
 ?>
-    // let redirect_Page = () => {
-    //     let tID = setTimeout(function () {
-    //         window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
-    //         window.clearTimeout(tID);		// clear time out.
-    //     }, 5000);
-    // }
-    // redirect_Page();
+
     function newLink(){
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
-        // console.log("llllllllllll");
         let linkIsFor = document.querySelector('#linkIsFor').value;
         let originalLink = document.querySelector('#originalLink').value;
         let shortenLink = document.querySelector('#shortenLink').value;
@@ -84,22 +69,12 @@
                     processData: false,
                     contentType: false,
                     success: function(data){
-                        // alert(data.message);
-                        // console.log(data.message);
-                        // window.location.replace();
-                        // window.location.replace('./files/registered.php');
                         console.log("Successf");
                         alert("Sucess!!")
-                        // window.location.replace('./login.php');
                     },
                     error: function(xhr, status, error){
-                        // window.location.reload();
                         console.log("Nooooo!!!!");
-                        alert("No!!")
-
-                        // window.location.replace('./files/registered.php');
-
-                        // alert("Fill in the details");
+                        alert("No!!");
                     },
             });
 	    }

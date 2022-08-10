@@ -38,14 +38,21 @@
                                     </div>
                                 </div>
                             </div>
+        
                             <div class='row' id="alertModal"></div>
-
 
                             <!-- end page title end breadcrumb -->
                             <div class="row">
+                 
                                 <div class="col-md-12 col-xl-12">
                                     <div class="card m-b-30">
                                         <div class="card-body">
+                                                    <!-- <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center" role="alert">
+                                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                            <span aria-hidden="true">×</span>
+                                                        </button>
+                                                       <i class="mdi mdi-alert-circle font-32"></i><strong>If you don't have any children</strong> 
+                                                    </div> -->
             
                                             <h4 class="mt-0 header-title">Change Password</h4>
                                             <p class="text-muted font-14">Regularly updating your passwords means that even if someone finds an old or saved password, it will no longer be useful, and your data will be secure.</p>
@@ -143,7 +150,7 @@
                             }
 
                         }else{
-                            $alertMsz = "Password Not Matching !!";
+                            $alertMsz = "Enter Same Password !!";
                             include '../user/alertModal-red.php';
 
                         }
