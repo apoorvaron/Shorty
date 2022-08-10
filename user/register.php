@@ -81,7 +81,7 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
+                                    <input class="form-control" type="password" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -251,8 +251,19 @@
     
                 // $result = mysqli_query($db,$sql);
                 if($result==1){
-                    echo "<script>swal('Registration Successful !!', '', 'success');</script>";
-                echo "<script>window.location.replace('./login.php')</script>"; 
+                    echo "<script>swal('Registration Successful !!', '', 'success');
+                    
+                    
+                    let timeleft = 5;
+                    let downloadTimer = setInterval(function(){
+                    if(timeleft <= 0){
+                        window.location.replace('./login.php');
+                    } else {
+                    }
+                    timeleft -= 1;
+                    }, 1000);
+                    
+                    </script>";
                 }else{
                     echo "<script>swal('Email already Registered!!', '', 'info');</script>";
 

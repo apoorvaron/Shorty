@@ -35,7 +35,6 @@
         if(isset($_GET['short'])){
             $short = $_GET['short'];
             echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-            // echo "<script>alert('Copied successfully!!')</script>";
         }
     ?>
 

@@ -132,19 +132,19 @@
         
                                 }else{
                                     $alertMsz = "Try Again !!";
-                                    include '../user/alertModal.php';
+                                    include '../user/alertModal-red.php';
         
                                 }
                                 
                             }else{
                                 $alertMsz = "Old Password Incorrect !!";
-                                include '../user/alertModal.php';
+                                include '../user/alertModal-red.php';
     
                             }
 
                         }else{
                             $alertMsz = "Password Not Matching !!";
-                            include '../user/alertModal.php';
+                            include '../user/alertModal-red.php';
 
                         }
                     }
