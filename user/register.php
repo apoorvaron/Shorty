@@ -246,15 +246,16 @@
     $UploadedFileName=$_FILES['UploadImage']['name'];
 
     if($cnfrmPass == $password){
-        if($UploadedFileName!='')
-        {
+        if($UploadedFileName!=''){
 
             $filename = $UploadedFileName['name'];
             $fileext = explode('.',$filename);
             $filecheck = strtolower(end($fileext));
+            $ext = pathinfo($UploadedFileName, PATHINFO_EXTENSION);
+            // echo $filename." ".$fileext." ".$filecheck."  ".$UploadedFileName." ".$ext   ;
             $fileextstored = array('png', 'jpg', 'jpeg','gif','tiff','webp');
 
-            if (in_array($filecheck, $fileextstored)) {
+            if (in_array($ext, $fileextstored)) {
                 $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
                 $TargetPath=time().$UploadedFileName;
         
@@ -262,9 +263,6 @@
                     $upload_directory = "../assets/user-img/".$TargetPath;
                     $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
                     $result = mysqli_query($db,$query);
-
-
-                    $result = mysqli_query($db,$sql);
                     if($result==1){
                         echo "  <script>
                                     swal('Registration Successful !!','* Please Login *','success').then(function() {
@@ -281,8 +279,6 @@
 
                
             }
-
-
         }
     }else{
         // echo "<script>swal('Password are not Matching !!')</script>";

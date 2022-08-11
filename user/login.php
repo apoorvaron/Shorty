@@ -1,5 +1,6 @@
 <?php
         session_start();
+        error_reporting(0);
 ?>
 
 <!DOCTYPE html>
@@ -132,11 +133,15 @@ img.vert-move {
     $result = mysqli_query($db,$query);
 
     if(mysqli_num_rows($result)==1){
-        session_start();
+
         ob_start();
         if(isset($_POST['rememberme'])){
+            // echo "frgtdhyjkhtjyr3q5rteyjg,hhrteq3tyjg,rt3r5qtyjgrthe5yethr";
+            // echo $email;
+            // echo $originalPass;
             setcookie('emailcookie',$email,time()+86400);
             setcookie('passwordcookie',$originalPass,time()+86400);
+            // echo $_COOKIE['passwordcookie'];
         }
       $row = mysqli_fetch_array($result);
       $_SESSION["".$row['username'].""]="".$row['username']."";
