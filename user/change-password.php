@@ -76,7 +76,7 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Confirm Password</label>
-                                                        <input type="text" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password"/>
+                                                        <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password"/>
                                                     </div>
                                                 </div>
                                                

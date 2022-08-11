@@ -86,13 +86,13 @@
                           
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
+                                    <input class="form-control" type="password" id="password" minlength="8" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="cnfrmPass" required placeholder="Confirm Password" name="cnfrmPass">
+                                    <input class="form-control" type="password" id="cnfrmPass" minlength="8" required placeholder="Confirm Password" name="cnfrmPass">
                                 </div>
                             </div>
                             <div class="form-group row">
