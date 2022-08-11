@@ -279,6 +279,21 @@
 
                
             }
+        }else{
+
+        
+            $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`,`email`) VALUES ('$randNum','$username', '$password','$email')";
+            $result = mysqli_query($db,$query);
+            if($result==1){
+                echo "  <script>
+                            swal('Registration Successful !!','* Please Login *','success').then(function() {
+                                window.location = './login.php';
+                            });
+                        </script>";
+            }else{
+                echo "<script>swal('Email already Registered!!', '', 'info');</script>";
+
+            }
         }
     }else{
         // echo "<script>swal('Password are not Matching !!')</script>";
