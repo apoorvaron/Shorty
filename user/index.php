@@ -98,6 +98,37 @@
             
                                                 <tbody>
 
+
+<!-- <script>
+        let urlEvent = '../admin/dBconn/api.php?q=getLinks';
+
+        let allEvents=document.getElementById("eventPage");
+        let pagination = document.getElementById("pagination_row_2021");
+        allEvents.innerHTML="";
+        
+        $(document).ready(function() {
+            $.ajax({
+                url: urlEvent,
+                method: 'GET',
+                dataType: 'JSON',
+                success: function(data) {
+                    console.log("check data ywar",data);
+                    data[0].forEach(allEvent);                    
+                    function allEvent(event) {
+                        
+
+                                    
+                    } 
+	
+	
+              },
+            });
+        });
+</script>   -->
+
+
+
+
                                                 <?php 
                                                     // require('../admin/dBconn/database.php');
                                                     $database = new Database();

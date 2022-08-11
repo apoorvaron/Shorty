@@ -378,16 +378,22 @@
             
             var formData = new FormData();
             formData.append('originalLink', originalLink);
-            formData.append('shortenLink', avail);
+            // formData.append('shortenLink', avail);
+           
+           
             // for (const value of formData.values()) {
             // // console.log(value);
 
             // }   
 
-
+            <?php 
+              // $extra="Extra Only";
+            ?>
+            // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
+            let url = "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail;
             $.ajax({
                 type: "POST",
-                url: "./admin/dBconn/api.php/?q=shorty",
+                url:  "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail,
                 data : formData,
                 cache: false,
                 processData: false,

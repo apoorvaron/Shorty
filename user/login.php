@@ -69,13 +69,13 @@ img.vert-move {
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" required="" name="email" id="email" placeholder="Email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];} ?>"> 
+                                    <input class="form-control" type="email" required="" name="email" data-parsley-type="email" id="email" placeholder="Email" value="<?php if(isset($_COOKIE['emailcookie'])){ echo $_COOKIE['emailcookie'];} ?>"> 
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" >
+                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password" maxlength="25" minlength="8" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" >
                                 </div>
                                     <i id="eyei" style="margin-left:-15%;margin-top:2.5%;z-index:9999;" onclick="changeType()" class="fa fa-eye-slash" aria-hidden="true"></i>
 
