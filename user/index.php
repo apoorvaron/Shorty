@@ -94,41 +94,6 @@
 
 
                                                 </thead>
-            
-            
-                                                <tbody>
-
-
-<!-- <script>
-        let urlEvent = '../admin/dBconn/api.php?q=getLinks';
-
-        let allEvents=document.getElementById("eventPage");
-        let pagination = document.getElementById("pagination_row_2021");
-        allEvents.innerHTML="";
-        
-        $(document).ready(function() {
-            $.ajax({
-                url: urlEvent,
-                method: 'GET',
-                dataType: 'JSON',
-                success: function(data) {
-                    console.log("check data ywar",data);
-                    data[0].forEach(allEvent);                    
-                    function allEvent(event) {
-                        
-
-                                    
-                    } 
-	
-	
-              },
-            });
-        });
-</script>   -->
-
-
-
-
                                                 <?php 
                                                     // require('../admin/dBconn/database.php');
                                                     $database = new Database();
@@ -169,7 +134,69 @@
                                                
                                                 </tbody>
                                             </table>
-            
+                                                    
+
+
+<!-- **********************************************       GET API           ********************************************** -->
+                                              
+
+                                            <!-- <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
+                                                <thead >
+                                                <tr>
+                                                    <th>Sl.No</th>
+                                                    <th>Link is For</th>
+                                                    <th>Original Link</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody id="linkPage">
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Docs</td>
+                                                        <td>https://docs.google.com/spreadsheets/</td>
+                                                    </tr>
+                                                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                                                    <script>
+                                                            let urllink = '../admin/dBconn/api.php?q=getLinks';
+
+                                                            let linkPage=document.getElementById("linkPage");
+                                                            // linkPage.innerHTML="";
+                                                            let sno = 1;
+                                                            $(document).ready(function() {
+                                                                $.ajax({
+                                                                    url: urllink,
+                                                                    method: 'GET',
+                                                                    dataType: 'JSON',
+                                                                    success: function(data) {
+                                                                        console.log("check data ywar",data);
+                                                                        data.forEach(allEvent);                    
+                                                                        function allEvent(event) {
+                                                                            
+                                                                            // console.log(event.linkID);
+                                                                            // linkPage.innerHTML+=`${event.linkID}`;
+                                                                            linkPage.innerHTML+=`<tr>
+                                                                                                    <td>${sno}</td>
+                                                                                                    <td>${event.linkIsFor}</td>
+                                                                                                    <td>${event.originalLink}</td>  
+                                                                                                </tr>`;
+                                                                            sno++;
+                                                                                        
+                                                                        } 
+                                                        
+                                                        
+                                                                    },error: function(xhr, status, error){
+                                                                        console.log("No");
+                                                                    },
+                                                                });
+                                                            });
+                                                    </script>  
+                                                </tbod>
+                                            </table> -->
+
+<!-- **********************************************       GET API Ends        ********************************************** -->
+
+
+
+
                                         </div>
                                     </div>
                                 </div> <!-- end col -->

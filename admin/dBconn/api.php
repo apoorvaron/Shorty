@@ -4,7 +4,7 @@ header('Content-Type: application/json');
 header("Content-Type: application/json; charset=UTF-8");
 
     include_once './database.php';
-    // include_once './apiFunc.php';
+    include_once './apiFunc.php';
     $method = $_SERVER['REQUEST_METHOD'];
 
 function submitReg(){
@@ -119,8 +119,7 @@ function deleteLink(){
 function shorty(){
     $database = new Database();
     $db = $database->connect();
-
-    
+  
     
     $uniqueNo =  $_POST["uniqueNo"];
     $originalLink =  $_POST["originalLink"];
@@ -142,6 +141,28 @@ function shorty(){
         }
 
 };
+
+function getLinks(){
+    $database = new Database();
+    $db = $database->connect();
+    $obj = new Link($db);
+    $result = $obj->allLink();
+    
+    // var_dump($result);  
+    if ($result) {
+        $announcements_arr = array();
+        while ($row = $result->fetch_assoc()) {
+            $announcement_item = array(
+                'linkID' => $row["linkID"],
+                'linkIsFor' => $row["linkIsFor"],
+                'originalLink' => $row["originalLink"],
+                'shortenLink' => $row["shortenLink"],
+            );
+            array_push($announcements_arr, $announcement_item);
+        }
+        echo json_encode($announcements_arr);
+    }
+};
     $q = $_GET['q'];
     // echo $q;
     switch ($q) {
@@ -159,6 +180,9 @@ function shorty(){
             break;
         case 'shorty':
             shorty();
+            break;
+        case 'getLinks':
+            getLinks();
             break;
         default:
             echo "Invalid Query";
