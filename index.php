@@ -354,68 +354,104 @@
         return result;
     }
     function generateShorty(){
-          let avail = generateString(5);
+         
           let originalLink = document.querySelector('#originalLink').value;
+
+
+              // Check original link was shortened previously 
+              let urllink = "./admin/dBconn/api.php?q=getAlreadyShortened&originalLink="+originalLink;
+                let linkPage=document.getElementById("linkPage");
+                $(document).ready(function() {
+                    $.ajax({
+                        url: urllink,
+                        method: 'GET',
+                        dataType: 'JSON',
+                        success: function(data) {
+                          let avail = generateString(5);
+                          console.log(data.length);
+                          console.log(data);
+
+                          // if link is previusly shortened 
+                            if(data.length>0){
+                                avail = data[0].shortenLink;
+                            }else{
+                              // if link is not previously shortened 
+                            }
+                            console.log(avail);
+                            let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+                            if (regexp.test(originalLink)){
+      
+                                let generateShorty =document.querySelector('#generateShorty');
+                                let full_shortlink ="<?php echo $siteName?>";
+                                // full_shortlink.slice(0, -2);
+                                // console.log(full_shortlink+avail);
+                                generateShorty.innerHTML=`
+                                                          <form
+                                                                class="form-search d-flex align-items-stretch mb-3"
+                                                                data-aos="fade-up"
+                                                                data-aos-delay="200"
+                                                          >
+                                                                <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
+                                                                <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                                                          </form>
+                                `;
+
+                                let originalLink = document.querySelector('#originalLink').value;
+                                
+                                var formData = new FormData();
+                                formData.append('originalLink', originalLink);
+                                // formData.append('shortenLink', avail);
+                              
+                              
+                                // for (const value of formData.values()) {
+                                // // console.log(value);
+
+                                // }   
+
+                                <?php 
+                                  // $extra="Extra Only";
+                                ?>
+                                // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
+                                let url = "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail;
+                                $.ajax({
+                                    type: "POST",
+                                    url:  "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail,
+                                    data : formData,
+                                    cache: false,
+                                    processData: false,
+                                    contentType: false,
+                                    success: function(data){
+                                        console.log("success");
+                                    },
+                                    error: function(xhr, status, error){
+                                        console.log("No");
+                                    },
+                                });
+                                
+
+
+
+
+
+
+                              }else{
+
+                                swal("Enter Valid URL !!", "", "error");
+                              }
+            
+                        },error: function(xhr, status, error){
+                            console.log("No");
+                        },
+                    });
+                });
+
+
+
+
+
           // console.log(Boolean(new URL(originalLink)));
-          let regexp =  /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-          if (regexp.test(originalLink)){
-            let generateShorty =document.querySelector('#generateShorty');
-            let full_shortlink ="<?php echo $siteName?>";
-            // full_shortlink.slice(0, -2);
-            // console.log(full_shortlink+avail);
-          generateShorty.innerHTML=`
-                                      <form
-                                            class="form-search d-flex align-items-stretch mb-3"
-                                            data-aos="fade-up"
-                                            data-aos-delay="200"
-                                      >
-                                            <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
-                                            <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
-                                      </form>
-          `;
-
-            let originalLink = document.querySelector('#originalLink').value;
-            
-            var formData = new FormData();
-            formData.append('originalLink', originalLink);
-            // formData.append('shortenLink', avail);
-           
-           
-            // for (const value of formData.values()) {
-            // // console.log(value);
-
-            // }   
-
-            <?php 
-              // $extra="Extra Only";
-            ?>
-            // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
-            let url = "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail;
-            $.ajax({
-                type: "POST",
-                url:  "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail,
-                data : formData,
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function(data){
-                    console.log("success");
-                },
-                error: function(xhr, status, error){
-                    console.log("No");
-                },
-            });
-            
-
-
-
-
-
-
-          }else{
-
-            swal("Enter Valid URL !!", "", "error");
-          }
+          
+         
 
 
 

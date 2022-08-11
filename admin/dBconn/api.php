@@ -163,6 +163,30 @@ function getLinks(){
         echo json_encode($announcements_arr);
     }
 };
+function getAlreadyShortened(){
+    $database = new Database();
+    $db = $database->connect();
+  
+    $originalLink = $_GET['originalLink'];
+    $sql = "SELECT * from links where uniqueNo='shorty' AND originalLink='".$originalLink."'";
+    $result =$db -> query($sql) ;
+    
+    // var_dump($result);  
+    // var_dump($sql);  
+    if ($result) {
+        $announcements_arr = array();
+        while ($row = $result->fetch_assoc()) {
+            $announcement_item = array(
+                'linkID' => $row["linkID"],
+                'linkIsFor' => $row["linkIsFor"],
+                'originalLink' => $row["originalLink"],
+                'shortenLink' => $row["shortenLink"],
+            );
+            array_push($announcements_arr, $announcement_item);
+        }
+        echo json_encode($announcements_arr);
+    }
+};
     $q = $_GET['q'];
     // echo $q;
     switch ($q) {
@@ -183,6 +207,9 @@ function getLinks(){
             break;
         case 'getLinks':
             getLinks();
+            break;
+        case 'getAlreadyShortened':
+            getAlreadyShortened();
             break;
         default:
             echo "Invalid Query";
