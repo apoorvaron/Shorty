@@ -73,7 +73,7 @@
                                         <div class="card-body">
             
                                             <h3 class="mt-0 header-title">Your Links</h3>
-                                            <p class="text-muted  font-14">Here , You can edit , delete or make new customised shorted links as per your preference.
+                                            <p class="text-muted  font-14">Here , You can edit , delete or make new customised shorted links.
                                             </p>
             
                                             <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
