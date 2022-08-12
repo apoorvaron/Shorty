@@ -193,8 +193,8 @@
                                             <!-- <div class="row"> -->
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
-                                                        <label> <b><?php echo $siteName ?></b> </label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Short Link" style="border:0px"   required id="shortenLink" name="shortenLink"/></span>
+                                                        <label><b><?php echo $siteName ?></b></label>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Name" style="border:0px;padding-left:0px;"   required id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
