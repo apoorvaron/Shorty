@@ -141,7 +141,7 @@
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <img
-            src="https://rocketlink.io/wp-content/uploads/2020/01/undraw_share_link_qtxe.png"
+            src="./assets/img/main-site-shorty-logo.webp"
             alt="logo"
             style="border-radius: 10px;"
           />

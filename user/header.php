@@ -121,7 +121,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU" height="100" alt="logo"></a>
+                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.png" height="100" alt="logo"></a>
                     </div>
                 </div>
                

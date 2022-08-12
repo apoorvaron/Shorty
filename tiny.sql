@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 07, 2022 at 10:56 AM
+-- Generation Time: Aug 11, 2022 at 05:11 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -23,15 +23,41 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `counter_table`
+--
+
+CREATE TABLE `counter_table` (
+  `id` int(11) NOT NULL,
+  `ip_address` text NOT NULL,
+  `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `counter_table`
+--
+
+INSERT INTO `counter_table` (`id`, `ip_address`, `visit_date`) VALUES
+(2, '12:!2:12:12', '2022-07-26 11:13:20'),
+(3, '::1', '2022-07-26 11:16:14'),
+(4, '54:45:45', '2022-07-26 11:17:05'),
+(5, '54:54:54:54', '2022-07-26 11:18:20'),
+(6, '54:54:24:54', '2022-08-07 19:19:21'),
+(7, '54:54:24:54', '2022-08-07 19:19:21'),
+(8, '54:54:24:54', '2022-08-07 19:19:21'),
+(9, '54:54:24:54', '2022-08-07 19:19:21');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `links`
 --
 
 CREATE TABLE `links` (
   `linkID` int(255) NOT NULL,
-  `uniqueNo` varchar(255) NOT NULL,
-  `linkIsFor` varchar(255) NOT NULL,
-  `originalLink` varchar(1000) NOT NULL,
-  `shortenLink` varchar(255) NOT NULL
+  `uniqueNo` varchar(255) DEFAULT NULL,
+  `linkIsFor` varchar(255) DEFAULT NULL,
+  `originalLink` varchar(255) DEFAULT NULL,
+  `shortenLink` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -39,13 +65,26 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`linkID`, `uniqueNo`, `linkIsFor`, `originalLink`, `shortenLink`) VALUES
-(6, '2bc18f', 'sedfwrghg', 'http://localhost:8888/tiny/user/newLink.php?username=saksham7865@gmail.com&uno=2bc18f', '999cbf'),
-(7, '2bc18f', 'efwrgetryt', 'http://localhost:8888/tiny/user/newLink.php?username=saksham7865@gmail.com&uno=2bc18f', '6cd2a7'),
-(8, 'f1b8d2', 'efwretryth', 'http://localhost:8888/tiny/user/newLink.php?username=udit@gmail.com&uno=f1b8d2', '148c4d'),
-(9, 'c23675', 'wersedtg', 'http://localhost:8888/tiny/user/newLink.php?username=a@gmail.com&uno=d06d90', 'cce39e'),
-(10, 'd88fb1', 'defrtryht', 'http://localhost:8888/tiny/user/newLink.php?username=a@gmail.com&uno=d06d90', 'cce39e'),
-(17, '97bf8e', 'fergdtfhg', 'http://localhost:8888/tiny/user/newLink.php?username=a@gmail.com&uno=d06d90', '398c07'),
-(18, '97bf8e', 'wdertyhtg', 'http://localhost:8888/tiny/user/newLink.php?username=nid@gmail.com&uno=97bf8e', '0f5376');
+(1, 'shorty', NULL, 'https://meet.google.com/', 'V15Ez'),
+(6, 'shorty', NULL, 'https://code.tutsplus.com/tutorials/10-best-php-url-shortener-scripts--cms-28675', 'czox6');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `total_clicks`
+--
+
+CREATE TABLE `total_clicks` (
+  `id` int(255) NOT NULL,
+  `total_clicks` int(255) DEFAULT '1'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `total_clicks`
+--
+
+INSERT INTO `total_clicks` (`id`, `total_clicks`) VALUES
+(1, 36);
 
 -- --------------------------------------------------------
 
@@ -55,42 +94,50 @@ INSERT INTO `links` (`linkID`, `uniqueNo`, `linkIsFor`, `originalLink`, `shorten
 
 CREATE TABLE `users` (
   `uniqueNo` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
   `username` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `img` varchar(255) DEFAULT NULL
+  `img` varchar(255) DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`uniqueNo`, `email`, `username`, `password`, `img`) VALUES
-('f1b8d2', 'anu@gmail.com    ', 'anu@gmail.com', '0aa2aa1e30405cdb2325ab790e3c1776', '../assets/user-img/1659866239pic.jpg'),
-('d88fb1', 'f@gmail.com', 'f@gmail.com', '0800518c30146a079a9b7e2e09247589', '../assets/user-img/1659867552pic.jpg'),
-('97bf8e', 'nid@gmail.com', 'nid@gmail.com', 'bb4a405bdf12df826e430cf037a2de5d', '../assets/user-img/1659869179pic.jpg'),
-('158755', 'plk1@gmail.com ', 'plk1@gmail.com', '0246c81d0f122acc8b35a4360f2a4023', '../assets/user-img/1659866102pic.jpg'),
-('2bc18f', 'saksham@gmail.com ', 'saksham@gmail.com', 'f723aebcea1cb89dd5c058b446628105', '../assets/user-img/1659865969pic.jpg'),
-('7689a8', 'suhani.j2002@gmail.com ', 'suhani.j2002@gmail.com', 'd0e8ee0c2de7ff843ae1fe69abfa7e16', '../assets/user-img/1659864911pic.jpg'),
-('a7f11e', 'uditt@gmail.com ', 'uditt@gmail.com', '10a8d27a2fa2e2cce0f9c46fb55fd351', '../assets/user-img/1659865861IMG-20190604-WA0031.jpg'),
-('c23675', 'zz@gmail.com  ', 'zz@gmail.com', '8df3bb0d05a08245b6140092b0a4a123', '../assets/user-img/1659867347pic.jpg');
+INSERT INTO `users` (`uniqueNo`, `username`, `email`, `password`, `img`) VALUES
+('c99fc8', '06a7d2', 'wertsdfygjh@gmail.com', 'f61c64613a6ea4d4d8c0349815e4bd09', '../assets/user-img/1660224834pic.jpg'),
+('db94c5', '3bf838', 'rwetretf@gmail.com', '61893e6ab95c05a0b1c20387da0d0ded', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU'),
+('eba198', 'ecb70b', 'qwert@gmail.com', '3875a0e32aa168eeb4b95c72bc070071', '../assets/user-img/1660224659pic.jpg'),
+('shorty', 'shorty', 'shorty@gmail.com', '62b5fe5724b08db455672377fb31e95b', '../assets/user-img/1659983584admin-img.png');
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `counter_table`
+--
+ALTER TABLE `counter_table`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `links`
 --
 ALTER TABLE `links`
-  ADD PRIMARY KEY (`linkID`);
+  ADD PRIMARY KEY (`linkID`),
+  ADD UNIQUE KEY `shortenLink` (`shortenLink`);
+
+--
+-- Indexes for table `total_clicks`
+--
+ALTER TABLE `total_clicks`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `username` (`username`),
   ADD UNIQUE KEY `uniqueNo` (`uniqueNo`),
   ADD UNIQUE KEY `email` (`email`);
 
@@ -99,10 +146,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `counter_table`
+--
+ALTER TABLE `counter_table`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `linkID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `linkID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
