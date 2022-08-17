@@ -20,7 +20,7 @@ Step -3   Put tiny folder inside
           /Applications/MAMP/htdocs/  folder  (FOR MAC)
           C:/xampp/htdocs/            folder  (FOR WINDOWS)
 
-Step -4   Change in /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+Step -4   Set below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -30,7 +30,7 @@ Step -4   Change in /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & havi
                 $env_port = "8889";
             ?>
 
-Step -4   Change in htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+Step -4   Set below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
@@ -41,7 +41,7 @@ Step -4   Change in htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
                  $env_port = "3306";
             ?>
 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snnipet.(FOR MAC & having MAMP)
+Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.(FOR MAC & having MAMP)
 
                 ErrorDocument 404 http://localhost:8888/tiny/404.php
 
@@ -76,40 +76,7 @@ Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snnip
                 RewriteCond %{REQUEST_FILENAME} !-d
                 RewriteRule ^(.*)$ index.php?/$1 [L]
                 
-   
-Step -6   create ".gitignore" file inside htdocs/tiny/ and Paste below code snnipet.(FOR BOTH TYPE OF SYSTEM)  
-
-                .cpanel.yml
-                *config.php
-                upload/*
-                env.php
-                .DS_Store
-                forms/responsesfile/*
-                .htaccess
-                users/env
-
-
-                # react
-                /build
-                node_modules
-                package-lock.json
-                .eslintcache
-                *.lock
-                .env
-                admin/.DS_Store
-                assets/.DS_Store
-                .vscode/
-                debug.log
-                /package.json
-                mail-testing
-                admin/adminPanel/faqadmin/certificate/download
-                admin/adminPanel/faqadmin/images
-                verify
-                upload
-                # composer
-                vendor
-                
-Step -7   Change the file content inside tiny/htdocs/siteName.php
+Step -6   Change the file content inside tiny/htdocs/siteName.php
 
           1) FOR MAC & MAMP
                 <?php
@@ -121,22 +88,22 @@ Step -7   Change the file content inside tiny/htdocs/siteName.php
                     $siteName = "http://localhost/tiny/";
                 ?>
                 
-Step -8   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
+Step -7   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
 
-Step -9   To Setup the database, open 
+Step -8   To Setup the database, open 
 
-          localhost:8888/phpmyadmin/   (FOR MAC & MAMP)
-          localhost/phpmyadmin/   (FOR WINDOWS & XAMPP)
+          localhost:8888/phpmyadmin    (FOR MAC & MAMP)
+          localhost/phpmyadmin         (FOR WINDOWS & XAMPP)
 
-Step -10   Create New Database 
+Step -9   Create New Database 
 
-Step -11   Database name  "tiny"
+Step -10   Database name  "tiny"
 
-Step -12   Import Database from "htdocs/tiny/tiny.sql" directory . 
+Step -11   Import Database from "htdocs/tiny/tiny.sql" directory . 
 
-            1) tiny.sql (db file)
+           tiny.sql (db file)
 
-Step -13   Run in browser 
+Step -12   Run in browser 
 
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
