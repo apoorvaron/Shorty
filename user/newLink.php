@@ -161,7 +161,7 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
-                                                <i class="mdi mdi-alert-circle font-32"></i><strong>Shorty</strong> 
+                                                <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
                                             </div>
             
                                             <h3 class="mt-0 header-title"></h3>
@@ -194,7 +194,7 @@
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label><b><?php echo $siteName ?></b></label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Name" style="border:0px;padding-left:0px;"   required id="shortenLink" name="shortenLink"/></span>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Name" style="border:0px;padding-left:0px;;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
