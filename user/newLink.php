@@ -171,7 +171,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Link is for</label>
+                                                        <label></label>
                                                         <input type="text"  class="form-control" id="linkIsFor" name="linkIsFor" required placeholder="Link is for"/>
                                                     </div>
                                                 </div>
@@ -179,7 +179,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label>Original Link</label>
+                                                        <!-- <label>Original Link</label> -->
                                                         <input type="text"  class="form-control" id="originalLink" name="originalLink" required placeholder="Original Link"/>
                                                     </div>
                                                 </div>
@@ -187,7 +187,7 @@
                                   
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label>Shorten Link</label>
+                                                    <!-- <label>Shorten Link</label> -->
                                                 </div>
                                             </div>
                                             <!-- <div class="row"> -->
@@ -204,16 +204,16 @@
 
                                              
                                             <br>
-                                           
+                                           <br>
                                             <div class="row">
                                                 <div class="col-md-6 text-center">
                                                     <div class="form-group mb-0">
                                                         <div >
                                                             <button type="button" name="generateRandom" id="generateRandom" class="btn btn-success waves-effect waves-light">
-                                                                Generate Random Number
+                                                                Random No.
                                                             </button>
                                                           
-                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Get Preview</button>
+                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
                                                         
                                                         </div>
                                                     </div>
@@ -226,7 +226,7 @@
                                                     <div class="form-group mb-0">
                                                         <div >
                                                             <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
-                                                                Check & Confirm
+                                                                Create
                                                             </button>
                                                          
                                                  

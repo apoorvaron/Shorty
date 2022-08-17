@@ -71,7 +71,6 @@
                                 <div class="col-md-12">
                                     <div class="card">
                                         <div class="card-body">
-            
                                             <h3 class="mt-0 header-title">Your Links</h3>
                                             <p class="text-muted  font-14">Here , You can edit , delete or make new customised shorted links.
                                             </p>
