@@ -108,4 +108,9 @@ Step -12   Run in browser
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
 
+! IMPORTANT -> users table must contain one row 
 
+          1) uniqueNo = "shorty"
+          2) email = "shorty@gmail.com"
+          3) password = "62b5fe5724b08db455672377fb31e95b"
+          4) img = "../assets/user-img/1659983584admin-img.png"
