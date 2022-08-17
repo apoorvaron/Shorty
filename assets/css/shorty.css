@@ -1967,3 +1967,11 @@ section {
 .footer .credits a {
   color: #fff;
 }
+@media (max-width: 992px) {
+  .mobile-size {
+    align-items: center;
+    max-width: 50%;
+    max-height: 50%;
+    margin-left: 25%;
+  }
+}

@@ -176,11 +176,11 @@
       <div class="container">
         <div class="row gy-4 d-flex justify-content-between">
           <div
-            class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center"
+            class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" 
           >
             <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
             <p data-aos="fade-up" data-aos-delay="100">
-            To help you grow, scale, and dominate through the power of link management. Our shortened links strive to help brands fulfil their greatest ambitions. Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click.
+            To help you grow, scale, and dominate through the power of link management.Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click.
             </p>
 
             <form
@@ -291,7 +291,7 @@
           <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
             <img
               src="assets/img/hero-img.svg"
-              class="img-fluid mb-3 mb-lg-0 vert-move"
+              class="img-fluid mb-3 mb-lg-0 vert-move mobile-size"
               style="margin-top:20%"
             />
 
