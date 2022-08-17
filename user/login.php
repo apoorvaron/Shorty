@@ -1,6 +1,86 @@
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        <!-- jQuery CDN -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<style>
+
+    .swal-overlay {
+        background-color: #0e1d34;
+    }
+    .swal-button {
+        padding: 7px 19px;
+        border-radius: 2px;
+        background-color: #4962B3;
+        font-size: 12px;
+        border: 1px solid #3e549a;
+        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+    }
+
+
+</style>
+
 <?php
         session_start();
         error_reporting(0);
+?>
+        <?php
+  if(isset($_POST['submit'])){
+    require('../admin/dBconn/database.php');
+    $database = new Database();
+    $db = $database->connect();
+
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $originalPass = $password;
+    $password = md5($password);
+
+    $query = "SELECT * from users where email='$email' and password ='$password'";
+    $result = mysqli_query($db,$query);
+
+    if(mysqli_num_rows($result)==1){
+
+        ob_start();
+        if(isset($_POST['rememberme'])){
+            // echo "frgtdhyjkhtjyr3q5rteyjg,hhrteq3tyjg,rt3r5qtyjgrthe5yethr";
+            // echo $email;
+            // echo $originalPass;
+            setcookie('emailcookie',$email,time()+86400);
+            setcookie('passwordcookie',$originalPass,time()+86400);
+            // echo $_COOKIE['passwordcookie'];
+        }
+      $row = mysqli_fetch_array($result);
+      $_SESSION["".$row['username'].""]="".$row['username']."";
+    //   header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
+      echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
+    }
+    else{
+        // echo "  <script>
+        //             let warning =  document.querySelector('#warning');
+        //             warning.innerHTML += `  <span style='color:red;font-weight:bold;padding-bottom:0px'>Wrong username or password </span>
+        //                                     <p style='color:red;font-weight:bold;'>Try Again !! </p>`;
+                                            
+                                            
+        //                                     let timeleft = 1;
+        //                                     let downloadTimer = setInterval(function(){
+        //                                     if(timeleft <= 0){
+        //                                         warning.innerHTML=``;
+        //                                     } else {
+        //                                     }
+        //                                     timeleft -= 1;
+        //                                     }, 1000);
+
+
+
+        //         </script>";
+        echo "  <script>
+                    $(document).ready(function(){
+                        swal('Wrong Email or password !!','','error').then(function() {
+                        });
+                    });
+                </script>";
+    }
+
+  }
 ?>
 
 <!DOCTYPE html>
@@ -76,7 +156,7 @@ img.vert-move {
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password"  minlength="8" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" >
+                                    <input class="form-control" type="password" id="password" required="" placeholder="Password" name="password"  value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" >
                                 </div>
                                     <i id="eyei" style="margin-left:-15%;margin-top:2.5%;z-index:9999;" onclick="changeType()" class="fa fa-eye-slash" aria-hidden="true"></i>
 
@@ -118,59 +198,7 @@ img.vert-move {
                 </div>
             </div>
         </div>
-        <?php
-  if(isset($_POST['submit'])){
-    require('../admin/dBconn/database.php');
-    $database = new Database();
-    $db = $database->connect();
 
-    $email=$_POST['email'];
-    $password=$_POST['password'];
-    $originalPass = $password;
-    $password = md5($password);
-
-    $query = "SELECT * from users where email='$email' and password ='$password'";
-    $result = mysqli_query($db,$query);
-
-    if(mysqli_num_rows($result)==1){
-
-        ob_start();
-        if(isset($_POST['rememberme'])){
-            // echo "frgtdhyjkhtjyr3q5rteyjg,hhrteq3tyjg,rt3r5qtyjgrthe5yethr";
-            // echo $email;
-            // echo $originalPass;
-            setcookie('emailcookie',$email,time()+86400);
-            setcookie('passwordcookie',$originalPass,time()+86400);
-            // echo $_COOKIE['passwordcookie'];
-        }
-      $row = mysqli_fetch_array($result);
-      $_SESSION["".$row['username'].""]="".$row['username']."";
-    //   header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
-      echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
-    }
-    else{
-        echo "  <script>
-                    let warning =  document.querySelector('#warning');
-                    warning.innerHTML += `  <span style='color:red;font-weight:bold;padding-bottom:0px'>Wrong username or password </span>
-                                            <p style='color:red;font-weight:bold;'>Try Again !! </p>`;
-                                            
-                                            
-                                            let timeleft = 1;
-                                            let downloadTimer = setInterval(function(){
-                                            if(timeleft <= 0){
-                                                warning.innerHTML=``;
-                                            } else {
-                                            }
-                                            timeleft -= 1;
-                                            }, 1000);
-
-
-
-                </script>";
-    }
-
-  }
-?>
 
         <script>
             let loop = 0;
