@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 11, 2022 at 05:11 PM
+-- Generation Time: Aug 17, 2022 at 05:04 PM
 -- Server version: 5.7.32
 -- PHP Version: 7.4.12
 
@@ -97,7 +97,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
-  `img` varchar(255) DEFAULT 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU'
+  `img` varchar(255) DEFAULT '../assets/img/inside-header-logo.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -105,6 +105,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`uniqueNo`, `username`, `email`, `password`, `img`) VALUES
+('2205f7', '01da3d', 'apoorv.aron02@gmail.com', 'd0e8ee0c2de7ff843ae1fe69abfa7e16', '../assets/img/inside-header-logo.png'),
 ('c99fc8', '06a7d2', 'wertsdfygjh@gmail.com', 'f61c64613a6ea4d4d8c0349815e4bd09', '../assets/user-img/1660224834pic.jpg'),
 ('db94c5', '3bf838', 'rwetretf@gmail.com', '61893e6ab95c05a0b1c20387da0d0ded', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEZ-l9cc182qgeeI13xo4iv2ZimdcXeYe1Sg&usqp=CAU'),
 ('eba198', 'ecb70b', 'qwert@gmail.com', '3875a0e32aa168eeb4b95c72bc070071', '../assets/user-img/1660224659pic.jpg'),
@@ -155,7 +156,7 @@ ALTER TABLE `counter_table`
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
-  MODIFY `linkID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `linkID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
