@@ -9,7 +9,9 @@
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
 
--------*---------*----------
+-------*---------*---------*---------*---------*---------
+## Live Site -> http://shrty.rf.gd/
+
 
 Step -1   Download zip file 
 
@@ -119,3 +121,9 @@ Step -12   Run in browser
           
           email    -> shorty@gmail.com
           password -> shorty@gmail.com
+
+-> While Hosing
+
+          1) Change env.php credentials
+          2) Change siteName.php 
+          3) Upload files & dB.
