@@ -78,7 +78,6 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-
     .swal-button {
         padding: 7px 19px;
         border-radius: 2px;
