@@ -9,7 +9,9 @@
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
 
--------*---------*----------
+-------*---------*---------*---------*---------*---------
+## Live Site -> http://shrty.rf.gd/
+
 
 Step -1   Download zip file 
 
@@ -114,3 +116,14 @@ Step -12   Run in browser
           2) email = "shorty@gmail.com"
           3) password = "62b5fe5724b08db455672377fb31e95b"
           4) img = "../assets/user-img/1659983584admin-img.png"
+          
+-> Front Page shorted links goes into admin account 
+          
+          email    -> shorty@gmail.com
+          password -> shorty@gmail.com
+
+-> While Hosing
+
+          1) Change env.php credentials
+          2) Change siteName.php 
+          3) Upload files & dB.
