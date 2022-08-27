@@ -84,17 +84,40 @@
                             </div>
 
                           
-                            <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <div class="col-12">
                                     <input class="form-control" type="password" id="password" minlength="8" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
                                 </div>
-                            </div>
+                            </div> -->
+
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="password" id="cnfrmPass" minlength="8" required placeholder="Confirm Password" name="cnfrmPass">
+                                <div class="input-group">
+                                    <input type="password" class="form-control " id="password" required minlength="8" name="password" placeholder="Password" onblur="removeInclude()" onfocus="addInclude()" >
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" onclick="changeType()">
+                                        <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick="" class="fa fa-eye-slash" aria-hidden="true"></i>
+                                  </div>
                                 </div>
-                            </div>
+                                </div>
+                            </div> 
+                            
+                            <div class="form-group row">
+                                <div class="col-12">
+                                <div class="input-group">
+                                    <input type="password" class="form-control " id="cnfrmPass" required minlength="8" name="cnfrmPass" placeholder="Confirm Password">
+                                  <div class="input-group-append">
+                                    <span class="input-group-text" onclick="changeTypei()">
+                                        <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"  class="fa fa-eye-slash" aria-hidden="true"></i>
+                                  </div>
+                                </div>
+                                </div>
+                            </div> 
+
+
+
+
                             <div class="form-group row">
                                 <div class="col-12" >
                                     <center id="warnDiv">
@@ -149,7 +172,43 @@
                 </div>
             </div>
         </div>
+        <script>
+            let loop = 0;
+            let password = document.querySelector('#password');
+            let eyei = document.querySelector('#eyei');
+            function changeType(){
+                if(loop%2==0){
+                    eyei.classList.remove("fa-eye-slash");
+                    eyei.classList.add("fa-eye");
+                    password.type="text";
+                }else{
+                    eyei.classList.remove("fa-eye");
+                    eyei.classList.add("fa-eye-slash");
+                    password.type="password";
+                }
+                loop++;
+            }
 
+
+
+            let loopi = 0;
+            let cnfrmPass = document.querySelector('#cnfrmPass');
+            let eyeii = document.querySelector('#eyeii');
+            function changeTypei(){
+                if(loopi%2==0){
+                    eyeii.classList.remove("fa-eye-slash");
+                    eyeii.classList.add("fa-eye");
+                    cnfrmPass.type="text";
+                }else{
+                    eyeii.classList.remove("fa-eye");
+                    eyeii.classList.add("fa-eye-slash");
+                    cnfrmPass.type="password";
+                }
+                loopi++;
+            }
+
+
+        </script>
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
