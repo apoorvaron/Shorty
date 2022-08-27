@@ -137,7 +137,7 @@
       <div
         class="container-fluid container-xl d-flex align-items-center justify-content-between"
       >
-        <a href="./index.php" class="logo d-flex align-items-center">
+        <a href="./" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <img
@@ -236,7 +236,7 @@
                     data-purecounter-duration="1"
                     class="purecounter"
                   ></span>
-                  <p>Visitors</p>
+                  <p>Total Visitors</p>
                 </div>
               </div>
               <!-- End Stats Item -->
@@ -271,6 +271,21 @@
                     $row = mysqli_fetch_array($result);
 
                     $clicks = $row['total_clicks'];
+
+
+
+                    
+                    $sql = "SELECT * FROM users";
+                    if($result = mysqli_query($link, $sql)){
+                      if(mysqli_num_rows($result) > 0){
+                              while($row = mysqli_fetch_array($result)){  
+                                          $registeredUsers++;  
+                              }
+                          mysqli_free_result($result);
+                      } else{
+                          echo "<p class='lead'><em></em></p>";
+                      }
+                    } 
               ?>
 
               <div class="col-lg-3 col-6">
@@ -282,6 +297,17 @@
                     class="purecounter"
                   ></span>
                   <p>Total clicks</p>
+                </div>
+              </div>
+              <div class="col-lg-3 col-6">
+                <div class="stats-item text-center w-100 h-100">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="<?php echo $registeredUsers ?>"
+                    data-purecounter-duration="1"
+                    class="purecounter"
+                  ></span>
+                  <p>Registered Users</p>
                 </div>
               </div>
               <!-- End Stats Item -->
