@@ -174,7 +174,7 @@
         </div>
         <script>
             let loop = 0;
-            let password = document.querySelector('#password');
+             password = document.querySelector('#password');
             let eyei = document.querySelector('#eyei');
             function changeType(){
                 if(loop%2==0){

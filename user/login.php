@@ -139,7 +139,7 @@ img.vert-move {
                             <div class="form-group row">
                                 <div class="col-12">
                                 <div class="input-group">
-                                    <input type="password" class="form-control " value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" id="password" required name="password" placeholder="Password" value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?> >
+                                    <input type="password" class="form-control " value="<?php if(isset($_COOKIE['passwordcookie'])){ echo $_COOKIE['passwordcookie'];} ?>" id="password" required name="password" placeholder="Password"  >
                                   <div class="input-group-append">
                                     <span class="input-group-text" onclick="changeType()">
                                         <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
@@ -159,7 +159,7 @@ img.vert-move {
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <div class="custom-control custom-checkbox" style="padding-left: 2.5rem;">
+                                    <div class="custom-control custom-checkbox" >
                                         <input type="checkbox" class="custom-control-input" name="rememberme" id="customCheck1">
                                         <label class="custom-control-label" for="customCheck1">Remember me</label>
                                         <i class="ti-info-alt tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Save your password"></i>
@@ -169,15 +169,15 @@ img.vert-move {
 
                             <div class="form-group text-center row m-t-20">
                                 <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light" style="max-width: 92%;background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit">Log In</button>
+                                <button class="btn  btn-block waves-effect waves-light" style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit">Log In</button>
                                 </div>
                             </div>
 
                             <div class="form-group m-t-10 mb-0 row">
-                                <div class="col-sm-7 m-t-20" style="padding-left: 1.5rem;">
+                                <div class="col-sm-7 m-t-20" >
                                     <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
                                 </div>
-                                <div class="col-sm-5 m-t-20" style="padding-left: 1.5rem;">
+                                <div class="col-sm-5 m-t-20" >
                                     <a href="./register" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>
                                 </div>
                             </div>
