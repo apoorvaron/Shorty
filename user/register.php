@@ -270,7 +270,7 @@
                                     });
                                 </script>";
                     }else{
-                        echo "<script>swal('Email already Registered!!', '', 'info');</script>";
+                        echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
     
                     }
                 }
