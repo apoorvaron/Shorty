@@ -41,40 +41,17 @@
 
         ob_start();
         if(isset($_POST['rememberme'])){
-            // echo "frgtdhyjkhtjyr3q5rteyjg,hhrteq3tyjg,rt3r5qtyjgrthe5yethr";
-            // echo $email;
-            // echo $originalPass;
             setcookie('emailcookie',$email,time()+86400);
             setcookie('passwordcookie',$originalPass,time()+86400);
-            // echo $_COOKIE['passwordcookie'];
         }
       $row = mysqli_fetch_array($result);
       $_SESSION["".$row['username'].""]="".$row['username']."";
-    //   header('location: ./index.php?username='.$row['username'].'&uno='.$row['uniqueNo']);
       echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
     }
     else{
-        // echo "  <script>
-        //             let warning =  document.querySelector('#warning');
-        //             warning.innerHTML += `  <span style='color:red;font-weight:bold;padding-bottom:0px'>Wrong username or password </span>
-        //                                     <p style='color:red;font-weight:bold;'>Try Again !! </p>`;
-                                            
-                                            
-        //                                     let timeleft = 1;
-        //                                     let downloadTimer = setInterval(function(){
-        //                                     if(timeleft <= 0){
-        //                                         warning.innerHTML=``;
-        //                                     } else {
-        //                                     }
-        //                                     timeleft -= 1;
-        //                                     }, 1000);
-
-
-
-        //         </script>";
         echo "  <script>
                     $(document).ready(function(){
-                        swal('Wrong Email or password !!','','error').then(function() {
+                        swal('Wrong Email or Password !!','','error').then(function() {
                         });
                     });
                 </script>";
@@ -187,7 +164,7 @@ img.vert-move {
 
                             <div class="form-group m-t-10 mb-0 row">
                                 <div class="col-sm-7 m-t-20">
-                                    <a href="../index.php" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
+                                    <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
                                     <a href="./register" class="text-muted"><i class="mdi mdi-account-circle"></i> Create an account ?</a>

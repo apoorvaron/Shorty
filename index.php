@@ -190,7 +190,7 @@
               data-aos-delay="200"
               method="POST"
             >
-              <input type="text" class="form-control" placeholder="Your Link" id="originalLink" />
+              <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink" />
               <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
             </form>
             <div id="generateShorty"></div>
@@ -417,7 +417,7 @@
                                                                 data-aos="fade-up"
                                                                 data-aos-delay="200"
                                                           >
-                                                                <input type="text" id="shortInput" class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
+                                                                <input type="text" id="shortInput" style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
                                                                 <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
                                                           </form>
                                 `;
