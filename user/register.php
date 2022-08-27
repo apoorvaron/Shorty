@@ -102,7 +102,7 @@
                                 </div>
                                 </div>
                             </div> 
-                            
+
                             <div class="form-group row">
                                 <div class="col-12">
                                 <div class="input-group">
@@ -274,7 +274,7 @@
         let includeDiv = document.querySelector('#includeDiv');
             function addInclude(){
                 includeDiv.innerHTML = `  
-                                <div class="col-12" style="margin-left: 8%;" >
+                                <div class="col-12" style="margin-left: 0%;" >
                                     <ul style="color:grey">
                                         <li>Atleast 8 characters</li>
                                         <li>Atleast one uppercase letter</li>
