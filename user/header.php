@@ -4,7 +4,7 @@
     $uno = $_GET['uno'];
     session_start();
     if($_SESSION["".$username.""]==""){
-        header('location: ./login.php');
+        header('location: ./login');
     }
 
     $now = time(); // Checking the time now when home page starts.

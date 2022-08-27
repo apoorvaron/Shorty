@@ -66,7 +66,7 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0">
-                        <a href="./register.php" class="vert-move logo logo-admin"><img class="vert-move" src="https://bootstrapmade.com/demo/templates/Vesperr/assets/img/hero-img.png" height="100" alt="logo"></a>
+                        <a href="./register.php" class="vert-move logo logo-admin"><img class="vert-move" src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
                     </h3>
                    
 
@@ -325,7 +325,7 @@
                     if($result==1){
                         echo "  <script>
                                     swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                        window.location = './login.php';
+                                        window.location = './login';
                                     });
                                 </script>";
                     }else{
@@ -346,7 +346,7 @@
             if($result==1){
                 echo "  <script>
                             swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                window.location = './login.php';
+                                window.location = './login';
                             });
                         </script>";
             }else{
