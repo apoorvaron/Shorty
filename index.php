@@ -158,10 +158,10 @@
         <nav id="navbar" class="navbar">
           <ul>
             <li>
-              <a class="get-a-quote" href="./user/login.php">Login</a>
+              <a class="get-a-quote" href="./user/login">Login</a>
             </li>
             <li>
-              <a class="get-a-quote" href="./user/register.php">Register</a>
+              <a class="get-a-quote" href="./user/register">Register</a>
             </li>
           </ul>
         </nav>

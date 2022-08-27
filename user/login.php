@@ -52,12 +52,27 @@
       echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
     }
     else{
-        echo "  <script>
-                    $(document).ready(function(){
-                        swal('Wrong Email or Password !!','','error').then(function() {
+
+        $query = "SELECT * from users where email='$email'";
+        $result = mysqli_query($db,$query);
+
+        if(mysqli_num_rows($result)==1){
+            echo "  <script>
+                        $(document).ready(function(){
+                            swal('Wrong Password !!','','error').then(function() {
+                            });
                         });
-                    });
-                </script>";
+                    </script>";
+        }else{
+            echo "  <script>
+                        $(document).ready(function(){
+                            swal('Please Register First !!','','error').then(function() {
+                                window.location='./register';
+                            });
+                        });
+                    </script>";
+        }
+
     }
 
   }
