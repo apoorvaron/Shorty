@@ -49,7 +49,7 @@
       $_SESSION["".$row['username'].""]="".$row['username']."";
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-      echo "<script>window.location.replace('./index.php?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
+      echo "<script>window.location.replace('./index?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
     }
     else{
 

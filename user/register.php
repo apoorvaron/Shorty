@@ -66,7 +66,7 @@
                 <div class="card-body">
 
                     <h3 class="text-center mt-0">
-                        <a href="./register.php" class="vert-move logo logo-admin"><img class="vert-move" src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
+                        <a href="./register" class="vert-move logo logo-admin"><img class="vert-move" src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
                     </h3>
                    
 
@@ -350,7 +350,7 @@
                             });
                         </script>";
             }else{
-                echo "<script>swal('Email already Registered!!', '', 'info');</script>";
+                echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
 
             }
         }

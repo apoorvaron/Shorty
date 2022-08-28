@@ -296,7 +296,7 @@
                     data-purecounter-duration="1"
                     class="purecounter"
                   ></span>
-                  <p>Total clicks</p>
+                  <p>Total Clicks</p>
                 </div>
               </div>
               <div class="col-lg-3 col-6">
