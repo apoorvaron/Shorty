@@ -497,109 +497,109 @@ document.addEventListener("DOMContentLoaded", function() {
                         sessionModalToggle(true);
                 } else if (countDown <= 1) {
                     clearInterval(sessionModalInterval);
-                    $("#sstSessionModalLogout")[0].click();
+                    // $("#sstSessionModalLogout")[0].click();
                 }
             }, 60 * secondDuration);
         }
 
-        function sessionModalEvents() {
-            $("#sstSessionModalContinue," + "#" + modalID + " .close").on(
-                "click.sst",
-                sessionModalRequest
-            );
-            $("#sstSessionModalLogout").on("click.sst", function(evt) {
-                modalFooterToggle(false);
-                sessionModalMsgUpdate(
-                    "Closing session. Please wait...",
-                    true,
-                    function() {
-                            setTimeout(function(){
-                                window.location.href = "login.php";
-                            }, 2000);                           
-                    }
-                );
-            });
-            $("#" + modalID)
-                .on("show.bs.modal.sst", function() {
-                    $("#sstSessionModalExpire").text(countDown);
-                })
-                .on("shown.bs.modal.sst", function() {
-                    sessionModalHeight = $(
-                        "#" + modalID + " .modal-dialog"
-                    ).height();
-                })
-                .on("hidden.bs.modal.sst", function() {
-                    if (typeof modalMsgDefault !== "undefined")
-                        $("#" + modalID + " .modal-body").html(modalMsgDefault);
-                    $("#" + modalID + " .modal-footer").show();
-                    sessionModalTimer();
-                    $("#" + modalID).removeClass("shown");
-                });
+        // function sessionModalEvents() {
+        //     $("#sstSessionModalContinue," + "#" + modalID + " .close").on(
+        //         "click.sst",
+        //         sessionModalRequest
+        //     );
+        //     $("#sstSessionModalLogout").on("click.sst", function(evt) {
+        //         modalFooterToggle(false);
+        //         sessionModalMsgUpdate(
+        //             "Closing session. Please wait...",
+        //             true,
+        //             function() {
+        //                     setTimeout(function(){
+        //                         window.location.href = "login.php";
+        //                     }, 2000);                           
+        //             }
+        //         );
+        //     });
+        //     $("#" + modalID)
+        //         .on("show.bs.modal.sst", function() {
+        //             $("#sstSessionModalExpire").text(countDown);
+        //         })
+        //         .on("shown.bs.modal.sst", function() {
+        //             sessionModalHeight = $(
+        //                 "#" + modalID + " .modal-dialog"
+        //             ).height();
+        //         })
+        //         .on("hidden.bs.modal.sst", function() {
+        //             if (typeof modalMsgDefault !== "undefined")
+        //                 $("#" + modalID + " .modal-body").html(modalMsgDefault);
+        //             $("#" + modalID + " .modal-footer").show();
+        //             sessionModalTimer();
+        //             $("#" + modalID).removeClass("shown");
+        //         });
             
-            var usrEvts = ["scroll", "keyup"],
-                touchOrClick = isMobileTouch() ? ["touchend", "touchmove"] : ["click", "mouseover"];
-            usrEvts = usrEvts.concat(touchOrClick);
-            $(usrEvts).each(function(i,v){
-                usrEvts[i] = v + ".sst";
-            });
-            usrEvts = usrEvts.join(" ");
-            var activeTimeout;
-            $(document).on(usrEvts, function(evt){
-                // console.log(evt.type);
-                window.SSTIsUserActive = true;
-                if(activeTimeout === undefined){
-                    // console.log("timeout UNDEFINED");
-                    activeTimeout = setTimeout(function(){
-                        window.SSTIsUserActive = false;
-                    }, 3 * 1000);
-                } else {
-                    // console.log("CLEAR Timeout");
-                    clearTimeout(activeTimeout);
-                    activeTimeout = undefined;
-                }
+        //     var usrEvts = ["scroll", "keyup"],
+        //         touchOrClick = isMobileTouch() ? ["touchend", "touchmove"] : ["click", "mouseover"];
+        //     usrEvts = usrEvts.concat(touchOrClick);
+        //     $(usrEvts).each(function(i,v){
+        //         usrEvts[i] = v + ".sst";
+        //     });
+        //     usrEvts = usrEvts.join(" ");
+        //     var activeTimeout;
+        //     $(document).on(usrEvts, function(evt){
+        //         // console.log(evt.type);
+        //         window.SSTIsUserActive = true;
+        //         if(activeTimeout === undefined){
+        //             // console.log("timeout UNDEFINED");
+        //             activeTimeout = setTimeout(function(){
+        //                 window.SSTIsUserActive = false;
+        //             }, 3 * 1000);
+        //         } else {
+        //             // console.log("CLEAR Timeout");
+        //             clearTimeout(activeTimeout);
+        //             activeTimeout = undefined;
+        //         }
 
-            });
+        //     });
 
-            // FOR DEMO ONLY 
-            // $(window).load(function() {
-            //     $("#OpenModalButton").on("click", function() {
-            //         $("#" + modalID).modal("show");
-            //     });
-            // });
-        }
+        //     // FOR DEMO ONLY 
+        //     // $(window).load(function() {
+        //     //     $("#OpenModalButton").on("click", function() {
+        //     //         $("#" + modalID).modal("show");
+        //     //     });
+        //     // });
+        // }
         
-        function sessionModalRequest() {
-            var request = $.ajax({
-                    url: "https://codepen.io/Marventus/pen/KmdGJp.html",
-                    method: "GET",
-                    dataType: "html"
-                })
-                .done(function(data) {
-                    if (typeof modalMsgDefault === "undefined")
-                        modalMsgDefault = $("#" + modalID + " .modal-body").html();
-                    $("#" + modalID + " .modal-footer").hide();
-                    sessionModalMsgUpdate(modalMsgSuccess);
-                })
-                .fail(function(fail, textStatus) {
-                    console.log(fail, textStatus);
-                })
-                .always(function(jqXHR, textStatus) {
-                    console.log("request executed!");
-                    setTimeout(function() {
+        // function sessionModalRequest() {
+        //     var request = $.ajax({
+        //             url: "https://codepen.io/Marventus/pen/KmdGJp.html",
+        //             method: "GET",
+        //             dataType: "html"
+        //         })
+        //         .done(function(data) {
+        //             if (typeof modalMsgDefault === "undefined")
+        //                 modalMsgDefault = $("#" + modalID + " .modal-body").html();
+        //             $("#" + modalID + " .modal-footer").hide();
+        //             sessionModalMsgUpdate(modalMsgSuccess);
+        //         })
+        //         .fail(function(fail, textStatus) {
+        //             console.log(fail, textStatus);
+        //         })
+        //         .always(function(jqXHR, textStatus) {
+        //             console.log("request executed!");
+        //             setTimeout(function() {
                         
-                        sessionModalToggle(false);
-                        sessionModalMsgUpdate(modalMsgDefault);
-                    }, 2000);
-                });
-        }
+        //                 sessionModalToggle(false);
+        //                 sessionModalMsgUpdate(modalMsgDefault);
+        //             }, 2000);
+        //         });
+        // }
         
-        function sessionModalInit() {
-            sessionModalTimer();
-            sessionModalEvents();
-        }
+        // function sessionModalInit() {
+        //     sessionModalTimer();
+        //     sessionModalEvents();
+        // }
 
         // Init Session Modal
-        sessionModalInit();
+        // sessionModalInit();
     });
 });  
 </script>                   
