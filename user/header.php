@@ -147,7 +147,7 @@
                                 <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
                             </li>
                             <li>
-                                <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span> Make New Link</span></a>
+                                <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
                             </li>
 <!--
                             <li>
@@ -164,7 +164,7 @@
                                 <a href="transcations.php" class="waves-effect waves-light"><i class="mdi mdi-wallet"></i><span> Transaction </span></a>
                             </li> -->
                             <li>
-                                <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-pencil"></i><span>  Profile </span></a>
+                                <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span>  Profile </span></a>
                             </li>
                             <li>
                                 <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>

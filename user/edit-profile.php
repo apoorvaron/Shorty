@@ -98,7 +98,7 @@
                         echo "  <script>
                                     $(document).ready(function(){
                                         swal('Successfully Updated !!','','success').then(function() {
-                                            window.location = './index.php?username=".$username."&uno=".$_GET['uno']."';
+                                            window.location = './profile.php?username=".$_GET['username']."&uno=".$_GET['uno']."';
                                         });
                                     });
                                 </script>";
@@ -107,7 +107,7 @@
                     }else{
                         echo "  <script>
                                     $(document).ready(function(){
-                                        swal('Email or Username Already Exist !!','','error');
+                                        swal('Email Already Exist !!','','error');
                                     });
                                 </script>";
                     }
@@ -127,7 +127,7 @@
                     echo "  <script>
                                 $(document).ready(function(){
                                     swal('Successfully Updated !!','','success').then(function() {
-                                        window.location = './index.php?username=".$username."&uno=".$_GET['uno']."';
+                                        window.location = './profile.php?username=".$username."&uno=".$_GET['uno']."';
                                     });
                                 });
                             </script>";
@@ -135,7 +135,7 @@
                 }else{
                     echo "  <script>
                                 $(document).ready(function(){
-                                    swal('Email or Username Already Exist !!','','error');
+                                    swal('Email Already Exist !!','','error');
                                 });
                             </script>";
                 }
