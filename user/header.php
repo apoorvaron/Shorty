@@ -488,7 +488,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sessionModalInterval = setInterval(function() {
                 countDown--;
                 $("#sstSessionModalExpire").text(countDown);
-                console.log(countDown);
+                // console.log(countDown);
                 if (countDown === timeoutToken) {
                     if( window.SSTIsUserActive ){
                         sessionModalRequest();
@@ -545,15 +545,15 @@ document.addEventListener("DOMContentLoaded", function() {
             usrEvts = usrEvts.join(" ");
             var activeTimeout;
             $(document).on(usrEvts, function(evt){
-                console.log(evt.type);
+                // console.log(evt.type);
                 window.SSTIsUserActive = true;
                 if(activeTimeout === undefined){
-                    console.log("timeout UNDEFINED");
+                    // console.log("timeout UNDEFINED");
                     activeTimeout = setTimeout(function(){
                         window.SSTIsUserActive = false;
                     }, 3 * 1000);
                 } else {
-                    console.log("CLEAR Timeout");
+                    // console.log("CLEAR Timeout");
                     clearTimeout(activeTimeout);
                     activeTimeout = undefined;
                 }
@@ -561,11 +561,11 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             // FOR DEMO ONLY 
-            $(window).load(function() {
-                $("#OpenModalButton").on("click", function() {
-                    $("#" + modalID).modal("show");
-                });
-            });
+            // $(window).load(function() {
+            //     $("#OpenModalButton").on("click", function() {
+            //         $("#" + modalID).modal("show");
+            //     });
+            // });
         }
         
         function sessionModalRequest() {
