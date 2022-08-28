@@ -6,6 +6,9 @@
     if($_SESSION["".$username.""]==""){
         header('location: ./login');
     }
+    if($_SESSION["".$uno.""]==""){
+        header('location: ./login');
+    }
 
     $now = time(); // Checking the time now when home page starts.
 

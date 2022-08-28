@@ -47,6 +47,7 @@
 
       $row = mysqli_fetch_array($result);
       $_SESSION["".$row['username'].""]="".$row['username']."";
+      $_SESSION["".$row['uniqueNo'].""]="".$row['uniqueNo']."";
       $_SESSION['start'] = time();
       $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
       echo "<script>window.location.replace('./index?username=".$row['username']."&uno=".$row['uniqueNo']."')</script>";
