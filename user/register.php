@@ -9,7 +9,7 @@
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+        <link href="../assets/img/logo.png" rel="icon" />
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -161,10 +161,10 @@
                             </div>
                             <div class="form-group m-t-10 mb-0 row">
                                 <div class="col-sm-7 m-t-20">
-                                    <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> Back to Home Page</a>
+                                    <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> &nbsp; Home Page</a>
                                 </div>
                                 <div class="col-sm-5 m-t-20">
-                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i>  Login From Here</a>
+                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i> &nbsp; Login </a>
                                 </div>
                             </div>
                         </form>

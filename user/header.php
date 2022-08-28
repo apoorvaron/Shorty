@@ -4,17 +4,19 @@
     $uno = $_GET['uno'];
     session_start();
     if($_SESSION["".$username.""]==""){
-        header('location: ./login');
+        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
     }
     if($_SESSION["".$uno.""]==""){
-        header('location: ./login');
+        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
+        // header('location: ./login');
     }
 
     $now = time(); // Checking the time now when home page starts.
 
     if ($now > $_SESSION['expire']) {
         session_destroy();
-        header('location: ../');
+        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
+        // header('location: ../');
     }
 
 ?>

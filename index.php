@@ -417,7 +417,7 @@
                                                                 data-aos="fade-up"
                                                                 data-aos-delay="200"
                                                           >
-                                                                <input type="text" id="shortInput" style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
+                                                                <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName?>${avail}"/>
                                                                 <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
                                                           </form>
                                 `;
