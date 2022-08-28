@@ -127,3 +127,9 @@ Step -12   Run in browser
           1) Change env.php credentials
           2) Change siteName.php 
           3) Upload files & dB.
+          
+-> What Can we do new?
+          
+          1) 404 Page and functionality
+          2) Forget Password Functionality
+          3) Sign in / Sign up with google
