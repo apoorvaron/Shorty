@@ -45,6 +45,13 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         function blockSpecialChar(e){
+            let value  = document.querySelector('#shortenLink').value;
+            let previewBtn = document.querySelector('#previewBtn');
+
+            if(value.length!=0){
+
+                previewBtn.removeAttribute("hidden");
+            }
             var k;
             document.all ? k = e.keyCode : k = e.which;
             return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
@@ -194,7 +201,7 @@
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label><b><?php echo $siteName ?></b></label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Name" style="border:0px;padding-left:0px;;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"   placeholder="Custom Name" style="border:0px;padding-left:0px;;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
@@ -213,7 +220,7 @@
                                                                 Random No.
                                                             </button>
                                                           
-                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
+                                                            <button  class='btn btn-primary new' type='button' hidden id="previewBtn"  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
                                                         
                                                         </div>
                                                     </div>
