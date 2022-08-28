@@ -133,3 +133,5 @@ Step -12   Run in browser
           1) 404 Page and functionality
           2) Forget Password Functionality
           3) Sign in / Sign up with google
+
+-> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
