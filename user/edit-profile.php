@@ -65,7 +65,10 @@
                     if($result = mysqli_query($link, $sql)){
                         if(mysqli_num_rows($result) > 0){
                             $row = mysqli_fetch_array($result);
-                            unlink("".$row['img']."");  
+                            if($row['img']!='../assets/img/inside-header-logo.png'){
+                                unlink("".$row['img']."");  
+                            }
+                  
                             mysqli_free_result($result);
                         } else{
                             echo "<p class='lead'><em>No Record Found.</em></p>";
