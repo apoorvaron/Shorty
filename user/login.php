@@ -240,8 +240,8 @@ img.vert-move {
 
 
         <!-- Parsley js -->
-        <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
-        <script src="assets/pages/form-validation.init.js"></script>
+        <!-- <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script src="assets/pages/form-validation.init.js"></script> -->
 
     </body>
 </html>

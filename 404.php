@@ -149,7 +149,7 @@
 			let timeleft = 5;
 			let downloadTimer = setInterval(function(){
 			if(timeleft <= 0){
-				window.location.replace("./user/login");
+				window.location.replace("./");
 			} else {
 				
 			}

@@ -225,8 +225,8 @@
         <!-- App js -->
         <script src="assets/js/app.js"></script>
 
-        <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
-        <script src="assets/pages/form-validation.init.js"></script>
+        <!-- <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
+        <script src="assets/pages/form-validation.init.js"></script> -->
 
         <script>
     let password = document.getElementById('password');
