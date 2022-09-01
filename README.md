@@ -134,5 +134,17 @@ Step -12   Run in browser
           2) Forget Password Functionality
           3) Sign in / Sign up with google
           4) All things must done by session not using URL
+          5) All things must done with API's
+          6) Use of action attribute in Any type of forms
+          7) Footer have Year 2 times 
+          8) If we edit profile then alert of pdf or non image is choosen as image 
+          9) Make admin panel 
+          10) Only admin can login to shorty@gmail.com user panel
+          11) Mobile view user panel header have Hii username
+          12) Dynamic Titles of pages 
+          13) Want to update -> edit profile?
+          14) Mobile view , image , main page , margin top boht jyafa h
+          15) Remember me button check if cookie set
+
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
