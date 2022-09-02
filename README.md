@@ -145,6 +145,7 @@ Step -12   Run in browser
           13) Want to update -> edit profile?
           14) Mobile view , image , main page , margin top boht jyafa h
           15) Remember me button check if cookie set
+          16) SMS Sender
 
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
