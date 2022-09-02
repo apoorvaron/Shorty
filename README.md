@@ -146,6 +146,6 @@ Step -12   Run in browser
           14) Mobile view , image , main page , margin top boht jyafa h
           15) Remember me button check if cookie set
           16) SMS Sender
-
+          17) Open only in one tab at once
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
