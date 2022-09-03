@@ -147,5 +147,8 @@ Step -12   Run in browser
           15) Remember me button check if cookie set
           16) SMS Sender
           17) Open only in one tab at once
+          18) Add chat bot 
+          19) Add whatsapp icon to connect with admin on whatsapp
+          20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on url
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
