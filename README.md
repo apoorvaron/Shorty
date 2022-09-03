@@ -151,5 +151,6 @@ Step -12   Run in browser
           19) Add whatsapp icon to connect with admin on whatsapp
           20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on url
           21) Account registeration with otp
+          22) Captcha (i m not robot)
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
