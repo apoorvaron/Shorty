@@ -153,5 +153,7 @@ Step -12   Run in browser
           21) Account registeration with otp
           22) Captcha (i m not robot)
           23) Can not access inside folder
+          24) Use of local storage 
+          25) dont cut (pop is there you have some unsaved want to leave ?)
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
