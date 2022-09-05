@@ -155,5 +155,6 @@ Step -12   Run in browser
           23) Can not access inside folder
           24) Use of local storage 
           25) dont cut (pop is there you have some unsaved want to leave ?)
+          26) custom short link from front page too
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
