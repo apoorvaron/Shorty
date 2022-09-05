@@ -152,5 +152,6 @@ Step -12   Run in browser
           20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on url
           21) Account registeration with otp
           22) Captcha (i m not robot)
+          23) Can not access inside folder
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
