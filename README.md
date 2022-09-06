@@ -156,5 +156,6 @@ Step -12   Run in browser
           24) Use of local storage 
           25) dont cut (pop is there you have some unsaved want to leave ?)
           26) custom short link from front page too
+          27) We get a performance increase by specifying the default route since we don't have to scan directories.
 
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
