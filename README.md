@@ -159,7 +159,8 @@ Step -12   Run in browser
           27) We get a performance increase by specifying the default route since we don't have to scan directories.
           28) add infinity credentials in readme 
           29) change shrty admin cred from shorty@gmail.com to apoorv.shorty@gmail.com
-          30) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
+          30) Placeholder have asterisk sign
+          31) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
           
           <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
                     Order Allow,Deny
