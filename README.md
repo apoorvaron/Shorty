@@ -162,7 +162,8 @@ Step -12   Run in browser
           30) Placeholder have asterisk sign
           31) Database simple one table or merge something for total clicks & visitor counter table
           32) If session is not logged out then if click on Login Button then go to panel if his session logged out then go to login page otherwise go to user panel
-          33) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
+          33) What type of Data structure do we use in this project
+          34) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
           
           <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
                     Order Allow,Deny
