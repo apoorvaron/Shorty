@@ -1,4 +1,4 @@
-# How to make this for yourself 📖
+# How to make this for Yourself 📖
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
