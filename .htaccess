@@ -1,4 +1,4 @@
-ErrorDocument 404 http://localhost:8888/tiny/404.php
+ErrorDocument 404 http://localhost:8888/extra/tiny/404.php
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -7,7 +7,6 @@ RewriteRule ^(.*)$ $1.php [NC,L]
 
 
 RewriteEngine On
-
 RewriteCond $1 !^(index\.php)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
