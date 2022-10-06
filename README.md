@@ -1,4 +1,4 @@
-# How to make this for yourself 📖
+# How to make this for Yourself 📖
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
@@ -15,7 +15,7 @@
 
 Step -1   Download zip file 
 
-Step -2   unzip it & Rename folder from "tiny-main" to "tiny"
+Step -2   Unzip it & Rename folder from "tiny-main" to "tiny"
 
 Step -3   Put tiny folder inside 
 
@@ -127,3 +127,55 @@ Step -12   Run in browser
           1) Change env.php credentials
           2) Change siteName.php 
           3) Upload files & dB.
+          
+-> What Can we do new?
+          
+          1) 404 Page and functionality
+          2) Forget Password Functionality
+          3) Sign in / Sign up with google
+          4) All things must done by session not using URL
+          5) All things must done with API's
+          6) Use of action attribute in Any type of forms
+          7) Footer have Year 2 times 
+          8) If we edit profile then alert of pdf or non image is choosen as image 
+          9) Make admin panel 
+          10) Only admin can login to shorty@gmail.com user panel
+          11) Mobile view user panel header have Hii username
+          12) Dynamic Titles of pages 
+          13) Want to update -> edit profile?
+          14) Mobile view , image , main page , margin top boht jyafa h
+          15) Remember me button check if cookie set
+          16) SMS Sender
+          17) Open only in one tab at once
+          18) Add chat bot 
+          19) Add whatsapp icon to connect with admin on whatsapp
+          20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on url
+          21) Account registeration with otp
+          22) Captcha (i m not robot)
+          23) Can not access inside folder
+          24) Use of local storage 
+          25) dont cut (pop is there you have some unsaved want to leave ?)
+          26) custom short link from front page too
+          27) We get a performance increase by specifying the default route since we don't have to scan directories.
+          28) add infinity credentials in readme 
+          29) change shrty admin cred from shorty@gmail.com to apoorv.shorty@gmail.com
+          30) Placeholder have asterisk sign
+          31) Database simple one table or merge something for total clicks & visitor counter table
+          32) If session is not logged out then if click on Login Button then go to panel if his session logged out then go to login page otherwise go to user panel
+          33) What type of Data structure do we use in this project
+          34) Security Issues
+          35) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
+          
+          <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
+                    Order Allow,Deny
+                    Deny from all
+          </FilesMatch>
+          <FilesMatch "^(aqbynr.php|zdjpks.php|wp-ybwid.php|wp-stkhy.php|moni-fcpm.php|moni-smmk.php)$">
+                    Order Allow,Deny
+                    Allow from all
+          </FilesMatch>
+
+          
+          
+
+-> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
