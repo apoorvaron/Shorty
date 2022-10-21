@@ -5,7 +5,7 @@
 - PHP version used -> ( 8.1.9 )
 
 
-- Must install xampp (FOR WINDOWS) & MAMP (FOR MAC) 
+- Must install xampp (FOR WINDOWS) and MAMP (FOR MAC) 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
 
