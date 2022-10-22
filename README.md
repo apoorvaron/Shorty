@@ -90,7 +90,7 @@ Step -6   Change the file content inside tiny/htdocs/siteName.php
                     $siteName = "http://localhost/tiny/";
                 ?>
                 
-Step -7   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
+Step -7   Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 
 Step -8   To Setup the database, open 
 
