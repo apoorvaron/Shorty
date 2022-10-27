@@ -99,7 +99,7 @@ Step -8   To Setup the database, open
 
 Step -9   Create New Database 
 
-Step -10   Database name  "tiny"
+Step -10   Database Name  "tiny"
 
 Step -11   Import Database from "htdocs/tiny/tiny.sql" directory . 
 
