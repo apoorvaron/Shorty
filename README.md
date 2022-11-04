@@ -12,7 +12,6 @@
 -------*---------*---------*---------*---------*---------
 ## Live Site -> http://shrty.rf.gd/
 
-
 Step -1   Download Zip file 
 
 Step -2   Unzip it & Rename folder from "tiny-main" to "tiny"
