@@ -5,15 +5,14 @@
 - PHP version used -> ( 8.1.9 )
 
 
-- Must install xampp (FOR WINDOWS) & MAMP (FOR MAC) 
+- Must install xampp (FOR WINDOWS) and MAMP (FOR MAC) 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
 ## Live Site -> http://shrty.rf.gd/
 
-
-Step -1   Download zip file 
+Step -1   Download Zip file 
 
 Step -2   Unzip it & Rename folder from "tiny-main" to "tiny"
 
@@ -90,7 +89,7 @@ Step -6   Change the file content inside tiny/htdocs/siteName.php
                     $siteName = "http://localhost/tiny/";
                 ?>
                 
-Step -7   Start Apache & MySQL server in XAMPP Panel or MAMP Panel
+Step -7   Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 
 Step -8   To Setup the database, open 
 
@@ -99,7 +98,7 @@ Step -8   To Setup the database, open
 
 Step -9   Create New Database 
 
-Step -10   Database name  "tiny"
+Step -10   Database Name  "tiny"
 
 Step -11   Import Database from "htdocs/tiny/tiny.sql" directory . 
 
@@ -177,5 +176,4 @@ Step -12   Run in browser
 
           
           
-
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
