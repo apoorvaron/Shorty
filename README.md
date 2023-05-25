@@ -1,4 +1,6 @@
-# How to make this for Yourself 📖
+<div id="top">
+          
+ # How to make this for Yourself 📖
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
@@ -109,6 +111,8 @@ Step -12   Run in browser
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
 
+<a href="#top">Back to top</a>
+          <br><br>
 ! IMPORTANT -> users table must contain one row 
 
           1) uniqueNo = "shorty"
@@ -177,3 +181,6 @@ Step -12   Run in browser
           
           
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
+          <br><br>
+          <a href="#top">Back to top</a>
+</div>
