@@ -387,8 +387,11 @@ section {
 
   .navbar .get-a-quote:hover,
   .navbar .get-a-quote:focus:hover {
-    color: #fff;
-    background: #2756ff;
+    color: #150101;
+    background-image: linear-gradient(to right, #0896f4 0%, #18ed0d 51%, #f708bf 100%);
+    box-shadow: box-shadow:
+              7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+            transform: translateY(4px);
   }
 
   .navbar .dropdown ul {
