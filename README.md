@@ -1,28 +1,37 @@
-<h1 align="center"> Shorty </h1>
-<br/>
-<div align="center">
-  <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
-  <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
-  <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
-  <br/>
-  <img src="https://img.shields.io/github/repo-size/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/license/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues-closed-raw/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues-closed/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/stars/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues-pr/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/last-commit/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/contributors/apoorvaron/Shorty?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues-pr-closed-raw/apoorvaron/Shorty?style=for-the-badge" />
-  
+<div align = "center">
+<img src = "./img/screenshot.gif">
 </div>
-<br/>
+<h1 align = "center">  <img src = "./assets/img/inside-header-logo.png" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
+<!-- <hr> -->
+<div align = "left">
+<img src = "https://img.shields.io/badge/License-MIT-yellow.svg"> &nbsp  <img src = "https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
+</div>
+<br>
+<div>
+To help you grow, scale, and dominate through the power of <b>link management</b>. Whether you’re sharing one link or millions, <b>Shorty</b> lets you personalize, share, and track your content links, while capturing data with every click.
+ </div>
+ 
+ ## :snowflake: Features:
+
+- Link Management
+- Data Security
+- Personalized links
+- Link Tracking
+
+## :snowflake: Demo
+
+- **Website** http://shrty.rf.gd/
+
+## :hammer_and_wrench: Technology Stack
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![Less](https://img.shields.io/badge/less-2B4C80?style=for-the-badge&logo=less&logoColor=white)
 
 <div id="top">
           
- # How to make this for Yourself 📖
+ ## 📖 How to make this for Yourself 
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
@@ -34,7 +43,7 @@
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
-## Live Site -> http://shrty.rf.gd/
+## 🌐Live Site -> http://shrty.rf.gd/
 
 Step -1   Download Zip file 
 
@@ -205,4 +214,8 @@ Step -12   Run in browser
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
           <br><br>
           <a href="#top">Back to top</a>
+
+## 🧑‍💻Contributors :
+<a href="https://github.com/apoorvaron/Shorty/graphs/contributors"><img src="https://contrib.rocks/image?repo=apoorvaron/Shorty"></a>
 </div>
+
