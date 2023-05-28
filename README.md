@@ -1,3 +1,25 @@
+<h1 align="center"> Shorty </h1>
+<br/>
+<div align="center">
+  <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+  <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
+  <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+  <br/>
+  <img src="https://img.shields.io/github/repo-size/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/license/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed-raw/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-closed/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/stars/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/forks/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/last-commit/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/contributors/apoorvaron/Shorty?style=for-the-badge" />
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/apoorvaron/Shorty?style=for-the-badge" />
+  
+</div>
+<br/>
+
 <div id="top">
           
  # How to make this for Yourself 📖
