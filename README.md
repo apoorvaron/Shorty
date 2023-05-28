@@ -177,7 +177,14 @@ Step -12   Run in browser
                     Order Allow,Deny
                     Allow from all
           </FilesMatch>
+          
+## Contributors ✨
 
+Thanks go to these wonderful peoples💪
+
+![Contributors](https://contrib.rocks/image?repo=apoorvaron/Shorty)
+
+#### Contributions of any kind welcome!
           
           
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
