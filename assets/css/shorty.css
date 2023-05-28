@@ -1815,7 +1815,7 @@ section {
 }
 
 .hero form .btn-primary:hover {
-  background-color: #2756ff;
+  background-image: linear-gradient(to right, #0896f4 0%, #18ed0d 51%, #f708bf 100%);
 }
 
 .hero .stats-item {
