@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< refs/remotes/origin/improvements
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +20,84 @@
         <style>
             .swal-overlay {
                 background-color: #0e1d34;
+=======
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>Sign Up</title>
+    <meta content="Admin Dashboard" name="description" />
+    <meta content="themesdesign" name="author" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link href="../assets/img/logo.png" rel="icon" />
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        .file-upload {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #2c7df7;
+
+        }
+
+        .selected-file {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .uplodInputFileds {
+            height: fit-content;
+            margin: 10px;
+        }
+
+
+        .swal-overlay {
+            background-color: #0e1d34;
+        }
+
+        .swal-button {
+            padding: 7px 19px;
+            border-radius: 2px;
+            background-color: #4962B3;
+            font-size: 12px;
+            border: 1px solid #3e549a;
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+        }
+
+        img.vert-move {
+            -webkit-animation: mover 1s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        img.vert-move {
+            -webkit-animation: mover 1s infinite alternate;
+            animation: mover 1s infinite alternate;
+        }
+
+        @-webkit-keyframes mover {
+            0% {
+                transform: translateY(0);
+>>>>>>> local
             }
             .swal-button {
                 padding: 7px 19px;
@@ -138,10 +217,21 @@
                                 </div>
                             </div> -->
 
+<<<<<<< refs/remotes/origin/improvements
                             <div class="form-group row">
                                 <div class="col-12">
                                     <label>Upload Profile Image :    </label>
                                     <input data-parsley-type="file" type="file"  name="UploadImage" />
+=======
+                        <div class="form-group row d-flex flex-col">
+                            <div class="col-12">
+
+                                <label>Upload Profile Image : </label>
+                                <div class="uplodInputFileds form-control p-0 h-full">
+                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage" />
+                                    <span class="custom-file-upload">Choose File</span>
+                                    <span class="selected-file"></span>
+>>>>>>> local
                                 </div>
                             </div>
 
@@ -206,6 +296,7 @@
                 }
                 loopi++;
             }
+<<<<<<< refs/remotes/origin/improvements
 
 
         </script>
@@ -226,6 +317,47 @@
         <script src="assets/js/app.js"></script>
 
         <!-- <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
+=======
+            loopi++;
+        }
+
+        // Custom JavaScript for fileuplod
+        window.onload = function() {
+            var fileInput = document.querySelector('.file-upload');
+            var customBtn = document.querySelector('.custom-file-upload');
+            var selectedFileText = document.querySelector('.selected-file');
+
+            customBtn.addEventListener('click', function() {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function() {
+                if (fileInput.files.length > 0) {
+                    selectedFileText.textContent = fileInput.files[0].name;
+                } else {
+                    selectedFileText.textContent = '';
+                }
+            });
+        };
+    </script>
+
+    <!-- jQuery  -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/modernizr.min.js"></script>
+    <script src="assets/js/detect.js"></script>
+    <script src="assets/js/fastclick.js"></script>
+    <script src="assets/js/jquery.slimscroll.js"></script>
+    <script src="assets/js/jquery.blockUI.js"></script>
+    <script src="assets/js/waves.js"></script>
+    <script src="assets/js/jquery.nicescroll.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+
+    <!-- <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
+>>>>>>> local
         <script src="assets/pages/form-validation.init.js"></script> -->
 
         <script>
