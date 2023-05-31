@@ -522,10 +522,13 @@ section {
 
   .navbar .get-a-quote,
   .navbar .get-a-quote:focus {
+    width: 150px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
     background: var(--color-primary);
-    padding: 8px 20px;
     border-radius: 4px;
-    margin: 15px;
+    margin: 15px auto;
     color: #fff;
   }
 
