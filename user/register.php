@@ -46,7 +46,6 @@
 
         .uplodInputFileds {
             height: fit-content;
-            margin: 10px;
         }
 
         .swal-overlay {
