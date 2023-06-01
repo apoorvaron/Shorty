@@ -225,20 +225,22 @@ Step -12   Run in browser
                     Allow from all
           </FilesMatch>
           
-## Contributors ✨
+<!-- ## Contributors ✨
 
 Thanks go to these wonderful peoples💪
 
 ![Contributors](https://contrib.rocks/image?repo=apoorvaron/Shorty)
 
-#### Contributions of any kind welcome!
+ -->
           
           
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
-          <br><br>
-          <a href="#top">Back to top</a>
+   
 
 ## 🧑‍💻Contributors :
 <a href="https://github.com/apoorvaron/Shorty/graphs/contributors"><img src="https://contrib.rocks/image?repo=apoorvaron/Shorty"></a>
 </div>
+
+<br><br>
+ <a href="#top">Back to top</a>
 
