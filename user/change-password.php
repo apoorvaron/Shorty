@@ -106,55 +106,85 @@
 
                 </div> <!-- content -->
                 <?php
-                    if(isset($_POST['submit'])){
-                        // require('../admin/dBconn/database.php');
-                        $database = new Database();
-                        $db = $database->connect();
-                    
-                        $oldPass = $_POST['oldPass'];
-                        $newPass = $_POST['newPass'];
-                        $cnfrmPass = $_POST['cnfrmPass'];
-                        $oldPass = md5($oldPass);
-                        $newPass = md5($newPass);
-                        $cnfrmPass = md5($cnfrmPass);
-
-                        if($newPass==$cnfrmPass){
-
-                            $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-                            $result = mysqli_query($db,$query);
-                            $row = mysqli_fetch_array($result);
-                            // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$query;
-
-                            if($row['password']==$oldPass){
-                                $sql = "UPDATE users SET password = '".$newPass."' WHERE username='".$_GET['username']."';";
-                                // echo "<br><br><br><br><br><br>waesgrdhtfjytrgweqrtshdjfg,hftrwteyjg,hk.jg".$sql;
-                                $result = mysqli_query($db,$sql);
-                                
-                                $query = "SELECT * from users WHERE username='".$_GET['username']."'";
-                                $result = mysqli_query($db,$query);
-                                $row = mysqli_fetch_array($result);
-                                if($row['password']==$newPass){
-                                    $alertMsz = "Password Changed !!";
-                                    include '../user/alertModal.php';
-        
-                                }else{
-                                    $alertMsz = "Try Again !!";
-                                    include '../user/alertModal-red.php';
-        
-                                }
-                                
-                            }else{
-                                $alertMsz = "Old Password Incorrect !!";
-                                include '../user/alertModal-red.php';
-    
-                            }
-
-                        }else{
-                            $alertMsz = "Enter Same Password !!";
-                            include '../user/alertModal-red.php';
-
-                        }
+                function validatePassword($password)
+                {
+                    // Minimum 8 characters
+                    if (strlen($password) < 8) {
+                        return false;
                     }
+
+                    // At least one lowercase alphabet
+                    if (!preg_match("/[a-z]/", $password)) {
+                        return false;
+                    }
+
+                    // At least one uppercase alphabet
+                    if (!preg_match("/[A-Z]/", $password)) {
+                        return false;
+                    }
+
+                    // At least one number
+                    if (!preg_match("/\d/", $password)) {
+                        return false;
+                    }
+
+                    // At least one special character
+                    if (!preg_match("/[^a-zA-Z\d]/", $password)) {
+                        return false;
+                    }
+
+                    // All requirements met
+                    return true;
+                }
+                if (isset($_POST["submit"])) {
+                    // require('../admin/dBconn/database.php');
+                    $database = new Database();
+                    $db = $database->connect();
+
+                    $oldPass = $_POST["oldPass"];
+                    $newPass = $_POST["newPass"];
+                    $valid = validatePassword($newPass);
+                    $cnfrmPass = $_POST["cnfrmPass"];
+                    $oldPass = md5($oldPass);
+                    $newPass = md5($newPass);
+                    $cnfrmPass = md5($cnfrmPass);
+
+                    $query =
+                        "SELECT * from users WHERE username='" .
+                        $_GET["username"] .
+                        "' and password='" .
+                        $oldPass .
+                        "'";
+                    $result = mysqli_query($db, $query);
+                    if (mysqli_num_rows($result)) {
+                        if ($valid) {
+                            if ($cnfrmPass == $newPass) {
+                                $sql =
+                                    "UPDATE users SET password = '" .
+                                    $newPass .
+                                    "' WHERE username='" .
+                                    $_GET["username"] .
+                                    "';";
+                                if (mysqli_query($db, $sql)) {
+                                    $alertMsz = "Password Changed !!";
+                                    include "../user/alertModal.php";
+                                } else {
+                                    $alertMsz = "Try Again !!";
+                                    include "../user/alertModal-red.php";
+                                }
+                            } else {
+                                $alertMsz = "Enter Same Password !!";
+                                include "../user/alertModal-red.php";
+                            }
+                        } else {
+                            $alertMsz = "Pls choose strong password !!";
+                            include "../user/alertModal-red.php";
+                        }
+                    } else {
+                        $alertMsz = "Incorrect old password !!";
+                        include "../user/alertModal-red.php";
+                    }
+                }
                 ?>
 
                 <?php include'footer.php';?>
