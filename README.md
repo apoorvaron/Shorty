@@ -1,5 +1,8 @@
-<h1 align="center"> Shorty </h1>
-<br/>
+<div align = "center">
+<img src = "./img/screenshot.gif">
+</div>
+<h1 align = "center">  <img src = "./assets/img/inside-header-logo.png" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
+<!-- <hr> -->
 <div align="center">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
   <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
@@ -18,11 +21,35 @@
   <img src="https://img.shields.io/github/issues-pr-closed-raw/apoorvaron/Shorty?style=for-the-badge" />
   
 </div>
-<br/>
+<br>
+<div>
+To help you grow, scale, and dominate through the power of <b>link management</b>. Whether you’re sharing one link or millions, <b>Shorty</b> lets you personalize, share, and track your content links, while capturing data with every click.
+ </div>
+ 
+ ## :snowflake: Features:
+
+- Link Management
+- Data Security
+- Personalized links
+- Link Tracking
+
+## :snowflake: Demo
+
+- **Website** http://shrty.rf.gd/
+
+## :hammer_and_wrench: Technology Stack
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![Less](https://img.shields.io/badge/less-2B4C80?style=for-the-badge&logo=less&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 <div id="top">
           
- # How to make this for Yourself 📖
+ ## 📖 How to make this for Yourself 
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
@@ -34,7 +61,6 @@
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
-## Live Site -> http://shrty.rf.gd/
 
 Step -1   Download Zip file 
 
@@ -133,7 +159,6 @@ Step -12   Run in browser
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
 
-<a href="#top">Back to top</a>
           <br><br>
 ! IMPORTANT -> users table must contain one row 
 
@@ -212,4 +237,8 @@ Thanks go to these wonderful peoples💪
 -> Hosted on Infinity Free with Gmail : apoorv.shorty@gmail.com
           <br><br>
           <a href="#top">Back to top</a>
+
+## 🧑‍💻Contributors :
+<a href="https://github.com/apoorvaron/Shorty/graphs/contributors"><img src="https://contrib.rocks/image?repo=apoorvaron/Shorty"></a>
 </div>
+
