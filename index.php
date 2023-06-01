@@ -338,9 +338,36 @@
             </a>
 
             <div class="social-links d-flex mt-4" style="justify-content: center;padding-bottom: 3%;">
-              <a target="_blank"  href="https://github.com/apoorvaron" class="github"><i class="bi bi-github"></i></a>
-              <a target="_blank"  href="https://www.linkedin.com/in/apoorv-aron-742882212/" class="linkedin"><i class="bi bi-linkedin"></i></a>
-              <a target="_blank"  href="https://twitter.com/AronApoorv" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a 
+                 target="_blank" 
+                 rel=”noopener noreferrer” 
+                 aria-label="Follow Apoorv on Github" 
+                 title="Link to Github profile (External Link)" 
+                 href="https://github.com/apoorvaron" 
+                 class="github"
+                >
+                      <i class="bi bi-github"></i>
+              </a>
+              <a 
+                 target="_blank" 
+                 rel=”noopener noreferrer” 
+                 aria-label="Follow Apoorv on LinkedIn" 
+                 title="Link to Linkedin profile (External Link)" 
+                 href="https://www.linkedin.com/in/apoorv-aron-742882212/" 
+                 class="linkedin"
+                >
+                      <i class="bi bi-linkedin"></i>
+              </a>
+              <a 
+                 target="_blank" 
+                 rel=”noopener noreferrer” 
+                 aria-label="Follow Apoorv on Twitter" 
+                 title="Link to Twitter profile (External Link)" 
+                 href="https://twitter.com/AronApoorv" 
+                 class="twitter"
+                >
+                      <i class="bi bi-twitter"></i>
+              </a>
             </div>
           </div>
         </div>
