@@ -133,7 +133,7 @@
 
   <body>
     <!-- ======= Header ======= -->
-    <header id="header" class="header d-flex align-items-center fixed-top">
+    <header id="header" class="header d-flex align-items-center fixed-top" style="opacity:1;background:rgb(14,29,52);">
       <div
         class="container-fluid container-xl d-flex align-items-center justify-content-between"
       >
