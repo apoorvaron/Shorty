@@ -24,6 +24,7 @@
 8.  Latest Product Section
 9.  Contact
 10.  Footer Style
+11.  Scrollbar 
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
@@ -3468,3 +3469,23 @@ ol {
 		font-size: 24px;
 	}
 }
+/* Scrollbar  */
+::-webkit-scrollbar {
+	width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: black;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background:#0D42FF; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background:white; 
+  }
+  
