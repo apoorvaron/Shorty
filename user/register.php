@@ -360,73 +360,121 @@
             });
         };
     </script>
-    <?php
-    if (isset($_POST['submit'])) {
-        require('../admin/dBconn/database.php');
-        $database = new Database();
-        $db = $database->connect();
+     <?php
+ function validatePassword($password)
+ {
+     // Minimum 8 characters
+     if (strlen($password) < 8) {
+         return false;
+     }
 
-        $email = $_POST['email'];
-        $username = bin2hex(random_bytes(3));
-        $password = $_POST['password'];
-        $cnfrmPass = $_POST['cnfrmPass'];
-        $cnfrmPass = md5($cnfrmPass);
-        $password = md5($password);
-        $randNum = bin2hex(random_bytes(3));
-        $UploadedFileName = $_FILES['UploadImage']['name'];
+     // At least one lowercase alphabet
+     if (!preg_match("/[a-z]/", $password)) {
+         return false;
+     }
 
-        if ($cnfrmPass == $password) {
-            if ($UploadedFileName != '') {
+     // At least one uppercase alphabet
+     if (!preg_match("/[A-Z]/", $password)) {
+         return false;
+     }
 
-                $filename = $UploadedFileName['name'];
-                $fileext = explode('.', $filename);
-                $filecheck = strtolower(end($fileext));
-                $ext = pathinfo($UploadedFileName, PATHINFO_EXTENSION);
-                // echo $filename." ".$fileext." ".$filecheck."  ".$UploadedFileName." ".$ext   ;
-                $fileextstored = array('png', 'jpg', 'jpeg', 'gif', 'tiff', 'webp');
+     // At least one number
+     if (!preg_match("/\d/", $password)) {
+         return false;
+     }
 
-                if (in_array($ext, $fileextstored)) {
-                    $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
-                    $TargetPath = time() . $UploadedFileName;
+     // At least one special character
+     if (!preg_match("/[^a-zA-Z\d]/", $password)) {
+         return false;
+     }
 
-                    if (move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory . $TargetPath)) {
-                        $upload_directory = "../assets/user-img/" . $TargetPath;
-                        $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-                        $result = mysqli_query($db, $query);
-                        if ($result == 1) {
-                            echo "  <script>
-                                    swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                        window.location = './login';
-                                    });
-                                </script>";
-                        } else {
-                            echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
-                        }
-                    }
-                } else {
-                    echo "<script>swal('Please Upload an Image','', 'error');</script>";
-                }
-            } else {
+     // All requirements met
+     return true;
+ }
+ if (isset($_POST["submit"])) {
+     require "../admin/dBconn/database.php";
+     $database = new Database();
+     $db = $database->connect();
 
+     $email = $_POST["email"];
+     $username = bin2hex(random_bytes(3));
+     $password = $_POST["password"];
+     $valid = validatePassword($password);
+     $cnfrmPass = $_POST["cnfrmPass"];
+     $cnfrmPass = md5($cnfrmPass);
+     $password = md5($password);
+     $randNum = bin2hex(random_bytes(3));
+     $UploadedFileName = $_FILES["UploadImage"]["name"];
 
-                $query = "INSERT INTO `users` (`uniqueNo`,`username`, `password`,`email`) VALUES ('$randNum','$username', '$password','$email')";
-                $result = mysqli_query($db, $query);
-                if ($result == 1) {
-                    echo "  <script>
+     $query = "SELECT * from `users` WHERE email='$email'";
+     $result = mysqli_query($db, $query);
+     if (!mysqli_num_rows($result)) {
+         if ($valid) {
+             if ($cnfrmPass == $password) {
+                 $upload_directory = "../assets/user-img/dummy.webp";
+                 if (!empty($UploadedFileName)) {
+                     $filename = $UploadedFileName;
+                     $fileExplode = explode(".", $filename);
+                     $fileExt = strtolower(end($fileExplode));
+                     $fileExtStored = [
+                         "png",
+                         "jpg",
+                         "jpeg",
+                         "gif",
+                         "tiff",
+                         "webp",
+                     ];
+                     if (in_array($fileExt, $fileExtStored)) {
+                         $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+                         $TargetPath = time() . $UploadedFileName;
+
+                         if (
+                             move_uploaded_file(
+                                 $_FILES["UploadImage"]["tmp_name"],
+                                 $upload_directory . $TargetPath
+                             )
+                         ) {
+                             $upload_directory =
+                                 "../assets/user-img/" . $TargetPath;
+                             $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                             if (mysqli_query($db, $queryIns)) {
+                                 echo "  <script>
                             swal('Registration Successful !!','* Please Login *','success').then(function() {
                                 window.location = './login';
                             });
-                        </script>";
-                } else {
-                    echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
-                }
-            }
-        } else {
-            // echo "<script>swal('Password are not Matching !!')</script>";
-            echo "<script>swal('Passwords are not Matching !!', '', 'error');</script>";
-        }
-    }
-    ?>
+                         </script>";
+                             } else {
+                                 echo "<script>swal('Could not Register','', 'error');</script>";
+                             }
+                         } else {
+                             echo "<script>swal('unexpected error','', 'error');</script>";
+                         }
+                     } else {
+                         echo "<script>swal('Please Upload a valid Image','', 'error');</script>";
+                     }
+                 } else {
+                     $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                     if (mysqli_query($db, $queryIns)) {
+                         echo "  <script>
+                            swal('Registration Successful !!','* Please Login *','success').then(function() {
+                                window.location = './login';
+                            });
+                         </script>";
+                     }
+                 }
+             } else {
+                 echo "<script>swal('Passwords are not Matching !!', '', 'error');</script>";
+             }
+         } else {
+             echo "<script>swal('Weak Password !!', '', 'error');</script>";
+         }
+     } else {
+         echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
+     }
+ }
+
+?>
+
 </body>
 
 </html>
