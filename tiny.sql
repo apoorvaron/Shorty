@@ -32,6 +32,12 @@ CREATE TABLE `counter_table` (
   `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `chatbot` (
+  `id` int(11) NOT NULL,
+  `queries` varchar(300) DEFAULT NULL,
+  `replies` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
 -- Dumping data for table `counter_table`
 --
@@ -66,6 +72,7 @@ CREATE TABLE `links` (
   `originalLink` varchar(255) DEFAULT NULL,
   `shortenLink` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Dumping data for table `links`
