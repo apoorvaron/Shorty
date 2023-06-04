@@ -50,6 +50,9 @@ To help you grow, scale, and dominate through the power of <b>link management</b
 <div id="top">
           
  ## 📖 How to make this for Yourself 
+  
+- Local Environment Shorty Project Tutorial
+- Tutorial - https://www.youtube.com/watch?v=L5HdDeYaKd0
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
