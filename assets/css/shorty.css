@@ -258,9 +258,17 @@ section {
 	line-height: 0;
 	padding: 10px;
 }
-
+@media screen and (max-width: 540px) {
+	.chat_box {
+		flex-direction: column-reverse;
+	}
+	.wrapper {
+		width: 10px;
+	}
+}
 .wrapper {
-	width: 370px;
+	z-index: 100;
+	width: 100%;
 	background: #fff;
 	border-radius: 5px;
 	border: 1px solid lightgrey;
