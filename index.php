@@ -376,7 +376,7 @@
 
       <div class="container mt-4">
         <div class="copyright">
-          &copy; Copyright <strong><span> <a target="_blank" href="https://github.com/apoorvaron/tiny">Shorty</a> </span></strong
+          &copy; Copyright <strong> <script>document.write(new Date().getFullYear());</script><span> <a target="_blank" href="https://github.com/apoorvaron/tiny">Shorty</a> </span> </strong
           >. All Rights Reserved
         </div>
         <div class="credits">
