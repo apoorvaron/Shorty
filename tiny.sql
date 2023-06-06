@@ -32,6 +32,12 @@ CREATE TABLE `counter_table` (
   `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `chatbot` (
+  `id` int(11) NOT NULL,
+  `queries` varchar(300) DEFAULT NULL,
+  `replies` varchar(300) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 --
 -- Dumping data for table `counter_table`
 --
@@ -46,6 +52,13 @@ INSERT INTO `counter_table` (`id`, `ip_address`, `visit_date`) VALUES
 (8, '54:54:24:54', '2022-08-07 19:19:21'),
 (9, '54:54:24:54', '2022-08-07 19:19:21');
 
+
+INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
+(2, 'Why should I use a link shortener?', ' Link shorteners are useful for several reasons. They make long URLs more manageable and easier to share, particularly on platforms with character limitations like social media.'),
+(3, ' Can I delete or edit a shortened URL?', ' Unfortunately, once a URL is shortened using our service, it cannot be edited or deleted. We recommend double-checking the URL before shortening it to avoid any inconveniences later.'),
+(4, 'hi', 'hey shorty user!!');
+
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +72,7 @@ CREATE TABLE `links` (
   `originalLink` varchar(255) DEFAULT NULL,
   `shortenLink` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Dumping data for table `links`
@@ -121,6 +135,9 @@ INSERT INTO `users` (`uniqueNo`, `username`, `email`, `password`, `img`) VALUES
 ALTER TABLE `counter_table`
   ADD PRIMARY KEY (`id`);
 
+ALTER TABLE `chatbot`
+  ADD PRIMARY KEY (`id`);
+
 --
 -- Indexes for table `links`
 --
@@ -151,6 +168,8 @@ ALTER TABLE `users`
 --
 ALTER TABLE `counter_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+ALTER TABLE `chatbot`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `links`
