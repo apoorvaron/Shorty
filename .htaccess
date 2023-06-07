@@ -1,4 +1,4 @@
-ErrorDocument 404 http://localhost/tiny/404.php
+ErrorDocument 404 http://localhost:8888/tiny/404.php
 
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
