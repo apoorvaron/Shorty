@@ -67,7 +67,31 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (12, 'what is the cost?', 'This is the best part: ITS FREE!!'),
 (13, 'cost?', 'This is the best part: ITS FREE!!'),
 (14, 'how much per link?', 'This is the best part: ITS FREE!!'),
-(15, 'is it free?', 'YES! This service is absolutely Free!');
+(15, 'is it free?', 'YES! This service is absolutely Free!'),
+(16, 'How much time does it take?', 'Within the blink of an eye! Its fast!'),
+(17, 'time?', 'Within the blink of an eye! Its fast!'),
+(18, 'fast?', 'Within the blink of an eye! Its fast!'),
+(19, 'Is it slow?', 'Within the blink of an eye! Its fast!'),
+(20, 'is it anonymous', "YES! it is 100 % anonymous. This is an open source project. Don't worry !"),
+(21, 'privacy', "It is 100% anonymous. Don't worry!"),
+(22, 'is data stored?', 'No data about the user is stored!'),
+(23, 'can others see my data?','No, your data is 100% private. No worries!'),
+(24, 'is it safe?', 'YES it is absolutely safe! It is an open source project. No worries !'),
+(25, 'is it legal?', 'YES it is legal. It is an open source project. No worries!'),
+(26, 'is it illegal?', 'NO, it is ABSOLUTELY legal. It is an open source project. No worries!'),
+(27, 'thanks', "you're Welcome!"),
+(28, 'example', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
+(29, 'give me an example', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
+(30, 'show me', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
+(31, 'Show me an example', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
+(32, 'usecase', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
+(33, 'another example', 'Sure, here is another example: https://www.youtube.com/watch?v=ZyhrYis509A&pp=ygURaSBtIGEgYmFyYmllIGdpcmw%3D Short: http://shrty.rf.gd/d3AtC'),
+(34, 'how short', 'It varies. But it will be smaller than the given URL'),
+(35, 'length?', 'It varies. But it will be smaller than the given URL');
+
+
+
+
 
 
 -- --------------------------------------------------------
