@@ -87,7 +87,17 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (32, 'usecase', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
 (33, 'another example', 'Sure, here is another example: https://www.youtube.com/watch?v=ZyhrYis509A&pp=ygURaSBtIGEgYmFyYmllIGdpcmw%3D Short: http://shrty.rf.gd/d3AtC'),
 (34, 'how short', 'It varies. But it will be smaller than the given URL'),
-(35, 'length?', 'It varies. But it will be smaller than the given URL');
+(35, 'length?', 'It varies. But it will be smaller than the given URL'),
+(36, 'who is Apoorv', 'Apoorv is an aspiring Software Development Engineer (SDE) having strong technical and a background in Full Stack Development (Web). He is also the creator of this website'),
+(37, 'about', 'To help you grow, scale, and dominate through the power of link management. Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click'),
+(38, 'about shorty project', 'To help you grow, scale, and dominate through the power of link management. Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click'),
+(39, 'social profile of Apoorv', 'Here you go: Github: https://github.com/apoorvaron Twitter: https://twitter.com/AronApoorv Linkedin: https://www.linkedin.com/in/apoorv-aron-742882212/'),
+(40, 'redirect', 'Sure: http://shrty.rf.gd/user/login'),
+(41, 'redirect me to login page', 'Sure: http://shrty.rf.gd/user/login'),
+(42, 'show login page', 'Sure: http://shrty.rf.gd/user/login'),
+(43, 'login page', 'Sure: http://shrty.rf.gd/user/login'),
+(44, 'login', 'Sure: http://shrty.rf.gd/user/login'),
+(45, 'goto login page','Sure: http://shrty.rf.gd/user/login');
 
 
 
