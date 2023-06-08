@@ -56,7 +56,18 @@ INSERT INTO `counter_table` (`id`, `ip_address`, `visit_date`) VALUES
 INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (2, 'Why should I use a link shortener?', ' Link shorteners are useful for several reasons. They make long URLs more manageable and easier to share, particularly on platforms with character limitations like social media.'),
 (3, ' Can I delete or edit a shortened URL?', ' Unfortunately, once a URL is shortened using our service, it cannot be edited or deleted. We recommend double-checking the URL before shortening it to avoid any inconveniences later.'),
-(4, 'hi', 'hey shorty user!!');
+(4, 'hi', 'hey shorty user!!'),
+(5, 'what does this website do?', 'Hi! This website shortens URL of any Webpage and the best part - ITS FREE!'),
+(6, 'what is the advantage of this service?', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
+(7, 'advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
+(8, 'what is the advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
+(9, 'help', 'Sure! This website shortens any link. This can be the URL of a website, a link to a youtube video, and all other possibilities. Type any of the following to get more info: 1.time 2.price 3.example 4.another example 5.advantage'),
+(10, 'price?', 'This is the best part: ITS FREE!!'),
+(11, 'what is the price?', 'This is the best part: ITS FREE!!'),
+(12, 'what is the cost?', 'This is the best part: ITS FREE!!'),
+(13, 'cost?', 'This is the best part: ITS FREE!!'),
+(14, 'how much per link?', 'This is the best part: ITS FREE!!'),
+(15, 'is it free?', 'YES! This service is absolutely Free!');
 
 
 -- --------------------------------------------------------
