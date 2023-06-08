@@ -97,7 +97,19 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (42, 'show login page', 'Sure: http://shrty.rf.gd/user/login'),
 (43, 'login page', 'Sure: http://shrty.rf.gd/user/login'),
 (44, 'login', 'Sure: http://shrty.rf.gd/user/login'),
-(45, 'goto login page','Sure: http://shrty.rf.gd/user/login');
+(45, 'goto login page','Sure: http://shrty.rf.gd/user/login'),
+(46, 'Upload profile pic in register page meaning', 'This is your account picture. It will be shown when you are logged in')),
+(47, 'profile pic','This is your account picture. It will be shown when you are logged in')),
+(48, 'profile pic meaning', 'This is your account picture. It will be shown when you are logged in'),
+(49, 'can i customize link without registering', 'No, You must be registered user in order to customize links'),
+(50, 'how are you', 'Hey shorty user! I am fine, How are you? Nice to have you here'),
+(51, 'hello', 'Hey shorty user ! Nice to have you here'),
+(52, 'Hello', 'Hey shorty user ! Nice to have you here'),
+(53, 'hola', 'Hey shorty user ! Nice to have you here'),
+(54, 'Hi', 'Hey shorty user ! Nice to have you here'),
+(55, 'How are you', 'Hey shorty user ! Nice to have you here'),
+(56, 'hlw', 'Hey shorty user ! Nice to have you here');
+
 
 
 
