@@ -24,6 +24,7 @@
 8.  Latest Product Section
 9.  Contact
 10.  Footer Style
+11. New Scrollbar Design
 -------------------------------------------------------------------*/
 
 /*----------------------------------------*/
@@ -3467,4 +3468,22 @@ ol {
 	.blog__details__hero__text h2 {
 		font-size: 24px;
 	}
+}
+
+/* 11. New Scrollbar Design */
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	border-radius: 8px;
+	background-color: #e7e7e7;
+	border: 1px solid #0095ff;
+}
+::-webkit-scrollbar-thumb {
+	border-radius: 8px;
+	background-color: #0022ff;
+} 
+  ::-webkit-scrollbar-thumb:hover {
+	background: #0d6eff;
 }
