@@ -1,0 +1,75 @@
+/* ==============
+ Demo Only css
+===================*/
+
+.button-items {
+  margin-bottom: -8px;
+
+  .btn {
+    margin-bottom: 8px;
+    margin-right: 5px;
+  }
+}
+
+.bs-example-modal {
+  position: relative;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+  z-index: 1;
+  display: block;
+}
+
+.icon-demo-content {
+  text-align: center;
+  color: $muted;
+
+  i{
+    display: block;
+    font-size: 28px;
+    margin-bottom: 5px;
+  }
+
+  .col-sm-6 {
+    margin-bottom: 30px;
+
+    &:hover {
+      i {
+        color: $primary;
+      }
+    }
+  }
+}
+
+/*===grid===*/
+
+.grid-col div span{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  background-color:  $light5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: block;
+}
+.grid-col .nested-col.row span{
+  background: darken($light5, 3%);
+  display: block;
+}
+
+.icon-demo-content i {
+  display: block;
+  margin: 0 auto;
+  width: 50px;
+  font-size: 24px;
+  height: 50px;
+  border-radius: 50%;
+  line-height: 50px;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+.icon-demo-content .col-sm-6:hover i {
+  color: $primary;
+}

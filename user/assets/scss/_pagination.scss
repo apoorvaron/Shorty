@@ -1,0 +1,30 @@
+/* ==============
+  Pagination
+===================*/
+.page-link {
+  color: $primary;
+}
+.page-item.active .page-link {
+  background-color: $primary;
+  border-color: $primary;
+  color: $light !important;
+}
+.page-link:focus, .page-link:hover {
+  color: $dark;
+  background-color: $light;
+}
+.page-item.disabled .page-link {
+  color: $light;
+  pointer-events: none;
+  cursor: auto;
+  background-color: rgba($primary,0.70);
+  border-color: rgba($primary,0.70);
+}
+.custom-pagination .page-link{
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  text-align: center;
+  line-height: 38px;
+}

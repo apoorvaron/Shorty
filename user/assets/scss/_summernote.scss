@@ -1,0 +1,25 @@
+/* ==============
+  Summernote
+===================*/
+
+
+.note-editor {
+  position: relative;
+
+  .note-toolbar {
+    background-color:  rgba($light4,0.2);
+    margin: 0;
+  }
+  .note-statusbar {
+    background-color: $white;
+    .note-resizebar {
+      border-top: none;
+      height: 15px;
+      padding-top: 3px;
+    }
+  }
+}
+.note-editor.note-frame {
+  border: 1px solid;
+  border-color:rgba($light4, 0.5);
+}

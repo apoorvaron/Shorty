@@ -1,0 +1,43 @@
+/* ==============
+  Account Pages
+===================*/
+// .accountbg {
+//   background: url("../images/bg-account.jpg");
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+//   top: 0;
+// }
+
+.wrapper-page {
+  margin: 7.5% auto;
+  max-width: 460px;
+  position: relative;
+
+  .logo-admin {
+    font-size: 28px;
+    line-height: 70px;
+  }
+
+  .card {
+    border-radius: 10px;
+  }
+}
+
+.user-thumb {
+  position: relative;
+  z-index: 999;
+  img {
+    height: 88px;
+    margin: 0 auto;
+    width: 88px;
+  }
+}
+
+.ex-page-content {
+  h1 {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 150px;
+  }
+}

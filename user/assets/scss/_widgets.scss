@@ -1,0 +1,68 @@
+/* ==============
+  Widgets
+===================*/
+.widget-chart li {
+  width: 31.5%;
+  display: inline-block;
+  padding: 0;
+
+  i {
+    font-size: 22px;
+  }
+}
+
+// Dashboard 2
+
+.mini-stat{
+  overflow: hidden;
+  .mini-stat-icon{
+    padding: 0px 20px;
+    background: rgba($primary, 0.6);
+    i{
+      display: inline-block;
+      font-size: 32px;
+      color: $white;
+      height: 64px;
+      line-height: 64px;
+      width: 64px;
+      text-align: center;
+      position: relative;
+      top: 22px;
+      background: linear-gradient(to bottom, rgba($white, 0.7), rgba($primary, 1));
+      border-radius:50%; 
+    }
+  }
+}
+
+.round {
+  line-height: 60px;
+  width: 60px;
+  height: 60px;
+  font-size: 44px;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 50%;
+}
+
+
+.new-user table td img,
+.new-user ul li img {
+  margin-right: 8px;
+  width: 50px;
+}
+
+.dashborad-3 .round {
+  line-height: 57px;
+  color: $success;
+  background-color: rgba(2, 2, 2, 0.12);
+  border: 1px solid rgba(45, 45, 45, 1);;
+  width: 60px;
+  height: 60px;
+  font-size: 32px;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 50%;
+}
+

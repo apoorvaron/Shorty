@@ -1,0 +1,10 @@
+body {
+  background-color: #0d6efd;
+}
+::placeholder {
+  text-align: center;
+}
+
+input:focus {
+  outline: none;
+}
