@@ -132,44 +132,47 @@
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
   <body>
-    <!-- ======= Header ======= -->
-    <header id="header" class="header d-flex align-items-center fixed-top">
-      <div
-        class="container-fluid container-xl d-flex align-items-center justify-content-between" 
-      >
-        <a href="./" class="logo d-flex align-items-center">
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-          <img
-            src="./assets/img/inside-header-logo.png"
-            alt="logo"
-            style="border-radius: 10px;"
-          />
-             <!-- <h1  class="logo d-flex align-items-center" style="color:white;margin-left:10%">Shorty</h2> -->
-        </a>
-       
-          <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.png" alt=""> -->
-       
-       
+  <!-- ======= Header ======= -->
+  <!-- ======= updated by (mrprayag077) ======= -->
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+      <a href="./" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.png" alt=""> -->
+        <img src="./assets/img/inside-header-logo.png" alt="logo" style="border-radius: 10px;" />
+        <!-- <h1  class="logo d-flex align-items-center" style="color:white;margin-left:10%">Shorty</h2> -->
+      </a>
 
-        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
-        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-        <nav id="navbar" class="navbar">
-          <ul>
-            <li>
-              <a class="get-a-quote" href="./user/login">Login</a>
-            </li>
-            <li>
-              <a class="get-a-quote" href="./user/register">Register</a>
-            </li>
-          </ul>
-        </nav>
-        <!-- .navbar -->
-      </div>
-    </header>
-    <!-- End Header -->
-    <!-- End Header -->
+      <!-- Uncomment the line below if you also wish to use an image logo -->
+      <!-- <img src="assets/img/logo.png" alt=""> -->
+
+
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+      <nav id="navbar" class="navbar">
+        <ul>
+
+          <li><a href="./">Home</a></li>
+          <li><a href="./faq.html">Faq</a></li>
+          <li><a href="./privacy.html">Privacy</a></li>
+
+          <li class="navbar-spacing" style="margin-right: 50px;"></li>
+          <!-- Add a list item for spacing -->
+
+          <li>
+            <a class="get-a-quote" href="./user/login">Login</a>
+          </li>
+          <li>
+            <a class="get-a-quote" href="./user/register">Register</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+  <!-- End Header -->
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
