@@ -69,7 +69,7 @@
 
                     <li><a href="./">Home</a></li>
                     <li><a href="./faq.html">Faq</a></li>
-                    <li><a href="./privacy.html">Privacy</a></li>
+                    <li><a href="./privacy.html" class="active">Privacy</a></li>
 
                     <li class="navbar-spacing" style="margin-right: 50px;"></li>
                     <!-- Add a list item for spacing -->
@@ -87,7 +87,24 @@
     </header>
     <!-- End Header -->
     <!-- End Header -->
+  <!-- alginment of UL LI elemnts (mrprayag077) -->
 
+    <style>
+        #navbar ul li a:hover {
+            color: #0d42ff;
+        }
+
+        @media (max-width: 767px) {
+            #navbar ul li {
+                width: 150px;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                margin: 15px auto;
+                color: #fff;
+            }
+        }
+    </style>
 
     <main id="main">
 
@@ -530,6 +547,34 @@
         <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
                 class="bi bi-arrow-up-short"></i></a>
     </div>
+
+
+
+    <div class="chat_box">
+        <a class="chat_btn d-flex align-items-center justify-content-center"><i class="bi bi-chat-dots-fill"></i></a>
+
+        <div class="wrapper">
+            <div class="title">Welcome to Short Chatbot</div>
+            <div class="form">
+                <div class="bot-inbox inbox">
+                    <div class="icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="msg-header">
+                        <p>Hello there, how can I help you?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="typing-field">
+                <div class="input-data">
+                    <input id="data" type="text" placeholder="Type something here.." required>
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
     <div id="preloader"></div>
 
