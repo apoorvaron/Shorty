@@ -47,6 +47,8 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link
@@ -464,7 +466,7 @@
                                 <?php 
                                   // $extra="Extra Only";
                                 ?>
-                                // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
+                                
                                 let url = "./admin/dBconn/api.php/?q=shorty&shortenLink="+avail;
                                 $.ajax({
                                     type: "POST",
@@ -527,9 +529,16 @@
       class="chat_btn d-flex align-items-center justify-content-center"
       ><i class="bi bi-chat-dots-fill"></i
     ></a>
+  </div>
 
-    <div class="wrapper">
-        <div class="title">Welcome to Short Chatbot</div>
+
+  <div class="wrapper">
+        <div class="title">
+          <div>Welcome to Shorty Chatbot</div>
+          <span class="material-icons c">
+close
+</span>
+        </div>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
@@ -548,8 +557,6 @@
         </div>
     </div>
 
-</div>
-  </div>
 
     <div id="preloader"></div>
 

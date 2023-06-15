@@ -54,14 +54,46 @@ document.addEventListener('DOMContentLoaded', () => {
 	/**
 	 * Chat button
 	 */
-
+	function disable() {
+		// To get the scroll position of current webpage
+		var TopScroll = window.pageYOffset || document.documentElement.scrollTop;
+		var LeftScroll = window.pageXOffset || document.documentElement.scrollLeft;
+		// if scroll happens, set it to the previous value
+		window.onscroll = function () {
+			window.scrollTo(LeftScroll, TopScroll);
+		};
+	}
+	function enable() {
+		window.onscroll = function () {};
+	}
 	const chatBtn = document.querySelector('.chat_btn');
 	const chatArea = document.querySelector('.wrapper');
+	var count = 0;
 	$('.wrapper').slideUp();
 	$(document).ready(function () {
 		$('.chat_btn').click(function () {
 			$('.wrapper').slideToggle();
+			count++;
+			if (count % 2 != 0) {
+				disable();
+			} else {
+				enable();
+			}
 		});
+	});
+
+	$('.c').click(function () {
+		$('.wrapper').slideToggle();
+		count++;
+		if (count % 2 != 0) {
+			disable();
+		} else {
+			enable();
+		}
+	});
+
+	$('.container , .footer').click(function () {
+		$('.wrapper').slideUp();
 	});
 
 	$(document).ready(function () {
@@ -88,6 +120,32 @@ document.addEventListener('DOMContentLoaded', () => {
 				},
 			});
 		});
+	});
+
+	$('#data').on('keypress', function (e) {
+		$value = $('#data').val();
+		if (e.key == 'Enter' && $value !== '') {
+			$msg =
+				'<div class="user-inbox inbox"><div class="msg-header"><p>' +
+				$value +
+				'</p></div></div>';
+			$('.form').append($msg);
+			$('#data').val('');
+
+			$.ajax({
+				url: 'user/message.php',
+				type: 'POST',
+				data: 'text=' + $value,
+				success: function (result) {
+					$replay =
+						'<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>' +
+						result +
+						'</p></div></div>';
+					$('.form').append($replay);
+					$('.form').scrollTop($('.form')[0].scrollHeight);
+				},
+			});
+		}
 	});
 	/**
 	 * Mobile nav toggle
