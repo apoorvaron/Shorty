@@ -268,21 +268,32 @@ section {
 }
 .wrapper {
 	z-index: 100;
-	width: 100%;
+	width: 300px;
 	background: #fff;
 	border-radius: 5px;
 	border: 1px solid lightgrey;
 	border-top: 0px;
+	position: fixed;
+	bottom: 15px;
+	right: 65px;
 }
 .wrapper .title {
 	background: #007bff;
 	color: #fff;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 500;
-	line-height: 60px;
-	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 	border-bottom: 1px solid #006fe6;
 	border-radius: 5px 5px 0 0;
+	padding: 10px;
+}
+
+.wrapper .title span {
+	font-size: 24px;
+	cursor: pointer;
+	padding: 3px;
 }
 .wrapper .form {
 	padding: 20px 15px;
@@ -2142,7 +2153,6 @@ section {
 	}
 }
 
-
 /*---------------------------
      Scrollbar Design
 ---------------------------*/
@@ -2158,7 +2168,7 @@ section {
 ::-webkit-scrollbar-thumb {
 	border-radius: 8px;
 	background-color: #0022ff;
-} 
-  ::-webkit-scrollbar-thumb:hover {
+}
+::-webkit-scrollbar-thumb:hover {
 	background: #0d6eff;
 }
