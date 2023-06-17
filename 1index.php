@@ -1,3 +1,31 @@
+<?php
+// include(__DIR__.'/siteName.php');
+include('./siteName.php');
+require('./admin/dBconn/database.php');
+
+$new_url = "";
+if (isset($_GET)) {
+  // print_r( $_GET);
+  $database = new Database();
+  $db = $database->connect();
+
+  foreach ($_GET as $key => $val) {
+    $u = mysqli_real_escape_string($db, $key);
+    $new_url = str_replace('/', '', $u);
+
+  }
+
+  $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
+  $result = mysqli_query($db, $sql);
+
+
+  if (mysqli_num_rows($result) > 0) {
+    mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
+    $row = mysqli_fetch_assoc($result);
+    header("Location:" . $row['originalLink']);
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,7 +106,31 @@
     }
   </style>
 </head>
+<?php
+// require('./admin/dBconn/database.php');
+$database = new Database();
+$db = $database->connect();
+// echo "aefgsrdhtfjgk,hfrtwerfhjkgfdf".$db;
+$random = bin2hex(random_bytes(3));
+// $random = '209b01';
 
+$sql = "SELECT * from links WHERE shortenLink='" . $random . "'";
+$result = mysqli_query($db, $sql);
+$rows = mysqli_num_rows($result);
+
+$avail;
+if ($rows == 0) {
+  $avail = $random;
+
+} else {
+  $avail = bin2hex(random_bytes(3));
+  ;
+}
+// echo $avail;
+
+
+
+?>
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 <body>
@@ -104,9 +156,9 @@
 
 
           <li><a href="./">Home</a></li>
-          <li><a href="./faq.php">Faq</a></li>
-          <li><a href="./privacy.php">Privacy</a></li>
-          
+          <li><a href="faq.html">Faq</a></li>
+          <li><a href="privacy_policy.html">Privacy</a></li>
+
           <li class="navbar-spacing" style="margin-right: 50px;"></li>
           <!-- Add a list item for spacing -->
 
@@ -146,36 +198,101 @@
           <div id="generateShorty"></div>
 
 
+          <?php
+
+          $database = new Database();
+          $link = $database->connect();
+
+          $visitor_ip = $_SERVER['REMOTE_ADDR'];
+          // $visitor_ip = "54:54:24:54";
+          $query = "SELECT * FROM counter_table  WHERE ip_address='$visitor_ip'";
+          $result = mysqli_query($link, $query);
+
+          if (!$result) {
+            die("Retriving Error");
+          }
+          $total_visitors = mysqli_num_rows($result);
+          if ($total_visitors < 1) {
+            $query = "INSERT INTO counter_table(ip_address) VALUES('$visitor_ip')";
+            $result = mysqli_query($link, $query);
+          }
+
+
+          $query = "SELECT * FROM counter_table ";
+          $result = mysqli_query($link, $query);
+
+          if (!$result) {
+            die("Retriving Error");
+          }
+
+
+          $total_visitors = mysqli_num_rows($result);
+          ?>
 
           <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="<?php echo $total_visitors ?>"
+                  data-purecounter-duration="1" class="purecounter"></span>
                 <p>Total Visitors</p>
               </div>
             </div>
             <!-- End Stats Item -->
+            <?php
+            // require('../admin/dBconn/database.php');
+            $database = new Database();
+            $link = $database->connect();
 
+            $sql = "SELECT * FROM links";
+            $result = mysqli_query($link, $sql);
+
+            $count_links = mysqli_num_rows($result);
+            ?>
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="<?php echo $count_links ?>"
+                  data-purecounter-duration="1" class="purecounter"></span>
                 <p>Shorten Links</p>
               </div>
             </div>
+            <?php
+            // require('../admin/dBconn/database.php');
+            $database = new Database();
+            $link = $database->connect();
 
+            $sql = "SELECT * FROM total_clicks where id=1";
+            $result = mysqli_query($link, $sql);
+            $row = mysqli_fetch_array($result);
+
+            $clicks = $row['total_clicks'];
+
+
+
+            $registeredUsers = 0;
+            $sql = "SELECT * FROM users";
+            if ($result = mysqli_query($link, $sql)) {
+              if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_array($result)) {
+                  $registeredUsers++;
+                }
+                mysqli_free_result($result);
+              } else {
+                echo "<p class='lead'><em></em></p>";
+              }
+            }
+            ?>
 
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-end="" data-purecounter-duration="1"
-                  class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="<?php echo $clicks ?>"
+                  data-purecounter-duration="1" class="purecounter"></span>
                 <p>Total Clicks</p>
               </div>
             </div>
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
-                <span data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>
+                <span data-purecounter-start="0" data-purecounter-end="<?php echo $registeredUsers ?>"
+                  data-purecounter-duration="1" class="purecounter"></span>
                 <p>Registered Users</p>
               </div>
             </div>
@@ -286,7 +403,7 @@
               if (regexp.test(originalLink)) {
 
                 let generateShorty = document.querySelector('#generateShorty');
-                let full_shortlink = "";
+                let full_shortlink = "<?php echo $siteName ?>";
                 // full_shortlink.slice(0, -2);
                 // console.log(full_shortlink+avail);
                 generateShorty.innerHTML = `
@@ -304,17 +421,19 @@
 
                 var formData = new FormData();
                 formData.append('originalLink', originalLink);
-                // formData.append('shortenLink', avail);
+                                // formData.append('shortenLink', avail);
 
 
-                // for (const value of formData.values()) {
-                // // console.log(value);
+                                // for (const value of formData.values()) {
+                                // // console.log(value);
 
-                // }   
+                                // }   
 
-
-                // let url = "./admin/dBconn/api.php/?q=shorty&extra=shortenLink="+avail;
-                let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
+                                <?php
+                                // $extra="Extra Only";
+                                ?>
+                  // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
+                  let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
                 $.ajax({
                   type: "POST",
                   url: "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail,
@@ -363,9 +482,35 @@
   <!-- End Footer -->
   <!-- End Footer -->
 
+  <div class="side_icons">
+    <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+  </div>
+  <div class="chat_box">
+    <a class="chat_btn d-flex align-items-center justify-content-center"><i class="bi bi-chat-dots-fill"></i></a>
 
-  <?php include './common.php'; ?>
+    <div class="wrapper">
+      <div class="title">Welcome to Short Chatbot</div>
+      <div class="form">
+        <div class="bot-inbox inbox">
+          <div class="icon">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="msg-header">
+            <p>Hello there, how can I help you?</p>
+          </div>
+        </div>
+      </div>
+      <div class="typing-field">
+        <div class="input-data">
+          <input id="data" type="text" placeholder="Type something here.." required>
+          <button id="send-btn">Send</button>
+        </div>
+      </div>
+    </div>
 
+  </div>
+  </div>
 
   <div id="preloader"></div>
 
