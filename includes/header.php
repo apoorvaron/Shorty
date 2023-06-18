@@ -19,8 +19,8 @@
             <ul>
 
                 <li><a href="./" id="homeLink">Home</a></li>
-                <li><a href="./faq.php" id="faqLink">Faq</a></li>
-                <li><a href="./privacy.php" id="privacyLink">Privacy</a></li>
+                <li><a href="./faq" id="faqLink">Faq</a></li>
+                <li><a href="./privacy" id="privacyLink">Privacy</a></li>
 
                 <li class="navbar-spacing" style="margin-right: 50px;"></li>
                 <!-- Add a list item for spacing -->
