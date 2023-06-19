@@ -78,14 +78,10 @@
 
 
 
+
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
-
-                <!-- <div class="section-header">
-          <h2>FAQ</h2>
-
-        </div> -->
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-10">
@@ -137,12 +133,12 @@
                             <div class="accordion-item">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-4">
+                                        data-bs-target="#faq-content-3">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         What are the steps to shorten a link?
                                     </button>
                                 </h3>
-                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
                                         To shorten a link, follow these steps:
 
@@ -167,12 +163,12 @@
                             <div class="accordion-item">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-3">
+                                        data-bs-target="#faq-content-4">
                                         <i class="bi bi-question-circle question-icon"></i>
                                         Can I edit or update my profile details?
                                     </button>
                                 </h3>
-                                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
                                         Yes, once you have created an account, you can access your profile settings and
                                         make changes
@@ -183,37 +179,36 @@
                                 </div>
                             </div><!-- # Faq item-->
 
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-4">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        How do I manage my stored links?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        After logging into your account, you will have access to a link management
-                                        dashboard. From
-                                        there,
-                                        you can view, edit, delete, or organize your stored links, making it easy to
-                                        manage and
-                                        track
-                                        your shortened URLs.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
 
                             <div class="accordion-item">
                                 <h3 class="accordion-header">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                         data-bs-target="#faq-content-5">
                                         <i class="bi bi-question-circle question-icon"></i>
-                                        Does it require any money?
+                                        How do I manage my stored links?
                                     </button>
                                 </h3>
                                 <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                                    <div class="accordion-body">
+                                        After logging into your account, you will have access to a link management
+                                        dashboard. From there,
+                                        you can view, edit, delete, or organize your stored links, making it easy to
+                                        manage and
+                                        track your shortened URLs.
+                                    </div>
+                                </div>
+                            </div><!-- # Faq item -->
+
+
+                            <div class="accordion-item">
+                                <h3 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#faq-content-6">
+                                        <i class="bi bi-question-circle question-icon"></i>
+                                        Does it require any money?
+                                    </button>
+                                </h3>
+                                <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
                                     <div class="accordion-body">
                                         Its totally free application anyone can use it.
                                     </div>
@@ -227,6 +222,7 @@
 
             </div>
         </section><!-- End Frequently Asked Questions Section -->
+
 
     </main><!-- End #main -->
 
