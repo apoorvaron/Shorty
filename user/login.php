@@ -193,6 +193,7 @@ img.vert-move {
                                 <button class="btn  btn-block waves-effect waves-light" style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit">Log In</button>
                                 </div>
                             </div>
+                            <div class="text-centre">Forgot your password?<a href="forget-pass.php">Click here</a></div>
 
                             <div class="form-group m-t-10 mb-0 row">
                                 <div class="col-sm-7 m-t-20" >
