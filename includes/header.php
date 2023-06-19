@@ -70,9 +70,9 @@
         var faqLink = document.getElementById('faqLink');
         var privacyLink = document.getElementById('privacyLink');
 
-        if (currentPageUrl.includes('/faq.php')) {
+        if (currentPageUrl.includes('/faq')) {
             faqLink.classList.add('active');
-        } else if (currentPageUrl.includes('/privacy.php')) {
+        } else if (currentPageUrl.includes('/privacy')) {
             privacyLink.classList.add('active');
         } else {
             homeLink.classList.add('active');
