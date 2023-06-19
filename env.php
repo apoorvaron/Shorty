@@ -1,5 +1,6 @@
-<!-- FOR XAMPP -->
 <?php
+// FOR XAMPP
+
 // $env_server = "localhost:3306";
 // $env_username = "root";
 // $env_password = "";
@@ -8,8 +9,9 @@
 ?>
 
 
-<!-- FOR MAMP -->
 <?php
+// FOR MAMP
+
 $env_server = "localhost";
 $env_username = "root";
 $env_password = "root";
