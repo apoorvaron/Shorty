@@ -9,14 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-    <title>Shorty</title>
-    <meta content="" name="description" />
-    <meta content="" name="keywords" />
+<!-- importing the SEO FROM SEO.PHP FILE (mrprayag) -->
+<?php include './includes/seo.php'; ?>
 
-    <!-- Favicons -->
-    <link href="./assets/img/logo.png" rel="icon" />
-    <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
