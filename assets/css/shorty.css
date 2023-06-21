@@ -227,6 +227,8 @@ section {
 .side_icons a i:hover {
 	background: rgba(13, 66, 255, 0.8);
 	color: #fff;
+	transform: scale(0.96);
+	font-weight: bold;
 }
 
 .side_icons.active {
@@ -259,8 +261,13 @@ section {
 	color: #fff;
 	line-height: 0;
 	padding: 10px;
+	transition: transform 0.3s ease;
 }
-
+.chat_box a i:hover {
+	background: rgba(13, 66, 255, 0.8);
+	color: #fff;
+	transform: rotateY(180deg);
+}
 @media screen and (max-width: 540px) {
 	.chat_box {
 		flex-direction: column-reverse;
@@ -582,8 +589,10 @@ section {
 
 	.navbar .get-a-quote:hover,
 	.navbar .get-a-quote:focus:hover {
-		color: #fff;
-		background: #2756ff;
+		color: white !important;
+		background: #003e7f;
+		transform: scale(0.9);
+		font-weight: 600;
 	}
 
 	.navbar .dropdown ul {
@@ -2012,7 +2021,8 @@ section {
 }
 
 .hero form .btn-primary:hover {
-	background-color: #2756ff;
+	background-color: #003e7f;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero .stats-item {
