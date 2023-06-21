@@ -218,7 +218,8 @@ Step -12   Run in browser
           33) What type of Data structure do we use in this project
           34) Security Issues
           35) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
-          
+          36) if any pr merged then have to refresh hard to see proper things, what changes should be made so that no hard refresh or remove chrome history be done
+          37) Merge siteName.php & env.php && admin credentials 
           <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
                     Order Allow,Deny
                     Deny from all
