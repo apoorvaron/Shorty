@@ -263,11 +263,14 @@ section {
 	padding: 10px;
 	transition: transform 0.3s ease;
 }
+
 .chat_box a i:hover {
 	background: rgba(13, 66, 255, 0.8);
 	color: #fff;
-	transform: rotateY(180deg);
+	/* transform: rotateY(180deg); */
+	transform: scale(0.96);
 }
+
 @media screen and (max-width: 540px) {
 	.chat_box {
 		flex-direction: column-reverse;
@@ -2022,7 +2025,7 @@ section {
 
 .hero form .btn-primary:hover {
 	background-color: #003e7f;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero .stats-item {
