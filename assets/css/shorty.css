@@ -589,8 +589,8 @@ section {
 
 	.navbar .get-a-quote:hover,
 	.navbar .get-a-quote:focus:hover {
-		color: #fff;
-		background: #ADD8E6;
+		color: white !important;
+		background: #003e7f;
 		transform: scale(0.9);
 		font-weight: 600;
 	}
