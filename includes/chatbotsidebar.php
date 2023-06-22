@@ -8,6 +8,7 @@
 
     <div class="wrapper">
         <div class="title">Welcome to Short Chatbot</div>
+        <button onclick="displayNone()">X</button>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
@@ -25,6 +26,10 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function displayNone(){
+        document.querySelector(".wrapper").style.display="none";
+    }
+    </script>
 </div>
 </div>
