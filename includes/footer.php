@@ -67,7 +67,7 @@
                 copyBtn.value = "Copy";
                 copyBtn.classList.remove("btn-success");
                 copyBtn.classList.add("btn-primary");
-            },3000);
+            },1500);
 
 
         }
