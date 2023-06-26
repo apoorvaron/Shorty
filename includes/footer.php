@@ -33,7 +33,7 @@
     <div class="container mt-4">
         <div class="copyright">
             &copy; Copyright <strong>
-                <script>document.write(new Date().getFullYear());</script><span> Shorty </span>
+                <script>document.write(new Date().getFullYear());</script><span> Shorty</span>
             </strong>. All Rights Reserved
         </div>
         <div class="credits">
