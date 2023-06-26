@@ -7,7 +7,7 @@
     <a class="chat_btn d-flex align-items-center justify-content-center"><i class="bi bi-chat-dots-fill"></i></a>
 
     <div class="wrapper">
-        <div class="title">Welcome to Short Chatbot</div>
+        <div class="title">Welcome to Short Chatbot <button style="background-color:transparent;border:none;color:white;" onclick="hide()">X</button> </div>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
@@ -25,6 +25,10 @@
             </div>
         </div>
     </div>
-
+    <script>
+        function hide(){
+            document.querySelector(".wrapper").style.display="none";
+        }
+    </script>
 </div>
 </div>
