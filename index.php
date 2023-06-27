@@ -140,11 +140,11 @@
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="hero d-flex align-items-center">
       <div class="container">
-        <div class="row gy-4 d-flex justify-content-between">
+      <div class="row gy-4 d-flex justify-content-center"> 
           <div
-            class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" 
+            class="col-lg-6 order-lg-1 d-flex flex-column justify-content-centerss" 
           >
-            <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
+            <h2 data-aos="fade-up" style="margin-top:4%;margin-left: 230px">Shorty</h2>
             <p data-aos="fade-up" data-aos-delay="100">
             To help you grow, scale, and dominate through the power of link management.Whether you’re sharing one link or millions, Shorty lets you personalize, share, and track your content links, while capturing data with every click.
             </p>
@@ -156,10 +156,39 @@
               data-aos-delay="200"
               method="POST"
             >
-              <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink" />
-              <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
-            </form>
-            <div id="generateShorty"></div>
+            <style>
+  .btn-primary:hover {
+    background-color: #337ab7;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+  }
+  
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 24px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .btn-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  }
+</style>
+
+<input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink" />
+<button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
+</form>
+<div id="generateShorty"></div>
+
+
+
+
 
             
             <?php              
@@ -193,18 +222,18 @@
                       $total_visitors = mysqli_num_rows($result);
             ?>
 
-            <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="col-lg-3 col-6">
-                <div class="stats-item text-center w-100 h-100">
-                  <span
-                    data-purecounter-start="0"
-                    data-purecounter-end="<?php echo $total_visitors ?>"
-                    data-purecounter-duration="1"
-                    class="purecounter"
-                  ></span>
-                  <p>Total Visitors</p>
-                </div>
-              </div>
+<div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+  <div class="col-lg-3 col-6">
+    <div class="stats-item text-center w-100 h-100">
+      <span
+        data-purecounter-start="0"
+        data-purecounter-end="<?php echo $total_visitors ?>"
+        data-purecounter-duration="1"
+        class="purecounter fade-in"
+      ></span>
+      <p>Total Visitors</p>
+    </div>
+  </div>
               <!-- End Stats Item -->
               <?php 
                                                     // require('../admin/dBconn/database.php');
@@ -276,16 +305,13 @@
                   <p>Registered Users</p>
                 </div>
               </div>
+ 
+  
               <!-- End Stats Item -->
             </div>
           </div>
 
-          <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-            <img
-              src="assets/img/hero-img.svg"
-              class="img-fluid mb-3 mb-lg-0 vert-move mobile-size"
-              style="margin-top:20%"
-            />
+        
 
           </div>
         </div>
