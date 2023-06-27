@@ -3,27 +3,29 @@
         include('./siteName.php');
         require('./admin/dBconn/database.php');
 
-        $new_url="";
-        if(isset($_GET)){
-          // print_r( $_GET);
-          $database = new Database();
-          $db = $database->connect();
-
-          foreach($_GET as $key =>$val){
-            $u = mysqli_real_escape_string($db, $key);
-            $new_url = str_replace('/','',$u);
-
-          }
-
-          $sql = "SELECT * from links WHERE shortenLink='".$new_url."'";
-          $result = mysqli_query($db,$sql);
-
-
-          if(mysqli_num_rows($result)>0){
-              mysqli_query($db,"UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
-              $row = mysqli_fetch_assoc($result);
-              header("Location:".$row['originalLink']);
-          }
+        $new_url = "";
+        if (isset($_GET)) {
+            $database = new Database();
+            $db = $database->connect();
+        
+            foreach ($_GET as $key => $val) {
+                $u = mysqli_real_escape_string($db, $key);
+                $new_url = str_replace('/', '', $u);
+            }
+        
+            $sql = "SELECT * FROM links WHERE shortenLink = '".$new_url."'";
+            $result = mysqli_query($db, $sql);
+        
+            if (mysqli_num_rows($result) > 0) {
+                mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks + 1 WHERE id = 1");
+                $row = mysqli_fetch_assoc($result);
+                header("Location:".$row['originalLink']);
+                exit;
+            } else {
+                // Short name doesn't exist, redirect to the 404 page
+                header("Location: 404.php");
+                exit;
+            }
         }
 ?>
 <!DOCTYPE html>
