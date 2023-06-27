@@ -46,29 +46,11 @@
     <script>
         function copy() {
             // console.log(document.querySelector('#shortInput').value);
-
-            //check if navigator.clipboard is supported or not 
-            if(navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(document.querySelector('#shortInput').value);
-            }else{
-                var tempInput = document.createElement("input");
-                tempInput.setAttribute("value", document.querySelector('#shortInput').value);
-                document.body.appendChild(tempInput);
-                tempInput.select();
-                document.execCommand("copy");
-                document.body.removeChild(tempInput);
-
-            }
+            navigator.clipboard.writeText(document.querySelector('#shortInput').value);
             let copyBtn = document.querySelector('#copyBtn');
             copyBtn.value = "Copied !!";
             copyBtn.classList.remove("btn-primary");
             copyBtn.classList.add("btn-success");
-            setTimeout(() => {
-                copyBtn.value = "Copy";
-                copyBtn.classList.remove("btn-success");
-                copyBtn.classList.add("btn-primary");
-            },1500);
-
 
         }
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
