@@ -81,7 +81,8 @@ color : black;
       font-weight: 700;
       margin: 10px 0px;
     }
-    .modal-header{
+
+    .modal-header {
       color: #555;
       font-weight: 700;
       margin: 10px 0px;
@@ -197,9 +198,9 @@ if ($rows == 0) {
           </form>
 
           <button class="btn btn-block waves-effect waves-light"
-          style="margin-bottom: 20px;/* width: fit-content; */background-color: #0d42ff;color:white;border: 1px solid #0d42ff;"
-        id="guestLoginBtn" type="button"
-        title="Click here to create a custom shorten link">Click to Create Custom Shorten Link</button>
+            style="margin-bottom: 20px;/* width: fit-content; */background-color: #0d42ff;color:white;border: 1px solid #0d42ff;"
+            id="guestLoginBtn" type="button" title="Click here to create a custom shorten link">Click to Create Custom
+            Shorten Link</button>
 
 
           <div id="generateShorty"></div>
@@ -303,7 +304,7 @@ if ($rows == 0) {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" id="custom-closeNextButton" data-dismiss="modal" aria-label="Close">Close</button>
-                                    <button id="copyButton" class="btn btn-primary" onclick="CopyFunction()">Copy</button>
+                                    <button id="copyButton" class="btn btn-primary" onclick="Copy()">Copy</button>
 
                                 </div>
                             </div>
