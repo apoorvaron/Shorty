@@ -43,14 +43,34 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
     <script>
         function copy() {
             // console.log(document.querySelector('#shortInput').value);
-            navigator.clipboard.writeText(document.querySelector('#shortInput').value);
+
+            //check if navigator.clipboard is supported or not 
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(document.querySelector('#shortInput').value);
+            } else {
+                var tempInput = document.createElement("input");
+                tempInput.setAttribute("value", document.querySelector('#shortInput').value);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+            }
             let copyBtn = document.querySelector('#copyBtn');
             copyBtn.value = "Copied !!";
             copyBtn.classList.remove("btn-primary");
             copyBtn.classList.add("btn-success");
+            setTimeout(() => {
+                copyBtn.value = "Copy";
+                copyBtn.classList.remove("btn-success");
+                copyBtn.classList.add("btn-primary");
+            }, 1500);
+
 
         }
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -67,7 +87,6 @@
         function generateShorty() {
 
             let originalLink = document.querySelector('#originalLink').value;
-
 
             // Check original link was shortened previously 
             let urllink = "./admin/dBconn/api.php?q=getAlreadyShortened&originalLink=" + originalLink;
@@ -120,7 +139,6 @@
                             // }   
 
 
-                            // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
                             let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
                             $.ajax({
                                 type: "POST",
