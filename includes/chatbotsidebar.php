@@ -7,7 +7,7 @@
     <a class="chat_btn d-flex align-items-center justify-content-center"><i class="bi bi-chat-dots-fill"></i></a>
 
     <div class="wrapper">
-        <div class="title">Welcome to Short Chatbot</div>
+        <div class="title">Welcome to Shorty Chatbot</div>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
