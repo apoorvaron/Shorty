@@ -3,9 +3,7 @@
 
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <?php
-  $isGuest = "True";
-  ?>
+
   <?php
   // include(__DIR__.'/siteName.php');
   include('./siteName.php');
@@ -296,11 +294,8 @@ if ($rows == 0) {
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row gy-4 d-flex justify-content-between">
-        <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
-          <p data-aos="fade-up" data-aos-delay="100">
-
-          </p>
+        <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
+          <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
             <form class="form-search align-items-stretch mb-3 d-flex" style="
     flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
@@ -308,12 +303,12 @@ if ($rows == 0) {
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
               </h2>
               <hr style="color:gray;">
-              <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
+              <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
               <div class=" style=" padding-left: 0px;">
-                <span class="form-group mt-4 mb-5" id="formSpan">
+                <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
-                    <p style="margin: 0px !important;color:#555; font-weight: 500;">
+                    <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $siteName ?>
                     </p>
                   </label>
@@ -342,31 +337,18 @@ if ($rows == 0) {
           <div id="generateShorty"></div>
 
 
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400">
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400" style="
+    height: 0px !important;
+">
             <div class="col-lg-3 col-6">
-              <div>
-                <span></span>
-                <p></p>
-              </div>
+
             </div>
             <div class="col-lg-3 col-6">
-              <div>
-                <span></span>
-                <p></p>
-              </div>
             </div>
 
             <div class="col-lg-3 col-6">
-              <div>
-                <span></span>
-                <p></p>
-              </div>
             </div>
             <div class="col-lg-3 col-6">
-              <div>
-                <span></span>
-                <p></p>
-              </div>
             </div>
             <!-- End Stats Item -->
           </div>
