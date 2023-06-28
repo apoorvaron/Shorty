@@ -31,13 +31,9 @@
                 <li>
                     <a class="get-a-quote" href="./user/register">Register</a>
                 </li>
-                <?php
-                if (!isset($isGuest)) {
-                    echo '
                 <li>
-                    <a class="get-a-quote" href="./guest">Guest Login</a>
+                    <a class="get-a-quote" href="./guest">Guest</a>
                 </li>';
-                }
 
                 ?>
             </ul>

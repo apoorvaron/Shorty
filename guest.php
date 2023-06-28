@@ -289,12 +289,12 @@ if ($rows == 0) {
               <hr style="color:gray;">
               <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
-              <span class="focus-border"></span>
               <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Custom Name"
                 id="shortenLink" name="shortenLink" />
               <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary btn-sm" id="generateRandom">Random Number</button>
-                <button type="submit" class="btn btn-primary" name="submit" class="btn-get-started">Shorten
+                <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
+                  class="btn-get-started">Shorten
                   Link</button>
 
 
