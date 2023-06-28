@@ -220,6 +220,9 @@ Step -12   Run in browser
           35) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
           36) if any pr merged then have to refresh hard to see proper things, what changes should be made so that no hard refresh or remove chrome history be done
           37) Merge siteName.php & env.php && admin credentials 
+          38) using inspect too , password should not visible by changing the type="password" to text
+          39) Add in readme that if styling is not correct try hard refresh by clicking this and this keys
+          40) in register Page , Password validation like atleast 8 char etc.. should be in another div , right or left to the registration form , something like this (https://usict.acm.org/dashboard/user-portal/register) 
           <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
                     Order Allow,Deny
                     Deny from all
