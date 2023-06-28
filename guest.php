@@ -276,9 +276,7 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center">
           <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
           <p data-aos="fade-up" data-aos-delay="100">
-            To help you grow, scale, and dominate through the power of link management.Whether you’re sharing one link
-            or millions, Shorty lets you personalize, share, and track your content links, while capturing data with
-            every click.
+
           </p>
           <div>
             <form class="form-search align-items-stretch mb-3 d-flex" style="
