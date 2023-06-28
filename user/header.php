@@ -149,7 +149,7 @@
                             </li>
 -->
                             <li>
-                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortned Links</span></a>
+                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortened Links</span></a>
                             </li>
                             <li>
                                 <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
