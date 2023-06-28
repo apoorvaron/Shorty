@@ -282,10 +282,10 @@ if ($rows == 0) {
           </p>
           <div>
             <form class="form-search align-items-stretch mb-3 d-flex" style="
-    flex-direction: column;
-" method="POST" data-aos="fade-up" data-aos-delay="200">
+    flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
-              <h1 style="color:gray;">Custom Link</h1>
+              <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
+              </h2>
               <hr style="color:gray;">
               <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
