@@ -248,22 +248,30 @@
       }
     }
 
-    #buttonresp {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5em;
-      padding: 1.5em;
+    @media screen and (max-width : 980px) {
+
+
+      #buttonresp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        padding: 1.5em;
+
+        background-color: red;
+
+
+      }
+
+      #formresp {
+        display: block;
+        margin: 0 1.5em;
+      }
 
 
 
 
-    }
-
-    #formresp {
-      display: block;
-      margin: 0 1.5em;
     }
   </style>
   <script type="text/javascript">
@@ -325,9 +333,7 @@ if ($rows == 0) {
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
               <div class=" style=" padding-left: 0px;">
-                <span class="form-group mt-3 mb-4" id="formSpan" style="
-    flex-wrap: wrap;
-">
+                <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $siteName ?>
