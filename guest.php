@@ -82,6 +82,7 @@
               let generateShorty = document.querySelector("#generateShorty");
               let full_shortlink = "' . $siteName . '";
               generateShorty.innerHTML = `
+
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                     <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
                     <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
@@ -246,6 +247,35 @@
         transform: translateY(-50px);
       }
     }
+
+    @media screen and (max-width : 496px) {
+
+
+      #buttonresp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        /* padding: 1.5em; */
+        margin:0px !important
+
+
+      }
+     
+
+      #formresp {
+        display: block;
+        margin: 0 1.5em;
+      } 
+      .hero form .btn-primary{
+        padding: 15px 8px;
+        width: 48%;
+      }
+
+
+
+    }
   </style>
   <script type="text/javascript">
     function blockSpecialChar(e) {
@@ -297,7 +327,7 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
-            <form class="form-search align-items-stretch mb-3 d-flex" style="
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" style="
     flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
@@ -322,8 +352,8 @@ if ($rows == 0) {
               <!-- <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;"
                 onkeypress="return blockSpecialChar(event)" placeholder="Custom Name" id="shortenLink"
                 name="shortenLink" /> -->
-              <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary btn-sm" id="generateRandom">Random Number</button>
+              <div class="d-flex justify-content-between" id="buttonresp">
+                <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
                   class="btn-get-started">Shorten
                   Link</button>
@@ -374,19 +404,15 @@ if ($rows == 0) {
   <div id="preloader"></div>
   <!-- *************************** Generate Random Number   *****************************  -->
 
-  <?php
-  $randNum = bin2hex(random_bytes(3));
-  ;
+  <script>
+    document.querySelector('#generateRandom').addEventListener('click', function () {
+      var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+      console.log(randNum);
+      document.querySelector('#shortenLink').value = randNum;
+    });
+  </script>
 
-  echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='" . $randNum . "';
-                                                    });
-                                        </script>
-                                ";
-  ?>
+  <!-- *************************** Generate Random Number ends  *****************************  -->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
