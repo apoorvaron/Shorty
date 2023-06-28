@@ -259,7 +259,6 @@
         gap: 0.5em;
         padding: 1.5em;
 
-        background-color: red;
 
 
       }
