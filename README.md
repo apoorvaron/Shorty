@@ -241,6 +241,7 @@ Step -12   Run in the browser
           38) using inspect too , password should not visible by changing the type="password" to text
           39) Add in readme that if styling is not correct try hard refresh by clicking this and this keys
           40) in register Page , Password validation like atleast 8 char etc.. should be in another div , right or left to the registration form , something like this (https://usict.acm.org/dashboard/user-portal/register) 
+          41) Change readme by changing steps from download zip to cloning the repo
           <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
                     Order Allow, Deny
                     Deny from all
