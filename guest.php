@@ -49,7 +49,6 @@
     $finalLink = $siteName . $shortenLink;
     // $shortenLink = "".$siteName."".$short;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-
       $query = "SELECT * from links WHERE shortenLink='" . $shortenLink . "'";
       $result = mysqli_query($db, $query);
       $count_rows = mysqli_num_rows($result);
@@ -81,7 +80,7 @@
 
           echo '<script>
               $(document).ready(function(){
-              swal("Successfully Created !!","","success").then(function(){
+                
               let generateShorty = document.querySelector("#generateShorty");
               let full_shortlink = "' . $siteName . '";
               generateShorty.innerHTML = `
@@ -95,7 +94,7 @@
 
                   var formData = new FormData();
                   formData.append("originalLink", originalLink);
-  });
+  
 });
 </script>';
 
