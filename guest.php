@@ -374,19 +374,15 @@ if ($rows == 0) {
   <div id="preloader"></div>
   <!-- *************************** Generate Random Number   *****************************  -->
 
-  <?php
-  $randNum = bin2hex(random_bytes(3));
-  ;
+  <script>
+    document.querySelector('#generateRandom').addEventListener('click', function () {
+      var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+      console.log(randNum);
+      document.querySelector('#shortenLink').value = randNum;
+    });
+  </script>
 
-  echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='" . $randNum . "';
-                                                    });
-                                        </script>
-                                ";
-  ?>
+  <!-- *************************** Generate Random Number ends  *****************************  -->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
