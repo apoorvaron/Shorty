@@ -31,6 +31,10 @@
                 <li>
                     <a class="get-a-quote" href="./user/register">Register</a>
                 </li>
+                <li>
+                    <a class="get-a-quote" href="./guest">Guest</a>
+                </li>
+
             </ul>
         </nav>
         <!-- .navbar -->

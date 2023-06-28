@@ -42,14 +42,16 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
     <script>
         function copy() {
             // console.log(document.querySelector('#shortInput').value);
 
             //check if navigator.clipboard is supported or not 
-            if(navigator.clipboard && navigator.clipboard.writeText) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(document.querySelector('#shortInput').value);
-            }else{
+            } else {
                 var tempInput = document.createElement("input");
                 tempInput.setAttribute("value", document.querySelector('#shortInput').value);
                 document.body.appendChild(tempInput);
@@ -66,7 +68,7 @@
                 copyBtn.value = "Copy";
                 copyBtn.classList.remove("btn-success");
                 copyBtn.classList.add("btn-primary");
-            },1500);
+            }, 1500);
 
 
         }
@@ -81,10 +83,10 @@
 
             return result;
         }
+
         function generateShorty() {
 
             let originalLink = document.querySelector('#originalLink').value;
-
 
             // Check original link was shortened previously 
             let urllink = "./admin/dBconn/api.php?q=getAlreadyShortened&originalLink=" + originalLink;
@@ -114,15 +116,15 @@
                             // full_shortlink.slice(0, -2);
                             // console.log(full_shortlink+avail);
                             generateShorty.innerHTML = `
-                                                        <form
-                                                              class="form-search d-flex align-items-stretch mb-3"
-                                                              data-aos="fade-up"
-                                                              data-aos-delay="200"
-                                                        >
-                                                              <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
-                                                              <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
-                                                        </form>
-                              `;
+                                            <form
+                                                  class="form-search d-flex align-items-stretch mb-3"
+                                                  data-aos="fade-up"
+                                                  data-aos-delay="200"
+                                            >
+                                                  <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+                                                  <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                                            </form>
+                  `;
 
                             let originalLink = document.querySelector('#originalLink').value;
 
@@ -137,7 +139,6 @@
                             // }   
 
 
-                            // let url = "./admin/dBconn/api.php/?q=shorty&extra=<?php echo $extra ?>shortenLink="+avail;
                             let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
                             $.ajax({
                                 type: "POST",
@@ -170,18 +171,129 @@
                     },
                 });
             });
-
-
-
-
-
-            // console.log(Boolean(new URL(originalLink)));
-
-
-
-
-
         }
+
+
+        // function generateCustomShorty() {
+        //     let originalLink = document.querySelector('#originalLink').value;
+        //     let shortenLink = document.querySelector('#shortenLink').value;
+        //     console.log(originalLink)
+        //     console.log(shortenLink)
+        //     // Generate a new shortened link
+        //     let avail = shortenLink;
+
+        //     let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+        //     let ifValidLink = regexp.test(originalLink);
+        //     if (ifValidLink) {
+        //         console.log("Testing", ifValidLink);
+        //         let generateShorty = document.querySelector('#generateShorty');
+        //         let full_shortlink = "<?php echo $siteName ?>";
+        //         generateShorty.innerHTML = `
+        //     <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+        //         <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+        //         <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+        //     </form>
+        // `;
+
+        //         let originalLink = document.querySelector('#originalLink').value;
+
+        //         var formData = new FormData();
+        //         formData.append('originalLink', originalLink);
+
+        //         let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
+        //         $.ajax({
+        //             type: "POST",
+        //             url: "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail,
+        //             data: formData,
+        //             cache: false,
+        //             processData: false,
+        //             contentType: false,
+        //             success: function (data) {
+        //                 console.log("success");
+        //             },
+        //             error: function (xhr, status, error) {
+        //                 console.log("No");
+        //             },
+        //         });
+        //     } else {
+        //         swal("Enter Valid URL !!", "", "error");
+        //     }
+        // }
+
+
+        function generateCustomShorty() {
+            let originalLink = document.querySelector('#originalLink').value;
+            let shortenLink = document.querySelector('#shortenLink').value;
+            if (shortenLink.trim() === '') {
+                swal("Shorten Link is required", "", "error");
+                return;
+            }
+            shortenLink = shortenLink.replace(/ /g, "_");
+            console.log(originalLink);
+            console.log(shortenLink);
+            let avail = shortenLink;
+
+            // Check if the original link has been previously shortened
+            let urllink = "./admin/dBconn/api.php?q=alreadyShortenCustom&shortenLink=" + shortenLink;
+            $.ajax({
+                url: urllink,
+                method: 'GET',
+                dataType: 'JSON',
+                success: function (data) {
+                    console.log("this is datt", data);
+                    // If the link is previously shortened
+                    if (data) {
+                        swal("Custom Name Not available", "", "error");
+                        return;
+
+                    } else {
+                        // If the link is not previously shortened
+                    }
+
+                    let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff]-*)*[a-z\u00a1-\uffff]+)(?:\.(?:[a-z\u00a1-\uffff]-*)*[a-z\u00a1-\uffff]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+                    let ifValidLink = regexp.test(originalLink);
+                    if (ifValidLink) {
+                        console.log("Testing", ifValidLink);
+                        let generateShorty = document.querySelector('#generateShorty');
+                        let full_shortlink = "<?php echo $siteName ?>";
+                        generateShorty.innerHTML = `
+                    <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+                        <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                    </form>
+                `;
+
+                        let originalLink = document.querySelector('#originalLink').value;
+
+                        var formData = new FormData();
+                        formData.append('originalLink', originalLink);
+
+                        let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
+                        $.ajax({
+                            type: "POST",
+                            url: "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail,
+                            data: formData,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            success: function (data) {
+                                console.log("success");
+                            },
+                            error: function (xhr, status, error) {
+                                console.log("No");
+                            },
+                        });
+                    } else {
+                        swal("Enter Valid URL !!", "", "error");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.log("No");
+                },
+            });
+        }
+
+
     </script>
 </footer>
 <!-- End Footer -->
