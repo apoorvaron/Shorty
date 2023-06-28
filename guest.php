@@ -179,10 +179,24 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-    #originalLink,
+    #originalLink {
+      border: 0 !important;
+      border-bottom: 1px solid #ccc !important;
+      padding: 7px 0;
+
+    }
+
     #shortenLink {
       border: 0 !important;
       padding: 7px 0;
+    }
+
+    #formSpan {
+      width: 100%;
+      display: flex;
+      align-items: baseline;
+      border: 0 !important;
+      /* padding: 7px 0; */
       border-bottom: 1px solid #ccc !important;
       margin-bottom: 15px;
     }
@@ -235,6 +249,15 @@
       }
     }
   </style>
+  <script type="text/javascript">
+    function blockSpecialChar(e) {
+      let value = document.querySelector('#shortenLink').value;
+
+      var k;
+      document.all ? k = e.keyCode : k = e.which;
+      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    }
+  </script>
 </head>
 <?php
 // require('./admin/dBconn/database.php');
@@ -287,8 +310,23 @@ if ($rows == 0) {
               <hr style="color:gray;">
               <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
-              <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;" placeholder="Custom Name"
-                id="shortenLink" name="shortenLink" />
+              <div class=" style=" padding-left: 0px;">
+                <span class="form-group mt-4 mb-5" id="formSpan">
+                  <label>
+                    <p style="margin: 0px !important;color:#555; font-weight: 500;">
+                      <?php echo $siteName ?>
+                    </p>
+                  </label>
+                  <span><input type="text" class="form-control mb-4 mt-3" onkeypress="return blockSpecialChar(event)"
+                      placeholder="Custom Name"
+                      style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
+                      id="shortenLink" name="shortenLink" /></span>
+                </span>
+
+              </div>
+              <!-- <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;"
+                onkeypress="return blockSpecialChar(event)" placeholder="Custom Name" id="shortenLink"
+                name="shortenLink" /> -->
               <div class="d-flex justify-content-between">
                 <button type="button" class="btn btn-primary btn-sm" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"

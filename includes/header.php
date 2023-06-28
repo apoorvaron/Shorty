@@ -33,9 +33,8 @@
                 </li>
                 <li>
                     <a class="get-a-quote" href="./guest">Guest</a>
-                </li>';
+                </li>
 
-                ?>
             </ul>
         </nav>
         <!-- .navbar -->
