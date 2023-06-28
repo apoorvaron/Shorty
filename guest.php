@@ -82,6 +82,7 @@
               let generateShorty = document.querySelector("#generateShorty");
               let full_shortlink = "' . $siteName . '";
               generateShorty.innerHTML = `
+
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                     <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
                     <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
@@ -246,6 +247,24 @@
         transform: translateY(-50px);
       }
     }
+
+    #buttonresp {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5em;
+      padding: 1.5em;
+
+
+
+
+    }
+
+    #formresp {
+      display: block;
+      margin: 0 1.5em;
+    }
   </style>
   <script type="text/javascript">
     function blockSpecialChar(e) {
@@ -297,7 +316,7 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
-            <form class="form-search align-items-stretch mb-3 d-flex" style="
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" style="
     flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
@@ -306,7 +325,9 @@ if ($rows == 0) {
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
               <div class=" style=" padding-left: 0px;">
-                <span class="form-group mt-3 mb-4" id="formSpan">
+                <span class="form-group mt-3 mb-4" id="formSpan" style="
+    flex-wrap: wrap;
+">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $siteName ?>
@@ -322,8 +343,8 @@ if ($rows == 0) {
               <!-- <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;"
                 onkeypress="return blockSpecialChar(event)" placeholder="Custom Name" id="shortenLink"
                 name="shortenLink" /> -->
-              <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary btn-sm" id="generateRandom">Random Number</button>
+              <div class="d-flex justify-content-between" id="buttonresp">
+                <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
                   class="btn-get-started">Shorten
                   Link</button>
