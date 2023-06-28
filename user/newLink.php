@@ -83,7 +83,6 @@
                                 });
                             </script>";
                 }else{
-
                     $query = "SELECT * FROM links WHERE uniqueNo='".$uno."' AND originalLink='".$originalLink."'";
                     $result = mysqli_query($db,$query);
                     $row = mysqli_fetch_array($result);
@@ -154,7 +153,7 @@
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
                                         <h4 class="page-title">Make New Link</h4>
-                                       <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Shorten Links</button></a>
+                                        <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Shorten Links</button></a>
                                     </div>
                                 </div>
                             </div>
@@ -168,17 +167,17 @@
                                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
-                                                <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
+                                            <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong> 
                                             </div>
             
-                                            <h3 class="mt-0 header-title"></h3>
+                                            <h4 class="mt-0 header-title"></h4>
                                             <p class="text-muted font-14"></p>
             
                                             <form  method="POST"  >
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <label></label>
+                                                         <label></label>
                                                         <input type="text"  class="form-control" id="linkIsFor" name="linkIsFor" required placeholder="Link is for"/>
                                                     </div>
                                                 </div>
@@ -186,7 +185,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <!-- <label>Original Link</label> -->
+
                                                         <input type="text"  class="form-control" id="originalLink" name="originalLink" required placeholder="Original Link"/>
                                                     </div>
                                                 </div>
@@ -194,14 +193,14 @@
                                   
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <!-- <label>Shorten Link</label> -->
+
                                                 </div>
                                             </div>
                                             <!-- <div class="row"> -->
                                                 <div class=" form-control col-md-12"> 
                                                     <span class="form-group">
                                                         <label><b><?php echo $siteName ?></b></label>
-                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"   placeholder="Custom Name" style="border:0px;padding-left:0px;;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
+                                                        <span><input type="text" onkeypress="return blockSpecialChar(event)"    placeholder="Custom Name" style="border:0px;max-width: 50%;"   required id="shortenLink" name="shortenLink"/></span>
                                                     </span>
                                                           
                                                 </div>
@@ -211,16 +210,18 @@
 
                                              
                                             <br>
-                                           <br>
+                                            <br>
+                                            
+                                           
                                             <div class="row">
                                                 <div class="col-md-6 text-center">
                                                     <div class="form-group mb-0">
                                                         <div >
                                                             <button type="button" name="generateRandom" id="generateRandom" class="btn btn-success waves-effect waves-light">
-                                                                Random No.
+                                                                 Random No.
                                                             </button>
                                                           
-                                                            <button  class='btn btn-primary new' type='button' hidden id="previewBtn"  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
+                                                            <button  class='btn btn-primary new' type='button' id="previewBtn" hidden  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
                                                         
                                                         </div>
                                                     </div>

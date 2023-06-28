@@ -51,7 +51,7 @@
                         <div class="row">
                                 <div class="col-sm-12">
                                     <div class="page-title-box">
-                                    <h1 class="page-title text-center">Your Link has been shortned previously.</h1>
+                                    <h1 class="page-title text-center">Your Link has been shortened previously.</h1>
                                         <?php 
                                             $username = $_GET['username'];
                                             $uno = $_GET['uno'];

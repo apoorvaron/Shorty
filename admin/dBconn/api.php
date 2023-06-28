@@ -4,17 +4,18 @@ header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header("Content-Type: application/json; charset=UTF-8");
 
-    include_once './database.php';
-    include_once './apiFunc.php';
-    $method = $_SERVER['REQUEST_METHOD'];
+include_once './database.php';
+include_once './apiFunc.php';
+$method = $_SERVER['REQUEST_METHOD'];
 
-function submitReg(){
+function submitReg()
+{
     $database = new Database();
     // print_r('dsfghj');
     $db = $database->connect();
 
     $username = $_POST["username"];
-    $password =  $_POST["password"];
+    $password = $_POST["password"];
     $randNum = bin2hex(random_bytes(3));
 
     $file = isset($_FILES['poster']) ? $_FILES['poster'] : false;
@@ -26,8 +27,8 @@ function submitReg(){
     }
 
     $filename = $file['name'];
-    $filetemppath= $file['tmp_name'];
-    $fileext = explode('.',$filename);
+    $filetemppath = $file['tmp_name'];
+    $fileext = explode('.', $filename);
     $filecheck = strtolower(end($fileext));
 
     $fileextstored = array('png', 'jpg', 'jpeg');
@@ -42,20 +43,20 @@ function submitReg(){
         $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`,`img`) VALUES ('$randNum','$username', '$password','$destinationfile')";
         // print_r($sql);
         // $result = $db -> query($sql) ;
-        $result = mysqli_query($db,$sql);
+        $result = mysqli_query($db, $sql);
         // echo("Error description: " . $mysqli -> error);
         // echo("Error description: " . mysqli_error($db));
         // var_dump($result);
-            if ($result) {
-                echo json_encode(
-                    array('message' => 'Form has been submitted')
-                );
-            } else {
-                echo json_encode(
-                    array('message' => 'Internal Server Error. Try Again')
-                );
-            }
-    
+        if ($result) {
+            echo json_encode(
+                array('message' => 'Form has been submitted')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Internal Server Error. Try Again')
+            );
+        }
+
     } else {
         echo json_encode(
             array('message' => 'Insert the image')
@@ -66,16 +67,18 @@ function submitReg(){
     // $res =  mysqli_query($db,$query);
 
 
-};
-function addLink(){
+}
+;
+function addLink()
+{
     $database = new Database();
     $db = $database->connect();
 
-    
-    
-    $linkIsFor =  $_POST["linkIsFor"];
-    $originalLink =  $_POST["originalLink"];
-    $shortenLink =  $_POST["shortenLink"];
+
+
+    $linkIsFor = $_POST["linkIsFor"];
+    $originalLink = $_POST["originalLink"];
+    $shortenLink = $_POST["shortenLink"];
     $uno = $_GET["uno"];
     // $randNum = bin2hex(random_bytes(3));
 
@@ -83,72 +86,78 @@ function addLink(){
 
     $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
     // print_r($sql);
-    $result =$db -> query($sql) ;
+    $result = $db->query($sql);
     // var_dump($result);
-        if ($result) {
-            echo json_encode(
-                array('message' => 'Form has been submitted')
-            );
-        } else {
-            echo json_encode(
-                array('message' => 'Internal Server Error. Try Again')
-            );
-        }
-
-};
-function deleteLink(){
-    $database = new Database();
-    $db = $database->connect();
-
-    $linkID =$_GET['linkID'];
-
-    $sql = "DELETE FROM links WHERE linkID='".$linkID."'";
-
-    $result = mysqli_query($db,$sql);
-    echo $result;
-    if($result==1){
+    if ($result) {
         echo json_encode(
-            array('message' => 'Link Deleted Successfully')
+            array('message' => 'Form has been submitted')
         );
-    }else{
+    } else {
         echo json_encode(
             array('message' => 'Internal Server Error. Try Again')
         );
     }
-};
 
-function shorty(){
+}
+;
+function deleteLink()
+{
     $database = new Database();
     $db = $database->connect();
-  
-    
-    $uniqueNo =  $_POST["uniqueNo"];
-    $originalLink =  $_POST["originalLink"];
-    $shortenLink =  $_GET["shortenLink"];
+
+    $linkID = $_GET['linkID'];
+
+    $sql = "DELETE FROM links WHERE linkID='" . $linkID . "'";
+
+    $result = mysqli_query($db, $sql);
+    echo $result;
+    if ($result == 1) {
+        echo json_encode(
+            array('message' => 'Link Deleted Successfully')
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'Internal Server Error. Try Again')
+        );
+    }
+}
+;
+
+function shorty()
+{
+    $database = new Database();
+    $db = $database->connect();
+
+
+    $uniqueNo = $_POST["uniqueNo"];
+    $originalLink = $_POST["originalLink"];
+    $shortenLink = $_GET["shortenLink"];
     // $extra =  $_GET["extra"];
 
     $sql = "INSERT INTO `links` (`uniqueNo`,`originalLink`, `shortenLink`) VALUES ('shorty','$originalLink', '$shortenLink')";
     // print_r($sql);
-    $result =$db -> query($sql) ;
+    $result = $db->query($sql);
     // var_dump($result);
-        if ($result) {
-            echo json_encode(
-                array('message' => 'Form has been submitted')
-            );
-        } else {
-            echo json_encode(
-                array('message' => 'Internal Server Error. Try Again')
-            );
-        }
+    if ($result) {
+        echo json_encode(
+            array('message' => 'Form has been submitted')
+        );
+    } else {
+        echo json_encode(
+            array('message' => 'Internal Server Error. Try Again')
+        );
+    }
 
-};
+}
+;
 
-function getLinks(){
+function getLinks()
+{
     $database = new Database();
     $db = $database->connect();
     $obj = new Link($db);
     $result = $obj->allLink();
-    
+
     // var_dump($result);  
     if ($result) {
         $announcements_arr = array();
@@ -163,15 +172,17 @@ function getLinks(){
         }
         echo json_encode($announcements_arr);
     }
-};
-function getAlreadyShortened(){
+}
+;
+function getAlreadyShortened()
+{
     $database = new Database();
     $db = $database->connect();
-  
+
     $originalLink = $_GET['originalLink'];
-    $sql = "SELECT * from links where uniqueNo='shorty' AND originalLink='".$originalLink."'";
-    $result =$db -> query($sql) ;
-    
+    $sql = "SELECT * from links where uniqueNo='shorty' AND originalLink='" . $originalLink . "'";
+    $result = $db->query($sql);
+
     // var_dump($result);  
     // var_dump($sql);  
     if ($result) {
@@ -187,32 +198,54 @@ function getAlreadyShortened(){
         }
         echo json_encode($announcements_arr);
     }
-};
-    $q = $_GET['q'];
-    // echo $q;
-    switch ($q) {
-        case 'submitReg':
-            // echo "<script>console.log('called')</script>";
-            // echo $q;
+}
+;
 
-            submitReg();
-            break;
-        case 'addLink':
-            addLink();
-            break;
-        case 'deleteLink':
-            deleteLink();
-            break;
-        case 'shorty':
-            shorty();
-            break;
-        case 'getLinks':
-            getLinks();
-            break;
-        case 'getAlreadyShortened':
-            getAlreadyShortened();
-            break;
-        default:
-            echo "Invalid Query";
+function alreadyShortenCustom()
+{
+    $database = new Database();
+    $db = $database->connect();
+
+    $shortenLink = $_GET['shortenLink'];
+    $sql = "SELECT * FROM links WHERE shortenLink='" . $shortenLink . "'";
+    $result = $db->query($sql);
+
+    if ($result && $result->num_rows > 0) {
+        echo json_encode(true);
+    } else {
+        echo json_encode(false);
     }
+}
+;
+
+$q = $_GET['q'];
+// echo $q;
+switch ($q) {
+    case 'submitReg':
+        // echo "<script>console.log('called')</script>";
+        // echo $q;
+
+        submitReg();
+        break;
+    case 'addLink':
+        addLink();
+        break;
+    case 'deleteLink':
+        deleteLink();
+        break;
+    case 'shorty':
+        shorty();
+        break;
+    case 'getLinks':
+        getLinks();
+        break;
+    case 'getAlreadyShortened':
+        getAlreadyShortened();
+        break;
+    case 'alreadyShortenCustom';
+        alreadyShortenCustom();
+        break;
+    default:
+        echo "Invalid Query";
+}
 ?>
