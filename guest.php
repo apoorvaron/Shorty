@@ -248,7 +248,7 @@
       }
     }
 
-    @media screen and (max-width : 980px) {
+    @media screen and (max-width : 496px) {
 
 
       #buttonresp {
@@ -257,17 +257,21 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 0.5em;
-        padding: 1.5em;
-
+        /* padding: 1.5em; */
+        margin:0px !important
 
 
       }
+     
 
       #formresp {
         display: block;
         margin: 0 1.5em;
+      } 
+      .hero form .btn-primary{
+        padding: 15px 8px;
+        width: 48%;
       }
-
 
 
 
