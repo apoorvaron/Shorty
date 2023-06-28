@@ -7,7 +7,7 @@
     <a class="chat_btn d-flex align-items-center justify-content-center"><i class="bi bi-chat-dots-fill"></i></a>
 
     <div class="wrapper">
-        <div class="title">Welcome to Short Chatbot <button style="background-color:transparent;border:none;color:white;" onclick="hide()">X</button> </div>
+        <div class="title">Welcome to Short Chatbot <button class="closeChat" style="background-color:transparent;border:none;color:white;">X</button> </div>
         <div class="form">
             <div class="bot-inbox inbox">
                 <div class="icon">
@@ -26,9 +26,17 @@
         </div>
     </div>
     <script>
-        function hide(){
-            document.querySelector(".wrapper").style.display="none";
-        }
+        $(document).ready(function () {
+		$('.closeChat').click(function () {
+			$('.wrapper').slideToggle();
+			count++;
+			if (count % 2 != 0) {
+				disable();
+			} else {
+				enable();
+			}
+		});
+	});
     </script>
 </div>
 </div>
