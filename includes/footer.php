@@ -33,9 +33,8 @@
     <div class="container mt-4">
         <div class="copyright">
             &copy; Copyright <strong>
-                <script>document.write(new Date().getFullYear());</script><span> <a target="_blank"
-                        href="https://github.com/apoorvaron/tiny">Shorty</a> </span>
-            </strong>. All Rights Reserved
+                <script>document.write(new Date().getFullYear());</script><span> Shorty. </span>
+            </strong>All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a target="_blank" href="https://github.com/apoorvaron">Apoorv Aron</a>
