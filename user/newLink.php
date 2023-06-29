@@ -44,20 +44,7 @@ include(__DIR__ . '/../siteName.php');
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript">
-    function blockSpecialChar(e) {
-        let value = document.querySelector('#shortenLink').value;
-        let previewBtn = document.querySelector('#previewBtn');
 
-        if (value.length != 0) {
-
-            previewBtn.removeAttribute("hidden");
-        }
-        var k;
-        document.all ? k = e.keyCode : k = e.which;
-        return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
-    }
-</script>
 <?php
 if (isset($_POST['submit'])) {
     require('../admin/dBconn/database.php');
@@ -208,9 +195,9 @@ if (isset($_POST['submit'])) {
                                             <label><b>
                                                     <?php echo $siteName ?>
                                                 </b></label>
-                                            <span><input type="text" onkeypress="return blockSpecialChar(event)"
-                                                    placeholder="Custom Name" style="border:0px;max-width: 50%;"
-                                                    required id="shortenLink" name="shortenLink" /></span>
+                                            <span><input type="text" placeholder="Custom Name"
+                                                    style="border:0px;max-width: 50%;" required id="shortenLink"
+                                                    name="shortenLink" /></span>
                                         </span>
 
                                     </div>
@@ -282,7 +269,13 @@ if (isset($_POST['submit'])) {
         document.querySelector('#generateRandom').addEventListener('click', function () {
             var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
             console.log(randNum);
-            document.querySelector('#shortenLink').value = randNum;
+            let v = document.querySelector('#shortenLink').value = randNum;
+            var previewBtn = document.querySelector('#previewBtn');
+            if (v.trim().length != 0) {
+                previewBtn.removeAttribute("hidden");
+            } else {
+                previewBtn.setAttribute("hidden", true);
+            }
         });
     </script>
 
@@ -322,7 +315,30 @@ if (isset($_POST['submit'])) {
     </script>
 
     <!-- *************************** Get preview modal ends   *****************************  -->
+    <!-- *************************** Block SpecialChar   *****************************  -->
+    <script>
+        $("#shortenLink").on("input", function () {
+            var c = this.selectionStart,
+                r = /[^a-z0-9 ]/gi,
+                v = $(this).val();
+            if (r.test(v)) {
+                $(this).val(v.replace(r, ""));
+                v.length--;
+                c--;
+            }
+            this.setSelectionRange(c, c);
+            var previewBtn = document.querySelector('#previewBtn');
+            console.log(v.trim().length);
+            if (v.trim().length != 0) {
+                previewBtn.removeAttribute("hidden");
+            } else {
+                previewBtn.setAttribute("hidden", true);
+            }
 
+
+        });
+    </script>
+    <!-- *************************** Block SpecialChar Ends  *****************************  -->
 
     <?php include 'footer.php'; ?>
 

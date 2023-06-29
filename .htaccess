@@ -1,14 +1,14 @@
-            ErrorDocument 404 http://localhost/tiny/404.php
+ErrorDocument 404 http://localhost/tiny/404.php
 
-            RewriteEngine On
-            RewriteCond %{REQUEST_FILENAME} !-d
-            RewriteCond %{REQUEST_FILENAME}\.php -f
-            RewriteRule ^(.*)$ $1.php [NC,L]
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
 
 
-            RewriteEngine On
+RewriteEngine On
 
-            RewriteCond $1 !^(index\.php)
-            RewriteCond %{REQUEST_FILENAME} !-f
-            RewriteCond %{REQUEST_FILENAME} !-d
-            RewriteRule ^(.*)$ index.php?/$1 [L]
+RewriteCond $1 !^(index\.php)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?/$1 [L]

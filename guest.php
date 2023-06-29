@@ -258,17 +258,16 @@
         flex-wrap: wrap;
         gap: 0.5em;
         /* padding: 1.5em; */
-        margin:0px !important
-
-
+        margin: 0px !important
       }
-     
+
 
       #formresp {
         display: block;
         /* margin: 0 1.5em; */
-      } 
-      .hero form .btn-primary{
+      }
+
+      .hero form .btn-primary {
         padding: 15px 8px;
         width: 48%;
       }
@@ -277,15 +276,7 @@
 
     }
   </style>
-  <script type="text/javascript">
-    function blockSpecialChar(e) {
-      let value = document.querySelector('#shortenLink').value;
 
-      var k;
-      document.all ? k = e.keyCode : k = e.which;
-      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
-    }
-  </script>
 </head>
 <?php
 // require('./admin/dBconn/database.php');
@@ -342,16 +333,12 @@ if ($rows == 0) {
                       <?php echo $siteName ?>
                     </p>
                   </label>
-                  <span><input type="text" class="form-control mb-4 mt-3" onkeypress="return blockSpecialChar(event)"
-                      placeholder="Custom Name"
+                  <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
                       style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
                       id="shortenLink" name="shortenLink" /></span>
                 </span>
 
               </div>
-              <!-- <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;"
-                onkeypress="return blockSpecialChar(event)" placeholder="Custom Name" id="shortenLink"
-                name="shortenLink" /> -->
               <div class="d-flex justify-content-between" id="buttonresp">
                 <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
@@ -411,6 +398,23 @@ if ($rows == 0) {
       document.querySelector('#shortenLink').value = randNum;
     });
   </script>
+
+
+  <!-- *************************** Block SpecialChar   *****************************  -->
+  <script>
+    $("#shortenLink").on("input", function () {
+      var c = this.selectionStart,
+        r = /[^a-z0-9 ]/gi,
+        v = $(this).val();
+      if (r.test(v)) {
+        $(this).val(v.replace(r, ""));
+        c--;
+      }
+      this.setSelectionRange(c, c);
+
+    });
+  </script>
+  <!-- *************************** Block SpecialChar Ends  *****************************  -->
 
   <!-- *************************** Generate Random Number ends  *****************************  -->
 
