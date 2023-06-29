@@ -62,7 +62,13 @@
             $originalLink = $_POST['originalLink'];
             $shortenLink = $_POST['shortenLink'];
 
-            if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+            $errorMsg = [];
+            if(true) $errorMsg[] = "Please Give the name of the Link !!";
+            if(empty(trim($originalLink)) || !filter_var($originalLink, FILTER_VALIDATE_URL)) $errorMsg[] = "Please Enter Valid URL !!";
+            if(empty(trim($shortenLink))) $errorMsg[] = "Please provide the shorten Link !!";
+
+
+            if (count($errorMsg) == 0) {
                 
                 $sql = "UPDATE links SET linkIsFor = '".$linkIsFor."' ,originalLink = '".$originalLink."',shortenLink = '".$shortenLink."' WHERE linkID='".$_GET['linkID']."';";
                 // echo "<br><br><br><br><br><br><br><br><br><br><br><br>safdghgkfjrwteqrtyjfdthreawaetsdjfhkjdtrysdtjfhkjdtyrsdhtgf".$sql;
@@ -86,10 +92,9 @@
                             </script>";
                 }
             } else {
-      
                 echo "      <script>
                                 $(document).ready(function(){
-                                    swal('Please Enter Valid URL !!','','error');
+                                    swal('" . join('\n', $errorMsg) . "','','error');
                                 });
                             </script>";
             }
