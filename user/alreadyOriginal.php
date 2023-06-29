@@ -13,7 +13,7 @@
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+        <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
 
         <!-- DataTables -->
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />

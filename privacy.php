@@ -13,8 +13,8 @@
 <?php include './includes/seo.php'; ?>
 
   <!-- Favicons -->
-  <link href="./assets/img/logo.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="./assets/img/logo.webp" rel="icon" />
+  <link href="assets/img/apple-touch-icon.webp" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -53,7 +53,7 @@
 
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs"
-            style=" background: #0e1d34;background-image: url('../assets/images/hero-bg.png'); background-repeat: no-repeat; background-size: cover;">
+            style=" background: #0e1d34;background-image: url('../assets/images/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
@@ -99,7 +99,7 @@
                     </div>
 
                     <div class="col-lg-8">
-                        <!-- <img src="assets/img/service-details.jpg" alt="" class="img-fluid services-img"> -->
+                        <!-- <img src="assets/img/service-details.webp" alt="" class="img-fluid services-img"> -->
                         <div id="active" style="text-align: justify;align-items:center;">
                             <h3>Privacy Policy for shorty</h3>
                             <p>

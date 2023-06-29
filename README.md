@@ -1,5 +1,5 @@
 
-<h1 align = "center">  <img src = "./assets/img/inside-header-logo.png" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
+<h1 align = "center">  <img src = "./assets/img/inside-header-logo.webp" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
 <!-- <hr> -->
 <div>
 To help you grow, scale, and dominate through the power of <b>link management</b>. Whether you’re sharing one link or millions, <b>Shorty</b> lets you personalize, share, and track your content links, while capturing data with every click.</div>
