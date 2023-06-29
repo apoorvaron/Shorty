@@ -81,7 +81,7 @@
                 }else{
                     echo "  <script>
                                 $(document).ready(function(){
-                                    swal('Try Again !!','','error');
+                                    swal('Custom Name Not Available !!','','error');
                                 });
                             </script>";
                 }
