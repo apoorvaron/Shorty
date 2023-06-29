@@ -58,14 +58,14 @@
             $database = new Database();
             $link = $database->connect();
         
-            $linkIsFor = $_POST['linkIsFor'];
-            $originalLink = $_POST['originalLink'];
-            $shortenLink = $_POST['shortenLink'];
+            $linkIsFor = mysqli_real_escape_string($link, trim($_POST['linkIsFor']));
+            $originalLink = mysqli_real_escape_string($link, trim($_POST['originalLink']));
+            $shortenLink = mysqli_real_escape_string($link, trim($_POST['shortenLink']));
 
             $errorMsg = [];
             if(true) $errorMsg[] = "Please Give the name of the Link !!";
-            if(empty(trim($originalLink)) || !filter_var($originalLink, FILTER_VALIDATE_URL)) $errorMsg[] = "Please Enter Valid URL !!";
-            if(empty(trim($shortenLink))) $errorMsg[] = "Please provide the shorten Link !!";
+            if(empty($originalLink) || !filter_var($originalLink, FILTER_VALIDATE_URL)) $errorMsg[] = "Please Enter Valid URL !!";
+            if(empty($shortenLink)) $errorMsg[] = "Please provide the shorten Link !!";
 
 
             if (count($errorMsg) == 0) {
