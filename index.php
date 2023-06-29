@@ -152,8 +152,9 @@ if ($rows == 0) {
 
           <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200"
             method="POST">
-            <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link"
-              id="originalLink" />
+            <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink"
+              onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
+
             <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
           </form>
           <div id="generateShorty"></div>
