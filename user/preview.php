@@ -81,7 +81,7 @@
                 }else{
                     echo "  <script>
                                 $(document).ready(function(){
-                                    swal('Try Again !!','','error');
+                                    swal('Custom Name Not Available !!','','error');
                                 });
                             </script>";
                 }
@@ -171,14 +171,11 @@
                                                                                 <div class=' form-control col-md-12'> 
                                                                                     <span class='form-group'>
                                                                                         <label> <b>".  $siteName ." </b> </label>
-                                                                                        <span><input type='text' onkeypress='return blockSpecialChar(event)' value='".$row['shortenLink']."'    placeholder='Custom Short Link' style='border:0px'  id='shortenLink' name='shortenLink'/></span>
+                                                                                        <span><input type='text' onkeypress='return blockSpecialChar(event)' value='".$row['shortenLink']."' required  placeholder='Custom Short Link' style='border:0px'  id='shortenLink' name='shortenLink'/></span>
                                                                                     </span>
                                                                                         
                                                                                 </div>
 
-
-
-                                                                            
                                                                             <br>
                                                                         
                                                                             <div class='row'>
