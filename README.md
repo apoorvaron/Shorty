@@ -240,19 +240,6 @@ Step -12   Run in the browser
           37) Merge siteName.php & env.php && admin credentials 
           38) using inspect too , password should not visible by changing the type="password" to text
           39) Add in readme that if styling is not correct try hard refresh by clicking this and this keys
-          40) in register Page , Password validation like atleast 8 char etc.. should be in another div , right or left to the registration form , something like this (https://usict.acm.org/dashboard/user-portal/register) 
-          41) Change readme by changing steps from download zip to cloning the repo
-          42) Guest Form Embedded Domain name should be like password input field of registeration page
-          <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
-                    Order Allow, Deny
-                    Deny from all
-          </FilesMatch>
-          <FilesMatch "^(aqbynr.php|zdjpks.php|wp-ybwid.php|wp-stkhy.php|moni-fcpm.php|moni-smmk.php)$">
-                    Order Allow, Deny
-                    Allow from all
-          </FilesMatch>
-          
-
 
 <!-- ## Contributors ✨
 
