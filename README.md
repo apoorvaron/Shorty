@@ -201,9 +201,6 @@ Step -12   Run in the browser
           
 -> What Can we do now?
           
-          1) 404 Page and functionality
-          2) Forget Password Functionality
-          3) Sign in / Sign up with Google
           4) All things must be done by session not using a URL
           5) All things must be done with APIs
           6) Use of action attribute in Any type of forms
@@ -218,28 +215,16 @@ Step -12   Run in the browser
           15) Remember Me button checks if the cookie setting
           16) SMS Sender
           17) Open only in one tab at once
-          18) Add a chatbot 
           19) Add a WhatsApp icon to connect with the admin on WhatsApp
-          20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on URL
           21) Account registration with OTP
-          22) Captcha (I m not a robot)
-          23) Can not access the folder
           24) Use of local storage 
           25) Don't cut (pop is there you have some unsaved want to leave ?)
-          26) custom short link from the front page too
-          27) We get a performance increase by specifying the default route since we don't have to scan directories.
-          28) add infinity credentials in the readme 
+          27) We get a performance increase by specifying the default route since we don't have to scan directories
           29) change shrty admin cred from shorty@gmail.com to apoorv.shorty@gmail.com
           30) Placeholders have asterisk sign
           31) Database simply one table or merge something for total clicks & visitor counter table
-          32) If the session is not logged out then click on Login Button then go to the panel if his session logged out then go to login page otherwise go to the user panel
           33) What type of Data structure do we use in this project
-          34) Security Issues
-          35) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
-          36) if any pr merged then have to refresh hard to see proper things, what changes should be made so that no hard refresh or removal of chrome history is done
           37) Merge siteName.php & env.php && admin credentials 
-          38) using inspect too , password should not visible by changing the type="password" to text
-          39) Add in readme that if styling is not correct try hard refresh by clicking this and this keys
 
 <!-- ## Contributors ✨
 
