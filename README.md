@@ -213,10 +213,7 @@ Step -12   Run in the browser
           13) Want to update -> edit your profile?
           14) Mobile view, image, main page, margin-top 
           15) Remember Me button checks if the cookie setting
-          16) SMS Sender
           17) Open only in one tab at once
-          19) Add a WhatsApp icon to connect with the admin on WhatsApp
-          21) Account registration with OTP
           24) Use of local storage 
           25) Don't cut (pop is there you have some unsaved want to leave ?)
           27) We get a performance increase by specifying the default route since we don't have to scan directories
