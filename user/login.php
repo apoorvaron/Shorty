@@ -38,23 +38,32 @@ if (isset($_POST['submit'])) {
 
     if (mysqli_num_rows($result) == 1) {
 
-        ob_start();
-        if (isset($_POST['rememberme'])) {
-            setcookie('emailcookie', $email, time() + 86400);
-            setcookie('passwordcookie', $originalPass, time() + 86400);
-        }
-
+        ob_start(); 
         $row = mysqli_fetch_array($result);
-        $_SESSION["" . $row['username'] . ""] = "" . $row['username'] . "";
-        $_SESSION["" . $row['uniqueNo'] . ""] = "" . $row['uniqueNo'] . "";
+        if($row['isVerify'] == '0') {
+            echo "  <script>
+                $(document).ready(function(){
+                    swal('You account is not verified yet, Please verify it !!','','error').then(function() {
+                    });
+                });
+            </script>";
+        }else{
+            if (isset($_POST['rememberme'])) {
+                setcookie('emailcookie', $email, time() + 86400);
+                setcookie('passwordcookie', $originalPass, time() + 86400);
+            }
 
-        $_SESSION["username"] = "" . $row['username'] . "";
-        $_SESSION["uno"] = "" . $row['uniqueNo'] . "";
+            $_SESSION["" . $row['username'] . ""] = "" . $row['username'] . "";
+            $_SESSION["" . $row['uniqueNo'] . ""] = "" . $row['uniqueNo'] . "";
+
+            $_SESSION["username"] = "" . $row['username'] . "";
+            $_SESSION["uno"] = "" . $row['uniqueNo'] . "";
 
 
-        $_SESSION['start'] = time();
-        $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-        echo "<script>window.location.replace('./index?username=" . $row['username'] . "&uno=" . $row['uniqueNo'] . "')</script>";
+            $_SESSION['start'] = time();
+            $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
+            echo "<script>window.location.replace('./index?username=" . $row['username'] . "&uno=" . $row['uniqueNo'] . "')</script>";
+        }
     } else {
 
         $query = "SELECT * from users where email='$email'";
