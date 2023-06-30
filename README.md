@@ -113,9 +113,7 @@ Step -4   Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & 
                  $env_port = "3306";
             ?>
 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.(FOR MAC & having MAMP)
-
-                ErrorDocument 404 http://localhost:8888/tiny/404.php
+Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.
 
                 RewriteEngine On
                 RewriteCond %{REQUEST_FILENAME} !-d
@@ -131,22 +129,6 @@ Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snipp
                 RewriteRule ^(.*)$ index.php?/$1 [L]
                 
                 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.(FOR WINDOWS)
-
-                ErrorDocument 404 http://localhost/tiny/404.php
-
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteCond %{REQUEST_FILENAME}\.php -f
-                RewriteRule ^(.*)$ $1.php [NC,L]
-
-
-                RewriteEngine On
-
-                RewriteCond $1 !^(index\.php)
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteRule ^(.*)$ index.php?/$1 [L]
                 
 Step -6   Change the file content inside tiny/htdocs/siteName.php
 
@@ -188,7 +170,7 @@ Step -12   Run in the browser
           3) password = "62b5fe5724b08db455672377fb31e95b"
           4) img = "../assets/user-img/1659983584admin-img.png"
           
--> Front Page shorted links go into the admin account 
+-> Home Page/Guest Page shorted links go into the admin account 
           
           email    -> shorty@gmail.com
           password -> shorty@gmail.com
@@ -199,10 +181,6 @@ Step -12   Run in the browser
           2) Change siteName.php 
           3) Upload files & dB.
           
--> What Can we do now?
-          
-          1) Merge siteName.php & env.php && admin credentials 
-
 <!-- ## Contributors ✨
 
 Thanks go to these wonderful people 💪
