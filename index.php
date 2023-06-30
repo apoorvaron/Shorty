@@ -1,5 +1,4 @@
 <?php
-// include(__DIR__.'/siteName.php');
 include('./siteName.php');
 require('./admin/dBconn/database.php');
 

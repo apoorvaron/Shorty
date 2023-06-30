@@ -5,7 +5,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <?php
-  // include(__DIR__.'/siteName.php');
   include('./siteName.php');
   require('./admin/dBconn/database.php');
 
@@ -45,7 +44,6 @@
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
     $finalLink = $siteName . $shortenLink;
-    // $shortenLink = "".$siteName."".$short;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
       $query = "SELECT * from links WHERE shortenLink='" . $shortenLink . "'";
       $result = mysqli_query($db, $query);

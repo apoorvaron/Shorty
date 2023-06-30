@@ -57,7 +57,6 @@ if (isset($_POST['submit'])) {
     $shortenLink = $_POST['shortenLink'];
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
-    // $shortenLink = "".$siteName."".$short;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
 
 
