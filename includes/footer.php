@@ -26,7 +26,7 @@
                         </a>
                         <!-- This is dummy number took from Online SO dont try to distrub apoorvaron 🤣🤣 -->
                         <a target="_blank" rel=”noopener noreferrer” aria-label="Connect to Apoorv on Whatsapp"
-                            title="Link to Whatsapp Account" href="http://wa.me//+923007172420" class="whatsapp">
+                            title="Link to Whatsapp Account" href="http://wa.me//+919310355144" class="whatsapp">
                             <i class="bi bi-whatsapp"></i>
                         </a>
                     </div>
