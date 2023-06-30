@@ -463,7 +463,9 @@
                      require_once '../emailManager/accountVerifier.php';
                      require_once '../siteName.php';
 
-                     $link = $verifyUrl . $token;
+                     $link = $verifyUrl;
+                     $link = str_replace("{{ TOKEN }}", $token, $link);
+                     $link = str_replace("{{ USERNAME }}", $username, $link);
 
                      if (
                         verifyEmail([
