@@ -1,6 +1,6 @@
 <?php
 
-require './mailConnection.php';
+require __DIR__ . '/mailConnection.php';
 
 function verifyEmail($info){
     /*
@@ -34,7 +34,7 @@ function verifyEmail($info){
                     padding: 0 15px;
                     line-height: 40px;
                     border-radius: 5px;
-                    display: table;
+                    display: inline-block;
                     margin: 30px auto;
                 ">Verify Now</a>
             </div>

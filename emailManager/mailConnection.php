@@ -6,8 +6,8 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
-require '../vendor/autoload.php';
-require './email_config.php';
+require __DIR__. '/../vendor/autoload.php';
+require __DIR__. '/./email_config.php';
 
 class MailSender {
     private $mail;

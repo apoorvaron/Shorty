@@ -454,9 +454,27 @@
                      }
                  } else {
                      $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-                     if (mysqli_query($db, $queryIns)) {
+                     
+                     $id = bin2hex(random_bytes(3));
+                     $token = md5( $username . time() . $randNum );
+                     $expireTime = date("Y-m-d H:i:s",time() + (3600 * 24));  // one day expiry
+                     $queryVerify = "INSERT INTO `verify_token` (`id`, `username`, `token`, `expires_time`) VALUE ('$id', '$username' , '$token' , '$expireTime')";
+
+                     require_once '../emailManager/accountVerifier.php';
+                     require_once '../siteName.php';
+
+                     $link = $verifyUrl . $token;
+
+                     if (
+                        verifyEmail([
+                            "email" => $email,
+                            "link" => $link
+                        ]) && 
+                        mysqli_query($db, $queryIns) && 
+                        mysqli_query($db, $queryVerify)
+                     ) {
                          echo "  <script>
-                            swal('Registration Successful !!','* Please Login *','success').then(function() {
+                            swal('Registration Successful !!\\nPlease verify your account throught the link send to your email','* Please Verify *','success').then(function() {
                                 window.location = './login';
                             });
                          </script>";
