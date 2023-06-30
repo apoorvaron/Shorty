@@ -201,27 +201,7 @@ Step -12   Run in the browser
           
 -> What Can we do now?
           
-          4) All things must be done by session not using a URL
-          5) All things must be done with APIs
-          6) Use of action attribute in Any type of forms
-          7) Footer has Year 2 times 
-          8) If we edit the profile then an alert of pdf or nonimage is chosen as the image 
-          9) Make an admin panel 
-          10) Only the admin can login to the shorty@gmail.com user panel
-          11) Mobile view user panel header has Hii username
-          12) Dynamic Titles of pages 
-          13) Want to update -> edit your profile?
-          14) Mobile view, image, main page, margin-top 
-          15) Remember Me button checks if the cookie setting
-          17) Open only in one tab at once
-          24) Use of local storage 
-          25) Don't cut (pop is there you have some unsaved want to leave ?)
-          27) We get a performance increase by specifying the default route since we don't have to scan directories
-          29) change shrty admin cred from shorty@gmail.com to apoorv.shorty@gmail.com
-          30) Placeholders have asterisk sign
-          31) Database simply one table or merge something for total clicks & visitor counter table
-          33) What type of Data structure do we use in this project
-          37) Merge siteName.php & env.php && admin credentials 
+          1) Merge siteName.php & env.php && admin credentials 
 
 <!-- ## Contributors ✨
 
