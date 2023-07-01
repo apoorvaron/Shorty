@@ -12,6 +12,10 @@
         <!-- <img src="assets/img/logo.png" alt=""> -->
 
 
+// Redirect back to the previous page
+$previousPage = $_SERVER['HTTP_REFERER'];
+header("Location: $previousPage");
+exit();
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
@@ -33,6 +37,11 @@
                 </li>
                 <li>
                     <a class="get-a-quote" href="./guest">Guest</a>
+                </li>
+                <li>
+                <label for="dark-mode-switch">Dark Mode:</label>
+                    <input type="checkbox" id="dark-mode-switch" name="dark-mode-switch" <?php if ($darkMode) echo 'checked'; ?>>
+                    <button type="submit">Toggle</button>
                 </li>
 
             </ul>
