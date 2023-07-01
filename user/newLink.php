@@ -271,6 +271,9 @@ if (isset($_POST['submit'])) {
             console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
+
+            // dispatching input event to the field so to remove the star symbol
+            document.querySelector('#shortenLink').dispatchEvent(new Event('input'))
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {
