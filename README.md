@@ -79,90 +79,113 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
 
 - Must install xampp (FOR WINDOWS) and MAMP (FOR MAC) 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
+
+- Must install LAMPP ( For Linux)
+- Tutorial - https://youtu.be/HJl2ILUfBoA
+
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
 
-Step -1   Download the Zip file 
+To get started with the "Shorty" application, follow these steps:
 
-Step -2   Unzip it & Rename the folder from "tiny-main" to "tiny"
+1. Fork the repository by clicking on the "Fork" button at the top right corner of the repository page. This will create a copy of the repository under your own GitHub account.
 
-Step -3   Put a tiny folder inside 
+2. Clone the repository to your local machine. Open your terminal or command prompt, navigate to the directory where you want to clone the repository, and execute the following command:
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
+   ```
+   - Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
 
+3. Press Enter to execute the command. Git will clone the repository to your local machine.
+   
+4. Move the "shorty" folder to your web server's directory. 
+
+   - _**For MAMP (Mac):**_ <br>
+   ```bash
           /Applications/MAMP/htdocs/  folder  (FOR MAC)
+   ```
+   - _**For XAMPP (Windows):**_ <br>
+   ```bash
           C:/xampp/htdocs/            folder  (FOR WINDOWS)
-
-Step -4   Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+   ```
+   - _**For LAMPP (Linux):**_ <br>
+   ```bash
+          /opt/lampp/htdocs/            folder  (FOR WINDOWS)
+   ```
+5. Set Environment Variables according to your environments
+   - Set the below snippet inside /Applications/MAMP/htdocs/shorty/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
                 $env_username = "root";
                 $env_password = "root";
-                $env_database = "tiny";
+                $env_database = "shorty";
                 $env_port = "8889";
             ?>
 
-Step -4   Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+   - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
                  $env_server = "localhost:3306";
                  $env_username = "root";
                  $env_password = "";
-                 $env_database = "tiny";
+                 $env_database = "shorty";
                  $env_port = "3306";
             ?>
+   - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
+          
 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.
-
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteCond %{REQUEST_FILENAME}\.php -f
-                RewriteRule ^(.*)$ $1.php [NC,L]
-
-
-                RewriteEngine On
-
-                RewriteCond $1 !^(index\.php)
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteRule ^(.*)$ index.php?/$1 [L]
+            <?php
+                 $env_server = "localhost:3306";
+                 $env_username = "root";
+                 $env_password = "";
+                 $env_database = "shorty";
+                 $env_port = "3306";
+            ?>
+        
+6. Configure the siteName.php File          
                 
-                
-                
-Step -6   Change the file content inside tiny/htdocs/siteName.php
+- Change the file content inside shorty/htdocs/siteName.php
 
           1) FOR MAC & MAMP
                 <?php
-                    $siteName = "http://localhost:8888/tiny/";
+                    $siteName = "http://localhost:8888/shorty/";
                 ?>
                 
-          2) FOR Windows
+          2) FOR Windows & MAPP also for Linux & LAMPP
                 <?php
-                    $siteName = "http://localhost/tiny/";
+                    $siteName = "http://localhost/shorty/";
                 ?>
-                
-Step -7   Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 
-Step -8   To Setup the database, open 
+7. Start your web server.
+- Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
+- For LAMPP on Linux:
+     1) Open your terminal.
+     2) Start the  server by executing the following command:
+
+            sudo /opt/lampp/lampp start
+8. Set up the Database
+- To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
           localhost/phpmyadmin         (FOR WINDOWS & XAMPP)
+          localhost/phpmyadmin         (FOR Linux & LAMPP)
+          
+- Create New Database and name the Database as  `shorty`
+- Import the Database from the "htdocs/shorty/shorty.sql" directory. 
 
-Step -9   Create New Database 
+           shorty.sql (db file)
 
-Step -10   Database Name  "tiny"
+9. Run in the browser 
 
-Step -11   Import the Database from the "htdocs/tiny/tiny.sql" directory. 
+          localhost:8888/shorty/     (FOR MAC)
+          localhost/shorty/          (FOR WINDOWS)
+          localhost/shorty/          (FOR Linux)
+          
 
-           tiny.sql (db file)
-
-Step -12   Run in the browser 
-
-          localhost:8888/tiny/     (FOR MAC)
-          localhost/tiny/          (FOR WINDOWS)
-
-          <br><br>
+<br><br>
 ! IMPORTANT -> users table must contain one row 
 
           1) uniqueNo = "shorty"
