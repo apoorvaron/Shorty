@@ -120,7 +120,7 @@ To get started with the "Shorty" application, follow these steps:
                 $env_server = "localhost";
                 $env_username = "root";
                 $env_password = "root";
-                $env_database = "tiny";
+                $env_database = "shorty";
                 $env_port = "8889";
             ?>
 
@@ -131,7 +131,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_server = "localhost:3306";
                  $env_username = "root";
                  $env_password = "";
-                 $env_database = "tiny";
+                 $env_database = "shorty";
                  $env_port = "3306";
             ?>
    - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
@@ -141,7 +141,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_server = "localhost:3306";
                  $env_username = "root";
                  $env_password = "";
-                 $env_database = "tiny";
+                 $env_database = "shorty";
                  $env_port = "3306";
             ?>
         
@@ -173,10 +173,10 @@ To get started with the "Shorty" application, follow these steps:
           localhost/phpmyadmin         (FOR WINDOWS & XAMPP)
           localhost/phpmyadmin         (FOR Linux & LAMPP)
           
-- Create New Database and name the Database as  `tiny`
-- Import the Database from the "htdocs/shorty/tiny.sql" directory. 
+- Create New Database and name the Database as  `shorty`
+- Import the Database from the "htdocs/shorty/shorty.sql" directory. 
 
-           tiny.sql (db file)
+           shorty.sql (db file)
 
 9. Run in the browser 
 
