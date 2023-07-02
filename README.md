@@ -86,63 +86,37 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
-### Fork the Repository
 
-To get started with the "Shorty" application, you'll need to fork this repository. Here's how you can do it:
+To get started with the "Shorty" application, follow these steps:
 
-1. Click on the "Fork" button at the top right corner of this repository page. This will create a copy of the repository under your own GitHub account.
+1. Fork the repository by clicking on the "Fork" button at the top right corner of the repository page. This will create a copy of the repository under your own GitHub account.
 
-### Clone the Repository
-
-Once you have forked the repository, you need to clone it to your local machine. Follow these steps to clone the repository:
-
-1. Click on the "Code" button in your forked repository page.
-2. Copy the HTTPS or SSH link provided in the dropdown menu.
-
-   For example: `https://github.com/your-username/repo-name.git`
-
-3. Open your terminal or command prompt.
-4. Navigate to the directory where you want to clone the repository.
-5. Execute the following command to clone the repository:
-
+2. Clone the repository to your local machine. Open your terminal or command prompt, navigate to the directory where you want to clone the repository, and execute the following command:
    ```bash
    git clone https://github.com/your-username/repo-name.git
    ```
+   - Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
 
-   Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
+3. Press Enter to execute the command. Git will clone the repository to your local machine.
+   
+5. Rename the cloned repository folder from "shorty" to "tiny".
 
-6. Press Enter to execute the command. Git will clone the repository to your local machine.
+6. Move the "tiny" folder to your web server's directory. 
 
-### Rename the Repository
-
-Next, you'll need to rename the cloned repository from "Shorty" to "tiny". Follow these steps to rename it:
-
-1. If you cloned the repository using the command line, navigate to the cloned repository's directory.
-
-2. Rename the folder from "Shorty" to "tiny".
-
-3. If you downloaded the repository as a ZIP file, extract its contents to a location of your choice.
-
-4. Rename the extracted folder from "Shorty-main" to "tiny".
-
-### Move the Folder to the Web Server Directory
-
-To run the "Shorty", you need to move the "tiny" folder to your web server's directory.
-
-- _**For MAMP (Mac):**_ <br>
-```bash
+   - _**For MAMP (Mac):**_ <br>
+   ```bash
           /Applications/MAMP/htdocs/  folder  (FOR MAC)
-```
-- _**For XAMPP (Windows):**_ <br>
-```bash
+   ```
+   - _**For XAMPP (Windows):**_ <br>
+   ```bash
           C:/xampp/htdocs/            folder  (FOR WINDOWS)
-```
-- _**For LAMPP (Linux):**_ <br>
-```bash
+   ```
+   - _**For LAMPP (Linux):**_ <br>
+   ```bash
           /opt/lampp/htdocs/            folder  (FOR WINDOWS)
-```
-### Set Environment Variables
-- Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+   ```
+7. Set Environment Variables according to your environments
+   - Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -152,7 +126,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                 $env_port = "8889";
             ?>
 
-- Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+   - Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
@@ -162,7 +136,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                  $env_database = "tiny";
                  $env_port = "3306";
             ?>
-- Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
+   - Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
           
 
             <?php
@@ -173,7 +147,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                  $env_port = "3306";
             ?>
         
-### Configure the siteName.php File          
+8. Configure the siteName.php File          
                 
 - Change the file content inside tiny/htdocs/siteName.php
 
@@ -182,23 +156,19 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                     $siteName = "http://localhost:8888/tiny/";
                 ?>
                 
-          2) FOR Windows & MAPP
+          2) FOR Windows & MAPP also for Linux & LAMPP
                 <?php
                     $siteName = "http://localhost/tiny/";
                 ?>
 
-          2) FOR Linux & LAMPP
-                <?php
-                    $siteName = "http://localhost/tiny/";
-                ?>
-### Start your web server.
+9. Start your web server.
 - Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 - For LAMPP on Linux:
      1) Open your terminal.
      2) Start the  server by executing the following command:
 
             sudo /opt/lampp/lampp start
-### Set up the Database
+10. Set up the Database
 - To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
@@ -210,7 +180,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
 
            tiny.sql (db file)
 
-### Run in the browser 
+11. Run in the browser 
 
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
