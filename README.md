@@ -99,9 +99,7 @@ To get started with the "Shorty" application, follow these steps:
 
 3. Press Enter to execute the command. Git will clone the repository to your local machine.
    
-5. Rename the cloned repository folder from "shorty" to "tiny".
-
-6. Move the "tiny" folder to your web server's directory. 
+4. Move the "shorty" folder to your web server's directory. 
 
    - _**For MAMP (Mac):**_ <br>
    ```bash
@@ -115,8 +113,8 @@ To get started with the "Shorty" application, follow these steps:
    ```bash
           /opt/lampp/htdocs/            folder  (FOR WINDOWS)
    ```
-7. Set Environment Variables according to your environments
-   - Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+5. Set Environment Variables according to your environments
+   - Set the below snippet inside /Applications/MAMP/htdocs/shorty/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -126,7 +124,7 @@ To get started with the "Shorty" application, follow these steps:
                 $env_port = "8889";
             ?>
 
-   - Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+   - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
@@ -136,7 +134,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_database = "tiny";
                  $env_port = "3306";
             ?>
-   - Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
+   - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
           
 
             <?php
@@ -147,28 +145,28 @@ To get started with the "Shorty" application, follow these steps:
                  $env_port = "3306";
             ?>
         
-8. Configure the siteName.php File          
+6. Configure the siteName.php File          
                 
-- Change the file content inside tiny/htdocs/siteName.php
+- Change the file content inside shorty/htdocs/siteName.php
 
           1) FOR MAC & MAMP
                 <?php
-                    $siteName = "http://localhost:8888/tiny/";
+                    $siteName = "http://localhost:8888/shorty/";
                 ?>
                 
           2) FOR Windows & MAPP also for Linux & LAMPP
                 <?php
-                    $siteName = "http://localhost/tiny/";
+                    $siteName = "http://localhost/shorty/";
                 ?>
 
-9. Start your web server.
+7. Start your web server.
 - Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 - For LAMPP on Linux:
      1) Open your terminal.
      2) Start the  server by executing the following command:
 
             sudo /opt/lampp/lampp start
-10. Set up the Database
+8. Set up the Database
 - To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
@@ -176,15 +174,15 @@ To get started with the "Shorty" application, follow these steps:
           localhost/phpmyadmin         (FOR Linux & LAMPP)
           
 - Create New Database and name the Database as  `tiny`
-- Import the Database from the "htdocs/tiny/tiny.sql" directory. 
+- Import the Database from the "htdocs/shorty/tiny.sql" directory. 
 
            tiny.sql (db file)
 
-11. Run in the browser 
+9. Run in the browser 
 
-          localhost:8888/tiny/     (FOR MAC)
-          localhost/tiny/          (FOR WINDOWS)
-          localhost/tiny/          (FOR Linux)
+          localhost:8888/shorty/     (FOR MAC)
+          localhost/shorty/          (FOR WINDOWS)
+          localhost/shorty/          (FOR Linux)
           
 
 <br><br>
