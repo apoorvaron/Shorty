@@ -79,20 +79,70 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
 
 - Must install xampp (FOR WINDOWS) and MAMP (FOR MAC) 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
+
+- Must install LAMPP ( For Linux)
+- Tutorial - https://youtu.be/HJl2ILUfBoA
+
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
+### Fork the Repository
 
-Step -1   Download the Zip file 
+To get started with the "Shorty" application, you'll need to fork this repository. Here's how you can do it:
 
-Step -2   Unzip it & Rename the folder from "tiny-main" to "tiny"
+1. Click on the "Fork" button at the top right corner of this repository page. This will create a copy of the repository under your own GitHub account.
 
-Step -3   Put a tiny folder inside 
+### Clone the Repository
 
+Once you have forked the repository, you need to clone it to your local machine. Follow these steps to clone the repository:
+
+1. Click on the "Code" button in your forked repository page.
+2. Copy the HTTPS or SSH link provided in the dropdown menu.
+
+   For example: `https://github.com/your-username/repo-name.git`
+
+3. Open your terminal or command prompt.
+4. Navigate to the directory where you want to clone the repository.
+5. Execute the following command to clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
+   ```
+
+   Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
+
+6. Press Enter to execute the command. Git will clone the repository to your local machine.
+
+### Rename the Repository
+
+Next, you'll need to rename the cloned repository from "Shorty" to "tiny". Follow these steps to rename it:
+
+1. If you cloned the repository using the command line, navigate to the cloned repository's directory.
+
+2. Rename the folder from "Shorty" to "tiny".
+
+3. If you downloaded the repository as a ZIP file, extract its contents to a location of your choice.
+
+4. Rename the extracted folder from "Shorty-main" to "tiny".
+
+### Move the Folder to the Web Server Directory
+
+To run the "Shorty", you need to move the "tiny" folder to your web server's directory.
+
+- _**For MAMP (Mac):**_ <br>
+```bash
           /Applications/MAMP/htdocs/  folder  (FOR MAC)
+```
+- _**For XAMPP (Windows):**_ <br>
+```bash
           C:/xampp/htdocs/            folder  (FOR WINDOWS)
-
-Step -4   Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+```
+- _**For LAMPP (Linux):**_ <br>
+```bash
+          /opt/lampp/htdocs/            folder  (FOR WINDOWS)
+```
+### Set Environment Variables
+- Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
@@ -102,7 +152,7 @@ Step -4   Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. f
                 $env_port = "8889";
             ?>
 
-Step -4   Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+- Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
@@ -112,8 +162,18 @@ Step -4   Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & 
                  $env_database = "tiny";
                  $env_port = "3306";
             ?>
+  - Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
+          
 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.
+            <?php
+                 $env_server = "localhost:3306";
+                 $env_username = "root";
+                 $env_password = "";
+                 $env_database = "tiny";
+                 $env_port = "3306";
+            ?>
+### Set up the .htaccess File
+- Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.
 
                 RewriteEngine On
                 RewriteCond %{REQUEST_FILENAME} !-d
@@ -128,41 +188,51 @@ Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snipp
                 RewriteCond %{REQUEST_FILENAME} !-d
                 RewriteRule ^(.*)$ index.php?/$1 [L]
                 
+### Configure the siteName.php File          
                 
-                
-Step -6   Change the file content inside tiny/htdocs/siteName.php
+- Change the file content inside tiny/htdocs/siteName.php
 
           1) FOR MAC & MAMP
                 <?php
                     $siteName = "http://localhost:8888/tiny/";
                 ?>
                 
-          2) FOR Windows
+          2) FOR Windows & MAPP
                 <?php
                     $siteName = "http://localhost/tiny/";
                 ?>
-                
-Step -7   Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 
-Step -8   To Setup the database, open 
+          2) FOR Linux & LAMPP
+                <?php
+                    $siteName = "http://localhost/tiny/";
+                ?>
+### Start your web server.
+- Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
+- For LAMPP on Linux:
+     1) Open your terminal.
+     2) Start the  server by executing the following command:
+
+            sudo /opt/lampp/lampp start
+### Set up the Database
+- To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
           localhost/phpmyadmin         (FOR WINDOWS & XAMPP)
-
-Step -9   Create New Database 
-
-Step -10   Database Name  "tiny"
-
-Step -11   Import the Database from the "htdocs/tiny/tiny.sql" directory. 
+          localhost/phpmyadmin         (FOR Linux & LAMPP)
+          
+- Create New Database and name the Database as  `tiny`
+- Import the Database from the "htdocs/tiny/tiny.sql" directory. 
 
            tiny.sql (db file)
 
-Step -12   Run in the browser 
+### Run in the browser 
 
           localhost:8888/tiny/     (FOR MAC)
           localhost/tiny/          (FOR WINDOWS)
+          localhost/tiny/          (FOR Linux)
+          
 
-          <br><br>
+<br><br>
 ! IMPORTANT -> users table must contain one row 
 
           1) uniqueNo = "shorty"
