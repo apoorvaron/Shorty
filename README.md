@@ -1,7 +1,6 @@
 # Shorty - To help you shorten links! 🚀
-
 <p align="center">
-  <img src="./assets/img/inside-header-logo.png" height="80" width="80" alt="Shorty Logo">
+  <img src="./assets/img/inside-header-logo.png" height="150" width="auto" alt="Shorty Logo">
 </p>
 
 ## Table of Contents
@@ -11,16 +10,16 @@
 - [Demo](#❄️-demo)
 - [Tech Stack](#🔧-tech-stack)
 - [Screenshots](#📷-screenshots)
+- [Getting Started](#🚀-getting-started)
+- [Contributors](#🤗-contributors)
 - [Contribute](#🤝-contribute)
 - [Code of Conduct](#📜-code-of-conduct)
 - [License](#📄-license)
-- [Getting Started](#🚀-getting-started)
-- [Contributors](#🤗-contributors)
 
 ## 👋 Introduction 
-Shorty is an innovative link management tool that helps you grow, scale, and dominate your online presence. With Shorty, you can personalize, share, and track your content links while capturing valuable data with every click. 
+To help you grow, scale, and dominate through the power of **link management**. Whether you're sharing one link or millions, **Shorty** lets you personalize, share, and track your content links, while capturing data with every click.
 
-<br/>
+---
 
 <p align="center">
   <img src="https://forthebadge.com/images/badges/built-with-love.svg" alt="Built with Love">
@@ -39,8 +38,10 @@ Shorty is an innovative link management tool that helps you grow, scale, and dom
   <img src="https://img.shields.io/github/issues-pr/apoorvaron/Shorty?style=for-the-badge" alt="Open Pull Requests">
   <img src="https://img.shields.io/github/last-commit/apoorvaron/Shorty?style=for-the-badge" alt="Last Commit">
   <img src="https://img.shields.io/github/contributors/apoorvaron/Shorty?style=for-the-badge" alt="Contributors">
-  <img src="https://img.shields.io/github/issues-pr-closed-raw/apoorvaron/Shorty?style=for-the-badge" alt="Closed Pull Requests">
+  <img src="https://img.shields.io/github/issues-pr-closed-raw/apoorvaron/Shortystyle=for-the-badge" alt="Closed Pull Requests">
 </p>
+
+---
 
 ## ❄️ Features
 
@@ -53,6 +54,8 @@ Shorty is an innovative link management tool that helps you grow, scale, and dom
 
 - Visit the **[Shorty Website](http://shrty.rf.gd/)** to see it in action.
 
+---
+
 ## 🔧 Tech Stack
 
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -64,92 +67,98 @@ Shorty is an innovative link management tool that helps you grow, scale, and dom
 ![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
+---
+
 ## 📷 Screenshots
 
 <p align="center">
   <img src="./img/screenshot.gif" alt="Shorty Screenshots">
 </p>
 
-## 🤝 Contribute
-
-We welcome contributions to our project! Before making a contribution, please check our [contribution guide](https://github.com/apoorvaron/Shorty/blob/main/CONTRIBUTING.md).
-
-## 📜 Code of Conduct
-
-To ensure an inclusive environment that respects all contributions, please read our [Code of Conduct](https://github.com/apoorvaron/Shorty/blob/main/CODE_OF_CONDUCT.md).
-## 📄 License
-
-This project is licensed under the [MIT License](https://github.com/apoorvaron/Shorty/blob/main/LICENSE).
+---
 
 ## 🚀 Getting Started
 
-- [Shorty Project Setup Tutorial](https://www.youtube.com/watch?v=L5HdDeYaKd0)
-- PHP Installation: [Windows](https://www.youtube.com/watch?v=mVBe75aGBHQ) | [Mac](https://www.youtube.com/watch?v=mVBe75aGBHQ) (PHP version used: 8.1.9)
-- XAMPP Installation: [Windows](https://www.youtube.com/watch?v=at19OmH2Bg4) | [Mac](https://www.youtube.com/watch?v=at19OmH2Bg4) (MySQL version used: 8.0.29)
+To get started with the **Shorty** application, follow these steps:
 
-**Step-by-Step Setup:**
+1. Fork the repository by clicking on the "Fork" button at the top right corner of the repository page. This will create a copy of the repository under your own GitHub account.
 
-1. Download the project ZIP file.
-2. Unzip the file and rename the folder from "tiny-main" to "tiny".
-3. Place the "tiny" folder inside:
-   - `/Applications/MAMP/htdocs/` (for Mac)
-   - `C:/xampp/htdocs/` (for Windows)
-4. Update the database credentials in the `env.php` file located at `tiny/env.php`:
-   - For Mac and MAMP:
-     ```php
-     <?php
-       $env_server = "localhost";
-       $env_username = "root";
-       $env_password = "root";
-       $env_database = "tiny";
-       $env_port = "8889";
-     ?>
-     ```
-   - For Windows and XAMPP:
-     ```php
-     <?php
-       $env_server = "localhost:3306";
-       $env_username = "root";
-       $env_password = "";
-       $env_database = "tiny";
-       $env_port = "3306";
-     ?>
-     ```
-5. Create a `.htaccess` file inside `tiny/htdocs/` and paste the following code:
-   ```apacheconf
-   RewriteEngine On
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteCond %{REQUEST_FILENAME}\.php -f
-   RewriteRule ^(.*)$ $1.php [NC,L]
-
-   RewriteEngine On
-   RewriteCond $1 !^(index\.php)
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^(.*)$ index.php?/$1 [L]
+2. Clone the repository to your local machine. Open your terminal or command prompt, navigate to the directory where you want to clone the repository, and execute the following command:
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
    ```
-6. Update the file content inside `tiny/htdocs/siteName.php` based on your environment:
-   - For Mac and MAMP:
+   Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
+
+3. Move the `shorty` folder to your web server's directory:
+   - **For MAMP (Mac):**
+     ```
+     /Applications/MAMP/htdocs/shorty/
+     ```
+   - **For XAMPP (Windows):**
+     ```
+     C:/xampp/htdocs/shorty/
+     ```
+   - **For LAMPP (Linux):**
+     ```
+     /opt/lampp/htdocs/shorty/
+     ```
+
+4. Set environment variables according to your environment:
+   - Set the following snippet inside `/Applications/MAMP/htdocs/shorty/env.php` (for Mac & MAMP):
      ```php
      <?php
-       $siteName = "http://localhost:8888/tiny/";
+     $env_server = "localhost";
+     $env_username = "root";
+     $env_password = "root";
+     $env_database = "shorty";
+     $env_port = "8889";
      ?>
      ```
-   - For Windows and XAMPP:
+
+   - Set the following snippet inside `htdocs/shorty/env.php` (for Windows & XAMPP) or `/opt/lampp/htdocs/shorty/env.php` (for Linux & LAMPP):
      ```php
      <?php
-       $siteName = "http://localhost/tiny/";
+     $env_server = "localhost:3306";
+     $env_username = "root";
+     $env_password = "";
+     $env_database = "shorty";
+     $env_port = "3306";
      ?>
      ```
-7. Start Apache and MySQL Server in XAMPP Panel or MAMP Panel.
-8. To set up the database, open:
-   - `localhost:8888/phpmyadmin` (for Mac and MAMP)
-   - `localhost/phpmyadmin` (for Windows and XAMPP)
-9. Create a new database named "tiny".
-10. Import the database from the `htdocs/tiny/tiny.sql` file.
-11. Run the project in your browser:
-   - `localhost:8888/tiny/` (for Mac)
-   - `localhost/tiny/` (for Windows)
+
+5. Configure the `siteName.php` file:
+   - Change the file content inside `shorty/htdocs/siteName.php`:
+     - **For Mac & MAMP:**
+       ```php
+       <?php
+       $siteName = "http://localhost:8888/shorty/";
+       ?>
+       ```
+     - **For Windows & XAMPP or Linux & LAMPP:**
+       ```php
+       <?php
+       $siteName = "http://localhost/shorty/";
+       ?>
+       ```
+
+6. Start your web server:
+   - Start Apache & MySQL Server in XAMPP Panel or MAMP Panel.
+   - For LAMPP on Linux:
+     1. Open your terminal.
+     2. Start the server by executing the following command:
+        ```bash
+        sudo /opt/lampp/lampp start
+        ```
+
+7. Set up the database:
+   - To set up the database, open `localhost:8888/phpmyadmin` (for Mac & MAMP), `localhost/phpmyadmin` (for Windows & XAMPP), or `localhost/phpmyadmin` (for Linux & LAMPP).
+   - Create a new database named `shorty`.
+   - Import the database from the `htdocs/shorty/shorty.sql` file.
+
+8. Run in the browser:
+   - Access `localhost:8888/shorty/` (for Mac), `localhost/shorty/` (for Windows), or `localhost/shorty/` (for Linux).
+
+<br>
 
 💡 **Note:**
 - The `users` table must contain the following row:
@@ -165,6 +174,8 @@ This project is licensed under the [MIT License](https://github.com/apoorvaron/S
   - Change `siteName.php`
   - Upload `files & dB`.
 
+---
+
 ## 🤗 Contributors
 
 Thanks to all the contributors who have helped in this project! Check out the [Contributors page](https://github.com/apoorvaron/Shorty/graphs/contributors) for more details.
@@ -172,6 +183,24 @@ Thanks to all the contributors who have helped in this project! Check out the [C
 <a href="https://github.com/apoorvaron/Shorty/graphs/contributors"><img src="https://contrib.rocks/image?repo=apoorvaron/Shorty"></a>
 
 ---
+
+## 🤝 Contribute
+
+We welcome contributions to our project! Before making a contribution, please check our [contribution guide](https://github.com/apoorvaron/Shorty/blob/main/CONTRIBUTING.md).
+
+---
+
+## 📜 Code of Conduct
+
+To ensure an inclusive environment that respects all contributions, please read our [Code of Conduct](https://github.com/apoorvaron/Shorty/blob/main/CODE_OF_CONDUCT.md).
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](https://github.com/apoorvaron/Shorty/blob/main/LICENSE).
+
+<br>
 
 Hosted on Infinity Free with Gmail: apoorv.shorty@gmail.com
 <br><br>
