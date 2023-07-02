@@ -162,7 +162,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                  $env_database = "tiny";
                  $env_port = "3306";
             ?>
-  - Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
+- Set the below snippet inside /opt/lampp/htdocs/tiny/env.php. file (FOR Linux & LAMPP)
           
 
             <?php
@@ -172,22 +172,7 @@ To run the "Shorty", you need to move the "tiny" folder to your web server's dir
                  $env_database = "tiny";
                  $env_port = "3306";
             ?>
-### Set up the .htaccess File
-- Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.
-
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteCond %{REQUEST_FILENAME}\.php -f
-                RewriteRule ^(.*)$ $1.php [NC,L]
-
-
-                RewriteEngine On
-
-                RewriteCond $1 !^(index\.php)
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteRule ^(.*)$ index.php?/$1 [L]
-                
+        
 ### Configure the siteName.php File          
                 
 - Change the file content inside tiny/htdocs/siteName.php
