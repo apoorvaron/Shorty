@@ -5,8 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <?php
-  // include(__DIR__.'/siteName.php');
-  include('./siteName.php');
+  include('./env.php');
   require('./admin/dBconn/database.php');
 
   $new_url = "";
@@ -44,8 +43,7 @@
     // $shortenLink = $_POST['shortenLink'];
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
-    $finalLink = $siteName . $shortenLink;
-    // $shortenLink = "".$siteName."".$short;
+    $finalLink = $env_domain . $shortenLink;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
       $query = "SELECT * from links WHERE shortenLink='" . $shortenLink . "'";
       $result = mysqli_query($db, $query);
@@ -80,7 +78,7 @@
               $(document).ready(function(){
                 
               let generateShorty = document.querySelector("#generateShorty");
-              let full_shortlink = "' . $siteName . '";
+              let full_shortlink = "' . $env_domain . '";
               generateShorty.innerHTML = `
 
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
@@ -330,7 +328,7 @@ if ($rows == 0) {
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
-                      <?php echo $siteName ?>
+                      <?php echo $env_domain ?>
                     </p>
                   </label>
                   <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
