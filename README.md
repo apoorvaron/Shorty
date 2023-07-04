@@ -113,7 +113,7 @@ To get started with the "Shorty" application, follow these steps:
    ```bash
           /opt/lampp/htdocs/            folder  (FOR WINDOWS)
    ```
-5. Set Environment Variables according to your environments
+5. Create a file `env.php` in below mentioned directory and add snippets according to your Xampp 
    - Set the below snippet inside /Applications/MAMP/htdocs/shorty/env.php. file (FOR MAC & having MAMP)
           
             <?php
