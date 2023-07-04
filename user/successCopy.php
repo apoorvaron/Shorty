@@ -1,8 +1,8 @@
-<?php  
-        if(isset($_GET['short'])){
-            $short = $_GET['short'];
-            echo "<script>  navigator.clipboard.writeText('".$short."');</script>";
-        }
+<?php
+if (isset($_GET['short'])) {
+    $short = $_GET['short'];
+    echo "<script>  navigator.clipboard.writeText('" . $short . "');</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,8 +33,9 @@
 
 <script>
 <?php
-    $username=$_GET['username'];
-    $uno= $_GET['uno'];
+$username = $_GET['username'];
+// echo '<script>alert('$username.');</script>';
+$uno = $_GET['uno'];
 ?>
 
 
@@ -43,7 +44,7 @@
         <!-- Begin page -->
         <div id="wrapper">
 
-            <?php include'header.php'; ?>
+            <?php include 'header.php'; ?>
                     <!-- Top Bar End -->
 
                     <div class="page-content-wrapper">
@@ -96,7 +97,7 @@
                                                     <div class="form-group mb-0">
                                                         <div>
                                                             <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">Back to Main Page</a>
+                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">Back to Main Page</a>
                                                             </button>
                                                       
                                                         </div>
@@ -128,7 +129,7 @@
                     timeleft -= 1;
                     }, 1000);
                 </script>
-                <?php include'footer.php';?>
+                <?php include 'footer.php'; ?>
 
             </div>
             <!-- End Right content here -->

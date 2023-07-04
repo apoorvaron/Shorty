@@ -122,6 +122,8 @@ To get started with the "Shorty" application, follow these steps:
                 $env_password = "root";
                 $env_database = "shorty";
                 $env_port = "8889";
+
+                $env_domain = "http://localhost:8888/tiny/";
             ?>
 
    - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
@@ -133,6 +135,8 @@ To get started with the "Shorty" application, follow these steps:
                  $env_password = "";
                  $env_database = "shorty";
                  $env_port = "3306";
+     
+                $env_domain = "http://localhost:8080/tiny/";
             ?>
    - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
           
@@ -143,30 +147,18 @@ To get started with the "Shorty" application, follow these steps:
                  $env_password = "";
                  $env_database = "shorty";
                  $env_port = "3306";
+     
+                $env_domain = "http://localhost:8080/tiny/";
             ?>
         
-6. Configure the siteName.php File          
-                
-- Change the file content inside shorty/htdocs/siteName.php
-
-          1) FOR MAC & MAMP
-                <?php
-                    $siteName = "http://localhost:8888/shorty/";
-                ?>
-                
-          2) FOR Windows & MAPP also for Linux & LAMPP
-                <?php
-                    $siteName = "http://localhost/shorty/";
-                ?>
-
-7. Start your web server.
+6. Start your web server.
 - Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
 - For LAMPP on Linux:
      1) Open your terminal.
      2) Start the  server by executing the following command:
 
             sudo /opt/lampp/lampp start
-8. Set up the Database
+7. Set up the Database
 - To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
@@ -178,7 +170,7 @@ To get started with the "Shorty" application, follow these steps:
 
            shorty.sql (db file)
 
-9. Run in the browser 
+8. Run in the browser 
 
           localhost:8888/shorty/     (FOR MAC)
           localhost/shorty/          (FOR WINDOWS)

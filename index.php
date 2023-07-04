@@ -1,6 +1,5 @@
 <?php
-// include(__DIR__.'/siteName.php');
-include('./siteName.php');
+include('./env.php');
 require('./admin/dBconn/database.php');
 
 $new_url = "";
