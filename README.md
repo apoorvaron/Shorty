@@ -123,7 +123,7 @@ To get started with the "Shorty" application, follow these steps:
                 $env_database = "shorty";
                 $env_port = "8889";
 
-                $env_domain = "http://localhost:8888/tiny/";
+                $env_domain = "http://localhost:8888/shorty/";
             ?>
 
    - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
@@ -136,7 +136,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_database = "shorty";
                  $env_port = "3306";
      
-                $env_domain = "http://localhost:8080/tiny/";
+                $env_domain = "http://localhost:8080/shorty/";
             ?>
    - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
           
@@ -148,7 +148,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_database = "shorty";
                  $env_port = "3306";
      
-                $env_domain = "http://localhost:8080/tiny/";
+                $env_domain = "http://localhost:8080/shorty/";
             ?>
         
 6. Start your web server.
