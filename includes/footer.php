@@ -24,6 +24,11 @@
                             class="twitter">
                             <i class="bi bi-twitter"></i>
                         </a>
+                        <!-- This is dummy number took from Online SO dont try to distrub apoorvaron 🤣🤣 -->
+                        <a target="_blank" rel=”noopener noreferrer” aria-label="Connect to Apoorv on Whatsapp"
+                            title="Link to Whatsapp Account" href="http://wa.me//+919310355144" class="whatsapp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -112,7 +117,7 @@
                         if (regexp.test(originalLink)) {
 
                             let generateShorty = document.querySelector('#generateShorty');
-                            let full_shortlink = "<?php echo $siteName ?>";
+                            let full_shortlink = "<?php echo $env_domain ?>";
                             // full_shortlink.slice(0, -2);
                             // console.log(full_shortlink+avail);
                             generateShorty.innerHTML = `
@@ -121,7 +126,7 @@
                                                   data-aos="fade-up"
                                                   data-aos-delay="200"
                                             >
-                                                  <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+                                                  <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
                                                   <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
                                             </form>
                   `;
@@ -187,10 +192,10 @@
         //     if (ifValidLink) {
         //         console.log("Testing", ifValidLink);
         //         let generateShorty = document.querySelector('#generateShorty');
-        //         let full_shortlink = "<?php echo $siteName ?>";
+        //         let full_shortlink = "<?php echo $env_domain ?>";
         //         generateShorty.innerHTML = `
         //     <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-        //         <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+        //         <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
         //         <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
         //     </form>
         // `;
@@ -255,10 +260,10 @@
                     if (ifValidLink) {
                         console.log("Testing", ifValidLink);
                         let generateShorty = document.querySelector('#generateShorty');
-                        let full_shortlink = "<?php echo $siteName ?>";
+                        let full_shortlink = "<?php echo $env_domain ?>";
                         generateShorty.innerHTML = `
                     <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                        <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" placeholder="" value="<?php echo $siteName ?>${avail}"/>
+                        <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
                         <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
                     </form>
                 `;

@@ -5,8 +5,7 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <?php
-  // include(__DIR__.'/siteName.php');
-  include('./siteName.php');
+  include('./env.php');
   require('./admin/dBconn/database.php');
 
   $new_url = "";
@@ -44,8 +43,7 @@
     // $shortenLink = $_POST['shortenLink'];
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
-    $finalLink = $siteName . $shortenLink;
-    // $shortenLink = "".$siteName."".$short;
+    $finalLink = $env_domain . $shortenLink;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
       $query = "SELECT * from links WHERE shortenLink='" . $shortenLink . "'";
       $result = mysqli_query($db, $query);
@@ -80,8 +78,9 @@
               $(document).ready(function(){
                 
               let generateShorty = document.querySelector("#generateShorty");
-              let full_shortlink = "' . $siteName . '";
+              let full_shortlink = "' . $env_domain . '";
               generateShorty.innerHTML = `
+
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                     <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
                     <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
@@ -246,16 +245,36 @@
         transform: translateY(-50px);
       }
     }
-  </style>
-  <script type="text/javascript">
-    function blockSpecialChar(e) {
-      let value = document.querySelector('#shortenLink').value;
 
-      var k;
-      document.all ? k = e.keyCode : k = e.which;
-      return ((k > 64 && k < 91) || (k > 96 && k < 123) || k == 8 || k == 32 || (k >= 48 && k <= 57));
+    @media screen and (max-width : 496px) {
+
+
+      #buttonresp {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        /* padding: 1.5em; */
+        margin: 0px !important
+      }
+
+
+      #formresp {
+        display: block;
+        /* margin: 0 1.5em; */
+      }
+
+      .hero form .btn-primary {
+        padding: 15px 8px;
+        width: 48%;
+      }
+
+
+
     }
-  </script>
+  </style>
+
 </head>
 <?php
 // require('./admin/dBconn/database.php');
@@ -297,7 +316,7 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
-            <form class="form-search align-items-stretch mb-3 d-flex" style="
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" style="
     flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
@@ -309,21 +328,17 @@ if ($rows == 0) {
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
-                      <?php echo $siteName ?>
+                      <?php echo $env_domain ?>
                     </p>
                   </label>
-                  <span><input type="text" class="form-control mb-4 mt-3" onkeypress="return blockSpecialChar(event)"
-                      placeholder="Custom Name"
+                  <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
                       style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
                       id="shortenLink" name="shortenLink" /></span>
                 </span>
 
               </div>
-              <!-- <input type="text" class="form-control mb-4 mt-3" style="font-size: 0.9rem;"
-                onkeypress="return blockSpecialChar(event)" placeholder="Custom Name" id="shortenLink"
-                name="shortenLink" /> -->
-              <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-primary btn-sm" id="generateRandom">Random Number</button>
+              <div class="d-flex justify-content-between" id="buttonresp">
+                <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
                   class="btn-get-started">Shorten
                   Link</button>
@@ -374,19 +389,32 @@ if ($rows == 0) {
   <div id="preloader"></div>
   <!-- *************************** Generate Random Number   *****************************  -->
 
-  <?php
-  $randNum = bin2hex(random_bytes(3));
-  ;
+  <script>
+    document.querySelector('#generateRandom').addEventListener('click', function () {
+      var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+      console.log(randNum);
+      document.querySelector('#shortenLink').value = randNum;
+    });
+  </script>
 
-  echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='" . $randNum . "';
-                                                    });
-                                        </script>
-                                ";
-  ?>
+
+  <!-- *************************** Block SpecialChar   *****************************  -->
+  <script>
+    $("#shortenLink").on("input", function () {
+      var c = this.selectionStart,
+        r = /[^a-z0-9 ]/gi,
+        v = $(this).val();
+      if (r.test(v)) {
+        $(this).val(v.replace(r, ""));
+        c--;
+      }
+      this.setSelectionRange(c, c);
+
+    });
+  </script>
+  <!-- *************************** Block SpecialChar Ends  *****************************  -->
+
+  <!-- *************************** Generate Random Number ends  *****************************  -->
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

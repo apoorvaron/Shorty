@@ -136,3 +136,58 @@
         "use strict";
         $.MainApp.init();
     }(window.jQuery);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        //calculate the width of the texts
+        function measureWidth(text, font){
+            const ele = document.createElement('div');
+            ele.style.position = 'absolute';
+            ele.style.visibility = 'hidden';
+            ele.style.whiteSpace = 'nowrap';
+            ele.style.left = '-9999px';
+            ele.style.font = font;
+            ele.innerText = text;
+            document.body.appendChild(ele);
+
+            const width = window.getComputedStyle(ele).width.replace('px','') * 1;
+            document.body.removeChild(ele);
+            return width;
+        }
+
+        
+        document.querySelectorAll('input[required]').forEach(input => {
+            const parent = input.parentNode,
+                placeholder = input.placeholder + "_",
+                inputStyle = window.getComputedStyle(input),
+                font = inputStyle.font,
+                lineHeight = inputStyle.lineHeight,
+                left = ((inputStyle.paddingLeft.replace('px','') * 1) + input.getClientRects()[0].left - parent.getClientRects()[0].left),
+                top = (input.getClientRects()[0].top - parent.getClientRects()[0].top),
+                leftPos = measureWidth(placeholder, font);
+
+
+            const star = document.createElement('span');
+            star.style = `
+                position: absolute;
+                pointer-events: none;
+                color: #f00;
+                top: ${top+5}px;
+                line-height: 1 !important;
+                font: ${font};
+                left: ${leftPos+left}px;
+            `;
+            star.innerText = '*';
+
+            star.style.visibility = (input.value.length == 0) ? 'visible' : 'hidden';
+
+            parent.style.setProperty('position', 'relative');
+            parent.append(star);
+
+            //detact value change in the input to remove the star symbol
+            input.addEventListener('input', function(e) {
+                const visibility = (input.value.length == 0) ? 'visible' : 'hidden';
+
+                star.style.visibility = visibility;
+            });
+        })
+    })

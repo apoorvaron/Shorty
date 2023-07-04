@@ -1,7 +1,24 @@
-<?php 
-        // include(__DIR__.'/siteName.php');
-        include('./siteName.php');
-        require('./admin/dBconn/database.php');
+
+
+<?php
+include('./env.php');
+require('./admin/dBconn/database.php');
+
+$new_url = "";
+if (isset($_GET)) {
+  // print_r( $_GET);
+  $database = new Database();
+  $db = $database->connect();
+
+  foreach ($_GET as $key => $val) {
+    $u = mysqli_real_escape_string($db, $key);
+    $new_url = str_replace('/', '', $u);
+
+  }
+
+  $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
+  $result = mysqli_query($db, $sql);
+
 
         $new_url = "";
         if (isset($_GET)) {
@@ -155,8 +172,9 @@ if ($rows == 0) {
 
           <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200"
             method="POST">
-            <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link"
-              id="originalLink" />
+            <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink"
+              onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
+
             <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
           </form>
           <div id="generateShorty"></div>

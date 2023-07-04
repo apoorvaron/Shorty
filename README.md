@@ -79,108 +79,105 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
 
 - Must install xampp (FOR WINDOWS) and MAMP (FOR MAC) 
 - Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
+
+- Must install LAMPP ( For Linux)
+- Tutorial - https://youtu.be/HJl2ILUfBoA
+
 - MySQL version used -> ( 8.0.29 )
 
 -------*---------*---------*---------*---------*---------
 
-Step -1   Download the Zip file 
+To get started with the "Shorty" application, follow these steps:
 
-Step -2   Unzip it & Rename the folder from "tiny-main" to "tiny"
+1. Fork the repository by clicking on the "Fork" button at the top right corner of the repository page. This will create a copy of the repository under your own GitHub account.
 
-Step -3   Put a tiny folder inside 
+2. Clone the repository to your local machine. Open your terminal or command prompt, navigate to the directory where you want to clone the repository, and execute the following command:
+   ```bash
+   git clone https://github.com/your-username/repo-name.git
+   ```
+   - Make sure to replace `your-username` with your GitHub username and `repo-name` with the name of the repository.
 
+3. Press Enter to execute the command. Git will clone the repository to your local machine.
+   
+4. Move the "shorty" folder to your web server's directory. 
+
+   - _**For MAMP (Mac):**_ <br>
+   ```bash
           /Applications/MAMP/htdocs/  folder  (FOR MAC)
+   ```
+   - _**For XAMPP (Windows):**_ <br>
+   ```bash
           C:/xampp/htdocs/            folder  (FOR WINDOWS)
-
-Step -4   Set the below snippet inside /Applications/MAMP/htdocs/tiny/env.php. file (FOR MAC & having MAMP)
+   ```
+   - _**For LAMPP (Linux):**_ <br>
+   ```bash
+          /opt/lampp/htdocs/            folder  (FOR WINDOWS)
+   ```
+5. Create a file `env.php` in below mentioned directory and add snippets according to your Xampp 
+   - Set the below snippet inside /Applications/MAMP/htdocs/shorty/env.php. file (FOR MAC & having MAMP)
           
             <?php
                 $env_server = "localhost";
                 $env_username = "root";
                 $env_password = "root";
-                $env_database = "tiny";
+                $env_database = "shorty";
                 $env_port = "8889";
+
+                $env_domain = "http://localhost:8888/shorty/";
             ?>
 
-Step -4   Set the below snippet inside htdocs/tiny/env.php. file (FOR WINDOWS & XAMPP)
+   - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
           
 
             <?php
                  $env_server = "localhost:3306";
                  $env_username = "root";
                  $env_password = "";
-                 $env_database = "tiny";
+                 $env_database = "shorty";
                  $env_port = "3306";
+     
+                $env_domain = "http://localhost:8080/shorty/";
             ?>
+   - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
+          
 
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.(FOR MAC & having MAMP)
+            <?php
+                 $env_server = "localhost:3306";
+                 $env_username = "root";
+                 $env_password = "";
+                 $env_database = "shorty";
+                 $env_port = "3306";
+     
+                $env_domain = "http://localhost:8080/shorty/";
+            ?>
+        
+6. Start your web server.
+- Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
+- For LAMPP on Linux:
+     1) Open your terminal.
+     2) Start the  server by executing the following command:
 
-                ErrorDocument 404 http://localhost:8888/tiny/404.php
-
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteCond %{REQUEST_FILENAME}\.php -f
-                RewriteRule ^(.*)$ $1.php [NC,L]
-
-
-                RewriteEngine On
-
-                RewriteCond $1 !^(index\.php)
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteRule ^(.*)$ index.php?/$1 [L]
-                
-                
-Step -5   Create ".htaccess" file inside htdocs/tiny/ and Paste below code snippet.(FOR WINDOWS)
-
-                ErrorDocument 404 http://localhost/tiny/404.php
-
-                RewriteEngine On
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteCond %{REQUEST_FILENAME}\.php -f
-                RewriteRule ^(.*)$ $1.php [NC,L]
-
-
-                RewriteEngine On
-
-                RewriteCond $1 !^(index\.php)
-                RewriteCond %{REQUEST_FILENAME} !-f
-                RewriteCond %{REQUEST_FILENAME} !-d
-                RewriteRule ^(.*)$ index.php?/$1 [L]
-                
-Step -6   Change the file content inside tiny/htdocs/siteName.php
-
-          1) FOR MAC & MAMP
-                <?php
-                    $siteName = "http://localhost:8888/tiny/";
-                ?>
-                
-          2) FOR Windows
-                <?php
-                    $siteName = "http://localhost/tiny/";
-                ?>
-                
-Step -7   Start Apache & MySQL Server in XAMPP Panel or MAMP Panel
-
-Step -8   To Setup the database, open 
+            sudo /opt/lampp/lampp start
+7. Set up the Database
+- To Setup the database, open 
 
           localhost:8888/phpmyadmin    (FOR MAC & MAMP)
           localhost/phpmyadmin         (FOR WINDOWS & XAMPP)
+          localhost/phpmyadmin         (FOR Linux & LAMPP)
+          
+- Create New Database and name the Database as  `shorty`
+- Import the Database from the "htdocs/shorty/shorty.sql" directory. 
 
-Step -9   Create New Database 
+           shorty.sql (db file)
 
-Step -10   Database Name  "tiny"
+8. Run in the browser 
 
-Step -11   Import the Database from the "htdocs/tiny/tiny.sql" directory. 
+          localhost:8888/shorty/     (FOR MAC)
+          localhost/shorty/          (FOR WINDOWS)
+          localhost/shorty/          (FOR Linux)
+          
 
-           tiny.sql (db file)
-
-Step -12   Run in the browser 
-
-          localhost:8888/tiny/     (FOR MAC)
-          localhost/tiny/          (FOR WINDOWS)
-
-          <br><br>
+<br><br>
 ! IMPORTANT -> users table must contain one row 
 
           1) uniqueNo = "shorty"
@@ -188,7 +185,7 @@ Step -12   Run in the browser
           3) password = "62b5fe5724b08db455672377fb31e95b"
           4) img = "../assets/user-img/1659983584admin-img.png"
           
--> Front Page shorted links go into the admin account 
+-> Home Page/Guest Page shorted links go into the admin account 
           
           email    -> shorty@gmail.com
           password -> shorty@gmail.com
@@ -199,60 +196,6 @@ Step -12   Run in the browser
           2) Change siteName.php 
           3) Upload files & dB.
           
--> What Can we do now?
-          
-          1) 404 Page and functionality
-          2) Forget Password Functionality
-          3) Sign in / Sign up with Google
-          4) All things must be done by session not using a URL
-          5) All things must be done with APIs
-          6) Use of action attribute in Any type of forms
-          7) Footer has Year 2 times 
-          8) If we edit the profile then an alert of pdf or nonimage is chosen as the image 
-          9) Make an admin panel 
-          10) Only the admin can login to the shorty@gmail.com user panel
-          11) Mobile view user panel header has Hii username
-          12) Dynamic Titles of pages 
-          13) Want to update -> edit your profile?
-          14) Mobile view, image, main page, margin-top 
-          15) Remember Me button checks if the cookie setting
-          16) SMS Sender
-          17) Open only in one tab at once
-          18) Add a chatbot 
-          19) Add a WhatsApp icon to connect with the admin on WhatsApp
-          20) if hit shrty.rf.gd -> then by default shrty.rf.gd?i=1# appear on URL
-          21) Account registration with OTP
-          22) Captcha (I m not a robot)
-          23) Can not access the folder
-          24) Use of local storage 
-          25) Don't cut (pop is there you have some unsaved want to leave ?)
-          26) custom short link from the front page too
-          27) We get a performance increase by specifying the default route since we don't have to scan directories.
-          28) add infinity credentials in the readme 
-          29) change shrty admin cred from shorty@gmail.com to apoorv.shorty@gmail.com
-          30) Placeholders have asterisk sign
-          31) Database simply one table or merge something for total clicks & visitor counter table
-          32) If the session is not logged out then click on Login Button then go to the panel if his session logged out then go to login page otherwise go to the user panel
-          33) What type of Data structure do we use in this project
-          34) Security Issues
-          35) can't access inside files using htaccess (add .htaccess files in folders like: localhost:8888/tiny/assets/images/.htacccess)
-          36) if any pr merged then have to refresh hard to see proper things, what changes should be made so that no hard refresh or removal of chrome history is done
-          37) Merge siteName.php & env.php && admin credentials 
-          38) using inspect too , password should not visible by changing the type="password" to text
-          39) Add in readme that if styling is not correct try hard refresh by clicking this and this keys
-          40) in register Page , Password validation like atleast 8 char etc.. should be in another div , right or left to the registration form , something like this (https://usict.acm.org/dashboard/user-portal/register) 
-          41) Change readme by changing steps from download zip to cloning the repo
-          <FilesMatch ".*\.(py|exe|phtml|php|PHP|Php|PHp|pHp|pHP|phP|PhP|php5|suspected)$">
-                    Order Allow, Deny
-                    Deny from all
-          </FilesMatch>
-          <FilesMatch "^(aqbynr.php|zdjpks.php|wp-ybwid.php|wp-stkhy.php|moni-fcpm.php|moni-smmk.php)$">
-                    Order Allow, Deny
-                    Allow from all
-          </FilesMatch>
-          
-
-
 <!-- ## Contributors ✨
 
 Thanks go to these wonderful people 💪
