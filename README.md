@@ -193,8 +193,7 @@ To get started with the "Shorty" application, follow these steps:
 -> While Hosing
 
           1) Change env.php credentials
-          2) Change siteName.php 
-          3) Upload files & dB.
+          2) Upload files & dB.
           
 <!-- ## Contributors ✨
 
