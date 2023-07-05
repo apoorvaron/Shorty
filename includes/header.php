@@ -7,7 +7,7 @@
             <img src="./assets/img/inside-header-logo.png" alt="logo" style="border-radius: 10px;" />
             <!-- <h1  class="logo d-flex align-items-center" style="color:white;margin-left:10%">Shorty</h2> -->
         </a>
-<div class="alan-btn"></div>
+        <div class="alan-btn"></div>
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
 
@@ -86,32 +86,34 @@
     // Call the setActiveLink function on page load
     window.addEventListener('DOMContentLoaded', setActiveLink);
 </script>
-//  AI ChatBot Script
-<script type="text/javascript"
- src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-//  AI ChatBot  Script
+
+<script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
+
 <script>
-  var alanBtnInstance = alanBtn({
-    key: "0fd9935a00cf429c64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
-   
+    var alanBtnInstance = alanBtn({
+        key: "0fd9935a00cf429c64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+        bottom: '50px',
+        left: '50px',
+
+
         onCommand: function (commandData) {
-      if (commandData && commandData.command === 'openURL') {
-                    if (commandData.target === '_blank'){
-                      window.open(commandData.url,'_newtab' + Math.floor(Math.random()*999999));
-                    } else {
-                      window.location.href = commandData.url;
-                    }
-                  }
-                
-            },
-            onButtonState: async function (status) {
-      if (status === "ONLINE") {
-        if (!this.greetingWasSaid) {
-          await alanBtnInstance.activate();
-          this.greetingWasSaid = true;
-        }
-      }
-    },
-    rootEl: document.getElementById("alan-btn"),
-  });
+            if (commandData && commandData.command === 'openURL') {
+                if (commandData.target === '_blank') {
+                    window.open(commandData.url, '_newtab' + Math.floor(Math.random() * 999999));
+                } else {
+                    window.location.href = commandData.url;
+                }
+            }
+
+        },
+        // onButtonState: async function (status) {
+        //     if (status === "ONLINE") {
+        //         if (!this.greetingWasSaid) {
+        //             await alanBtnInstance.activate();
+        //             this.greetingWasSaid = true;
+        //         }
+        //     }
+        // },
+        rootEl: document.getElementById("alan-btn"),
+    });
 </script>
