@@ -198,12 +198,15 @@
       margin-bottom: 15px;
     }
 
-    customName input[type="text"] {
-      font: 15px/24px "Lato", Arial, sans-serif;
+    .customName{
+      /* font: 15px/24px "Lato", Arial, sans-serif;
       color: #333;
+     
       width: 100%;
       box-sizing: border-box;
       letter-spacing: 1px;
+     */
+      background-color:yellow;
     }
 
 
@@ -324,17 +327,19 @@ if ($rows == 0) {
               <hr style="color:gray;">
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink" />
-              <div class=" style=" padding-left: 0px;">
-                <span class="form-group mt-3 mb-4" id="formSpan">
+              <div class="" style=" padding-left: 0px;">
+              <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $env_domain ?>
                     </p>
                   </label>
-                  <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
+                 <span><input type="text" class="customeName form-control mb-4 mt-3"  placeholder="Custom Name"
                       style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
                       id="shortenLink" name="shortenLink" /></span>
                 </span>
+              
+                
 
               </div>
               <div class="d-flex justify-content-between" id="buttonresp">

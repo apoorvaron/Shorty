@@ -101,6 +101,14 @@ if (isset($_POST['submit'])) {
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <style>
+        .link{
+            color:black;
+            transition:transform 0.2s;
+        }
+            a:hover{
+                color:#0d42ff;
+            }
+
         img.vert-move {
             -webkit-animation: mover 1s infinite alternate;
             animation: mover 1s infinite alternate;
@@ -148,7 +156,7 @@ if (isset($_POST['submit'])) {
     <div class="wrapper-page">
 
         <div class="card">
-            <div class="card-body">
+            <div class="card-body"   style="border-radius:10px; background-image:url('https://images.unsplash.com/photo-1528460033278-a6ba57020470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=435&q=80');background-size:cover">
 
                 <h3 class="text-center mt-0">
                     <a href="./login" class="logo logo-admin"><img class="vert-move"
@@ -163,7 +171,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <input class="form-control  " type="email" required="" name="email"
+                                <input class="form-control  " type="email" style="border-radius:3px" required="" name="email"
                                     data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
                                         echo $_COOKIE['emailcookie'];
                                     } ?>">
@@ -175,7 +183,7 @@ if (isset($_POST['submit'])) {
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group">
-                                    <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
+                                    <input type="password" class="form-control" style="border-radius:3px" value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
                                     } ?>" id="password" required name="password" placeholder="Password">
                                     <div class="input-group-append">
@@ -211,18 +219,18 @@ if (isset($_POST['submit'])) {
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button class="btn  btn-block waves-effect waves-light"
-                                    style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
+                                    style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;border-radius:5px"
                                     id="submit" name="submit" type="submit">Log In</button>
                             </div>
                         </div>
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> &nbsp; Home
+                                <a href="../" class="link"><i class="mdi mdi-arrow-left-bold"></i> &nbsp; Home
                                     Page</a>
                             </div>
                             <div class="col-sm-5 m-t-20">
-                                <a href="./register" class="text-muted"><i class="mdi mdi-account-circle"></i> &nbsp;
+                                <a href="./register" class="link"><i class="mdi mdi-account-circle"></i> &nbsp;
                                     Create an account</a>
                             </div>
                         </div>
