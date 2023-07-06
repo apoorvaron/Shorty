@@ -124,7 +124,7 @@
 
 /* IOS-style clear button for text inputs */
 .editable-clear-x {
-   background: url('../img/clear.png') center center no-repeat;
+   background: url('../img/clear.webp') center center no-repeat;
    display: block;
    width: 13px;    
    height: 13px;

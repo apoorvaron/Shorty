@@ -37,8 +37,8 @@ if (isset($_GET)) {
 
 
   <!-- Favicons -->
-  <link href="./assets/img/logo.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
+  <link href="./assets/img/logo.webp" rel="icon" />
+  <link href="assets/img/apple-touch-icon.webp" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

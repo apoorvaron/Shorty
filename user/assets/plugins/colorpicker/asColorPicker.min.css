@@ -50,7 +50,7 @@
     width: 18px;
     height: 20px;
     cursor: pointer;
-    background-image: url(../../images/colorpicker/transparent.png)
+    background-image: url(../../images/colorpicker/transparent.webp)
 }
 
 .asColorPicker-trigger span {
@@ -89,7 +89,7 @@
 .asColorPicker-preview li {
     display: inline-block;
     vertical-align: top;
-    background-image: url(../../images/colorpicker/transparent.png);
+    background-image: url(../../images/colorpicker/transparent.webp);
     *display: inline;
     *zoom: 1
 }
@@ -124,7 +124,7 @@
     text-indent: 100%;
     white-space: nowrap;
     cursor: pointer;
-    background-image: url(../../images/colorpicker/transparent.png)
+    background-image: url(../../images/colorpicker/transparent.webp)
 }
 
 .asColorPicker-palettes li span {
@@ -138,7 +138,7 @@
     width: 175px;
     height: 175px;
     clear: both;
-    background-image: url(../../images/colorpicker/saturation.png);
+    background-image: url(../../images/colorpicker/saturation.webp);
     *display: inline;
     *zoom: 1
 }
@@ -165,11 +165,11 @@
 }
 
 .asColorPicker-hue {
-    background-image: url(../../images/colorpicker/hue.png)
+    background-image: url(../../images/colorpicker/hue.webp)
 }
 
 .asColorPicker-alpha {
-    background-image: url(../../images/colorpicker/alpha.png)
+    background-image: url(../../images/colorpicker/alpha.webp)
 }
 
 .asColorPicker-buttons a,
@@ -348,7 +348,7 @@
     width: 100%;
     height: 100%;
     content: "";
-    background-image: url(../../images/colorpicker/transparent.png)
+    background-image: url(../../images/colorpicker/transparent.webp)
 }
 
 .asColorPicker-gradient-markers {

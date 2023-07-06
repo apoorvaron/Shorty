@@ -133,7 +133,7 @@
                 <div class="topbar-left">
                     <div class="text-center">
                         <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.png" height="100" alt="logo"></a>
+                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.webp" height="100" alt="logo"></a>
                     </div>
                 </div>
                
@@ -318,19 +318,19 @@
 
                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-2.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-2.webp" alt="user-img" class="img-fluid rounded-circle" /> </div>
                                             <p class="notify-details"><b>Charles M. Jones</b><small class="">Dummy text of the printing and typesetting industry.</small></p>
                                         </a>
 
                                        
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-3.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-3.webp" alt="user-img" class="img-fluid rounded-circle" /> </div>
                                             <p class="notify-details"><b>Thomas J. Mimms</b><small class="">You have 87 unread messages</small></p>
                                         </a>
 
                                       
                                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                            <div class="notify-icon"><img src="assets/images/users/avatar-4.jpg" alt="user-img" class="img-fluid rounded-circle" /> </div>
+                                            <div class="notify-icon"><img src="assets/images/users/avatar-4.webp" alt="user-img" class="img-fluid rounded-circle" /> </div>
                                             <p class="notify-details"><b>Luis M. Konrad</b><small class="">It is a long established fact that a reader will</small></p>
                                         </a>
                                         <div class="dropdown-divider"></div>
