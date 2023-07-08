@@ -70,7 +70,7 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
  ##  🚀 Getting Started
   
 - [Setup] Shorty Project Setup Tutorial
-- Tutorial - https://www.youtube.com/watch?v=L5HdDeYaKd0
+- Tutorial - [https://www.youtube.com/watch?v=L5HdDeYaKd0](https://www.youtube.com/watch?v=rHiFSNm6hbU)
 
 - Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
 - Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
