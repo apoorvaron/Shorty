@@ -93,7 +93,7 @@
     var alanBtnInstance = alanBtn({
         key: "0fd9935a00cf429c64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
         bottom: '50px',
-        left: '50px',
+        right: '100px',
 
 
         onCommand: function (commandData) {
@@ -116,4 +116,5 @@
         // },
         rootEl: document.getElementById("alan-btn"),
     });
+   
 </script>
