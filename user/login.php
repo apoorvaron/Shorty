@@ -159,11 +159,11 @@ if (isset($_POST['submit'])) {
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST">
+                    <form class="form-horizontal" method="POST" aria-label="Login Form">
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <input class="form-control  " type="email" required="" name="email"
+                                <input class="form-control  " type="email" required="" name="email"     aria-required="true" aria-label="Email"
                                     data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
                                         echo $_COOKIE['emailcookie'];
                                     } ?>">
@@ -177,7 +177,7 @@ if (isset($_POST['submit'])) {
                                 <div class="input-group">
                                     <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
-                                    } ?>" id="password" required name="password" placeholder="Password">
+                                    } ?>" id="password" required name="password" placeholder="Password" aria-required="true" aria-label="Password">
                                     <div class="input-group-append">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
@@ -200,7 +200,7 @@ if (isset($_POST['submit'])) {
                             <div class="col-12">
                                 <div class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" name="rememberme"
-                                        id="customCheck1">
+                                        id="customCheck1" aria-checked="false">
                                     <label class="custom-control-label" for="customCheck1">Remember me</label>
                                     <i class="ti-info-alt tooltips" data-placement="top" data-toggle="tooltip"
                                         data-original-title="Save your password"></i>
@@ -212,17 +212,17 @@ if (isset($_POST['submit'])) {
                             <div class="col-12">
                                 <button class="btn  btn-block waves-effect waves-light"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
-                                    id="submit" name="submit" type="submit">Log In</button>
+                                    id="submit" name="submit" type="submit" aria-label="Log In">Log In</button>
                             </div>
                         </div>
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> &nbsp; Home
+                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold" aria-hidden="true"></i> &nbsp; Home
                                     Page</a>
                             </div>
                             <div class="col-sm-5 m-t-20">
-                                <a href="./register" class="text-muted"><i class="mdi mdi-account-circle"></i> &nbsp;
+                                <a href="./register" class="text-muted" aria-label="Create an account?"><i class="mdi mdi-account-circle" aria-hidden="true"></i> &nbsp;
                                     Create an account</a>
                             </div>
                         </div>
