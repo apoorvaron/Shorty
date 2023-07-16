@@ -49,7 +49,10 @@
     #navbar ul li a:hover {
         color: #0d42ff;
     }
-
+    .alanBtn-root{
+        right:10px !important;
+        bottom:80px !important;
+    }
 
     @media (max-width: 767px) {
         #navbar ul li {
