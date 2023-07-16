@@ -342,7 +342,7 @@
             var logisticsSection = document.getElementById('Logistics');
             var offset = logisticsSection.offsetTop - 10; // Calculate the scroll position with a 10-pixel offset
             window.scrollTo({
-                    top: offset,
+                top: offset,
                 behavior: 'smooth'
             });
         });
@@ -352,6 +352,8 @@
     <?php include './includes/footer.php'; ?>
 
 
+    <!-- importing the CHATBOX && SCROLL BUTTON FROM COMMON PHP FILE -->
+    <?php include './includes/chatbotsidebar.php'; ?>
 
     <div id="preloader"></div>
 

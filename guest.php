@@ -383,6 +383,8 @@ if ($rows == 0) {
   <?php include './includes/footer.php'; ?>
 
 
+  <!-- importing the CHATBOX && SCROLL BUTTON FROM COMMON PHP FILE -->
+  <?php include './includes/chatbotsidebar.php'; ?>
 
   <div id="preloader"></div>
   <!-- *************************** Generate Random Number   *****************************  -->

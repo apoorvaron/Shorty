@@ -106,7 +106,14 @@
             }
 
         },
-       
+        // onButtonState: async function (status) {
+        //     if (status === "ONLINE") {
+        //         if (!this.greetingWasSaid) {
+        //             await alanBtnInstance.activate();
+        //             this.greetingWasSaid = true;
+        //         }
+        //     }
+        // },
         rootEl: document.getElementById("alan-btn"),
     });
 </script>
