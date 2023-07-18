@@ -28,7 +28,11 @@ include(__DIR__ . '/../env.php');
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-
+    <style>
+        .copied-icon {
+            color: green;
+        }
+    </style>
 </head>
 
 <?php
@@ -117,7 +121,11 @@ if (isset($_GET['short'])) {
                                                                         <td>" . $row['linkIsFor'] . "</td>
                                                                         <td>" . $row['originalLink'] . "...</td>
                                                                         <td ><a style='color:green;' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
-                                                                        <td class='text-center'><a  href='./successCopy.php?username=" . $username . "&uno=" . $uno . "&short=" . $env_domain . "" . $row['shortenLink'] . "&for=" . $row['linkIsFor'] . "'><i class='fa fa-files-o' aria-hidden='true'></i></a></td>
+                                                                        <td class='text-center'>
+  <i id='copyIcon' class='fa fa-files-o copy-icon' aria-hidden='true' style='cursor: pointer;' onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\")'></i>
+</td>
+
+                                                                      
                                                                         <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
                                                                         <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
@@ -219,8 +227,32 @@ if (isset($_GET['short'])) {
 
     </div>
     <!-- END wrapper -->
+    <script>
+        function copyLink(word) {
+            console.log(word);
 
+            //check if navigator.clipboard is supported or not 
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(word);
+                document.getElementById("copyIcon").classList.add("copied-icon");
+                setTimeout(() => {
+                    document.getElementById("copyIcon").classList.remove("copied-icon");
+                }, 1500);
+            } else {
+                var tempInput = document.createElement("input");
+                tempInput.setAttribute("value", word);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                document.getElementById("copyIcon").classList.add("copied-icon");
+                setTimeout(() => {
+                    document.getElementById("copyIcon").classList.remove("copied-icon");
+                }, 1500);
+            }
+        }
 
+    </script>
     <!-- jQuery  -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
