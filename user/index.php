@@ -33,12 +33,12 @@ include(__DIR__ . '/../env.php');
 
     </style>
     <script>
-         const copyIcon = document.getElementById("copyIcon");
-      const tooltip = document.createElement("div");
-      tooltip.className = "tooltiptext";
-      tooltip.innerText = "Link copied!";
-      copyIcon.parentElement.appendChild(tooltip);
-      copyIcon.parentElement.classList.add("show-tooltip");
+        const copyIcon = document.getElementById("copyIcon");
+        const tooltip = document.createElement("div");
+        tooltip.className = "tooltiptext";
+        tooltip.innerText = "Link copied!";
+        copyIcon.parentElement.appendChild(tooltip);
+        copyIcon.parentElement.classList.add("show-tooltip");
     </script>
 </head>
 
@@ -111,42 +111,27 @@ if (isset($_GET['short'])) {
 
                                     </thead>
                                     <?php
-                                    // require('../admin/dBconn/database.php');
                                     $database = new Database();
                                     $db = $database->connect();
                                     $sno = 1;
                                     $uno = $_GET['uno'];
-                                    // echo $uno;
                                     $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "'";
                                     if ($result = mysqli_query($db, $sql)) {
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_array($result)) {
                                                 $row['originalLink'] = substr($row['originalLink'], 0, 30);
                                                 echo "
-                                                                        <tr>
-                                                                        <td>" . $sno . "</td>
-                                                                        <td>" . $row['linkIsFor'] . "</td>
-                                                                        <td>" . $row['originalLink'] . "...</td>
-                                                                        <td ><a style='color:green;' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
-                                                                        <td class='text-center'>
-                                                                        <i id='copyIcon' class='fa fa-files-o copy-icon' aria-hidden='true' style='cursor: pointer;' onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\")'></i></td>
-                                                                      
-
-
-
-
-                                                                      
-                                                                      
-
-
-
-
-                                                                      
-                                                                        <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
-                                                                        <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
-                                                                        
-                                                                        </tr>
-                                                                            ";
+            <tr>
+                <td>" . $sno . "</td>
+                <td>" . $row['linkIsFor'] . "</td>
+                <td>" . $row['originalLink'] . "...</td>
+                <td><a style='color:green;' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
+                <td class='text-center'>
+                    <i id='copyIcon" . $sno . "' class='fa fa-files-o copy-icon' aria-hidden='true' style='cursor: pointer;' onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\", " . $sno . ")'></i>
+                </td>
+                <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
+                <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "' class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+            </tr>";
                                                 $sno++;
                                             }
                                             mysqli_free_result($result);
@@ -155,9 +140,9 @@ if (isset($_GET['short'])) {
                                         }
                                     } else {
                                         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-
                                     }
                                     ?>
+
 
 
 
@@ -244,48 +229,47 @@ if (isset($_GET['short'])) {
     </div>
     <!-- END wrapper -->
     <script>
+        function copyLink(word, sno) {
+            console.log(word);
 
-function copyLink(word) {
-  console.log(word);
+            // Check if navigator.clipboard is supported or not
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(word).then(() => {
+                    // Show copied icon
+                    const copyIcon = document.getElementById("copyIcon" + sno);
+                    copyIcon.classList.remove("fa-files-o");
+                    copyIcon.classList.add("fa-check");
 
-  // Check if navigator.clipboard is supported or not
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(word).then(() => {
-      // Show copied icon
-      const copyIcon = document.getElementById("copyIcon");
-      copyIcon.classList.remove("fa-files-o");
-      copyIcon.classList.add("fa-check");
+                    setTimeout(() => {
+                        // Restore the original icon after 1500ms
+                        copyIcon.classList.remove("fa-check");
+                        copyIcon.classList.add("fa-files-o");
+                    }, 1500);
+                }).catch((error) => {
+                    console.error("Copying failed:", error);
+                });
+            } else {
+                console.log("2");
 
-      setTimeout(() => {
-        // Restore the original icon after 1500ms
-        copyIcon.classList.remove("fa-check");
-        copyIcon.classList.add("fa-files-o");
-      }, 1500);
-    }).catch((error) => {
-      console.error("Copying failed:", error);
-    });
-  } else {
-    console.log("2");
+                var tempInput = document.createElement("input");
+                tempInput.setAttribute("value", word);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
 
-    var tempInput = document.createElement("input");
-    tempInput.setAttribute("value", word);
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
+                // Show copied icon
+                const copyIcon = document.getElementById("copyIcon");
+                copyIcon.classList.remove("fa-files-o");
+                copyIcon.classList.add("fa-check");
 
-    // Show copied icon
-    const copyIcon = document.getElementById("copyIcon");
-    copyIcon.classList.remove("fa-files-o");
-    copyIcon.classList.add("fa-check");
-
-    setTimeout(() => {
-      // Restore the original icon after 1500ms
-      copyIcon.classList.remove("fa-check");
-      copyIcon.classList.add("fa-files-o");
-    }, 1500);
-  }
-}
+                setTimeout(() => {
+                    // Restore the original icon after 1500ms
+                    copyIcon.classList.remove("fa-check");
+                    copyIcon.classList.add("fa-files-o");
+                }, 1500);
+            }
+        }
 
 
     </script>
