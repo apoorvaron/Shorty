@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . '/../siteName.php');
+include(__DIR__ . '/../env.php');
 
 ?>
 <!DOCTYPE html>
@@ -57,7 +57,6 @@ if (isset($_POST['submit'])) {
     $shortenLink = $_POST['shortenLink'];
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
-    // $shortenLink = "".$siteName."".$short;
     if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
 
 
@@ -193,7 +192,7 @@ if (isset($_POST['submit'])) {
                                     <div class=" form-control col-md-12">
                                         <span class="form-group">
                                             <label><b>
-                                                    <?php echo $siteName ?>
+                                                    <?php echo $env_domain ?>
                                                 </b></label>
                                             <span><input type="text" placeholder="Custom Name"
                                                     style="border:0px;max-width: 50%;" required id="shortenLink"
@@ -271,6 +270,9 @@ if (isset($_POST['submit'])) {
             console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
+
+            // dispatching input event to the field so to remove the star symbol
+            document.querySelector('#shortenLink').dispatchEvent(new Event('input'))
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {
@@ -307,7 +309,7 @@ if (isset($_POST['submit'])) {
         function join() {
             let value = $('#shortenLink').val();
             let new_text = value.split(' ').join('_');
-            let shortlink = "<?php echo $siteName ?>" + new_text;
+            let shortlink = "<?php echo $env_domain ?>" + new_text;
             $('#modal').html(shortlink);
             console.log(new_text);
 
