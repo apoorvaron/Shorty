@@ -4,7 +4,7 @@ require('./admin/dBconn/database.php');
 
 $new_url = "";
 if (isset($_GET)) {
-  // print_r( $_GET);
+  // print_r( $_GET);gdjdhdhs
   $database = new Database();
   $db = $database->connect();
 
