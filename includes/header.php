@@ -91,10 +91,9 @@
 </script>
 
 <script type="text/javascript" src="https://studio.alan.app/web/lib/alan_lib.min.js"></script>
-
 <script>
     var alanBtnInstance = alanBtn({
-        key: "0fd9935a00cf429c64a5a62bdae65be32e956eca572e1d8b807a3e2338fdd0dc/stage",
+        key: "<?php echo $env_chatbot; ?>",
         bottom: '50px',
         right: '100px',
 
