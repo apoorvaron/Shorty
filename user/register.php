@@ -189,7 +189,7 @@
 
                                 <label id="file-label">Upload Profile Image : </label>
                                 <div class="uplodInputFileds form-control p-0 h-full">
-                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage" aria-labelledby="file-label" />
+                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage" aria-labelledby="file-label" accept="image/png, image/gif, image/jpeg, image/jpg" />
                                     <span class="custom-file-upload">Choose File</span>
                                     <span class="selected-file"></span>
                                 </div>
