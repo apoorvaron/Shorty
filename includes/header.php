@@ -46,11 +46,6 @@
 
 
 <style>
-    #navbar ul li a:hover {
-        color: #0d42ff;
-    }
-
-
     @media (max-width: 767px) {
         #navbar ul li {
             width: 150px;
