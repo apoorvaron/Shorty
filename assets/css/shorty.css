@@ -117,6 +117,17 @@ section {
 	z-index: 2;
 }
 
+.navbar .get-a-quote:active {
+	color: white !important;
+	background: #003e7f !important;
+	transform: scale(0.9);
+	font-weight: 600;
+}
+
+a:not(.get-a-quote, .social-links a):hover {
+  color: #0d42ff !important;
+}
+
 @media (max-width: 640px) {
 	.section-header h2 {
 		font-size: 28px;
@@ -700,6 +711,11 @@ section {
 		z-index: 9998;
 	}
 
+	nav li {
+	  display: grid;
+	  place-items: center;
+	}
+
 	.navbar a,
 	.navbar a:focus {
 		display: flex;
@@ -736,14 +752,26 @@ section {
 		justify-content: center;
 		background: var(--color-primary);
 		border-radius: 4px;
-		margin: 15px auto;
+		margin: 5px auto;
 		color: #fff;
+	}
+
+	nav li:nth-child(5) {
+	  	margin-top: 2rem !important;
 	}
 
 	.navbar .get-a-quote:hover,
 	.navbar .get-a-quote:focus:hover {
-		color: #fff;
+		color: #fff !important;
 		background: rgba(13, 66, 255, 0.8);
+	}
+
+	.navbar .get-a-quote:hover,
+	.navbar .get-a-quote:focus:hover {
+		color: white !important;
+		background: #003e7f;
+		transform: scale(0.9);
+		font-weight: 600;
 	}
 
 	.navbar .dropdown ul,
