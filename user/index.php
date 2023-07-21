@@ -224,7 +224,7 @@ if (isset($_GET['short'])) {
     <script>
        
        function copyLink(word, sno) {
-    console.log(word);
+    // console.log(word);
 
     // Check if navigator.clipboard is supported or not
     if (navigator.clipboard && navigator.clipboard.writeText) {
