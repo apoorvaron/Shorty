@@ -119,9 +119,13 @@ section {
 
 .navbar .get-a-quote:active {
 	color: white !important;
-	background: #003e7f;
+	background: #003e7f !important;
 	transform: scale(0.9);
 	font-weight: 600;
+}
+
+a:not(.get-a-quote, .social-links a):hover {
+  color: #0d42ff !important;
 }
 
 @media (max-width: 640px) {
