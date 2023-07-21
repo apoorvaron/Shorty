@@ -175,7 +175,7 @@ if (isset($_POST['submit'])) {
                                                                                 <div class=' form-control col-md-12'> 
                                                                                     <span class='form-group'>
                                                                                         <label> <b>" . $env_domain . " </b> </label>
-                                                                                        <span><input type='text' onkeypress='return blockSpecialChar(event)' value='" . $row['shortenLink'] . "' required  placeholder='Custom Short Link' style='border:0px'  id='shortenLink' name='shortenLink'/></span>
+                                                                                        <span><input type='text'  value='" . $row['shortenLink'] . "' required  placeholder='Custom Short Link' style='border:0px'  id='shortenLink' name='shortenLink'/></span>
                                                                                     </span>
                                                                                         
                                                                                 </div>
@@ -207,9 +207,9 @@ if (isset($_POST['submit'])) {
                                                                                             </button>
                                                                                         
                                                                                 
-                                                                                            <button  type='reset' class='btn btn-danger waves-effect m-l-5'>
-                                                                                                Cancel
-                                                                                            </button>
+                                                                                            <button type='reset' class='btn btn-danger waves-effect m-l-5' onclick='goBack()'>
+                                                                                            Cancel
+                                                                                        </button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -242,27 +242,56 @@ if (isset($_POST['submit'])) {
         </div> <!-- Page content Wrapper -->
 
     </div> <!-- content -->
+<!-- *************************** To Go Back Cancel Button ***************************** -->
+
+    <script>
+function goBack() {
+  // Use the history object to go back to the previous page.
+  // This will act like clicking the browser's back button.
+  window.history.back();
+}
+</script>
+<!-- *************************** To Go Back Cancel Button ***************************** -->
 
 
-    <!-- *************************** Generate Random Number   *****************************  -->
+<!-- *************************** Generate Random Number ***************************** -->
+<script>
+    document.querySelector('#generateRandom').addEventListener('click', function () {
+        var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+        console.log(randNum);
+        let v = document.querySelector('#shortenLink').value = randNum;
+        var previewBtn = document.querySelector('#previewBtn');
+        if (v.trim().length != 0) {
+            previewBtn.removeAttribute("hidden");
+        } else {
+            previewBtn.setAttribute("hidden", true);
+        }
+    });
+</script>
+<!-- *************************** Generate Random Number ends ***************************** -->
 
-    <?php
-    $randNum = bin2hex(random_bytes(3));
-    ;
-
-    echo "
-                                        <script>
-                                                document.querySelector('#generateRandom').addEventListener('click',function(){
-                                                        console.log('sadfsdg');
-                                                        document.querySelector('#shortenLink').value='" . $randNum . "';
-                                                    });
-                                        </script>
-                                ";
-    ?>
-
-    <!-- *************************** Generate Random Number ends  *****************************  -->
-
-
+<!-- *************************** Block SpecialChar ***************************** -->
+<script>
+    $("#shortenLink").on("input", function () {
+        var c = this.selectionStart,
+            r = /[^a-z0-9 ]/gi,
+            v = $(this).val();
+        if (r.test(v)) {
+            $(this).val(v.replace(r, ""));
+            v.length--;
+            c--;
+        }
+        this.setSelectionRange(c, c);
+        var previewBtn = document.querySelector('#previewBtn');
+        console.log(v.trim().length);
+        if (v.trim().length != 0) {
+            previewBtn.removeAttribute("hidden");
+        } else {
+            previewBtn.setAttribute("hidden", true);
+        }
+    });
+</script>
+<!-- *************************** Block SpecialChar Ends ***************************** -->
 
     <!-- *************************** Get preview modal   *****************************  -->
 
