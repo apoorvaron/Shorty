@@ -210,11 +210,6 @@ To get started with the "Shorty" application, follow these steps:
           email    -> shorty@gmail.com
           password -> shorty@gmail.com
 
--> While Hosting
-
-          1) Change env.php credentials
-          2) Upload files & dB.
-
 <!-- ## Contributors ✨
 
 Thanks go to these wonderful people 💪
@@ -223,7 +218,6 @@ Thanks go to these wonderful people 💪
 
  -->
 
--> Hosted on Infinity Free with Gmail: apoorv.shorty@gmail.com
 
 ## 🤝 Contributors :
 
