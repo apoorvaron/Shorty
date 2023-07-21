@@ -117,6 +117,13 @@ section {
 	z-index: 2;
 }
 
+.navbar .get-a-quote:active {
+	color: white !important;
+	background: #003e7f;
+	transform: scale(0.9);
+	font-weight: 600;
+}
+
 @media (max-width: 640px) {
 	.section-header h2 {
 		font-size: 28px;
