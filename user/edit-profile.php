@@ -213,7 +213,7 @@
                                                                 <div class='col-sm-10'>
                                                        
                                                                     <img style='border-radius:50%; height:10rem;' src='".$row['img']."' alt=''> or 
-                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' />
+                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' accept='image/png, image/gif, image/jpeg, image/jpg' />
                                                                 </div>
                                                  
                                                        
