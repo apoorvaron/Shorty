@@ -462,9 +462,9 @@
                      $queryVerify = "INSERT INTO `verify_token` (`id`, `username`, `token`, `expires_time`) VALUE ('$id', '$username' , '$token' , '$expireTime')";
 
                      require_once '../emailManager/accountVerifier.php';
-                     require_once '../siteName.php';
+                     require_once '../env.php';
 
-                     $link = $verifyUrl;
+                     $link = $env_verifyUrl;
                      $link = str_replace("{{ TOKEN }}", $token, $link);
                      $link = str_replace("{{ USERNAME }}", $username, $link);
 
