@@ -3780,11 +3780,35 @@ Invoice
 /* ==============
   Account Pages
 ===================*/
+/* Wrapper styles */
+/* Wrapper styles */
 .wrapper-page {
   margin: 7.5% auto;
-  max-width: 460px;
+  max-width: 1000px;
   position: relative;
+  display: flex; /* Use flexbox */
+  align-items: center;
+  justify-content: space-evenly;
+
 }
+
+/* Styles for the password validation container */
+.password-validation {
+
+  flex: 30%;
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+/* Styles for the registration form container */
+.registration-form {
+  flex: 50%; /* This will take up the available space and push the password validation to the left */
+  margin-left: 30px; /* You can adjust this margin as needed to create spacing between the form and password validation */
+
+}
+
 
 .wrapper-page .logo-admin {
   font-size: 28px;
