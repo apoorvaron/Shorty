@@ -125,7 +125,7 @@ section {
 }
 
 a:not(.get-a-quote, .social-links a):hover {
-	color: #0d42ff !important;
+	color: #fff !important;
 }
 
 @media (max-width: 640px) {
@@ -573,28 +573,32 @@ a:not(.get-a-quote, .social-links a):hover {
 		font-family: var(--font-primary);
 		font-size: 16px;
 		font-weight: 400;
-		color:white;
+		color: white;
 		white-space: nowrap;
 		transition: 0.3s;
 	}
-	.nav-a{
-        position:relative;
-    }
-    .nav-a::after{
-        position:absolute;
-        content:" ";
-        bottom:5px;
-        left:30px;
-        width:0%;
-        height:2px;
-        background:#ced4da;
-        transition-duration:.3s;
-        border-radius:20%;
 
-    }
-    .nav-a:hover::after{
-        width:70%;
-    }
+	.nav-a {
+		position: relative;
+	}
+
+	.nav-a::after {
+		position: absolute;
+		content: " ";
+		bottom: 5px;
+		left: 30px;
+		width: 0%;
+		height: 2px;
+		background: #0d42ff;
+		transition-duration: .3s;
+		border-radius: 20%;
+
+	}
+
+	.nav-a:hover::after {
+		width: 70%;
+	}
+
 	.navbar a i,
 	.navbar a:focus i {
 		font-size: 12px;
@@ -2154,19 +2158,23 @@ a:not(.get-a-quote, .social-links a):hover {
 	margin-right: 10px;
 	transition: 0.3s;
 }
-.footer .social-links a:hover:nth-child(1){
+
+.footer .social-links a:hover:nth-child(1) {
 	color: #000000;
 	border-color: #000000;
 }
-.footer .social-links a:hover:nth-child(2){
+
+.footer .social-links a:hover:nth-child(2) {
 	color: #0a66c2;
 	border-color: #0a66c2;
 }
-.footer .social-links a:hover:nth-child(3){
+
+.footer .social-links a:hover:nth-child(3) {
 	color: #1d9bf0;
 	border-color: #1d9bf0
 }
-.footer .social-links a:hover:nth-child(4){
+
+.footer .social-links a:hover:nth-child(4) {
 	color: rgb(5, 183, 5);
 	border-color: rgb(5, 183, 5);
 }
