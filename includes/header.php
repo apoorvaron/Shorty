@@ -19,6 +19,7 @@
             <ul>
 
                 <li><a href="./" id="homeLink">Home</a></li>
+                <li><a href="./aboutus" id="aboutusLink">About Us</a></li>
                 <li><a href="./faq" id="faqLink">FAQ</a></li>
                 <li><a href="./privacy" id="privacyLink">Privacy</a></li>
 
@@ -73,12 +74,17 @@
         var homeLink = document.getElementById('homeLink');
         var faqLink = document.getElementById('faqLink');
         var privacyLink = document.getElementById('privacyLink');
+        var aboutusLink = document.getElementById('aboutusLink'); 
 
         if (currentPageUrl.includes('/faq')) {
             faqLink.classList.add('active');
         } else if (currentPageUrl.includes('/privacy')) {
             privacyLink.classList.add('active');
-        } else {
+        }
+        else if (currentPageUrl.includes('/aboutus')) {
+            aboutusLink.classList.add('active');
+        } 
+        else {
             homeLink.classList.add('active');
         }
     }
