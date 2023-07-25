@@ -19,6 +19,7 @@
             <ul>
 
                 <li><a href="./" id="homeLink">Home</a></li>
+                <li><a href="./aboutus.php">About Us</a></li>
                 <li><a href="./faq" id="faqLink">FAQ</a></li>
                 <li><a href="./privacy" id="privacyLink">Privacy</a></li>
 
