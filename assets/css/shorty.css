@@ -47,7 +47,24 @@ a:hover {
 	color: #406aff;
 	text-decoration: none;
 }
+.nav-a{
+	position:relative;
+}
+.nav-a::after{
+	position:absolute;
+	content:" ";
+	bottom:5px;
+	right:0;
+	width:0%;
+	height:2px;
+	background:#ced4da;
+	transition-duration:.3s;
+	border-radius:20%;
 
+}
+.nav-a:hover::after{
+	width:70%;
+}
 h1,
 h2,
 h3,
@@ -125,7 +142,7 @@ section {
 }
 
 a:not(.get-a-quote, .social-links a):hover {
-  color: #0d42ff !important;
+	color: #0d42ff !important;
 }
 
 @media (max-width: 640px) {
@@ -137,6 +154,10 @@ a:not(.get-a-quote, .social-links a):hover {
 	.section-header span {
 		font-size: 38px;
 	}
+	.nav-a::after{
+		left: 20px;
+	}
+
 }
 
 /*--------------------------------------------------------------
@@ -289,6 +310,9 @@ a:not(.get-a-quote, .social-links a):hover {
 
 	.wrapper {
 		width: 10px;
+	}
+	.nav-a::after{
+		left: 20px;
 	}
 }
 
@@ -514,6 +538,9 @@ a:not(.get-a-quote, .social-links a):hover {
 	[data-aos-delay] {
 		transition-delay: 0 !important;
 	}
+	.nav-a::after{
+		left: 20px;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -563,7 +590,9 @@ a:not(.get-a-quote, .social-links a):hover {
 	.navbar li {
 		position: relative;
 	}
-
+	.nav-a::after{
+		left: 20px;
+	}
 	.navbar a,
 	.navbar a:focus {
 		display: flex;
@@ -573,11 +602,10 @@ a:not(.get-a-quote, .social-links a):hover {
 		font-family: var(--font-primary);
 		font-size: 16px;
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0.6);
+		color:white;
 		white-space: nowrap;
 		transition: 0.3s;
 	}
-
 	.navbar a i,
 	.navbar a:focus i {
 		font-size: 12px;
@@ -671,7 +699,9 @@ a:not(.get-a-quote, .social-links a):hover {
 	.navbar .dropdown .dropdown ul {
 		left: -90%;
 	}
-
+	.nav-a::after{
+		left: 20px;
+	}
 	.navbar .dropdown .dropdown:hover>ul {
 		left: -100%;
 	}
@@ -682,6 +712,9 @@ a:not(.get-a-quote, .social-links a):hover {
 	.mobile-nav-show,
 	.mobile-nav-hide {
 		display: none;
+	}
+	.nav-a::after{
+		left: 20px;
 	}
 }
 
@@ -699,7 +732,9 @@ a:not(.get-a-quote, .social-links a):hover {
 		transition: 0.3s;
 		z-index: 9997;
 	}
-
+	.nav-a::after{
+		left: 20px;
+	}
 	.navbar ul {
 		position: absolute;
 		inset: 0;
@@ -712,8 +747,8 @@ a:not(.get-a-quote, .social-links a):hover {
 	}
 
 	nav li {
-	  display: grid;
-	  place-items: center;
+		display: grid;
+		place-items: center;
 	}
 
 	.navbar a,
@@ -757,7 +792,7 @@ a:not(.get-a-quote, .social-links a):hover {
 	}
 
 	nav li:nth-child(5) {
-	  	margin-top: 2rem !important;
+		margin-top: 2rem !important;
 	}
 
 	.navbar .get-a-quote:hover,
@@ -1138,6 +1173,9 @@ a:not(.get-a-quote, .social-links a):hover {
 	.features .features-item+.features-item {
 		margin-top: 40px;
 	}
+	.nav-a::after{
+		left: 20px;
+	}
 }
 
 .features .features-item h3 {
@@ -1269,6 +1307,9 @@ a:not(.get-a-quote, .social-links a):hover {
 		max-width: 60%;
 		margin: 0 auto 30px auto;
 	}
+	.nav-a::after{
+		left: 20px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -1276,12 +1317,18 @@ a:not(.get-a-quote, .social-links a):hover {
 		max-width: 80%;
 		margin: 0 auto 30px auto;
 	}
+	.nav-a::after{
+		left: 20px;
+	}
 }
 
 @media (max-width: 420px) {
 	.pricing .box {
 		max-width: 100%;
 		margin: 0 auto 30px auto;
+	}
+	.nav-a::after{
+		left: 20px;
 	}
 }
 
@@ -1450,6 +1497,9 @@ a:not(.get-a-quote, .social-links a):hover {
 @media (min-width: 992px) {
 	.testimonials .testimonial-item p {
 		width: 80%;
+	}
+	.nav-a::after{
+		left: 20px;
 	}
 }
 
@@ -2014,6 +2064,8 @@ a:not(.get-a-quote, .social-links a):hover {
 @media (max-width: 575px) {
 	.hero h2 {
 		font-size: 30px;
+	}.nav-a::after{
+		left: 20px;
 	}
 }
 
@@ -2131,17 +2183,29 @@ a:not(.get-a-quote, .social-links a):hover {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 2px solid rgba(255, 255, 255, 0.2);
 	font-size: 16px;
 	color: rgba(255, 255, 255, 0.7);
 	margin-right: 10px;
 	transition: 0.3s;
 }
-
-.footer .social-links a:hover {
-	color: #fff;
-	border-color: #fff;
+.footer .social-links a:hover:nth-child(1){
+	color: #000000;
+	border-color: #000000;
 }
+.footer .social-links a:hover:nth-child(2){
+	color: #0a66c2;
+	border-color: #0a66c2;
+}
+.footer .social-links a:hover:nth-child(3){
+	color: #1d9bf0;
+	border-color: #1d9bf0
+}
+.footer .social-links a:hover:nth-child(4){
+	color: rgb(5, 183, 5);
+	border-color: rgb(5, 183, 5);
+}
+
 
 .footer h4 {
 	font-size: 16px;
@@ -2213,6 +2277,8 @@ a:not(.get-a-quote, .social-links a):hover {
 		max-width: 50%;
 		max-height: 50%;
 		margin-left: 25%;
+	}.nav-a::after{
+		left: 20px;
 	}
 }
 
