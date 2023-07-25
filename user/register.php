@@ -61,10 +61,7 @@
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
 
-        .wrapper-page {
-            display: flex;
-            align-items: center !important;
-        }
+
 
         #includeDiv {
             background: #FFF;
@@ -84,8 +81,64 @@
             -webkit-animation: mover 1s infinite alternate;
             animation: mover 1s infinite alternate;
         }
+/* Base styles for the .wrapper-page div */
+.wrapper-page {
+  margin: 7.5% auto;
+  max-width: 700px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 
-        @media (max-width: 700px) {
+}
+
+/* Styles for the password validation container */
+.password-validation {
+  flex: 0 0 30%;
+
+  color: black;
+  border-radius: 10px;
+  font-weight: bold;
+  margin-top: 20px;
+   /* Add a subtle box shadow */
+  padding: 20px; /* Add some padding for better spacing */
+}
+
+/* Styles for the registration form container */
+.registration-form {
+  flex: 0 0 calc(50% - 30px);
+  margin: 20px 15px;
+  padding: 20px; /* Add some padding for better spacing */
+  background-color: rgb(240, 240, 240); /* Add a light background color */
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+/* Center the logo */
+.wrapper-page .logo-admin {
+  font-size: 24px;
+  line-height: 50px;
+  text-align: center;
+}
+
+/* Make the card responsive */
+.wrapper-page .card {
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+/* Adjust font size for better mobile layout */
+@media screen and (max-width: 480px) {
+  .wrapper-page .logo-admin {
+    font-size: 20px;
+  }
+  .password-validation,
+  .registration-form {
+    flex: 0 0 100%; /* Make both containers take full width on smaller screens */
+  }
+}
+
+        @media (max-width:700px) {
             .wrapper-page {
                 flex-direction: column-reverse;
             }
@@ -126,107 +179,111 @@
     <div id="stars"></div>
     <div id="stars2"></div>
     <div class="wrapper-page">
-        <div id="includeDiv">
+        <div class="password-validation">
+
+            <div id="includeDiv">
+            </div>
         </div>
+        <div class="register-form">
+            <div class="card">
+                <div class="card-body">
 
-        <div class="card">
-            <div class="card-body">
-
-                <h3 class="text-center mt-0">
-                    <a href="./register" class="vert-move logo logo-admin"><img class="vert-move"
-                            src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
-                </h3>
+                    <h3 class="text-center mt-0">
+                        <a href="./register" class="vert-move logo logo-admin"><img class="vert-move"
+                                src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
+                    </h3>
 
 
 
-                <h6 class="text-center">Registration Form</h6>
+                    <h6 class="text-center">Registration Form</h6>
 
-                <div class="p-3">
+                    <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
-                        aria-label="Register Form">
+                        <form class="form-horizontal" method="POST" action='./register.php'
+                            enctype="multipart/form-data" aria-label="Register Form">
 
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <input class="form-control" type="email" required name="email" id="email"
-                                    placeholder="Email" aria-required="true" aria-label="Email">
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <input class="form-control" type="email" required name="email" id="email"
+                                        placeholder="Email" aria-required="true" aria-label="Email">
+                                </div>
                             </div>
-                        </div>
 
 
-                        <!-- <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <div class="col-12">
                                     <input class="form-control" type="password" id="password" minlength="8" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
                                 </div>
                             </div> -->
 
 
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="password" class="form-control " id="password" required minlength="8"
-                                        name="password" placeholder="Password" onblur="removeInclude()"
-                                        onfocus="addInclude()" aria-required="true" aria-label="Password">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" onclick="changeType()">
-                                            <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
-                                                class="fa fa-eye-slash" aria-hidden="true"></i>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control " id="password" required
+                                            minlength="8" name="password" placeholder="Password"
+                                            onblur="removeInclude()" onfocus="addInclude()" aria-required="true"
+                                            aria-label="Password">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" onclick="changeType()">
+                                                <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;"
+                                                    onclick="" class="fa fa-eye-slash" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <div class="input-group">
-                                    <input type="password" class="form-control " id="cnfrmPass" required minlength="8"
-                                        name="cnfrmPass" placeholder="Confirm Password" aria-required="true"
-                                        aria-label="Confirm Password">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" onclick="changeTypei()">
-                                            <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
-                                                class="fa fa-eye-slash" aria-hidden="true"></i>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <input type="password" class="form-control " id="cnfrmPass" required
+                                            minlength="8" name="cnfrmPass" placeholder="Confirm Password"
+                                            aria-required="true" aria-label="Confirm Password">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" onclick="changeTypei()">
+                                                <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
+                                                    class="fa fa-eye-slash" aria-hidden="true"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
 
 
 
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <center id="warnDiv">
-                                    <span id="warning"
-                                        style="width:50%;display: none; background-color:red;padding:2%;font-size:1rem;margin-top:-100%"
-                                        class="badge displayBadge">Weak</span>
-                                </center>
+                            <div class="form-group row">
+                                <div class="col-12">
+                                    <center id="warnDiv">
+                                        <span id="warning"
+                                            style="width:50%;display: none; background-color:red;padding:2%;font-size:1rem;margin-top:-100%"
+                                            class="badge displayBadge">Weak</span>
+                                    </center>
 
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <div class="col-12" >
                                     <center id="warning"></center>
 
                                 </div>
                             </div> -->
 
-                        <div class="form-group row d-flex flex-col">
-                            <div class="col-12">
+                            <div class="form-group row d-flex flex-col">
+                                <div class="col-12">
 
-                                <label id="file-label">Upload Profile Image : </label>
-                                <div class="uplodInputFileds form-control p-0 h-full">
-                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage"
-                                        aria-labelledby="file-label"
-                                        accept="image/png, image/gif, image/jpeg, image/jpg" />
-                                    <span class="custom-file-upload">Choose File</span>
-                                    <span class="selected-file"></span>
+                                    <label id="file-label">Upload Profile Image : </label>
+                                    <div class="uplodInputFileds form-control p-0 h-full">
+                                        <input data-parsley-type="file" type="file" class="file-upload"
+                                            name="UploadImage" aria-labelledby="file-label"
+                                            accept="image/png, image/gif, image/jpeg, image/jpg" />
+                                        <span class="custom-file-upload">Choose File</span>
+                                        <span class="selected-file"></span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- <div class="form-group row">
+                            <!-- <div class="form-group row">
                                 <div class="col-12">
                                     <div class="custom-control custom-checkbox">
                                         <input type="checkbox" class="custom-control-input" id="customCheck1">
@@ -235,25 +292,27 @@
                                 </div>
                             </div> -->
 
-                        <div class="form-group text-center row m-t-20">
-                            <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light"
-                                    style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
-                                    id="submit" name="submit" type="submit" aria-label="Register">Register</button>
+                            <div class="form-group text-center row m-t-20">
+                                <div class="col-12">
+                                    <button class="btn  btn-block waves-effect waves-light"
+                                        style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
+                                        id="submit" name="submit" type="submit" aria-label="Register">Register</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group m-t-10 mb-0 row">
-                            <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"
-                                        aria-hidden="true"></i> &nbsp; Home Page</a>
+                            <div class="form-group m-t-10 mb-0 row">
+                                <div class="col-sm-7 m-t-20">
+                                    <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"
+                                            aria-hidden="true"></i> &nbsp; Home Page</a>
+                                </div>
+                                <div class="col-sm-5 m-t-20">
+                                    <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"
+                                            aria-hidden="true"></i> &nbsp; Login </a>
+                                </div>
                             </div>
-                            <div class="col-sm-5 m-t-20">
-                                <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"
-                                        aria-hidden="true"></i> &nbsp; Login </a>
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
+
             </div>
         </div>
     </div>
