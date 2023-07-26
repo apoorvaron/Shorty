@@ -1,3 +1,7 @@
+<?php
+include('./env.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
