@@ -19,7 +19,7 @@
             <ul>
 
                 <li><a href="./" id="homeLink">Home</a></li>
-                <li><a href="./aboutus" id="aboutusLink">About Us</a></li>
+                <li><a href="./about" id="aboutusLink">About</a></li>
                 <li><a href="./faq" id="faqLink">FAQ</a></li>
                 <li><a href="./privacy" id="privacyLink">Privacy</a></li>
 
@@ -81,7 +81,7 @@
         } else if (currentPageUrl.includes('/privacy')) {
             privacyLink.classList.add('active');
         }
-        else if (currentPageUrl.includes('/aboutus')) {
+        else if (currentPageUrl.includes('/about')) {
             aboutusLink.classList.add('active');
         } 
         else {
