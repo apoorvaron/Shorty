@@ -84,7 +84,7 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                        <img src="./assets/images/User Profile.png" class="img-fluid" alt="">
+                        <img src="./assets/images/about.png" class="img-fluid" alt="">
                         <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
                     </div>
                     <div class="col-lg-6 content order-last  order-lg-first">
