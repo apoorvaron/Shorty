@@ -187,10 +187,10 @@ if (isset($_POST['submit'])) {
                                                                                     <div class='form-group mb-0'>
                                                                                         <div >
                                                                                             <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
-                                                                                                Generate Random Number
+                                                                                                Random Number
                                                                                             </button>
                                                                                         
-                                                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Get Preview</button>
+                                                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
                                                                                         
                                                                                         </div>
                                                                                     </div>
