@@ -139,7 +139,7 @@ To get started with the "Shorty" application, follow these steps:
                  $env_port = "8889";
 
                  $env_domain = "http://localhost:8888/shorty/";
-                 $env_chatbot = "dac12164baa0169d91f05cafb35e45252e956eca572e1d8b807a3e2338fdd0dc/stage";
+                 $env_chatbot = "fce7a56f7d5207cc6a7263e92dca26602e956eca572e1d8b807a3e2338fdd0dc/stage";
              ?>
 
     - Set the below snippet inside htdocs/shorty/env.php. file (FOR WINDOWS & XAMPP)
@@ -151,8 +151,8 @@ To get started with the "Shorty" application, follow these steps:
                   $env_database = "shorty";
                   $env_port = "3306";
 
-                 $env_domain = "http://localhost:8080/shorty/";
-                 $env_chatbot = "dac12164baa0169d91f05cafb35e45252e956eca572e1d8b807a3e2338fdd0dc/stage";
+                 $env_domain = "http://localhost/shorty/";
+                 $env_chatbot = "fce7a56f7d5207cc6a7263e92dca26602e956eca572e1d8b807a3e2338fdd0dc/stage";
              ?>
 
     - Set the below snippet inside /opt/lampp/htdocs/shorty/env.php. file (FOR Linux & LAMPP)
@@ -165,7 +165,7 @@ To get started with the "Shorty" application, follow these steps:
                   $env_port = "3306";
 
                  $env_domain = "http://localhost:8080/shorty/";
-                 $env_chatbot = "dac12164baa0169d91f05cafb35e45252e956eca572e1d8b807a3e2338fdd0dc/stage";
+                 $env_chatbot = "fce7a56f7d5207cc6a7263e92dca26602e956eca572e1d8b807a3e2338fdd0dc/stage";
              ?>
 
 6.  Start your web server.
