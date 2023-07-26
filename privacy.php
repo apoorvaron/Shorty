@@ -1,3 +1,7 @@
+<?php
+include('./env.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +107,7 @@
                         <div id="active" style="text-align: justify;align-items:center;">
                             <h3>Privacy Policy for shorty</h3>
                             <p>
-                                At shorty, accessible from http://shrty.rf.gd/, one of our main priorities is the
+                                At shorty, accessible from <?php echo $env_domain ?>, one of our main priorities is the
                                 privacy of our visitors. This Privacy Policy document contains types of information that
                                 is collected and recorded by shorty and how we use it.
                             </p>

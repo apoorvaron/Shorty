@@ -120,11 +120,11 @@
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data">
+                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data" aria-label="Register Form">
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <input class="form-control" type="email" required name="email" id="email" placeholder="Email">
+                                <input class="form-control" type="email" required name="email" id="email" placeholder="Email" aria-required="true" aria-label="Email">
                             </div>
                         </div>
 
@@ -139,7 +139,8 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group">
-                                    <input type="password" class="form-control " id="password" required minlength="8" name="password" placeholder="Password" onblur="removeInclude()" onfocus="addInclude()">
+                                    <input type="password" class="form-control " id="password" required minlength="8" name="password" placeholder="Password" onblur="removeInclude()" onfocus="addInclude()" aria-required="true"
+                                   aria-label="Password">
                                     <div class="input-group-append">
                                         <span class="input-group-text" onclick="changeType()">
                                             <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick="" class="fa fa-eye-slash" aria-hidden="true"></i>
@@ -151,7 +152,7 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group">
-                                    <input type="password" class="form-control " id="cnfrmPass" required minlength="8" name="cnfrmPass" placeholder="Confirm Password">
+                                    <input type="password" class="form-control " id="cnfrmPass" required minlength="8" name="cnfrmPass" placeholder="Confirm Password" aria-required="true" aria-label="Confirm Password">
                                     <div class="input-group-append">
                                         <span class="input-group-text" onclick="changeTypei()">
                                             <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;" class="fa fa-eye-slash" aria-hidden="true"></i>
@@ -186,9 +187,9 @@
                         <div class="form-group row d-flex flex-col">
                             <div class="col-12">
 
-                                <label>Upload Profile Image : </label>
+                                <label id="file-label">Upload Profile Image : </label>
                                 <div class="uplodInputFileds form-control p-0 h-full">
-                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage" />
+                                    <input data-parsley-type="file" type="file" class="file-upload" name="UploadImage" aria-labelledby="file-label" accept="image/png, image/gif, image/jpeg, image/jpg" />
                                     <span class="custom-file-upload">Choose File</span>
                                     <span class="selected-file"></span>
                                 </div>
@@ -206,15 +207,15 @@
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light" style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit">Register</button>
+                                <button class="btn  btn-block waves-effect waves-light" style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;" id="submit" name="submit" type="submit" aria-label="Register">Register</button>
                             </div>
                         </div>
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"></i> &nbsp; Home Page</a>
+                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold" aria-hidden="true"></i> &nbsp; Home Page</a>
                             </div>
                             <div class="col-sm-5 m-t-20">
-                                <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"></i> &nbsp; Login </a>
+                                <a href="./login" class="text-muted"><i class="mdi mdi-account-circle" aria-hidden="true"></i> &nbsp; Login </a>
                             </div>
                         </div>
                     </form>

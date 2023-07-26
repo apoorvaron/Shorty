@@ -230,7 +230,7 @@
             let originalLink = document.querySelector('#originalLink').value;
             let shortenLink = document.querySelector('#shortenLink').value;
             if (shortenLink.trim() === '') {
-                swal("Shorten Link is required", "", "error");
+                swal("Custom Name Required !!", "", "error");
                 return;
             }
             shortenLink = shortenLink.replace(/ /g, "_");
