@@ -215,7 +215,7 @@ if (isset($_POST['submit'])) {
                                                 <div>
                                                     <button type="button" name="generateRandom" id="generateRandom"
                                                         class="btn btn-success waves-effect waves-light">
-                                                        Random No.
+                                                        Random Number
                                                     </button>
 
                                                     <button class='btn btn-primary new' type='button' id="previewBtn"
