@@ -1,3 +1,7 @@
+<?php
+include('./env.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,6 +69,7 @@
                 <div class="container">
                     <ol>
                         <li><a href="./">Home</a></li>
+                                                <li>/</li>
                         <li>FAQ</li>
                     </ol>
                 </div>
