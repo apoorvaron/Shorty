@@ -55,6 +55,7 @@ include('./env.php');
     <!-- importing the HEADER FROM HEADER PHP FILE -->
     <?php include './includes/header.php'; ?>
 
+
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
@@ -88,8 +89,10 @@ include('./env.php');
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                        <img src="./assets/images/about.png" class="img-fluid" alt="">
-                        <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                        <img src="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
+                            class="img-fluid" alt="">
+                        <a href="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
+                            class="glightbox play-btn"></a>
                     </div>
                     <div class="col-lg-6 content order-last  order-lg-first">
                         <h3>About</h3>
@@ -202,11 +205,100 @@ include('./env.php');
                     </div>
 
 
+
+
+
+
+
+                    <style>
+                        #Frames,
+                        .Frame {
+                            list-style: none;
+                            list-style-type: none;
+                            margin: 0px;
+                            padding: 0px;
+                            text-align: center;
+                        }
+
+                        #Frames {
+                            margin: 5% 0;
+                            width: 100%;
+                        }
+
+                        .Frame {
+                            display: inline-block;
+                            padding: 30px;
+                            border-width: 15px;
+                            border-style: solid;
+                            border-color: #2F2D2D #434040 #4F4C4C #434040;
+                            background: #f5f5f5;
+                            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E5E4DF), to(#CDCDC6));
+                            background-image: -webkit-linear-gradient(#E5E4DF, #CDCDC6);
+                            background-image: -moz-linear-gradient(#E5E4DF, #CDCDC6);
+                            background-image: -o-linear-gradient(#E5E4DF, #CDCDC6);
+                            background-image: linear-gradient(#E5E4DF, #CDCDC6);
+                            box-shadow: inset 0 2px 5px rgba(0, 0, 0, .6), 0 5px 2px rgba(0, 0, 0, .1), 0 10px 20px rgba(0, 0, 0, .8);
+                            position: relative;
+                            overflow: hidden;
+                        }
+
+                        .Frame::before {
+                            content: "";
+                            position: absolute;
+                            top: -175px;
+                            right: -20%;
+                            width: 200px;
+                            height: 200px;
+                            transform: rotateZ(-40deg);
+                            -webkit-transform: rotateZ(-40deg);
+                            -moz-transform: rotateZ(-40deg);
+                            -o-transform: rotateZ(-40deg);
+                            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .4)), to(rgba(255, 255, 255, 0)));
+                            background-image: -webkit-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
+                            background-image: -moz-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
+                            background-image: -o-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
+                            background-image: linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
+                        }
+
+                        .Frame img {
+                            border-width: 2px;
+                            border-style: solid;
+                            border-color: #BBBAB4 #C7C7BF #E5E4DF #C7C7BF;
+                            box-shadow: 0 -1px 1px rgba(0, 0, 0, .1), 0 1px 1px 1px rgba(255, 255, 255, .7);
+                        }
+                    </style>
+
+                    <div class="wrapper">
+                        <div class="title">an orange and white cat yawns in the leaves</div>
+                        <div class="img-wrapper">
+
+                            <li class="Frame"><a href="#"><img
+                                        src="http://farm8.staticflickr.com/7129/7617079532_0fddbaa8cd_z.jpg"
+                                        alt="Hanafubuki - Cherry blossom blizzard" /></a></li>
+
+
+                            <!-- <img src="https://images.unsplash.com/photo-1558503198-788e3547684d?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=987&amp;q=80"
+                                alt="" /> -->
+
+
+                        </div>
+                    </div>
+
+
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
 
-                        <div class="col-md-5">
-                            <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/03/13211326/Marketing-Management.jpg"
-                                class="img-fluid" alt="">
+                        <div class="col-md-5" class="img-hover3">
+                            <a href="#" class="img-hover__link">
+
+                                <li class="Frame"><a href="#">
+                                        <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/03/13211326/Marketing-Management.jpg"
+                                            class="img-fluid" id="img-hover__img" alt="KK1">
+                                    </a></li>
+                                <!-- 
+                                <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/03/13211326/Marketing-Management.jpg"
+                                    class="img-fluid" id="img-hover__img" alt="KK1"> -->
+
+                            </a>
                         </div>
                         <div class="col-md-7" style="justify-content: center;">
                             <h3>
@@ -240,9 +332,17 @@ include('./env.php');
                     </div><!-- Features Item -->
 
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-                        <div class="col-md-5 order-1 order-md-2">
-                            <img src="https://images.pexels.com/photos/669612/pexels-photo-669612.jpeg"
-                                class="img-fluid" alt="">
+                        <div class="col-md-5 order-1 order-md-2" class="img-hover__img">
+                            <a href="#" class="img-hover__link">
+
+                                <li class="Frame"><a href="#">
+                                        <img src="https://images.pexels.com/photos/669612/pexels-photo-669612.jpeg"
+                                            class="img-fluid" id="img-hover__img" alt="">
+                                    </a></li>
+
+                                <!-- <img src="https://images.pexels.com/photos/669612/pexels-photo-669612.jpeg"
+                                    class="img-fluid" id="img-hover__img" alt=""> -->
+                            </a>
                         </div>
                         <div class="col-md-7 order-2 order-md-1" style="justify: center;">
                             <h3>
@@ -292,9 +392,18 @@ include('./env.php');
                     </div><!-- Features Item -->
 
                     <div class="row gy-4 align-items-center features-item" data-aos="fade-up">
-                        <div class="col-md-5">
-                            <img src="https://brand24.com/blog/wp-content/uploads/2021/05/How-to-increase-Instagram-reach.png"
-                                class="img-fluid" style="width:100%;heigth:100%;" alt="">
+                        <div class="col-md-5" class="img-hover__img">
+                            <a href="#" class="img-hover__link">
+
+                                <li class="Frame"><a href="#">
+                                        <img src="https://www.searchfit.com/wp-content/uploads/2017/10/10-effective-ways-online-presence.png"
+                                            class="img-fluid" style="width:100%;heigth:100%;" id="img-hover__img"
+                                            alt="">
+                                    </a></li>
+
+                                <!-- <img src="https://brand24.com/blog/wp-content/uploads/2021/05/How-to-increase-Instagram-reach.png"
+                                    class="img-fluid" style="width:100%;heigth:100%;" id="img-hover__img" alt=""> -->
+                            </a>
                         </div>
                         <div class="col-md-7">
                             <h3>
@@ -331,7 +440,6 @@ include('./env.php');
 
         </section>
     </main><!-- End #main -->
-
 
 
 
