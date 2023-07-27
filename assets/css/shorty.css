@@ -201,7 +201,7 @@ a:not(.get-a-quote, .social-links a):hover {
 	display: inline-block;
 	padding-right: 10px;
 	color: #4278cc;
-	content: '/';
+     /*	content: '/'; */
 }
 
 /*--------------------------------------------------------------
