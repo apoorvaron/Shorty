@@ -240,6 +240,13 @@ a:not(.get-a-quote, .social-links a):hover {
 	color: #fff;
 	transform: scale(0.96);
 	font-weight: bold;
+	animation: animate 1s linear infinite;
+}
+
+@keyframes animate{
+	50%{
+		transform: translateY(-5px);
+	}
 }
 
 .side_icons.active {
