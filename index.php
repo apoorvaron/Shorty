@@ -14,15 +14,23 @@ if (isset($_GET)) {
 
   }
 
-  $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
-  $result = mysqli_query($db, $sql);
-
-
-  if (mysqli_num_rows($result) > 0) {
-    mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
-    $row = mysqli_fetch_assoc($result);
-    header("Location:" . $row['originalLink']);
+  if(strlen($new_url)=="0"){
+  //  Nothing
+  }else{
+    $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
+    $result = mysqli_query($db, $sql);
+  
+  
+    if (mysqli_num_rows($result) > 0) {
+      mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
+      $row = mysqli_fetch_assoc($result);
+      header("Location:" . $row['originalLink']);
+    }else{
+      header("Location:".$env_domain );
+    }
   }
+
+  
 }
 ?>
 <!DOCTYPE html>
