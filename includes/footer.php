@@ -170,7 +170,7 @@
 
                         } else {
 
-                            swal("Enter Valid URL !!", "", "error");
+                            swal("Please Enter Valid URL !!", "", "error");
                         }
 
                     }, error: function (xhr, status, error) {
@@ -203,7 +203,7 @@
                     console.log("this is datt", data);
                     // If the link is previously shortened
                     if (data) {
-                        swal("Custom Name Not available", "", "error");
+                        swal("Custom Name Not Available !!", "", "error");
                         return;
 
                     } else {
@@ -245,7 +245,7 @@
                             },
                         });
                     } else {
-                        swal("Enter Valid URL !!", "", "error");
+                        swal("Please Enter Valid URL !!", "", "error");
                     }
                 },
                 error: function (xhr, status, error) {

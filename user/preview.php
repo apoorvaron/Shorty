@@ -242,56 +242,56 @@ if (isset($_POST['submit'])) {
         </div> <!-- Page content Wrapper -->
 
     </div> <!-- content -->
-<!-- *************************** To Go Back Cancel Button ***************************** -->
+    <!-- *************************** To Go Back Cancel Button ***************************** -->
 
     <script>
-function goBack() {
-  // Use the history object to go back to the previous page.
-  // This will act like clicking the browser's back button.
-  window.history.back();
-}
-</script>
-<!-- *************************** To Go Back Cancel Button ***************************** -->
+        function goBack() {
+            // Use the history object to go back to the previous page.
+            // This will act like clicking the browser's back button.
+            window.history.back();
+        }
+    </script>
+    <!-- *************************** To Go Back Cancel Button ***************************** -->
 
 
-<!-- *************************** Generate Random Number ***************************** -->
-<script>
-    document.querySelector('#generateRandom').addEventListener('click', function () {
-        var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-        console.log(randNum);
-        let v = document.querySelector('#shortenLink').value = randNum;
-        var previewBtn = document.querySelector('#previewBtn');
-        if (v.trim().length != 0) {
-            previewBtn.removeAttribute("hidden");
-        } else {
-            previewBtn.setAttribute("hidden", true);
-        }
-    });
-</script>
-<!-- *************************** Generate Random Number ends ***************************** -->
+    <!-- *************************** Generate Random Number ***************************** -->
+    <script>
+        document.querySelector('#generateRandom').addEventListener('click', function () {
+            var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+            console.log(randNum);
+            let v = document.querySelector('#shortenLink').value = randNum;
+            var previewBtn = document.querySelector('#previewBtn');
+            if (v.trim().length != 0) {
+                previewBtn.removeAttribute("hidden");
+            } else {
+                previewBtn.setAttribute("hidden", true);
+            }
+        });
+    </script>
+    <!-- *************************** Generate Random Number ends ***************************** -->
 
-<!-- *************************** Block SpecialChar ***************************** -->
-<script>
-    $("#shortenLink").on("input", function () {
-        var c = this.selectionStart,
-            r = /[^a-z0-9 ]/gi,
-            v = $(this).val();
-        if (r.test(v)) {
-            $(this).val(v.replace(r, ""));
-            v.length--;
-            c--;
-        }
-        this.setSelectionRange(c, c);
-        var previewBtn = document.querySelector('#previewBtn');
-        console.log(v.trim().length);
-        if (v.trim().length != 0) {
-            previewBtn.removeAttribute("hidden");
-        } else {
-            previewBtn.setAttribute("hidden", true);
-        }
-    });
-</script>
-<!-- *************************** Block SpecialChar Ends ***************************** -->
+    <!-- *************************** Block SpecialChar ***************************** -->
+    <script>
+        $("#shortenLink").on("input", function () {
+            var c = this.selectionStart,
+                r = /[^a-z0-9 ]/gi,
+                v = $(this).val();
+            if (r.test(v)) {
+                $(this).val(v.replace(r, ""));
+                v.length--;
+                c--;
+            }
+            this.setSelectionRange(c, c);
+            var previewBtn = document.querySelector('#previewBtn');
+            console.log(v.trim().length);
+            if (v.trim().length != 0) {
+                previewBtn.removeAttribute("hidden");
+            } else {
+                previewBtn.setAttribute("hidden", true);
+            }
+        });
+    </script>
+    <!-- *************************** Block SpecialChar Ends ***************************** -->
 
     <!-- *************************** Get preview modal   *****************************  -->
 
