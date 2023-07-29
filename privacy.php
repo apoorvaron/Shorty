@@ -72,6 +72,8 @@ include('./env.php');
                 <div class="container">
                     <ol>
                         <li><a href="./">Home</a></li>
+                                                <li>/</li>
+
                         <li>Privacy Policy</li>
                     </ol>
                 </div>

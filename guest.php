@@ -122,7 +122,7 @@
     } else {
       echo "  <script>
                           $(document).ready(function(){
-                              swal('Please Enter Valid URL !!','','info');
+                              swal('Enter Valid URL !!','','info');
                           });
                       </script>";
 
@@ -323,7 +323,8 @@ if ($rows == 0) {
               </h2>
               <hr style="color:gray;">
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
-                id="originalLink" name="originalLink"  onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
+                id="originalLink" name="originalLink"
+                onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
               <div class=" style=" padding-left: 0px;">
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
@@ -333,7 +334,8 @@ if ($rows == 0) {
                   </label>
                   <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
                       style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
-                      id="shortenLink" name="shortenLink"  onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
+                      id="shortenLink" name="shortenLink"
+                      onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
                 </span>
 
               </div>

@@ -92,9 +92,10 @@
         function generateShorty() {
 
             let originalLink = document.querySelector('#originalLink').value;
+            let originalLinkWithoutFragment = originalLink.split('#')[0];
 
             // Check original link was shortened previously 
-            let urllink = "./admin/dBconn/api.php?q=getAlreadyShortened&originalLink=" + originalLink;
+            let urllink = "./admin/dBconn/api.php?q=getAlreadyShortened&originalLink=" + originalLinkWithoutFragment;
             let linkPage = document.getElementById("linkPage");
             $(document).ready(function () {
                 $.ajax({
@@ -112,10 +113,11 @@
                         } else {
                             // if link is not previously shortened 
                         }
-                        console.log(avail);
-                        let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-                        if (regexp.test(originalLink)) {
 
+                        let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+
+                        if (regexp.test(originalLinkWithoutFragment)) {
                             let generateShorty = document.querySelector('#generateShorty');
                             let full_shortlink = "<?php echo $env_domain ?>";
                             // full_shortlink.slice(0, -2);
@@ -134,7 +136,7 @@
                             let originalLink = document.querySelector('#originalLink').value;
 
                             var formData = new FormData();
-                            formData.append('originalLink', originalLink);
+                            formData.append('originalLink', originalLinkWithoutFragment);
                             // formData.append('shortenLink', avail);
 
 
@@ -179,53 +181,6 @@
         }
 
 
-        // function generateCustomShorty() {
-        //     let originalLink = document.querySelector('#originalLink').value;
-        //     let shortenLink = document.querySelector('#shortenLink').value;
-        //     console.log(originalLink)
-        //     console.log(shortenLink)
-        //     // Generate a new shortened link
-        //     let avail = shortenLink;
-
-        //     let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
-        //     let ifValidLink = regexp.test(originalLink);
-        //     if (ifValidLink) {
-        //         console.log("Testing", ifValidLink);
-        //         let generateShorty = document.querySelector('#generateShorty');
-        //         let full_shortlink = "<?php echo $env_domain ?>";
-        //         generateShorty.innerHTML = `
-        //     <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-        //         <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
-        //         <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
-        //     </form>
-        // `;
-
-        //         let originalLink = document.querySelector('#originalLink').value;
-
-        //         var formData = new FormData();
-        //         formData.append('originalLink', originalLink);
-
-        //         let url = "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail;
-        //         $.ajax({
-        //             type: "POST",
-        //             url: "./admin/dBconn/api.php/?q=shorty&shortenLink=" + avail,
-        //             data: formData,
-        //             cache: false,
-        //             processData: false,
-        //             contentType: false,
-        //             success: function (data) {
-        //                 console.log("success");
-        //             },
-        //             error: function (xhr, status, error) {
-        //                 console.log("No");
-        //             },
-        //         });
-        //     } else {
-        //         swal("Enter Valid URL !!", "", "error");
-        //     }
-        // }
-
-
         function generateCustomShorty() {
             let originalLink = document.querySelector('#originalLink').value;
             let shortenLink = document.querySelector('#shortenLink').value;
@@ -248,17 +203,18 @@
                     console.log("this is datt", data);
                     // If the link is previously shortened
                     if (data) {
-                        swal("Custom Name Not available", "", "error");
+                        swal("Custom Name Not Available !!", "", "error");
                         return;
 
                     } else {
                         // If the link is not previously shortened
                     }
 
-                    let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff]-*)*[a-z\u00a1-\uffff]+)(?:\.(?:[a-z\u00a1-\uffff]-*)*[a-z\u00a1-\uffff]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+                    let regexp = /^(?:(?:https?|ftp):\/\/)?(?:(?!(?:10|127)(?:\.\d{1,3}){3})(?!(?:169\.254|192\.168)(?:\.\d{1,3}){2})(?!172\.(?:1[6-9]|2\d|3[0-1])(?:\.\d{1,3}){2})(?:[1-9]\d?|1\d\d|2[01]\d|22[0-3])(?:\.(?:1?\d{1,2}|2[0-4]\d|25[0-5])){2}(?:\.(?:[1-9]\d?|1\d\d|2[0-4]\d|25[0-4]))|(?:(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)(?:\.(?:[a-z\u00a1-\uffff0-9]-*)*[a-z\u00a1-\uffff0-9]+)*(?:\.(?:[a-z\u00a1-\uffff]{2,})))(?::\d{2,5})?(?:\/\S*)?$/;
+
+
                     let ifValidLink = regexp.test(originalLink);
                     if (ifValidLink) {
-                        console.log("Testing", ifValidLink);
                         let generateShorty = document.querySelector('#generateShorty');
                         let full_shortlink = "<?php echo $env_domain ?>";
                         generateShorty.innerHTML = `
@@ -297,7 +253,6 @@
                 },
             });
         }
-
 
     </script>
 </footer>

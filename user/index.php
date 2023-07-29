@@ -108,7 +108,7 @@ if (isset($_GET['short'])) {
                                     $db = $database->connect();
                                     $sno = 1;
                                     $uno = $_GET['uno'];
-                                    $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "'";
+                                    $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' ORDER BY linkID DESC ";
                                     if ($result = mysqli_query($db, $sql)) {
                                         if (mysqli_num_rows($result) > 0) {
                                             while ($row = mysqli_fetch_array($result)) {

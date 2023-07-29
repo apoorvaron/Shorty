@@ -18,9 +18,16 @@
         <nav id="navbar" class="navbar">
             <ul>
 
+
                 <li><a class="nav-a" href="./" id="homeLink">Home</a></li>
                 <li><a class="nav-a" href="./faq" id="faqLink">FAQ</a></li>
                 <li><a class="nav-a" href="./privacy" id="privacyLink">Privacy</a></li>
+
+                <li><a href="./" id="homeLink">Home</a></li>
+                <li><a href="./about" id="aboutusLink">About</a></li>
+                <li><a href="./faq" id="faqLink">FAQ</a></li>
+                <li><a href="./privacy" id="privacyLink">Privacy</a></li>
+
 
                 <li class="navbar-spacing" style="margin-right: 50px;"></li>
                 <!-- Add a list item for spacing -->
@@ -72,12 +79,17 @@
         var homeLink = document.getElementById('homeLink');
         var faqLink = document.getElementById('faqLink');
         var privacyLink = document.getElementById('privacyLink');
+        var aboutusLink = document.getElementById('aboutusLink'); 
 
         if (currentPageUrl.includes('/faq')) {
             faqLink.classList.add('active');
         } else if (currentPageUrl.includes('/privacy')) {
             privacyLink.classList.add('active');
-        } else {
+        }
+        else if (currentPageUrl.includes('/about')) {
+            aboutusLink.classList.add('active');
+        } 
+        else {
             homeLink.classList.add('active');
         }
     }
