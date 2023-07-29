@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
 
         echo "      <script>
                                 $(document).ready(function(){
-                                    swal('Please Enter Valid URL !!','','error');
+                                    swal('Enter Valid URL !!','','error');
                                 });
                             </script>";
     }

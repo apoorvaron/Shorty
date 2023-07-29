@@ -170,7 +170,7 @@
 
                         } else {
 
-                            swal("Please Enter Valid URL !!", "", "error");
+                            swal("Enter Valid URL !!", "", "error");
                         }
 
                     }, error: function (xhr, status, error) {
@@ -245,7 +245,7 @@
                             },
                         });
                     } else {
-                        swal("Please Enter Valid URL !!", "", "error");
+                        swal("Enter Valid URL !!", "", "error");
                     }
                 },
                 error: function (xhr, status, error) {

@@ -122,7 +122,7 @@
     } else {
       echo "  <script>
                           $(document).ready(function(){
-                              swal('Please Enter Valid URL !!','','info');
+                              swal('Enter Valid URL !!','','info');
                           });
                       </script>";
 
