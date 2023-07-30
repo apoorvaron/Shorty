@@ -26,7 +26,8 @@ if (isset($_GET)) {
       $row = mysqli_fetch_assoc($result);
       header("Location:" . $row['originalLink']);
     }else{
-      header("Location:".$env_domain );
+      // header("Location:".$env_domain );
+      header("Location:404" );
     }
   }
 
