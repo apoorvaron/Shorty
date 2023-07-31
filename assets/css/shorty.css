@@ -125,7 +125,7 @@ section {
 }
 
 a:not(.get-a-quote, .social-links a):hover {
-  color: #0d42ff !important;
+	color: #fff !important;
 }
 
 @media (max-width: 640px) {
@@ -201,7 +201,7 @@ a:not(.get-a-quote, .social-links a):hover {
 	display: inline-block;
 	padding-right: 10px;
 	color: #4278cc;
-     /*	content: '/'; */
+	/*	content: '/'; */
 }
 
 /*--------------------------------------------------------------
@@ -243,8 +243,8 @@ a:not(.get-a-quote, .social-links a):hover {
 	animation: animate 1s linear infinite;
 }
 
-@keyframes animate{
-	50%{
+@keyframes animate {
+	50% {
 		transform: translateY(-5px);
 	}
 }
@@ -580,9 +580,35 @@ a:not(.get-a-quote, .social-links a):hover {
 		font-family: var(--font-primary);
 		font-size: 16px;
 		font-weight: 400;
-		color: rgba(255, 255, 255, 0.6);
+		/* color: white; */
+		color: rgba(255, 255, 255, 0.7);
 		white-space: nowrap;
 		transition: 0.3s;
+	}
+
+	.nav-a {
+		position: relative;
+	}
+
+	.nav-a::after {
+		position: absolute;
+		content: " ";
+		bottom: 5px;
+		left: 35%;
+		width: 0%;
+		height: 2px;
+		background: #0d42ff;
+		transition-duration: .3s;
+		border-radius: 20%;
+
+	}
+
+	.nav-a:hover::after {
+		width: 70%;
+	}
+
+	.navbar a.active::after {
+		width: 75%;
 	}
 
 	.navbar a i,
@@ -719,8 +745,8 @@ a:not(.get-a-quote, .social-links a):hover {
 	}
 
 	nav li {
-	  display: grid;
-	  place-items: center;
+		display: grid;
+		place-items: center;
 	}
 
 	.navbar a,
@@ -733,8 +759,33 @@ a:not(.get-a-quote, .social-links a):hover {
 		font-size: 16px;
 		font-weight: 500;
 		color: rgba(255, 255, 255, 0.7);
+		/* color: white; */
 		white-space: nowrap;
 		transition: 0.3s;
+	}
+
+	.nav-a {
+		position: relative;
+	}
+
+	.nav-a::after {
+		position: absolute;
+		content: " ";
+		bottom: 5px;
+		left: 15%;
+		width: 0%;
+		height: 2px;
+		background: #0d42ff;
+		transition-duration: .3s;
+		border-radius: 20%;
+	}
+
+	.nav-a:hover::after {
+		width: 70%;
+	}
+
+	.navbar a.active::after {
+		width: 70%;
 	}
 
 	.navbar a i,
@@ -764,7 +815,7 @@ a:not(.get-a-quote, .social-links a):hover {
 	}
 
 	nav li:nth-child(5) {
-	  	margin-top: 2rem !important;
+		margin-top: 2rem !important;
 	}
 
 	.navbar .get-a-quote:hover,
@@ -2138,17 +2189,33 @@ a:not(.get-a-quote, .social-links a):hover {
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 2px solid rgba(255, 255, 255, 0.2);
 	font-size: 16px;
 	color: rgba(255, 255, 255, 0.7);
 	margin-right: 10px;
 	transition: 0.3s;
 }
 
-.footer .social-links a:hover {
-	color: #fff;
-	border-color: #fff;
+.footer .social-links a:hover:nth-child(1) {
+	color: #000000;
+	border-color: #000000;
 }
+
+.footer .social-links a:hover:nth-child(2) {
+	color: #0a66c2;
+	border-color: #0a66c2;
+}
+
+.footer .social-links a:hover:nth-child(3) {
+	color: #1d9bf0;
+	border-color: #1d9bf0
+}
+
+.footer .social-links a:hover:nth-child(4) {
+	color: rgb(5, 183, 5);
+	border-color: rgb(5, 183, 5);
+}
+
 
 .footer h4 {
 	font-size: 16px;
