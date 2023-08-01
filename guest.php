@@ -176,7 +176,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-    #originalLink {
+     #originalLink {
       border: 0 !important;
       border-bottom: 1px solid #ccc !important;
       padding: 7px 0;
@@ -203,6 +203,14 @@
       align-items: center;
     }
 
+    #formresp {
+      padding: 1rem;
+    }
+    
+    .hero form .btn-primary {
+      margin-top: 1rem;
+    }
+    
     #formresp h2 {
       color: #000b;
       text-align: center;
@@ -288,6 +296,20 @@
       }
 
     }
+
+
+    @media screen and (max-width: 767px) {
+        #formresp {
+          padding: .85rem !important;
+        }
+       .hero form .btn-primary {
+          margin-top: .5rem;
+          font-size: .75rem;
+          padding: .6rem .7rem;
+          width: max-content;
+       }
+    }
+
   </style>
 
 </head>
@@ -332,7 +354,7 @@ if ($rows == 0) {
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
             <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" 
-                  style="flex-direction: column;padding: 1.8rem;padding-top: 1.3rem;" method="POST" data-aos="fade-up" data-aos-delay="200">
+                  style="flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
               </h2>
