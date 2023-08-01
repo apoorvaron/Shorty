@@ -62,41 +62,45 @@ if (isset($_POST['submit'])) {
     $originalLink = $_POST['originalLink'];
     $shortenLink = $_POST['shortenLink'];
 
-    if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-
-        $sql = "UPDATE links SET linkIsFor = '" . $linkIsFor . "' ,originalLink = '" . $originalLink . "',shortenLink = '" . $shortenLink . "' WHERE linkID='" . $_GET['linkID'] . "';";
-        // echo "<br><br><br><br><br><br><br><br><br><br><br><br>safdghgkfjrwteqrtyjfdthreawaetsdjfhkjdtrysdtjfhkjdtyrsdhtgf".$sql;
-        $result = mysqli_query($link, $sql);
-
-        if ($result == 1) {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Successfully Updated !!','','success').then(function() {
-                                        window.location = './index.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "';
-                                    });
-                                });
-                            </script>";
-
-
-        } else {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Custom Name Not Available !!','','error');
-                                });
-                            </script>";
-        }
+    // Validate "Link is for" field (name for the shortened link)
+    if (strlen($linkIsFor) > 50) {
+        echo "<script>
+            $(document).ready(function(){
+                swal('Name for the Shortened Link must not exceed 5 characters','','error');
+            });
+        </script>";
     } else {
+        // Validate the originalLink as a valid URL format
+        if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+            $sql = "UPDATE links SET linkIsFor = '$linkIsFor', originalLink = '$originalLink', shortenLink = '$shortenLink' WHERE linkID = '{$_GET['linkID']}';";
+            $result = mysqli_query($link, $sql);
 
-        echo "      <script>
-                                $(document).ready(function(){
-                                    swal('Enter Valid URL !!','','error');
-                                });
-                            </script>";
+            if ($result == 1) {
+                echo "<script>
+                    $(document).ready(function(){
+                        swal('Successfully Updated !!','','success').then(function() {
+                            window.location = './index.php?username={$_GET['username']}&uno={$_GET['uno']}';
+                        });
+                    });
+                </script>";
+            } else {
+                echo "<script>
+                    $(document).ready(function(){
+                        swal('Custom Name Not Available !!','','error');
+                    });
+                </script>";
+            }
+        } else {
+            echo "<script>
+                $(document).ready(function(){
+                    swal('Enter a Valid URL !!','','error');
+                });
+            </script>";
+        }
     }
-
-
 }
 ?>
+
 
 <body class="fixed-left">
     <!-- Begin page -->
@@ -159,7 +163,8 @@ if (isset($_POST['submit'])) {
                                     <div class='col-md-12'>
                                         <div class='form-group'>
                                             <label>Link is for</label>
-                                            <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' value='" . $row['linkIsFor'] . "'/>
+                                            <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' value='" . htmlspecialchars($row['linkIsFor']) . "'/>
+
                                         </div>
                                     </div>
                                 </div>
