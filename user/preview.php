@@ -66,7 +66,7 @@ if (isset($_POST['submit'])) {
     if (strlen($linkIsFor) > 50) {
         echo "<script>
             $(document).ready(function(){
-                swal('Name for the Shortened Link must not exceed 5 characters','','error');
+                swal('Error: Link Name Exceeds 50 Characters! 🚫🔗','','error');
             });
         </script>";
     } else {
