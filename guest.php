@@ -5,137 +5,101 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <?php
-  include('./env.php');
-  require('./admin/dBconn/database.php');
-
-  $new_url = "";
-  if (isset($_GET)) {
-    $database = new Database();
-    $db = $database->connect();
-
-    foreach ($_GET as $key => $val) {
-      $u = mysqli_real_escape_string($db, $key);
-      $new_url = str_replace('/', '', $u);
-
-    }
-
-    $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
-    $result = mysqli_query($db, $sql);
-
-
-    if (mysqli_num_rows($result) > 0) {
-      mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
-      $row = mysqli_fetch_assoc($result);
-      header("Location:" . $row['originalLink']);
-    }
-  }
-
-  if (isset($_POST['submit'])) {
-    $database = new Database();
-    $db = $database->connect();
-
-    $uno = "shorty";
-    $username = "shorty";
-    $linkIsFor = "guestUser";
-    $originalLink = $_POST['originalLink'];
-    $shortenLink = $_POST['shortenLink'];
-    // $originalLink = $_POST['originalLink'];
-    // $shortenLink = $_POST['shortenLink'];
-    $shortenLink = explode(" ", $shortenLink);
-    $shortenLink = join("_", $shortenLink);
-    $finalLink = $env_domain . $shortenLink;
-    if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-      $query = "SELECT * from links WHERE shortenLink='" . $shortenLink . "'";
-      $result = mysqli_query($db, $query);
-      $count_rows = mysqli_num_rows($result);
-      if ($count_rows > 0) {
-
-
-        echo "  <script>
-                              $(document).ready(function(){
-                                  swal('Custom Name Not Available !!','','error');
-                              });
-                          </script>";
-
-
-      } else {
-
-        $query = "SELECT * FROM links WHERE uniqueNo='shorty' AND originalLink='" . $originalLink . "'";
-
-
-
-        $result = mysqli_query($db, $query);
-        $row = mysqli_fetch_array($result);
-        $count_rows = mysqli_num_rows($result);
-        // echo "<br><br><br><br><br><br>adegsrdhgfjhgdgrearwethjyfgytrtwyjygj.".$query;
-  
-
-        $sql = "INSERT INTO `links` (`uniqueNo`,`linkIsFor`, `originalLink`, `shortenLink`) VALUES ('$uno','$linkIsFor', '$originalLink', '$shortenLink')";
+      include('./env.php');
+      require('./admin/dBconn/database.php');
+      
+      function sanitizeInput($input) {
+        return mysqli_real_escape_string($db, $input);
+      }
+      
+      function redirectToOriginalLink($db, $shortenLink, $env_domain) {
+        $sql = "SELECT * from links WHERE shortenLink='$shortenLink'";
         $result = mysqli_query($db, $sql);
-        if ($result) {
-
-          echo '<script>
+      
+        if (mysqli_num_rows($result) > 0) {
+          mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
+          $row = mysqli_fetch_assoc($result);
+          header("Location:" . $row['originalLink']);
+          exit;
+        }
+      }
+      
+      function generateShortenLink($db, $originalLink, $shortenLink, $env_domain) {
+        $shortenLink = str_replace('/', '', $shortenLink);
+        $shortenLink = str_replace(' ', '_', $shortenLink);
+        $finalLink = $env_domain . $shortenLink;
+      
+        if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+          $shortenLink = sanitizeInput($shortenLink);
+          $query = "SELECT * from links WHERE shortenLink='$shortenLink'";
+          $result = mysqli_query($db, $query);
+          $count_rows = mysqli_num_rows($result);
+      
+          if ($count_rows > 0) {
+            echo '<script>
               $(document).ready(function(){
-                
-              let generateShorty = document.querySelector("#generateShorty");
-              let full_shortlink = "' . $env_domain . '";
-              generateShorty.innerHTML = `
-
-                  <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                    <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
-                    <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
-                  </form>
-                `;
-
+                swal("Custom Name Not Available !!", "", "error");
+              });
+            </script>';
+          } else {
+            $originalLink = sanitizeInput($originalLink);
+            $sql = "INSERT INTO `links` (`uniqueNo`, `linkIsFor`, `originalLink`, `shortenLink`) VALUES ('shorty', 'guestUser', '$originalLink', '$shortenLink')";
+            $result = mysqli_query($db, $sql);
+            
+            if ($result) {
+              echo '<script>
+                $(document).ready(function(){
+                  let generateShorty = document.querySelector("#generateShorty");
+                  let full_shortlink = "' . $env_domain . '";
+                  generateShorty.innerHTML = `
+                    <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                      <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
+                      <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                    </form>
+                  `;
+      
                   let originalLink = document.querySelector("#originalLink").value;
-
                   var formData = new FormData();
                   formData.append("originalLink", originalLink);
-  
-});
-</script>';
-
-
+                });
+              </script>';
+            } else {
+              echo '<script>
+                $(document).ready(function(){
+                  swal("Try Again !!", "", "error");
+                });
+              </script>';
+            }
+          }
         } else {
-          echo "  <script>
-                                          $(document).ready(function(){
-                                              swal('Try Again !!','','error');
-                                          });
-                                     </script>";
-
-
+          echo '<script>
+            $(document).ready(function(){
+              swal("Enter Valid URL !!", "", "info");
+            });
+          </script>';
         }
-
-
-
-
       }
-
-
-
-
-
-
-
-
-
-    } else {
-      echo "  <script>
-                          $(document).ready(function(){
-                              swal('Enter Valid URL !!','','info');
-                          });
-                      </script>";
-
-
-    }
-
-
-
-    // echo "<br><br><br><br><br><br><br>eqfwgretgfnerwqedgnretrqthdgjrwteqwrhdgtehryw".$result;
-  
-
-  }
+      
+      if (isset($_GET)) {
+        $database = new Database();
+        $db = $database->connect();
+      
+        foreach ($_GET as $key => $val) {
+          $u = sanitizeInput($key);
+          redirectToOriginalLink($db, $u, $env_domain);
+        }
+      }
+      
+      if (isset($_POST['submit'])) {
+        $database = new Database();
+        $db = $database->connect();
+      
+        $originalLink = $_POST['originalLink'];
+        $shortenLink = $_POST['shortenLink'];
+        generateShortenLink($db, $originalLink, $shortenLink, $env_domain);
+      }
   ?>
+
 
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
