@@ -74,6 +74,12 @@
         .error{
             color: red;
             font-size: 12px;
+            margin: 0px;
+            padding-left: 6px; 
+        }
+
+        #passwordBorder, #cnfrmPassBorder{
+            border-radius: 0.25rem;
         }
 
         .hidden{
@@ -130,7 +136,7 @@
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" id="register" method="POST" action='./register.php' enctype="multipart/form-data"
+                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
                         aria-label="Register Form">
 
                         <div class="form-group row">
@@ -141,20 +147,12 @@
                             </div>
                         </div>
 
-
-                        <!-- <div class="form-group row">
-                                <div class="col-12">
-                                    <input class="form-control" type="password" id="password" minlength="8" required placeholder="Password" name="password" onblur="removeInclude()" onfocus="addInclude()">
-                                </div>
-                            </div> -->
-
-
                         <div class="form-group row">
                             <div class="col-12">
-                                <div class="input-group">
+                                <div class="input-group" id="passwordBorder">
                                     <input type="password" class="form-control " id="password" required minlength="8"
-                                        name="password" placeholder="Password" onblur="removeInclude()"
-                                        onfocus="addInclude()" aria-required="true" aria-label="Password" onkeyup="validate(event)">
+                                        name="password" placeholder="Password"
+                                        aria-required="true" aria-label="Password" onkeyup="validate(event)">
                                         
                                         <div class="input-group-append">
                                             <span class="input-group-text" onclick="changeType()">
@@ -162,14 +160,14 @@
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
                                             </div>
                                         </div>
-                                        <p class="error hidden" id="passwordError">Please Enter Strong Password</p>
+                                        <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <div class="input-group">
-                                    <input type="password" class="form-control " id="cnfrmPass" required minlength="8"
+                                <div class="input-group" id="cnfrmPassBorder">
+                                    <input type="password" class="form-control" id="cnfrmPass" required minlength="8"
                                         name="cnfrmPass" placeholder="Confirm Password" aria-required="true"
                                         aria-label="Confirm Password" onkeyup="validate(event)">
                                         <div class="input-group-append">
@@ -181,31 +179,6 @@
                                         <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                             </div>
                         </div>
-
-
-
-
-                        <div class="form-group row">
-                            <div class="col-12">
-                                <center id="warnDiv">
-                                    <span id="warning"
-                                        style="width:50%;display: none; background-color:red;padding:2%;font-size:1rem;margin-top:-100%"
-                                        class="badge displayBadge">Weak</span>
-                                </center>
-
-                            </div>
-                        </div>
-                        <div id="includeDiv">
-
-
-
-                        </div>
-                        <!-- <div class="form-group row">
-                                <div class="col-12" >
-                                    <center id="warning"></center>
-
-                                </div>
-                            </div> -->
 
                         <div class="form-group row d-flex flex-col">
                             <div class="col-12">
@@ -221,22 +194,14 @@
                             </div>
                         </div>
 
-                        <!-- <div class="form-group row">
-                                <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="custom-control-label" for="customCheck1">Remember me</label>
-                                    </div>
-                                </div>
-                            </div> -->
-
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light"
+                            <button class="btn  btn-block waves-effect waves-light"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
                                     id="submit" name="submit" type="submit" aria-label="Register">Register</button>
                             </div>
                         </div>
+
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
                                 <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"
@@ -289,36 +254,28 @@
             loopi++;
         }
 
-        const form = document.getElementById("register");
-
-form.addEventListener("submit", (e)=>{
-    let submitable = true;
-    const error = [...document.getElementsByClassName("error")];
-    error.forEach(elem=>{
-      if(!elem.classList.contains("hidden")){
-        submitable = false;
-        return;
-      }
-    })
-
-    if(!submitable){
-     event.preventDefault();
-     alert("Please Enter Valid Data")
-    }
-})
-
+    // Function for inline validation of fields
         function validate(e){
             const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
             const passwordRegex =/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
             const error = document.getElementById(`${e.target.name}Error`);
             if(e.target.name === "email"){
-               emailRegex.test(e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
+                const valid = emailRegex.test(e.target.value);
+               (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
             }else if(e.target.name === "password"){
-                passwordRegex.test(e.target.value)? error.classList.add("hidden") : error.classList.remove("hidden");
+                const div = document.getElementById("passwordBorder").style;
+                const valid = passwordRegex.test(e.target.value);
+                (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?div.border = "2px solid #04cb04": div.border = "2px solid red";
+
             }else{
                 const passwordVal = document.getElementById("password").value;
-                (passwordVal === e.target.value)? error.classList.add("hidden") : 
-                error.classList.remove("hidden");
+                const div = document.getElementById("cnfrmPassBorder").style;
+                const valid = (passwordVal === e.target.value);
+                (valid)? error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?div.border = "2px solid #04cb04": div.border = "2px solid red";
+
             }
         }
     </script>
@@ -342,68 +299,6 @@ form.addEventListener("submit", (e)=>{
         <script src="assets/pages/form-validation.init.js"></script> -->
 
     <script>
-        let password = document.getElementById('password');
-        // let warning = document.getElementById('warning');
-        let warning = document.querySelector('#warning');
-        // console.log(warning.textContent);
-        // StrengthDisp.value="dfs";
-        let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
-
-
-
-        function StrengthChecker(PasswordParameter) {
-            // We then change the badge's color and text based on the password strength
-
-            if (strongPassword.test(PasswordParameter)) {
-                warning.style.display = 'inline-block';
-                warning.style.backgroundColor = "green";
-                warning.textContent = "Strong Password";
-                // StrengthDisp.value="Strong";
-            } else {
-                // console.log(2);
-                warning.style.display = 'inline-block';
-                warning.style.backgroundColor = "red";
-                warning.textContent = "Weak Password";
-
-            }
-        }
-        password.addEventListener("input", () => {
-
-            setTimeout(() => StrengthChecker(password.value), 500);
-
-            //Incase a user clears the text, the badge is hidden again
-
-            if (password.value.length !== 0) {
-                // let warnDiv = document.querySelector('#warnDiv');
-                // warning.style.display = 'none';
-
-            } else {
-                console.log(90);
-                // warnDiv.style.display = 'none';
-                warning.style.display = 'none';
-            }
-        });
-
-        let includeDiv = document.querySelector('#includeDiv');
-
-        function addInclude() {
-            includeDiv.innerHTML = `  
-                                <div class="col-12" style="margin-left: 0%;" >
-                                    <ul style="color:grey">
-                                        <li>Atleast 8 characters</li>
-                                        <li>Atleast one uppercase letter</li>
-                                        <li>Atleast one lowercase letter </li>
-                                        <li>Atleast one digit </li>
-                                        <li>Atleast one special character</li>
-                                    </ul>
-                                </div>
-                                    `;
-        }
-
-        function removeInclude() {
-            includeDiv.innerHTML = ``;
-        }
-
         // Custom JavaScript for fileuplod
         window.onload = function () {
             var fileInput = document.querySelector('.file-upload');
@@ -426,33 +321,8 @@ form.addEventListener("submit", (e)=>{
     <?php
     function validatePassword($password)
     {
-        // Minimum 8 characters
-        if (strlen($password) < 8) {
-            return false;
-        }
-
-        // At least one lowercase alphabet
-        if (!preg_match("/[a-z]/", $password)) {
-            return false;
-        }
-
-        // At least one uppercase alphabet
-        if (!preg_match("/[A-Z]/", $password)) {
-            return false;
-        }
-
-        // At least one number
-        if (!preg_match("/\d/", $password)) {
-            return false;
-        }
-
-        // At least one special character
-        if (!preg_match("/[^a-zA-Z\d]/", $password)) {
-            return false;
-        }
-
-        // All requirements met
-        return true;
+        $passwordRegex ='/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/';
+        return preg_match($passwordRegex, $password);
     }
     if (isset($_POST["submit"])) {
         require "../admin/dBconn/database.php";

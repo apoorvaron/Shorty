@@ -114,6 +114,12 @@ if (isset($_POST['submit'])) {
         .error{
             color: red;
             font-size: 12px;
+            margin: 0px;
+            padding-left: 6px; 
+        }
+
+        #passwordBorder{
+            border-radius: 0.25rem;
         }
 
         .hidden{
@@ -168,7 +174,7 @@ if (isset($_POST['submit'])) {
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" id="login" method="POST" aria-label="Login Form">
+                    <form class="form-horizontal" method="POST" aria-label="Login Form">
 
                         <div class="form-group row">
                             <div class="col-12">
@@ -184,7 +190,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <div class="input-group">
+                                <div class="input-group" id="passwordBorder">
                                     <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
                                     } ?>" id="password" required name="password" placeholder="Password"
@@ -196,17 +202,10 @@ if (isset($_POST['submit'])) {
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <p class="error hidden" id="passwordError">Please Enter Valid Password</p>
+                                <p class="error hidden" id="passwordError">Please fill this  field</p>
                             </div>
 
                         </div>
-                        <!-- 
-                            <div class="form-group row">
-                                <div class="col-12" >
-                                    <center id="warning"></center>
-
-                                </div>
-                            </div> -->
 
                         <div class="form-group row">
                             <div class="col-12">
@@ -222,7 +221,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light"
+                            <button class="btn  btn-block waves-effect waves-light"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
                                     id="submit" name="submit" type="submit" aria-label="Log In">Log In</button>
                             </div>
@@ -264,31 +263,18 @@ if (isset($_POST['submit'])) {
             loop++;
         }
 
-        const form = document.getElementById("login");
-
-form.addEventListener("submit", (e)=>{
-    let submitable = true;
-    const error = [...document.getElementsByClassName("error")];
-    error.forEach(elem=>{
-      if(!elem.classList.contains("hidden")){
-        submitable = false;
-        return;
-      }
-    })
-
-    if(!submitable){
-     event.preventDefault();
-     alert("Please Enter Valid Data")
-    }
-})
-
+        // Function for inline validation of fields
         function validate(e){
             const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
             const error = document.getElementById(`${e.target.name}Error`);
             if(e.target.name === "email"){
-               emailRegex.test(e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
+                const valid = emailRegex.test(e.target.value);
+               (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
             }else{
+             const div = document.getElementById("passwordBorder").style;
              (!e.target.value)? error.classList.remove("hidden") : error.classList.add("hidden");
+             (!e.target.value)?div.border = "2px solid red": div.border = "none";
             }
         }
 
