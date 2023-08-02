@@ -71,6 +71,15 @@
             animation: mover 1s infinite alternate;
         }
 
+        .error{
+            color: red;
+            font-size: 12px;
+        }
+
+        .hidden{
+            display: none;
+        }
+
         @-webkit-keyframes mover {
             0% {
                 transform: translateY(0);
@@ -121,13 +130,14 @@
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
+                    <form class="form-horizontal" id="register" method="POST" action='./register.php' enctype="multipart/form-data"
                         aria-label="Register Form">
 
                         <div class="form-group row">
                             <div class="col-12">
                                 <input class="form-control" type="email" required name="email" id="email"
-                                    placeholder="Email" aria-required="true" aria-label="Email">
+                                    placeholder="Email" aria-required="true" aria-label="Email" onkeyup="validate(event)">
+                                    <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
 
@@ -144,13 +154,15 @@
                                 <div class="input-group">
                                     <input type="password" class="form-control " id="password" required minlength="8"
                                         name="password" placeholder="Password" onblur="removeInclude()"
-                                        onfocus="addInclude()" aria-required="true" aria-label="Password">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" onclick="changeType()">
-                                            <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
+                                        onfocus="addInclude()" aria-required="true" aria-label="Password" onkeyup="validate(event)">
+                                        
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" onclick="changeType()">
+                                                <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="error hidden" id="passwordError">Please Enter Strong Password</p>
                             </div>
                         </div>
 
@@ -159,13 +171,14 @@
                                 <div class="input-group">
                                     <input type="password" class="form-control " id="cnfrmPass" required minlength="8"
                                         name="cnfrmPass" placeholder="Confirm Password" aria-required="true"
-                                        aria-label="Confirm Password">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text" onclick="changeTypei()">
-                                            <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
+                                        aria-label="Confirm Password" onkeyup="validate(event)">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" onclick="changeTypei()">
+                                                <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                    </div>
-                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                             </div>
                         </div>
 
@@ -274,6 +287,39 @@
                 cnfrmPass.type = "password";
             }
             loopi++;
+        }
+
+        const form = document.getElementById("register");
+
+form.addEventListener("submit", (e)=>{
+    let submitable = true;
+    const error = [...document.getElementsByClassName("error")];
+    error.forEach(elem=>{
+      if(!elem.classList.contains("hidden")){
+        submitable = false;
+        return;
+      }
+    })
+
+    if(!submitable){
+     event.preventDefault();
+     alert("Please Enter Valid Data")
+    }
+})
+
+        function validate(e){
+            const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
+            const passwordRegex =/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
+            const error = document.getElementById(`${e.target.name}Error`);
+            if(e.target.name === "email"){
+               emailRegex.test(e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
+            }else if(e.target.name === "password"){
+                passwordRegex.test(e.target.value)? error.classList.add("hidden") : error.classList.remove("hidden");
+            }else{
+                const passwordVal = document.getElementById("password").value;
+                (passwordVal === e.target.value)? error.classList.add("hidden") : 
+                error.classList.remove("hidden");
+            }
         }
     </script>
 

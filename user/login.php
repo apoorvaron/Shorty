@@ -111,6 +111,15 @@ if (isset($_POST['submit'])) {
             animation: mover 1s infinite alternate;
         }
 
+        .error{
+            color: red;
+            font-size: 12px;
+        }
+
+        .hidden{
+            display: none;
+        }
+
         @-webkit-keyframes mover {
             0% {
                 transform: translateY(0);
@@ -159,14 +168,15 @@ if (isset($_POST['submit'])) {
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" aria-label="Login Form">
+                    <form class="form-horizontal" id="login" method="POST" aria-label="Login Form">
 
                         <div class="form-group row">
                             <div class="col-12">
                                 <input class="form-control  " type="email" required="" name="email" aria-required="true"
                                     aria-label="Email" data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
                                         echo $_COOKIE['emailcookie'];
-                                    } ?>">
+                                    } ?>"  onkeyup="validate(event)">
+                                    <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
 
@@ -178,7 +188,7 @@ if (isset($_POST['submit'])) {
                                     <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
                                     } ?>" id="password" required name="password" placeholder="Password"
-                                        aria-required="true" aria-label="Password">
+                                        aria-required="true" aria-label="Password"  onkeyup="validate(event)">
                                     <div class="input-group-append">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
@@ -186,6 +196,7 @@ if (isset($_POST['submit'])) {
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
                                     </div>
                                 </div>
+                                <p class="error hidden" id="passwordError">Please Enter Valid Password</p>
                             </div>
 
                         </div>
@@ -251,6 +262,34 @@ if (isset($_POST['submit'])) {
                 password.type = "password";
             }
             loop++;
+        }
+
+        const form = document.getElementById("login");
+
+form.addEventListener("submit", (e)=>{
+    let submitable = true;
+    const error = [...document.getElementsByClassName("error")];
+    error.forEach(elem=>{
+      if(!elem.classList.contains("hidden")){
+        submitable = false;
+        return;
+      }
+    })
+
+    if(!submitable){
+     event.preventDefault();
+     alert("Please Enter Valid Data")
+    }
+})
+
+        function validate(e){
+            const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
+            const error = document.getElementById(`${e.target.name}Error`);
+            if(e.target.name === "email"){
+               emailRegex.test(e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
+            }else{
+             (!e.target.value)? error.classList.remove("hidden") : error.classList.add("hidden");
+            }
         }
 
 
