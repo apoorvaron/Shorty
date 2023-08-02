@@ -137,189 +137,120 @@ include __DIR__ . "/../env.php"; ?>
                                 $uno = $_GET["uno"];
                                 $linkID = $_GET["linkID"];
 
-                                // Print all session variables
-                                
-
                                 // include '../admin/dBconn/database.php';
                                 $database = new Database();
                                 $link = $database->connect();
 
-                                // Check if the provided linkID exists in the database
-                                $LinkIDExist = "SELECT * FROM links WHERE linkID = $linkID";
-                                if (
-                                    $CheckLinkIDExist = mysqli_query(
-                                        $link,
-                                        $LinkIDExist
-                                    )
-                                ) {
-                                    if (
-                                        mysqli_num_rows($CheckLinkIDExist) > 0
-                                    ) {
-                                        // Check if the uniqueNo and linkID combination is valid
-                                        $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
-                                        if (
-                                            $CheckResult = mysqli_query(
-                                                $link,
-                                                $checkValidity
-                                            )
-                                        ) {
-                                            if (
-                                                mysqli_num_rows($CheckResult) >
-                                                0
-                                            ) {
-                                                $sql = "SELECT * FROM links WHERE linkID = $linkID";
-                                                if (
-                                                    $result = mysqli_query(
-                                                        $link,
-                                                        $sql
-                                                    )
-                                                ) {
-                                                    if (
-                                                        mysqli_num_rows(
-                                                            $result
-                                                        ) > 0
-                                                    ) {
-                                                        $row = mysqli_fetch_array(
-                                                            $result
-                                                        );
+                                // Check if the uniqueNo and linkID combination is valid
+                                $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
+                                if ($CheckResult = mysqli_query($link, $checkValidity)) {
+                                    if (mysqli_num_rows($CheckResult) > 0) {
+                                        $sql = "SELECT * FROM links WHERE linkID = $linkID";
+                                        if ($result = mysqli_query($link, $sql)) {
+                                            if (mysqli_num_rows($result) > 0) {
+                                                $row = mysqli_fetch_array($result);
 
-                                                        // Output the form with the fetched data
-                                                        echo "
-                            <form method='POST'>
-                                <div class='row'>
-                                    <div class='col-md-12'>
-                                        <div class='form-group'>
-                                            <label>Link is for</label>
-                                            <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' value='" .
-                                                            htmlspecialchars(
-                                                                $row[
-                                                                    "linkIsFor"
-                                                                ]
-                                                            ) .
-                                                            "'/>
+                                                // Output the form with the fetched data
+                                                echo "
+                    <form method='POST'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <div class='form-group'>
+                                    <label>Link is for</label>
+                                    <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' value='" . htmlspecialchars($row['linkIsFor']) . "'/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <div class='form-group'>
+                                    <label>Original Link</label>
+                                    <input type='text' class='form-control' id='originalLink' name='originalLink' required placeholder='Original Link' value='" . $row['originalLink'] . "'/>
+                                </div>
+                            </div>
+                        </div>
 
-                                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label>Shorten Link</label>
+                            </div>
+                        </div>
+                        <div class='form-control col-md-12'>
+                            <span class='form-group'>
+                                <label><b>" . $env_domain . " </b> </label>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Short Link' style='border:0px' id='shortenLink' name='shortenLink'/></span>
+                            </span>
+                        </div>
+
+                        <br>
+
+                        <div class='row'>
+                            <div class='col-md-6 text-center'>
+                                <div class='form-group mb-0'>
+                                    <div>
+                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
+                                            Random Number
+                                        </button>
+
+                                        <button class='btn btn-primary new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
                                     </div>
                                 </div>
-                                <div class='row'>
-                                    <div class='col-md-12'>
-                                        <div class='form-group'>
-                                            <label>Original Link</label>
-                                            <input type='text' class='form-control' id='originalLink' name='originalLink' required placeholder='Original Link' value='" .
-                                                            $row[
-                                                                "originalLink"
-                                                            ] .
-                                                            "'/>
-                                        </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <div class='form-group mb-0'>
+                                    <div>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                            Update
+                                        </button>
+
+                                        <button type='reset' class='btn btn-danger waves-effect m-l-5' onclick='goBack()'>
+                                            Cancel
+                                        </button>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </form>
+                ";
 
-                                <div class='row'>
-                                    <div class='col-md-12'>
-                                        <label>Shorten Link</label>
-                                    </div>
-                                </div>
-                                <div class='form-control col-md-12'>
-                                    <span class='form-group'>
-                                        <label><b>" .
-                                                            $env_domain .
-                                                            " </b> </label>
-                                        <span><input type='text' value='" .
-                                                            $row[
-                                                                "shortenLink"
-                                                            ] .
-                                                            "' required placeholder='Custom Short Link' style='border:0px' id='shortenLink' name='shortenLink'/></span>
-                                    </span>
-                                </div>
-
-                                <br>
-
-                                <div class='row'>
-                                    <div class='col-md-6 text-center'>
-                                        <div class='form-group mb-0'>
-                                            <div>
-                                                <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
-                                                    Random Number
-                                                </button>
-
-                                                <button class='btn btn-primary new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-
-                                <div class='row'>
-                                    <div class='col-md-6'>
-                                        <div class='form-group mb-0'>
-                                            <div>
-                                                <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
-                                                    Update
-                                                </button>
-
-                                                <button type='reset' class='btn btn-danger waves-effect m-l-5' onclick='goBack()'>
-                                                    Cancel
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        ";
-
-                                                        mysqli_free_result(
-                                                            $result
-                                                        );
-                                                    } else {
-                                                        echo "<p class='lead'><em>No Record Found.</em></p>";
-                                                    }
-                                                } else {
-                                                    echo "<script>
-                        $(document).ready(function(){
-                            swal('ERROR: Could not execute the SQL query.', '', 'error').then(function() {
-                                window.location = './index.php?username={$username}&uno={$uno}';
-                            });
-                        });
-                    </script>";
-                                                }
+                                                mysqli_free_result($result);
                                             } else {
-                                                echo "<script>
-                                                $(document).ready(function(){
-                                                    swal('Unauthorized Access.', '', 'error').then(function() {
-                                                        window.location = './index.php?username={$username}&uno={$uno}';
-                                                    });
-                                                });
-                                            </script>";
+                                                echo "<p class='lead'><em>No Record Found.</em></p>";
                                             }
                                         } else {
                                             echo "<script>
-                        $(document).ready(function(){
-                            swal('ERROR: Could not execute the SQL query.', '', 'error').then(function() {
-                                window.location = './index.php?username={$username}&uno={$uno}';
-                            });
-                        });
-                    </script>";
+                $(document).ready(function(){
+                    swal('Internal Server Error : 500', '', 'error').then(function() {
+                        window.location = './index.php?username={$username}&uno={$uno}';
+                    });
+                });
+            </script>";
                                         }
                                     } else {
                                         echo "<script>
-                                            $(document).ready(function(){
-                                                swal('404 Error !!!', 'Link Doesn\'t Exist', 'error').then(function() {
-                                                    window.location = './index.php?username={$username}&uno={$uno}';
-                                                });
-                                            });
-                                        </script>";
+            $(document).ready(function(){
+                swal('Unauthorized Access.', '', 'error').then(function() {
+                    window.location = './index.php?username={$username}&uno={$uno}';
+                });
+            });
+        </script>";
                                     }
-
                                 } else {
                                     echo "<script>
-                        $(document).ready(function(){
-                            swal('ERROR: Could not execute the SQL query.', '', 'error').then(function() {
-                                window.location = './index.php?username={$username}&uno={$uno}';
-                            });
-                        });
-                    </script>";
+        $(document).ready(function(){
+            swal('Internal Server Error : 500', '', 'error').then(function() {
+                window.location = './index.php?username={$username}&uno={$uno}';
+            });
+        });
+    </script>";
                                 }
                                 ?>
+
+
 
 
 
