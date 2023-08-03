@@ -6,7 +6,32 @@ header("Content-Type: application/json; charset=UTF-8");
 
 include_once './database.php';
 include_once './apiFunc.php';
+
 $method = $_SERVER['REQUEST_METHOD'];
+
+
+// Include the QR Code library
+include_once 'qrlib.php';
+
+
+// Connect to the database
+$database = new Database();
+$db = $database->connect();
+
+//function to generate QR Codes
+function generateQRCode($shortenLink) {
+    $qrCodePath = "../assets/images/qr-codes/";
+
+    if (!is_dir($qrCodePath)) {
+        mkdir($qrCodePath, 0777, true);
+    }
+
+    $qrCodeFileName = $qrCodePath . uniqid() . ".png";
+
+    QRcode::png($shortenLink, $qrCodeFileName, 'L', 10, 2);
+
+    return $qrCodeFileName;
+}
 
 function submitReg()
 {
@@ -245,6 +270,15 @@ switch ($q) {
     case 'alreadyShortenCustom';
         alreadyShortenCustom();
         break;
+    case 'generateQRCode':
+            if (isset($_GET['shortenLink'])) {
+                $shortenLink = $_GET['shortenLink'];
+                $qrCodePath = generateQRCode($shortenLink);
+                echo json_encode(array('qrCodePath' => $qrCodePath));
+            } else {
+                echo json_encode(array('message' => 'Missing shortened link'));
+            }
+            break;
     default:
         echo "Invalid Query";
 }
