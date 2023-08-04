@@ -18,7 +18,7 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
-        .file-upload {
+        /* .file-upload {
             display: none;
         }
 
@@ -46,7 +46,7 @@
 
         .uplodInputFileds {
             height: fit-content;
-        }
+        } */
 
         .swal-overlay {
             background-color: #0e1d34;
@@ -180,7 +180,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row d-flex flex-col">
+                        <!-- <div class="form-group row d-flex flex-col">
                             <div class="col-12">
 
                                 <label id="file-label">Upload Profile Image : </label>
@@ -192,7 +192,7 @@
                                     <span class="selected-file"></span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
@@ -298,8 +298,9 @@
     <!-- <script src="assets/plugins/parsleyjs/parsley.min.js"></script>
         <script src="assets/pages/form-validation.init.js"></script> -->
 
-    <script>
-        // Custom JavaScript for fileuplod
+    <!-- Custom JavaScript for fileuplod -->
+    <!-- <script>
+
         window.onload = function () {
             var fileInput = document.querySelector('.file-upload');
             var customBtn = document.querySelector('.custom-file-upload');
@@ -317,7 +318,7 @@
                 }
             });
         };
-    </script>
+    </script> -->
     <?php
     function validatePassword($password)
     {
@@ -337,7 +338,7 @@
         $cnfrmPass = md5($cnfrmPass);
         $password = md5($password);
         $randNum = bin2hex(random_bytes(3));
-        $UploadedFileName = $_FILES["UploadImage"]["name"];
+        // $UploadedFileName = $_FILES["UploadImage"]["name"];
 
         $query = "SELECT * from `users` WHERE email='$email'";
         $result = mysqli_query($db, $query);
@@ -345,56 +346,56 @@
             if ($valid) {
                 if ($cnfrmPass == $password) {
                     $upload_directory = "../assets/user-img/dummy.webp";
-                    if (!empty($UploadedFileName)) {
-                        $filename = $UploadedFileName;
-                        $fileExplode = explode(".", $filename);
-                        $fileExt = strtolower(end($fileExplode));
-                        $fileExtStored = [
-                            "png",
-                            "jpg",
-                            "jpeg",
-                            "gif",
-                            "tiff",
-                            "webp",
-                        ];
-                        if (in_array($fileExt, $fileExtStored)) {
-                            $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
-                            $TargetPath = time() . $UploadedFileName;
+                    // if (!empty($UploadedFileName)) {
+                    //     $filename = $UploadedFileName;
+                    //     $fileExplode = explode(".", $filename);
+                    //     $fileExt = strtolower(end($fileExplode));
+                    //     $fileExtStored = [
+                    //         "png",
+                    //         "jpg",
+                    //         "jpeg",
+                    //         "gif",
+                    //         "tiff",
+                    //         "webp",
+                    //     ];
+                    //     if (in_array($fileExt, $fileExtStored)) {
+                    //         $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
+                    //         $TargetPath = time() . $UploadedFileName;
 
-                            if (
-                                move_uploaded_file(
-                                    $_FILES["UploadImage"]["tmp_name"],
-                                    $upload_directory . $TargetPath
-                                )
-                            ) {
-                                $upload_directory =
-                                    "../assets/user-img/" . $TargetPath;
-                                $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-                                if (mysqli_query($db, $queryIns)) {
-                                    echo "  <script>
-                            swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                window.location = './login';
-                            });
-                         </script>";
-                                } else {
-                                    echo "<script>swal('Could not Register','', 'error');</script>";
-                                }
-                            } else {
-                                echo "<script>swal('unexpected error','', 'error');</script>";
-                            }
-                        } else {
-                            echo "<script>swal('Please Upload a valid Image','', 'error');</script>";
-                        }
-                    } else {
-                        $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
-                        if (mysqli_query($db, $queryIns)) {
-                            echo "  <script>
-                            swal('Registration Successful !!','* Please Login *','success').then(function() {
-                                window.location = './login';
-                            });
-                         </script>";
-                        }
+                    //         if (
+                    //             move_uploaded_file(
+                    //                 $_FILES["UploadImage"]["tmp_name"],
+                    //                 $upload_directory . $TargetPath
+                    //             )
+                    //         ) {
+                    //             $upload_directory =
+                    //                 "../assets/user-img/" . $TargetPath;
+                    //             $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                    //             if (mysqli_query($db, $queryIns)) {
+                    //                 echo "  <script>
+                    //         swal('Registration Successful !!','* Please Login *','success').then(function() {
+                    //             window.location = './login';
+                    //         });
+                    //      </script>";
+                    //             } else {
+                    //                 echo "<script>swal('Could not Register','', 'error');</script>";
+                    //             }
+                    //         } else {
+                    //             echo "<script>swal('unexpected error','', 'error');</script>";
+                    //         }
+                    //     } else {
+                    //         echo "<script>swal('Please Upload a valid Image','', 'error');</script>";
+                    //     }
+                    // } else {
+                    $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
+                    if (mysqli_query($db, $queryIns)) {
+                        echo "  <script>
+                        swal('Registration Successful !!','* Please Login *','success').then(function() {
+                            window.location = './login';
+                        });
+                        </script>";
                     }
+                    // }
                 } else {
                     echo "<script>swal('Passwords are not Matching !!', '', 'error');</script>";
                 }
