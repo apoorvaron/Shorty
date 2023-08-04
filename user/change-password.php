@@ -64,19 +64,19 @@
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Old Password</label>
-                                                        <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password"/>
+                                                        <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password" aria-label="Old Password" aria-required="true"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>New password</label>
-                                                        <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password"/>
+                                                        <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password" aria-label="New Password" aria-required="true"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Confirm Password</label>
-                                                        <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password"/>
+                                                        <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password" aria-label="Confirm Password" aria-required="true"/>
                                                     </div>
                                                 </div>
                                                

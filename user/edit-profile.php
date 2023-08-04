@@ -205,7 +205,7 @@ if (isset($_POST['submit'])) {
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Email</label>
                 
                                                                 <div class='col-sm-10'>
-                                                                    <input class='form-control' readonly type='text' value='" . $row['email'] . "' id='email' name='email' required >
+                                                                    <input class='form-control' readonly type='text' value='" . $row['email'] . "' id='email' name='email' required aria-label='Email'>
                                                                 </div>
                                                             </div>
                                                             <div class='form-group row'>
@@ -214,7 +214,7 @@ if (isset($_POST['submit'])) {
                                                                 <div class='col-sm-10'>
                                                        
                                                                     <img style='border-radius:50%; height:10rem;' src='" . $row['img'] . "' alt=''> or 
-                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' accept='image/png, image/gif, image/jpeg, image/jpg' />
+                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' accept='image/png, image/gif, image/jpeg, image/jpg' aria-label='Upload Image' />
                                                                 </div>
                                                  
                                                        
@@ -226,10 +226,10 @@ if (isset($_POST['submit'])) {
                                                              
                                                                 <div>
                                                                     
-                                                                    <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                                                    <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light' aria-label='Edit Profile'>
                                                                         Edit 
                                                                        </button>
-                                                                    <a href='./index.php?username=" . $username . "&uno=" . $uno . "'><button type='button' class='btn btn-danger waves-effect m-l-5'>
+                                                                    <a href='./index.php?username=" . $username . "&uno=" . $uno . "'><button type='button' class='btn btn-danger waves-effect m-l-5' aria-label='Cancel'>
                                                                         Cancel
                                                                         </button></a>
                                                                 </div>
