@@ -864,8 +864,8 @@ a:not(.get-a-quote, .social-links a):hover {
 		line-height: 0;
 		transition: 0.5s;
 		position: fixed;
-		right: 20px;
-		top: 20px;
+		right: 27px;
+		top: 45px;
 		z-index: 9999;
 	}
 
