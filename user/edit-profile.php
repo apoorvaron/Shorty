@@ -44,6 +44,36 @@
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
+        .file-upload {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            width: fit-content;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #0d6efd;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .custom-file-upload:hover {
+            background-color: #2c7df7;
+
+        }
+
+        .selected-file {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .uplodInputFileds {
+            height: fit-content;
+        }
+
     </style>
 </head>
 <?php
@@ -214,7 +244,25 @@ if (isset($_POST['submit'])) {
                                                                 <div class='col-sm-10'>
                                                        
                                                                     <img style='border-radius:50%; height:10rem;' src='" . $row['img'] . "' alt=''> or 
-                                                                    <input data-parsley-type='file' type='file'   name='UploadImage' accept='image/png, image/gif, image/jpeg, image/jpg' aria-label='Upload Image' />
+                                                                 
+
+
+                                                                    <div class='form-group row d-flex flex-col'>
+                                                                        <div class='col-12'>
+                                            
+                                                                            <label id='file-label'>Upload Profile Image : </label>
+                                                                            <div class='uplodInputFileds form-control p-0 h-full'>
+                                                                                <input data-parsley-type='file' type='file' class='file-upload' name='UploadImage'
+                                                                                    aria-labelledby='file-label' aria-label='Upload Image'
+                                                                                    accept='image/png, image/gif, image/jpeg, image/jpg' />
+                                                                                <span class='custom-file-upload'>Choose File</span>
+                                                                                <span class='selected-file'></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+
                                                                 </div>
                                                  
                                                        
@@ -277,6 +325,29 @@ if (isset($_POST['submit'])) {
 
     </div>
     <!-- END wrapper -->
+
+
+
+    <script>
+        // Custom JavaScript for fileuplod
+        window.onload = function () {
+            var fileInput = document.querySelector('.file-upload');
+            var customBtn = document.querySelector('.custom-file-upload');
+            var selectedFileText = document.querySelector('.selected-file');
+
+            customBtn.addEventListener('click', function () {
+                fileInput.click();
+            });
+
+            fileInput.addEventListener('change', function () {
+                if (fileInput.files.length > 0) {
+                    selectedFileText.textContent = fileInput.files[0].name;
+                } else {
+                    selectedFileText.textContent = '';
+                }
+            });
+        };
+    </script>
 
 
     <!-- jQuery  -->
