@@ -89,10 +89,10 @@ include('./env.php');
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                        <img src="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
+                        <img src="./assets/img/guest.png"
                             class="img-fluid" alt="">
-                        <a href="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
-                            class="glightbox play-btn"></a>
+                        <!-- <a href="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
+                            class="glightbox play-btn"></a> -->
                     </div>
                     <div class="col-lg-6 content order-last  order-lg-first">
                         <h3>About</h3>
