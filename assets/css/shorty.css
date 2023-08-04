@@ -125,7 +125,11 @@ section {
 }
 
 a:not(.get-a-quote, .social-links a):hover {
-	color: #fff !important;
+	/* color: #fff !important; */
+}
+
+.homebtn:hover {
+	color: #0d42ff !important;
 }
 
 @media (max-width: 640px) {

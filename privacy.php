@@ -71,7 +71,7 @@ include('./env.php');
             <nav>
                 <div class="container">
                     <ol>
-                        <li><a href="./">Home</a></li>
+                        <li><a href="./" class="homebtn">Home</a></li>
                                                 <li>/</li>
 
                         <li>Privacy Policy</li>
