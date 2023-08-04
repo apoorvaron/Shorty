@@ -139,7 +139,7 @@
     </div>
 
     <style>
-        body {
+        <!-- body {
             margin: 0;
             padding: 0;
             font-family: 'Tomorrow', sans-serif;
@@ -149,7 +149,94 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
+        } -->
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Tomorrow', sans-serif;
+            background-image: linear-gradient(to top, #2e1753, #1f1746, #131537, #0d1028, #050819);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
+
+        /* ... (other existing styles) ... */
+
+        /* Additional styles for responsiveness */
+
+        /* Adjust font size for smaller screens */
+        h1 {
+            font-size: 40px;
+        }
+
+        /* Center the notfound-copy1 div horizontally and add some margin for better spacing */
+        .notfound-copy1 {
+            text-align: center;
+            margin: 20px;
+        }
+
+        /* Adjust the font size for smaller screens in notfound-copy1 */
+        .notfound-copy1 h1 {
+            font-size: 30px;
+        }
+
+        /* Make the links in notfound-copy1 responsive */
+        .notfound-copy1 p {
+            margin: 5px;
+        }
+
+        /* Center the notfound-copy div horizontally and vertically */
+        .notfound-copy {
+            color: #fff;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ... (other existing styles) ... */
+
+        /* Add responsive styles for the astronaut image */
+        .astronaut img {
+            width: 60px;
+            top: 35%;
+            animation: astronautFly 6s infinite linear;
+        }
+
+        /* ... (existing keyframes and animation styles) ... */
+
+        /* Adjust the astronaut animation for smaller screens */
+        @keyframes astronautFly {
+            0% {
+                left: -100px;
+            }
+            /* ... (existing keyframes) ... */
+            100% {
+                left: 110%;
+            }
+        }
+
+        /* Adjust the star animation for smaller screens */
+        @keyframes starTwinkle {
+            0% {
+                background: rgba(255, 255, 255, 0.4);
+            }
+            /* ... (existing keyframes) ... */
+            100% {
+                background: rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        /* ... (existing styles) ... */
+
+        /* Responsive styles for the button */
+        .btn-cartoon {
+            font-size: 20px;
+            padding: 8px 20px;
+        }
+
 
         .text {
             position: absolute;
@@ -361,6 +448,34 @@
     margin-top: 100px;
   }
 }
+
+
+/* Hide the SVG image on mobile devices with screen width smaller than 380px */
+@media (max-width: 380px) {
+    .starry-sky {
+        display: none;
+    }
+
+
+    .notfound-404 h1{
+<!-- color: red; -->
+    }
+
+    .notfound-copy1 {
+            color: #fff;
+            position: fixed;
+           
+            text-align: center;
+
+
+            bottom: 0;
+            right: 0;
+            margin-right: 30%;
+            margin-bottom: 2%;
+        }
+
+}
+
     </style>
 
 
