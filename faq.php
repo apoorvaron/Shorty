@@ -101,7 +101,7 @@ include('./env.php');
         const faqContent = [ 
           {
             id: 1,
-            quetion: "How does the link shortening process work?",
+            question: "How does the link shortening process work?",
             answer: ` The link shortening process takes a long URL and generates a shorter, more compact URL that redirects to the original long URL. This allows for easier sharing and tracking of links.`
           },
           {
