@@ -2110,7 +2110,12 @@ a:not(.get-a-quote, .social-links a):hover {
 
 .hero form .btn-primary {
 	background-color: var(--color-primary);
-	padding: 15px 30px;
+	padding: .8rem 1.2rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	font-size: .9rem;
+	letter-spacing: .05rem;
+	word-spacing: .1rem;
 }
 
 .hero form .btn-primary:hover {
@@ -2151,6 +2156,13 @@ a:not(.get-a-quote, .social-links a):hover {
 	font-family: var(--font-primary);
 	font-size: 15px;
 	font-weight: 600;
+}
+
+@media (min-width: 767px) {
+       .hero form .btn-primary {
+          font-size: .9rem;
+          padding: .9rem 1.2rem;
+       }
 }
 
 /*--------------------------------------------------------------
