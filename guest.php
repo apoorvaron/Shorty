@@ -291,7 +291,7 @@
       }
 
       .hero form .btn-primary {
-        padding: 15px 8px;
+        padding: 15px 0px;
         width: 48%;
       }
 
@@ -375,7 +375,7 @@ if ($rows == 0) {
                 </span>
 
               </div>
-              <div class="d-flex justify-content-between" style="margin-top:2rem" id="buttonresp">
+              <div class="d-flex justify-content-between" id="buttonresp">
                 <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" class="btn btn-primary" name="" onclick="generateCustomShorty()"
                   class="btn-get-started">Shorten
