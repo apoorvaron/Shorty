@@ -104,6 +104,19 @@ if (isset($_GET)) {
       }
     }
 
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 9px;
+      left: 3px;
+      color: #0d42ff;
+      font-size: 25px
+    }
+
     @keyframes mover {
       0% {
         transform: translateY(0);
@@ -160,8 +173,11 @@ if ($rows == 0) {
 
           <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200"
             method="POST">
-            <input type="text" class="form-control" style="font-size: 0.9rem;" placeholder="Your Link" id="originalLink"
+            <div class="inputIconContainer">
+            <i class="bi bi-link-45deg"></i>
+              <input type="text" class="form-control" style="font-size: 0.9rem; padding-left: 35px;" placeholder="Your Link" id="originalLink"
               onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
+            </div>
 
             <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
           </form>

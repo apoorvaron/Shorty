@@ -12,6 +12,9 @@ include __DIR__ . "/../env.php"; ?>
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+      <!-- Bootstrap Icons -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="shortcut icon" href="../assets/images/logout-logo.png">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -36,6 +39,25 @@ include __DIR__ . "/../env.php"; ?>
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
+
+        .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #preview input{
+        padding-left: 32px;
+    }
+
+    #preview span{padding-left: 20px}
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -152,12 +174,15 @@ include __DIR__ . "/../env.php"; ?>
 
                                                 // Output the form with the fetched data
                                                 echo "
-                    <form method='POST'>
+                    <form method='POST' id='preview'>
                         <div class='row'>
                             <div class='col-md-12'>
                                 <div class='form-group'>
                                     <label>Link is for</label>
+                                    <div class='inputIconContainer'>
+                                    <i class='bi bi-globe'></i>
                                     <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' value='" . htmlspecialchars($row['linkIsFor']) . "'/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +190,10 @@ include __DIR__ . "/../env.php"; ?>
                             <div class='col-md-12'>
                                 <div class='form-group'>
                                     <label>Original Link</label>
+                                    <div class='inputIconContainer'>
+                                    <i class='bi bi-link-45deg'></i>
                                     <input type='text' class='form-control' id='originalLink' name='originalLink' required placeholder='Original Link' value='" . $row['originalLink'] . "'/>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -175,7 +203,8 @@ include __DIR__ . "/../env.php"; ?>
                                 <label>Shorten Link</label>
                             </div>
                         </div>
-                        <div class='form-control col-md-12'>
+                        <div class='form-control col-md-12 inputIconContainer'>
+                        <i class='bi bi-box-arrow-up-right'></i>
                             <span class='form-group'>
                                 <label><b>" . $env_domain . " </b> </label>
                                 <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Short Link' style='border:0px' id='shortenLink' name='shortenLink'/></span>

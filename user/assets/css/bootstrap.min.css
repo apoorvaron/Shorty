@@ -4097,7 +4097,8 @@ input[type=submit].btn-block {
 }
 
 .input-group-append {
-    margin-left: -1px
+    margin-left: -1px;
+    width: 10%;
 }
 
 .input-group-text {

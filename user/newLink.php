@@ -14,6 +14,9 @@ include(__DIR__ . '/../env.php');
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link href="../assets/img/logo.png" rel="icon" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -38,6 +41,25 @@ include(__DIR__ . '/../env.php');
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
+
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #newLink input{
+        padding-left: 32px;
+    }
+
+    #newLink span{padding-left: 20px}
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -159,22 +181,27 @@ if (isset($_POST['submit'])) {
                                 <h4 class="mt-0 header-title"></h4>
                                 <p class="text-muted font-14"></p>
 
-                                <form method="POST">
+                                <form method="POST" id="newLink">
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label></label>
+                                                <div class="inputIconContainer">
+                                                <i class="bi bi-globe"></i>
                                                 <input type='text' class='form-control' id='linkIsFor' name='linkIsFor'
                                                     required placeholder='Link is for' maxlength='50' />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class=" row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-
-                                                <input type="text" class="form-control" id="originalLink"
+                                              <div class="inputIconContainer">
+                                              <i class="bi bi-link-45deg"></i>
+                                              <input type="text" class="form-control" id="originalLink"
                                                     name="originalLink" required placeholder="Original Link" />
+                                             </div>
                                             </div>
                                         </div>
                                     </div>
@@ -185,18 +212,19 @@ if (isset($_POST['submit'])) {
                                         </div>
                                     </div>
                                     <!-- <div class="row"> -->
-                                    <div class=" form-control col-md-12">
-                                        <span class="form-group">
-                                            <label><b>
-                                                    <?php echo $env_domain ?>
-                                                </b></label>
-                                            <span><input type="text" placeholder="Custom Name"
-                                                    style="border:0px;max-width: 50%;" required id="shortenLink"
-                                                    name="shortenLink" /></span>
-                                        </span>
-
+                                    <div class=" form-control col-md-12 inputIconContainer">
+                                            <i class="bi bi-box-arrow-up-right"></i>
+                                          <span class="form-group">
+                                              <label><b>
+                                                <?php echo $env_domain ?>
+                                              </b></label>
+                                             <span>   
+                                                <input type="text" placeholder="Custom Name"
+                                                style="border:0px;max-width: 50%;" required id="shortenLink"
+                                                name="shortenLink" /></span>
+                                                
+                                            </span>
                                     </div>
-                                    <!-- </div> -->
 
 
 
