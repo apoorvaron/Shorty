@@ -106,22 +106,32 @@ function deleteLink()
     $db = $database->connect();
 
     $linkID = $_GET['linkID'];
+    $uno = $_GET['uno'];
 
-    $sql = "DELETE FROM links WHERE linkID='" . $linkID . "'";
+    // Check if the uniqueNo and linkID combination is valid
+    $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
+    $CheckResult = mysqli_query($db, $checkValidity);
 
-    $result = mysqli_query($db, $sql);
-    echo $result;
-    if ($result == 1) {
-        echo json_encode(
-            array('message' => 'Link Deleted Successfully')
-        );
+    if (mysqli_num_rows($CheckResult) > 0) {
+        $sql = "DELETE FROM links WHERE linkID='" . $linkID . "'";
+        $result = mysqli_query($db, $sql);
+
+        if ($result == 1) {
+            echo json_encode(
+                array('message' => 'Link Deleted Successfully')
+            );
+        } else {
+            echo json_encode(
+                array('message' => 'Internal Server Error. Try Again')
+            );
+        }
     } else {
         echo json_encode(
-            array('message' => 'Internal Server Error. Try Again')
+            array('message' => 'Unauthorized Access')
         );
     }
 }
-;
+
 
 function shorty()
 {
