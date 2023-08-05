@@ -111,6 +111,21 @@ if (isset($_POST['submit'])) {
             animation: mover 1s infinite alternate;
         }
 
+        .error{
+            color: red;
+            font-size: 12px;
+            margin: 0px;
+            padding-left: 6px; 
+        }
+
+        #passwordBorder{
+            border-radius: 0.25rem;
+        }
+
+        .hidden{
+            display: none;
+        }
+
         @-webkit-keyframes mover {
             0% {
                 transform: translateY(0);
@@ -166,7 +181,8 @@ if (isset($_POST['submit'])) {
                                 <input class="form-control  " type="email" required="" name="email" aria-required="true"
                                     aria-label="Email" data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
                                         echo $_COOKIE['emailcookie'];
-                                    } ?>">
+                                    } ?>"  onkeyup="validate(event)">
+                                    <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
 
@@ -174,11 +190,11 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group row">
                             <div class="col-12">
-                                <div class="input-group">
+                                <div class="input-group" id="passwordBorder">
                                     <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
                                     } ?>" id="password" required name="password" placeholder="Password"
-                                        aria-required="true" aria-label="Password">
+                                        aria-required="true" aria-label="Password"  onkeyup="validate(event)">
                                     <div class="input-group-append">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
@@ -186,16 +202,10 @@ if (isset($_POST['submit'])) {
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
                                     </div>
                                 </div>
+                                <p class="error hidden" id="passwordError">Please fill this  field</p>
                             </div>
 
                         </div>
-                        <!-- 
-                            <div class="form-group row">
-                                <div class="col-12" >
-                                    <center id="warning"></center>
-
-                                </div>
-                            </div> -->
 
                         <div class="form-group row">
                             <div class="col-12">
@@ -211,7 +221,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light"
+                            <button class="btn  btn-block waves-effect waves-light"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
                                     id="submit" name="submit" type="submit" aria-label="Log In">Log In</button>
                             </div>
@@ -251,6 +261,21 @@ if (isset($_POST['submit'])) {
                 password.type = "password";
             }
             loop++;
+        }
+
+        // Function for inline validation of fields
+        function validate(e){
+            const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
+            const error = document.getElementById(`${e.target.name}Error`);
+            if(e.target.name === "email"){
+                const valid = emailRegex.test(e.target.value);
+               (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
+            }else{
+             const div = document.getElementById("passwordBorder").style;
+             (!e.target.value)? error.classList.remove("hidden") : error.classList.add("hidden");
+             (!e.target.value)?div.border = "2px solid red": div.border = "none";
+            }
         }
 
 

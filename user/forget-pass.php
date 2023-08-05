@@ -74,7 +74,7 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" id="email" required name="email" placeholder="Enter your Email" >
+                                    <input class="form-control" type="email" id="email" required name="email" placeholder="Enter your Email" aria-label="Email" aria-required="true" >
                                 </div>
                             </div>
 
