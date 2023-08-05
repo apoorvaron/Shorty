@@ -218,10 +218,10 @@
     }
 
     .hero form .btn-primary {
-      padding: .8rem 1.2rem;
+      padding: .8rem .25rem;
       font-weight: 700;
       text-transform: uppercase;
-      font-size: .9rem;
+      font-size: .8rem;
       letter-spacing: .05rem;
       word-spacing: .1rem;
     }
@@ -298,15 +298,14 @@
     }
 
 
-    @media screen and (max-width: 767px) {
+    @media (min-width: 767px) {
         #formresp {
           padding: .85rem !important;
         }
+      
        .hero form .btn-primary {
-          margin-top: .5rem;
-          font-size: .75rem;
-          padding: .6rem .7rem;
-          width: max-content;
+          font-size: .9rem;
+          padding: .9rem 1.2rem;
        }
     }
 
