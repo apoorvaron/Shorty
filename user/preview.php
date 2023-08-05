@@ -64,7 +64,7 @@ include __DIR__ . "/../env.php"; ?>
     if (strlen($linkIsFor) > 50) {
         echo "<script>
             $(document).ready(function(){
-                swal('Error: Link Name Exceeds 50 Characters! 🚫🔗','','error');
+                swal('Error: Link Name Exceeds 50 Characters! 🚫🔗');
             });
         </script>";
     } else {
