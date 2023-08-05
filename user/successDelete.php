@@ -59,7 +59,7 @@ function yesDelete() {
             }
         },
         error: function (xhr, textStatus, errorThrown) {
-            swal('An error occurred while deleting the link. Please try again.', '', 'error').then(function() {
+            swal('Internal Server Error : 500', '', 'error').then(function() {
                 window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
             });
         }
