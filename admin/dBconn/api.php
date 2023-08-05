@@ -107,11 +107,9 @@ function deleteLink()
 
     $linkID = $_GET['linkID'];
     $uno = $_GET['uno'];
-
     // Check if the uniqueNo and linkID combination is valid
     $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
     $CheckResult = mysqli_query($db, $checkValidity);
-
     if (mysqli_num_rows($CheckResult) > 0) {
         $sql = "DELETE FROM links WHERE linkID='" . $linkID . "'";
         $result = mysqli_query($db, $sql);
@@ -124,6 +122,7 @@ function deleteLink()
             echo json_encode(
                 array('message' => 'Internal Server Error. Try Again')
             );
+
         }
     } else {
         echo json_encode(
@@ -131,6 +130,7 @@ function deleteLink()
         );
     }
 }
+
 
 
 function shorty()
@@ -142,12 +142,10 @@ function shorty()
     $uniqueNo = $_POST["uniqueNo"];
     $originalLink = $_POST["originalLink"];
     $shortenLink = $_GET["shortenLink"];
-    // $extra =  $_GET["extra"];
 
     $sql = "INSERT INTO `links` (`uniqueNo`,`originalLink`, `shortenLink`) VALUES ('shorty','$originalLink', '$shortenLink')";
-    // print_r($sql);
+
     $result = $db->query($sql);
-    // var_dump($result);
     if ($result) {
         echo json_encode(
             array('message' => 'Form has been submitted')
