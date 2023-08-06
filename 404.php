@@ -120,7 +120,7 @@
 
 
                     <div class="center">
-                        <a class="btn-cartoon">
+                        <a class="btn-cartoon" href="./">
                             <i class="fa fa-home" aria-hidden="true"></i> &nbsp; Home
                         </a>
                     </div>
