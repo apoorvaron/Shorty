@@ -2057,7 +2057,7 @@ a:not(.get-a-quote, .social-links a):hover {
 	width: 100%;
 	min-height: 100vh;
 	background-color: var(--color-secondary);
-	background-image: url('../img/hero-bg.png');
+	background-image: url('../img/hero-bg.webp');
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -2159,10 +2159,10 @@ a:not(.get-a-quote, .social-links a):hover {
 }
 
 @media (min-width: 767px) {
-       .hero form .btn-primary {
-          font-size: .9rem;
-          padding: .9rem 1.2rem;
-       }
+	.hero form .btn-primary {
+		font-size: .9rem;
+		padding: .9rem 1.2rem;
+	}
 }
 
 /*--------------------------------------------------------------
