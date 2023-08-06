@@ -26,8 +26,13 @@ if (isset($_GET)) {
       $row = mysqli_fetch_assoc($result);
       header("Location:" . $row['originalLink']);
     }else{
-      // header("Location:".$env_domain );
-      header("Location:404" );
+        // var_dump($new_url);
+        if($new_url != "i"){
+            header("Location:404" );
+        }else{
+            header("Location:".$env_domain );
+        }
+     
     }
   }
 
@@ -229,10 +234,17 @@ if ($rows == 0) {
             $database = new Database();
             $link = $database->connect();
 
-            $sql = "SELECT * FROM links";
+            // count total links
+            $sql = "SELECT COUNT(*) as count_links FROM links";
             $result = mysqli_query($link, $sql);
-
-            $count_links = mysqli_num_rows($result);
+            
+            if ($result) {
+                $row = mysqli_fetch_assoc($result);
+                $count_links = $row['count_links'];
+                mysqli_free_result($result);
+            } else {
+                echo "Error executing the query: " . mysqli_error($link);
+            }
             ?>
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
@@ -246,6 +258,8 @@ if ($rows == 0) {
             $database = new Database();
             $link = $database->connect();
 
+
+            // count total clicks
             $sql = "SELECT * FROM total_clicks where id=1";
             $result = mysqli_query($link, $sql);
             $row = mysqli_fetch_array($result);
@@ -253,18 +267,17 @@ if ($rows == 0) {
             $clicks = $row['total_clicks'];
 
 
-
+            //count total registered users
             $registeredUsers = 0;
-            $sql = "SELECT * FROM users";
+            $sql = "SELECT COUNT(*) as registeredUsers FROM users";
             if ($result = mysqli_query($link, $sql)) {
-              if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                  $registeredUsers++;
+                if (mysqli_num_rows($result) > 0) {
+                    $row = mysqli_fetch_assoc($result);
+                    $registeredUsers = $row['registeredUsers'];
+                    mysqli_free_result($result);
+                } else {
+                    echo "<p class='lead'><em>No registered users found.</em></p>";
                 }
-                mysqli_free_result($result);
-              } else {
-                echo "<p class='lead'><em></em></p>";
-              }
             }
             ?>
 
