@@ -274,7 +274,7 @@
     }
 
     #formresp input,  #formSpan{
-        padding-left: 35px;
+        padding-left: 28px;
     }
 
     @-webkit-keyframes mover {
