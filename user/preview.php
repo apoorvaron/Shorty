@@ -223,7 +223,7 @@ include __DIR__ . "/../env.php"; ?>
 </svg>
                             <span class='form-group' id='formSpan'>
                                 <label><strong>" . $env_domain . " </strong> </label>
-                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Short Link' style='border:0px' id='shortenLink' name='shortenLink'/></span>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px; max-width: 70%; ' id='shortenLink' name='shortenLink'/></span>
                             </span>
                             </div>
                         </div>
