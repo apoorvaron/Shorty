@@ -213,16 +213,15 @@ if ($rows == 0) {
             $database = new Database();
             $link = $database->connect();
 
+            // count total links
             $sql = "SELECT COUNT(*) as count_links FROM links";
             $result = mysqli_query($link, $sql);
             
             if ($result) {
-                // Fetch the count directly from the first row of the result set
                 $row = mysqli_fetch_assoc($result);
                 $count_links = $row['count_links'];
                 mysqli_free_result($result);
             } else {
-                // Handle the case where the query failed
                 echo "Error executing the query: " . mysqli_error($link);
             }
             ?>
@@ -238,6 +237,8 @@ if ($rows == 0) {
             $database = new Database();
             $link = $database->connect();
 
+
+            // count total clicks
             $sql = "SELECT * FROM total_clicks where id=1";
             $result = mysqli_query($link, $sql);
             $row = mysqli_fetch_array($result);
@@ -245,12 +246,11 @@ if ($rows == 0) {
             $clicks = $row['total_clicks'];
 
 
-
+            //count total registered users
             $registeredUsers = 0;
             $sql = "SELECT COUNT(*) as registeredUsers FROM users";
             if ($result = mysqli_query($link, $sql)) {
                 if (mysqli_num_rows($result) > 0) {
-                    // Fetch the count directly from the first row of the result set
                     $row = mysqli_fetch_assoc($result);
                     $registeredUsers = $row['registeredUsers'];
                     mysqli_free_result($result);
