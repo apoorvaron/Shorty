@@ -213,10 +213,18 @@ if ($rows == 0) {
             $database = new Database();
             $link = $database->connect();
 
-            $sql = "SELECT * FROM links";
+            $sql = "SELECT COUNT(*) as count_links FROM links";
             $result = mysqli_query($link, $sql);
-
-            $count_links = mysqli_num_rows($result);
+            
+            if ($result) {
+                // Fetch the count directly from the first row of the result set
+                $row = mysqli_fetch_assoc($result);
+                $count_links = $row['count_links'];
+                mysqli_free_result($result);
+            } else {
+                // Handle the case where the query failed
+                echo "Error executing the query: " . mysqli_error($link);
+            }
             ?>
             <div class="col-lg-3 col-6">
               <div class="stats-item text-center w-100 h-100">
