@@ -239,16 +239,16 @@ if ($rows == 0) {
 
 
             $registeredUsers = 0;
-            $sql = "SELECT * FROM users";
+            $sql = "SELECT COUNT(*) as registeredUsers FROM users";
             if ($result = mysqli_query($link, $sql)) {
-              if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_array($result)) {
-                  $registeredUsers++;
+                if (mysqli_num_rows($result) > 0) {
+                    // Fetch the count directly from the first row of the result set
+                    $row = mysqli_fetch_assoc($result);
+                    $registeredUsers = $row['registeredUsers'];
+                    mysqli_free_result($result);
+                } else {
+                    echo "<p class='lead'><em>No registered users found.</em></p>";
                 }
-                mysqli_free_result($result);
-              } else {
-                echo "<p class='lead'><em></em></p>";
-              }
             }
             ?>
 
