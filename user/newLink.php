@@ -238,7 +238,7 @@ if (isset($_POST['submit'])) {
                                               </strong></label>
                                              <span>   
                                                 <input type="text" placeholder="Custom Name"
-                                                style="border:0px;" required id="shortenLink"
+                                                style="border:0px;max-width:70%;" required id="shortenLink"
                                                 name="shortenLink" /></span>
                                                 
                                             </span>
