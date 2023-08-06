@@ -83,6 +83,10 @@
         padding-left: 32px;
     }
 
+    .eye{
+        width:auto !important;
+    }
+
         @-webkit-keyframes mover {
             0% {
                 transform: translateY(0);
@@ -156,14 +160,14 @@
                                         name="password" placeholder="Password"
                                         aria-required="true" aria-label="Password" onkeyup="validate(event)">
                                     </div>  
-                                        <div class="input-group-append">
+                                    <div class="input-group-append eye">
                                             <span class="input-group-text" onclick="changeType()">
                                                 <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                        <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
-                            </div>
+                                     </div>
+                                </div>
+                                 <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
+                             </div>
                         </div>
 
                         <div class="form-group row">
@@ -176,7 +180,7 @@
                                         aria-label="Confirm Password" onkeyup="validate(event)">
                                     </div>
                              
-                                        <div class="input-group-append">
+                                        <div class="input-group-append eye">
                                             <span class="input-group-text" onclick="changeTypei()">
                                                 <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>

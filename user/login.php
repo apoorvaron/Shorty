@@ -36,6 +36,10 @@
     #login input{
         padding-left: 32px;
     }
+
+    .eye{
+        width: auto !important;
+    }
 </style>
 
 <?php
@@ -226,7 +230,7 @@ if (isset($_POST['submit'])) {
                                     } ?>" id="password" required name="password" placeholder="Password"
                                         aria-required="true" aria-label="Password"  onkeyup="validate(event)">
                                     </div>
-                                    <div class="input-group-append">
+                                    <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
                                             <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
