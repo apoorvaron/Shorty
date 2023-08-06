@@ -143,6 +143,8 @@
   <!-- importing the SEO FROM SEO.PHP FILE -->
   <?php include './includes/seo.php'; ?>
 
+     <!-- Bootsrap icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- Favicons -->
   <link href="./assets/img/logo.webp" rel="icon" />
@@ -254,6 +256,27 @@
       animation: mover 1s infinite alternate;
     }
 
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 18px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #linkIcon i{
+     font-size: 20px;
+    }
+
+    #formresp input,  #formSpan{
+        padding-left: 28px;
+    }
+
     @-webkit-keyframes mover {
       0% {
         transform: translateY(0);
@@ -358,10 +381,15 @@ if ($rows == 0) {
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
               </h2>
               <hr style="color:gray;">
+              <div class="inputIconContainer" id="linkIcon">
+              <i class="bi bi-link-45deg"></i>
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink"
                 onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
-              <div class=" style=" padding-left: 0px;">
+              </div>
+            
+              <div class="inputIconContainer" style=" padding-left: 0px;">
+              <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">

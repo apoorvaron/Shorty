@@ -16,7 +16,11 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+        <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+
         <style>
             /* ::placeholder {
                 text-align: center;
@@ -30,33 +34,81 @@
     </head>
 
 
-<script>
-<?php
-    $username=$_GET['username'];
-    $uno= $_GET['uno'];
-?>
-function yesDelete(){
-    // console.log("HI");
+    <?php
+    $username = $_GET['username'];
+    $uno = $_GET['uno'];
+    $linkID = $_GET["linkID"];
+
+    require "../admin/dBconn/database.php";
+    $database = new Database();
+    $link = $database->connect();
+    $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
+
+    if ($CheckResult = mysqli_query($link, $checkValidity)) {
+        if (mysqli_num_rows($CheckResult) > 0) {
+        } else {
+            // Show SweetAlert message and redirect
+            echo "<script>
+            $(document).ready(function(){
+                swal('Unauthorized Access !!','','error').then(function() {
+                    window.location = './index.php?username={$username}&uno={$uno}';
+                });
+
+            });
+        </script>";
+            exit;
+        }
+    } else {
+        echo "<script>
+        $(document).ready(function(){
+            swal('Unauthorized Access !!','','error').then(function() {
+                window.location = './index.php?username={$username}&uno={$uno}';
+            });
+
+        });
+    </script>";
+        exit;
+    }
+    ?>
+
+        <script>
+function yesDelete() {
+    event.preventDefault()
     $.ajax({
-        url: '../admin/dBconn/api.php/?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>',
+        url: '../admin/dBconn/api.php?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>&uno=<?php echo $_GET["uno"]; ?>',
         type: 'POST',
         dataType: 'json',
         success: function (data, textStatus, xhr) {
-            console.log(data);
-            console.log("mii");
-            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            if (data.message === "Link Deleted Successfully") {
+                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            } else if (data.message === "Unauthorized Access") {
+                swal('Unauthorized Access', '', 'error').then(function() {
+                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                });
+                } else {
+                // Internal Server Error
+                swal('Internal Server Error : 500', '', 'error').then(function() {
+                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                });
+            }
         },
         error: function (xhr, textStatus, errorThrown) {
-            window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            swal('Internal Server Error : 500', '', 'error').then(function() {
+                window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+            });
         }
     });
 }
+
+
+
 </script>
+
     <body class="fixed-left">
         <!-- Begin page -->
         <div id="wrapper">
 
-            <?php include'header.php'; ?>
+            <?php include 'header.php'; ?>
                     <!-- Top Bar End -->
 
                     <div class="page-content-wrapper">
@@ -93,7 +145,6 @@ function yesDelete(){
                                                 submission before sending it to your server.</p> -->
            
 
-                                            <form class="repeater" method="POST">
                                                 <div data-repeater-list="category-group">
                                                     <div data-repeater-item>
                                                 <div class="row">
@@ -109,9 +160,9 @@ function yesDelete(){
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <input type="submit" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
-                                                            <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" style="color:white">No</a>
+                                                            <input type="button" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
+                                                            <button type="button" name="submit"  class="btn btn-success waves-effect waves-light">
+                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">No</a>
                                                             </button>
 
                                                       
@@ -120,7 +171,6 @@ function yesDelete(){
                                                 </div>
                                                 <br>
                                                 <br>
-                                    </form>
                                     </div>
                                 </div> <!-- end col -->
             
@@ -134,7 +184,7 @@ function yesDelete(){
 
                 </div> <!-- content -->
 
-                <?php include'footer.php';?>
+                <?php include 'footer.php'; ?>
 
             </div>
             <!-- End Right content here -->
