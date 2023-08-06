@@ -18,7 +18,7 @@ include('./env.php');
     <meta content="" name="keywords" />
 
     <!-- Favicons -->
-    <link href="./assets/img/logo.png" rel="icon" />
+    <link href="./assets/img/logo.webp" rel="icon" />
     <link href="./assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -60,7 +60,7 @@ include('./env.php');
 
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs"
-            style=" background: #010b1a;background-image: url('../assets/images/hero-bg.png'); background-repeat: no-repeat; background-size: cover;">
+            style=" background: #010b1a;background-image: url('../assets/img/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
@@ -89,7 +89,7 @@ include('./env.php');
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                        <img src="./assets/img/guest.png"
+                        <img src="./assets/img/guest.webp"
                             class="img-fluid" alt="">
                         <!-- <a href="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
                             class="glightbox play-btn"></a> -->

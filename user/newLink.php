@@ -14,10 +14,14 @@ include(__DIR__ . '/../env.php');
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+
+    <link href="../assets/img/logo.webp" rel="icon" />
+
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <link href="../assets/img/logo.png" rel="icon" />
+
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">

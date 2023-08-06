@@ -53,7 +53,7 @@ include('./env.php');
 
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs"
-            style=" background: #010b1a;background-image: url('../assets/images/hero-bg.png'); background-repeat: no-repeat; background-size: cover;">
+            style=" background: #010b1a;background-image: url('../assets/img/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">

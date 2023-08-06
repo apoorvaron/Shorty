@@ -119,10 +119,14 @@ if (isset($_POST['submit'])) {
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+
+    <link href="../assets/img/logo.webp" rel="icon" />
+
     <!-- Bootsrap icon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <link href="../assets/img/logo.png" rel="icon" />
+
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -181,7 +185,7 @@ if (isset($_POST['submit'])) {
 <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
 
 <body class="fixed-left" style="  background-color: #0e1d34;
-  background-image: url('../assets/img/hero-bg.png');
+  background-image: url('../assets/img/hero-bg.webp');
   background-size: cover;
   background-position: center;">
 
@@ -196,7 +200,7 @@ if (isset($_POST['submit'])) {
 
                 <h3 class="text-center mt-0">
                     <a href="./login" class="logo logo-admin"><img class="vert-move"
-                            src="../assets/img/loginpage--logo.png" height="100" alt="logo"></a>
+                            src="../assets/img/loginpage--logo.webp" height="100" alt="logo"></a>
                 </h3>
 
                 <h6 class="text-center">Login / Sign In</h6>

@@ -147,7 +147,7 @@
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- Favicons -->
-  <link href="./assets/img/logo.png" rel="icon" />
+  <link href="./assets/img/logo.webp" rel="icon" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->

@@ -10,7 +10,7 @@
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+    <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
 
     <!-- DataTables -->
     <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
-                if ($row['img'] != '../assets/img/inside-header-logo.png') {
+                if ($row['img'] != '../assets/img/inside-header-logo.webp') {
                     unlink("" . $row['img'] . "");
                 }
 
