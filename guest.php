@@ -273,7 +273,7 @@
      font-size: 20px;
     }
 
-    #formresp input,  #formresp span{
+    #formresp input,  #formSpan{
         padding-left: 35px;
     }
 
@@ -389,7 +389,7 @@ if ($rows == 0) {
               </div>
             
               <div class="inputIconContainer" style=" padding-left: 0px;">
-              <i class="bi bi-box-arrow-up-right"></i>
+              <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
