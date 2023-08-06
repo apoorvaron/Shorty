@@ -10,13 +10,35 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
         
-  <link rel="icon" type="image/x-icon" href= "../assets/images/logout-logo.png">
+    <!-- Bootsrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+        
+    <link rel="icon" type="image/x-icon" href= "../assets/images/logout-logo.png">
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+
+        <style>
+              .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #changepassword input{
+        padding-left: 32px;
+    }
+        </style>
     </head>
 
     <body class="fixed-left">
@@ -57,26 +79,35 @@
                                             <h4 class="mt-0 header-title">Change Password</h4>
                                             <p class="text-muted font-14">Regularly updating your passwords means that even if someone finds an old or saved password, it will no longer be useful, and your data will be secure.</p>
             
-                                            <form method="POST">
+                                            <form method="POST" id="changepassword">
                                                 <div class="row">
                                                 
                                                
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Old Password</label>
+                                                        <div class="inputIconContainer">
+                                    <i class="bi bi-key-fill"></i>
                                                         <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password" aria-label="Old Password" aria-required="true"/>
+</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>New password</label>
+                                                        <div class="inputIconContainer">
+                                    <i class="bi bi-lock-fill"></i>
                                                         <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password" aria-label="New Password" aria-required="true"/>
+</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>Confirm Password</label>
+                                                        <div class="inputIconContainer">
+                                                         <i class="bi bi-check-square-fill"></i>
                                                         <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password" aria-label="Confirm Password" aria-required="true"/>
+</div>
                                                     </div>
                                                 </div>
                                                

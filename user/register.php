@@ -10,6 +10,9 @@
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Bootsrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link href="../assets/img/logo.png" rel="icon" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -18,36 +21,6 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
-        /* .file-upload {
-            display: none;
-        }
-
-        .custom-file-upload {
-            display: inline-block;
-            width: fit-content;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #0d6efd;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .custom-file-upload:hover {
-            background-color: #2c7df7;
-
-        }
-
-        .selected-file {
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .uplodInputFileds {
-            height: fit-content;
-        } */
-
         .swal-overlay {
             background-color: #0e1d34;
         }
@@ -80,11 +53,39 @@
 
         #passwordBorder, #cnfrmPassBorder{
             border-radius: 0.25rem;
+        flex-wrap: nowrap;
+             
         }
 
         .hidden{
             display: none;
         }
+
+        
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    #password-iconDiv, #cnfrmPass-iconDiv{
+        width: 89%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 5px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #register input{
+        padding-left: 32px;
+    }
+
+    .eye{
+        width:auto !important;
+    }
 
         @-webkit-keyframes mover {
             0% {
@@ -136,13 +137,16 @@
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
+                    <form id="register" class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
                         aria-label="Register Form">
 
                         <div class="form-group row">
                             <div class="col-12">
+                                <div class="inputIconContainer">
+                                <i class="bi bi-envelope-fill"></i>
                                 <input class="form-control" type="email" required name="email" id="email"
                                     placeholder="Email" aria-required="true" aria-label="Email" onkeyup="validate(event)">
+                                </div>
                                     <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
@@ -150,27 +154,33 @@
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group" id="passwordBorder">
+                                    <div id="password-iconDiv" class="inputIconContainer">
+                                    <i class="bi bi-lock-fill"></i>
                                     <input type="password" class="form-control " id="password" required minlength="8"
                                         name="password" placeholder="Password"
                                         aria-required="true" aria-label="Password" onkeyup="validate(event)">
-                                        
-                                        <div class="input-group-append">
+                                    </div>  
+                                    <div class="input-group-append eye">
                                             <span class="input-group-text" onclick="changeType()">
                                                 <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                        <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
-                            </div>
+                                     </div>
+                                </div>
+                                 <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
+                             </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group" id="cnfrmPassBorder">
+                                    <div id="cnfrmPass-iconDiv" class="inputIconContainer">
+                                    <i class="bi bi-check-square-fill"></i>
                                     <input type="password" class="form-control" id="cnfrmPass" required minlength="8"
                                         name="cnfrmPass" placeholder="Confirm Password" aria-required="true"
                                         aria-label="Confirm Password" onkeyup="validate(event)">
-                                        <div class="input-group-append">
+                                    </div>
+                             
+                                        <div class="input-group-append eye">
                                             <span class="input-group-text" onclick="changeTypei()">
                                                 <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>

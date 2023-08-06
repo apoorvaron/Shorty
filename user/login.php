@@ -15,6 +15,31 @@
         border: 1px solid #3e549a;
         text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
     }
+
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    #password-iconDiv{
+        width: 89%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 9px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 20px;
+    }
+
+    #login input{
+        padding-left: 32px;
+    }
+
+    .eye{
+        width: auto !important;
+    }
 </style>
 
 <?php
@@ -94,6 +119,9 @@ if (isset($_POST['submit'])) {
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+    <!-- Bootsrap icon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link href="../assets/img/logo.png" rel="icon" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -120,6 +148,7 @@ if (isset($_POST['submit'])) {
 
         #passwordBorder{
             border-radius: 0.25rem;
+            flex-wrap: nowrap;
         }
 
         .hidden{
@@ -174,14 +203,17 @@ if (isset($_POST['submit'])) {
 
                 <div class="p-3">
 
-                    <form class="form-horizontal" method="POST" aria-label="Login Form">
+                    <form class="form-horizontal" method="POST" id="login" aria-label="Login Form">
 
                         <div class="form-group row">
                             <div class="col-12">
+                                <div class="inputIconContainer">
+                                <i class="bi bi-envelope-fill"></i>
                                 <input class="form-control  " type="email" required="" name="email" aria-required="true"
                                     aria-label="Email" data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
                                         echo $_COOKIE['emailcookie'];
                                     } ?>"  onkeyup="validate(event)">
+                                </div>
                                     <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
@@ -191,11 +223,14 @@ if (isset($_POST['submit'])) {
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group" id="passwordBorder">
+                                    <div class="inputIconContainer" id="password-iconDiv">
+                                    <i class="bi bi-key-fill"></i>
                                     <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
                                         echo $_COOKIE['passwordcookie'];
                                     } ?>" id="password" required name="password" placeholder="Password"
                                         aria-required="true" aria-label="Password"  onkeyup="validate(event)">
-                                    <div class="input-group-append">
+                                    </div>
+                                    <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
                                             <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
