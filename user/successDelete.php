@@ -16,8 +16,10 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
 
         <style>
             /* ::placeholder {
@@ -32,12 +34,44 @@
     </head>
 
 
-<script>
-<?php
-$username = $_GET['username'];
-$uno = $_GET['uno'];
-?>
+    <?php
+    $username = $_GET['username'];
+    $uno = $_GET['uno'];
+    $linkID = $_GET["linkID"];
 
+    require "../admin/dBconn/database.php";
+    $database = new Database();
+    $link = $database->connect();
+    $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
+
+    if ($CheckResult = mysqli_query($link, $checkValidity)) {
+        if (mysqli_num_rows($CheckResult) > 0) {
+        } else {
+            // Show SweetAlert message and redirect
+            echo "<script>
+            $(document).ready(function(){
+                swal('Unauthorized Access !!','','error').then(function() {
+                    window.location = './index.php?username={$username}&uno={$uno}';
+                });
+
+            });
+        </script>";
+            exit;
+        }
+    } else {
+        echo "<script>
+        $(document).ready(function(){
+            swal('Unauthorized Access !!','','error').then(function() {
+                window.location = './index.php?username={$username}&uno={$uno}';
+            });
+
+        });
+    </script>";
+        exit;
+    }
+    ?>
+
+        <script>
 function yesDelete() {
     event.preventDefault()
     $.ajax({
