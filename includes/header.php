@@ -4,7 +4,7 @@
         <a href="./" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <img src="./assets/img/inside-header-logo.png" alt="logo" style="border-radius: 10px;" />
+            <img src="./assets/img/inside-header-logo.webp" alt="logo" style="border-radius: 10px;" />
             <!-- <h1  class="logo d-flex align-items-center" style="color:white;margin-left:10%">Shorty</h2> -->
         </a>
         <div class="alan-btn"></div>

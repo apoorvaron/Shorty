@@ -10,7 +10,7 @@
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link href="../assets/img/logo.png" rel="icon" />
+    <link href="../assets/img/logo.webp" rel="icon" />
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -112,7 +112,7 @@
 <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
 
 <body class="fixed-left" style="   background-color: #0e1d34;
-                                        background-image: url('../assets/img/hero-bg.png');
+                                        background-image: url('../assets/img/hero-bg.webp');
                                         background-size: cover;
                                         background-position: center;">
 
@@ -127,7 +127,7 @@
 
                 <h3 class="text-center mt-0">
                     <a href="./register" class="vert-move logo logo-admin"><img class="vert-move"
-                            src="../assets/img/registerpage--logo.png" height="100" alt="logo"></a>
+                            src="../assets/img/registerpage--logo.webp" height="100" alt="logo"></a>
                 </h3>
 
 
