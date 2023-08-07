@@ -174,7 +174,7 @@ if (isset($_GET['short'])) {
                                                                     method: 'GET',
                                                                     dataType: 'JSON',
                                                                     success: function(data) {
-                                                                        console.log("check data ywar",data);
+                                                                       // console.log("check data ywar",data);
                                                                         data.forEach(allEvent);                    
                                                                         function allEvent(event) {
                                                                             
@@ -191,7 +191,7 @@ if (isset($_GET['short'])) {
                                                         
                                                         
                                                                     },error: function(xhr, status, error){
-                                                                        console.log("No");
+                                                                      //  console.log("No");
                                                                     },
                                                                 });
                                                             });
@@ -256,7 +256,7 @@ if (isset($_GET['short'])) {
             console.error("Copying failed:", error);
         });
     } else {
-        console.log("2");
+       // console.log("2");
 
         var tempInput = document.createElement("input");
         tempInput.setAttribute("value", word);
