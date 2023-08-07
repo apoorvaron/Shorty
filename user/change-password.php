@@ -159,7 +159,7 @@
             const error = document.getElementById(`${e.target.name}Error`);
             if(e.target.name === "oldPass"){
                (e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
-               (e.target.value)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
+               (e.target.value)?e.target.style.border = "1px solid rgba(170, 170, 170, 0.3)": e.target.style.border = "2px solid red";
             }else if(e.target.name === "newPass"){
                 const valid = passwordRegex.test(e.target.value);
                 (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
