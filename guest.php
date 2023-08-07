@@ -132,6 +132,7 @@
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/shorty.css" rel="stylesheet" />
+  <link href="./assets/css/guest.css" rel="stylesheet" />
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
@@ -141,162 +142,6 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-     #originalLink {
-      border: 0 !important;
-      border-bottom: 1px solid #ccc !important;
-      padding: 7px 0;
-      font-size: .95rem
-    }
-
-    #shortenLink {
-      border: 0 !important;
-      padding: 7px 0;
-    }
-
-    [type="button"]:active {
-      transform: scale(.92) translateY(.1rem);
-      filter: brightness(1.5) contrast(1.2) !important;
-    }
-    
-    #formSpan {
-      width: 100%;
-      display: flex;
-      align-items: baseline;
-      border: 0 !important;
-      border-bottom: 1px solid #ccc !important;
-      margin-bottom: 15px;
-      align-items: center;
-    }
-
-    #formresp {
-      padding: 1rem;
-    }
-    
-    .hero form .btn-primary {
-      margin-top: 1rem;
-    }
-    
-    #formresp h2 {
-      color: #000b;
-      text-align: center;
-      margin-bottom: 1rem !important; 
-    }
-
-    .hero form .btn-primary {
-      padding: .8rem .25rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      font-size: .8rem;
-      letter-spacing: .05rem;
-      word-spacing: .1rem;
-    }
-
-    customName input[type="text"] {
-      font: 15px/24px "Lato", Arial, sans-serif;
-      color: #333;
-      width: 100%;
-      box-sizing: border-box;
-      letter-spacing: 1px;
-    }
-
-
-    .swal-button {
-      padding: 7px 19px;
-      border-radius: 2px;
-      background-color: #0d6efd;
-      font-size: 12px;
-      border: 1px solid #0a53be;
-      text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-    }
-
-    img.vert-move {
-      -webkit-animation: mover 1s infinite alternate;
-      animation: mover 1s infinite alternate;
-    }
-
-    img.vert-move {
-      -webkit-animation: mover 1s infinite alternate;
-      animation: mover 1s infinite alternate;
-    }
-
-    .inputIconContainer{
-	     position: relative;
-	     width: 100%;
-    }
-
-    .inputIconContainer i{
-       position: absolute;
-      top: 18px;
-      left: 5px;
-      color: #0d42ff;
-      font-size: 15px;
-    }
-
-    #linkIcon i{
-     font-size: 20px;
-    }
-
-    #formresp input,  #formSpan{
-        padding-left: 28px;
-    }
-
-    @-webkit-keyframes mover {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-50px);
-      }
-    }
-
-    @keyframes mover {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-50px);
-      }
-    }
-
-    @media screen and (max-width : 496px) {
-
-
-      #buttonresp {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 0.5em;
-        margin: 0px !important
-      }
-
-      #formresp {
-        display: block;
-      }
-
-      .hero form .btn-primary {
-        padding: 15px 0px;
-        width: 48%;
-      }
-
-    }
-
-
-    @media (min-width: 767px) {
-        #formresp {
-          padding: .85rem !important;
-        }
-      
-       .hero form .btn-primary {
-          font-size: .9rem;
-          padding: .9rem 1.2rem;
-       }
-    }
-
-  </style>
 
 </head>
 <?php
@@ -336,34 +181,38 @@ if ($rows == 0) {
   <section id="hero" class="hero d-flex align-items-center">
     <div class="container">
       <div class="row gy-4 d-flex justify-content-between">
-        <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
-          <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
+        <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center custom-col">
+          <h2 data-aos="fade-up custom-h2">Shorty</h2>
           <div>
-            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" 
-                  style="flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex form" 
+                   method="POST" data-aos="fade-up" data-aos-delay="200">
 
-              <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
+              <h2 data-aos="fade-up" class="fs-2 my-2 aos-init aos-animate custom-h2 custom-h2-gray">Custom Link
               </h2>
-              <hr style="color:gray;">
+              <hr class="custom-hr">
               <div class="inputIconContainer" id="linkIcon">
               <i class="bi bi-link-45deg"></i>
-              <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
+              <input type="text" class="form-control mb-3 mt-3 custom-input" placeholder="Your Link"
                 id="originalLink" name="originalLink"
                 onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
               </div>
             
-              <div class="inputIconContainer" style=" padding-left: 0px;">
+              <div class="inputIconContainer">
               <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
-                    <p style="margin: 0px !important;color:#555; font-weight: 900;">
+                    <p>
                       <?php echo $env_domain ?>
                     </p>
                   </label>
-                  <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
-                      style="border:0px;font-size: 0.9rem;margin: 0px !important;padding:0;" required
-                      id="shortenLink" name="shortenLink"
-                      onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
+                  <span><input 
+				type="text" 
+				class="form-control mb-4 mt-3" 
+				placeholder="Custom Name"
+			        required
+			        id="shortenLink" name="shortenLink"
+			        onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
+		  </span>
                 </span>
 
               </div>
@@ -398,8 +247,7 @@ if ($rows == 0) {
         </div>
 
         <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size"
-            style="margin-top:20%" />
+          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size hero-svg"/>
 
         </div>
       </div>
