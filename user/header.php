@@ -493,6 +493,7 @@ document.addEventListener("DOMContentLoaded", function() {
             sessionModalInterval = setInterval(function() {
                 countDown--;
                 $("#sstSessionModalExpire").text(countDown);
+             
                 // console.log(countDown);
                 if (countDown === timeoutToken) {
                     if( window.SSTIsUserActive ){
@@ -550,6 +551,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //     usrEvts = usrEvts.join(" ");
         //     var activeTimeout;
         //     $(document).on(usrEvts, function(evt){
+        
         //         // console.log(evt.type);
         //         window.SSTIsUserActive = true;
         //         if(activeTimeout === undefined){
@@ -558,6 +560,7 @@ document.addEventListener("DOMContentLoaded", function() {
         //                 window.SSTIsUserActive = false;
         //             }, 3 * 1000);
         //         } else {
+
         //             // console.log("CLEAR Timeout");
         //             clearTimeout(activeTimeout);
         //             activeTimeout = undefined;
