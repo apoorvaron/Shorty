@@ -9,6 +9,10 @@
   padding: 7px 0;
 }
 
+#formresp {
+  flex-direction: column;
+}
+
 #formSpan {
   width: 100%;
   display: flex;
@@ -78,11 +82,6 @@ img.vert-move {
     gap: 0.5em;
     /* padding: 1.5em; */
     margin: 0px !important;
-  }
-
-  #formresp {
-    display: block;
-    /* margin: 0 1.5em; */
   }
 
   .hero form .btn-primary {
