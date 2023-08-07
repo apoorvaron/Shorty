@@ -1,13 +1,13 @@
-<h1 align = "center">  <img src = "./assets/img/inside-header-logo.png" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
+<h1 align = "center">  <img src = "./assets/img/inside-header-logo.webp" height = "30" width = "40">&nbspShorty - To help you shorten links! </h1>
 <!-- <hr> -->
 <div>
 To help you grow, scale, and dominate through the power of <b>link management</b>. Whether you’re sharing one link or millions, <b>Shorty</b> lets you personalize, share, and track your content links, while capturing data with every click.</div>
  </div>
  <br>
 <div align="center">
-  <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
+<!--   <img src="https://forthebadge.com/images/badges/built-with-love.svg" />
   <img src="https://forthebadge.com/images/badges/uses-brains.svg" />
-  <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" />
+  <img src="https://forthebadge.com/images/badges/powered-by-responsibility.svg" /> -->
   <br/>
   <img src="https://img.shields.io/github/repo-size/apoorvaron/Shorty?style=for-the-badge" />
   <img src="https://img.shields.io/github/license/apoorvaron/Shorty?style=for-the-badge" />
