@@ -1,7 +1,5 @@
 <?php
-include(__DIR__ . '/../env.php');
-
-?>
+include __DIR__ . "/../env.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +12,14 @@ include(__DIR__ . '/../env.php');
     <meta content="themesdesign" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+
+    <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
+
+      <!-- Bootstrap Icons -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
     <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -38,6 +43,38 @@ include(__DIR__ . '/../env.php');
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
+        .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i, .inputIconContainer svg{
+       position: absolute;
+      top: 5px;
+      left: 5px; 
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #preview input{
+        padding-left: 32px;
+    }
+
+    #formSpan{
+        display: flex;
+        width: 100%;
+        overflow-x: hidden;
+        margin-left: 32px;
+    }
+
+    #formSpan input{
+        padding-left: 0px
+    } 
+
+    #customeNameInput{
+      padding-left: 0;
+      padding-right: 0;
+    }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -53,57 +90,59 @@ include(__DIR__ . '/../env.php');
 </script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-<?php
-if (isset($_POST['submit'])) {
-    require('../admin/dBconn/database.php');
+<?php if (isset($_POST["submit"])) {
+    require "../admin/dBconn/database.php";
     $database = new Database();
     $link = $database->connect();
 
-    $linkIsFor = $_POST['linkIsFor'];
-    $originalLink = $_POST['originalLink'];
-    $shortenLink = $_POST['shortenLink'];
+    $linkIsFor = $_POST["linkIsFor"];
+    $originalLink = $_POST["originalLink"];
+    $shortenLink = $_POST["shortenLink"];
 
-    if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
-
-        $sql = "UPDATE links SET linkIsFor = '" . $linkIsFor . "' ,originalLink = '" . $originalLink . "',shortenLink = '" . $shortenLink . "' WHERE linkID='" . $_GET['linkID'] . "';";
-        // echo "<br><br><br><br><br><br><br><br><br><br><br><br>safdghgkfjrwteqrtyjfdthreawaetsdjfhkjdtrysdtjfhkjdtyrsdhtgf".$sql;
-        $result = mysqli_query($link, $sql);
-
-        if ($result == 1) {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Successfully Updated !!','','success').then(function() {
-                                        window.location = './index.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "';
-                                    });
-                                });
-                            </script>";
-
-
-        } else {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Custom Name Not Available !!','','error');
-                                });
-                            </script>";
-        }
+    // Validate "Link is for" field (name for the shortened link)
+    if (strlen($linkIsFor) > 50) {
+        echo "<script>
+            $(document).ready(function(){
+                swal('Error: Link Name Exceeds 50 Characters! 🚫🔗');
+            });
+        </script>";
     } else {
+        // Validate the originalLink as a valid URL format
+        if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
+            $sql = "UPDATE links SET linkIsFor = '$linkIsFor', originalLink = '$originalLink', shortenLink = '$shortenLink' WHERE linkID = '{$_GET["linkID"]}';";
+            $result = mysqli_query($link, $sql);
 
-        echo "      <script>
-                                $(document).ready(function(){
-                                    swal('Enter Valid URL !!','','error');
-                                });
-                            </script>";
+            if ($result == 1) {
+                echo "<script>
+                    $(document).ready(function(){
+                        swal('Successfully Updated !!','','success').then(function() {
+                            window.location = './index.php?username={$_GET["username"]}&uno={$_GET["uno"]}';
+                        });
+                    });
+                </script>";
+            } else {
+                echo "<script>
+                    $(document).ready(function(){
+                        swal('Custom Name Not Available !!','','error');
+                    });
+                </script>";
+            }
+        } else {
+            echo "<script>
+                $(document).ready(function(){
+                    swal('Enter a Valid URL !!','','error');
+                });
+            </script>";
+        }
     }
+} ?>
 
-
-}
-?>
 
 <body class="fixed-left">
     <!-- Begin page -->
     <div id="wrapper">
 
-        <?php include 'header.php'; ?>
+        <?php include "header.php"; ?>
         <!-- Top Bar End -->
 
         <div class="page-content-wrapper">
@@ -115,7 +154,7 @@ if (isset($_POST['submit'])) {
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Update Link</h4>
-                            <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                            <a href="./index.php?username=<?php echo $username; ?>&uno=<?php echo $uno; ?>"><button
                                     type="" class="btn btn-danger waves-effect waves-light"
                                     style="position: absolute;top: 29px;right: 15px;">Your Links</button></a>
                         </div>
@@ -131,103 +170,138 @@ if (isset($_POST['submit'])) {
                                 <h4 class="mt-0 header-title">Edit Link</h4>
                                 <p class="text-muted font-14">A URL shortener built with powerful tools to help you grow
                                     and protect your brand.</p>
+
                                 <?php
-                                $username = $_GET['username'];
-                                $uno = $_GET['uno'];
-                                $linkID = $_GET['linkID'];
-
-
+                                $username = $_GET["username"];
+                                $uno = $_GET["uno"];
+                                $linkID = $_GET["linkID"];
 
                                 // include '../admin/dBconn/database.php';
                                 $database = new Database();
                                 $link = $database->connect();
 
-                                $sql = "SELECT * FROM links WHERE linkID='" . $linkID . "'";
-                                if ($result = mysqli_query($link, $sql)) {
-                                    if (mysqli_num_rows($result) > 0) {
-                                        $row = mysqli_fetch_array($result);
-                                        // $row['shortenLink'] =  strtok($row['shortenLink'], 'm');
-                                        echo "
-                                                            
-                                                                        <form  method='POST'  >
-                                                                            <div class='row'>
-                                                                                <div class='col-md-12'>
-                                                                                    <div class='form-group'>
-                                                                                        <label>Link is for</label>
-                                                                                        <input type='text'  class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' value='" . $row['linkIsFor'] . "'/>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class='row'>
-                                                                                <div class='col-md-12'>
-                                                                                    <div class='form-group'>
-                                                                                        <label>Original Link</label>
-                                                                                        <input type='text'  class='form-control' id='originalLink' name='originalLink' required placeholder='Original Link' value='" . $row['originalLink'] . "'/>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                
-                                                                            <div class='row'>
-                                                                                <div class='col-md-12'>
-                                                                                    <label>Shorten Link</label>
-                                                                                </div>
-                                                                            </div>
-                                                                                <div class=' form-control col-md-12'> 
-                                                                                    <span class='form-group'>
-                                                                                        <label> <b>" . $env_domain . " </b> </label>
-                                                                                        <span><input type='text'  value='" . $row['shortenLink'] . "' required  placeholder='Custom Short Link' style='border:0px'  id='shortenLink' name='shortenLink'/></span>
-                                                                                    </span>
-                                                                                        
-                                                                                </div>
+                                // Check if the uniqueNo and linkID combination is valid
+                                $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
+                                if ($CheckResult = mysqli_query($link, $checkValidity)) {
+                                    if (mysqli_num_rows($CheckResult) > 0) {
+                                        $sql = "SELECT * FROM links WHERE linkID = $linkID";
+                                        if ($result = mysqli_query($link, $sql)) {
+                                            if (mysqli_num_rows($result) > 0) {
+                                                $row = mysqli_fetch_array($result);
 
-                                                                            <br>
-                                                                        
-                                                                            <div class='row'>
-                                                                                <div class='col-md-6 text-center'>
-                                                                                    <div class='form-group mb-0'>
-                                                                                        <div >
-                                                                                            <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
-                                                                                                Random Number
-                                                                                            </button>
-                                                                                        
-                                                                                            <button  class='btn btn-primary new' type='button'  data-toggle='modal' data-target='#myModal' onclick = join()>Preview</button>
-                                                                                        
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <br>
+                                                // Output the form with the fetched data
+                                                echo "
+                    <form method='POST' id='preview'>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <div class='form-group'>
+                                    <label>Link is for</label>
+                                    <div class='inputIconContainer'>
+                                    <i class='bi bi-globe'></i>
+                                    <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' value='" . htmlspecialchars($row['linkIsFor']) . "'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <div class='form-group'>
+                                    <label>Original Link</label>
+                                    <div class='inputIconContainer'>
+                                    <i class='bi bi-link-45deg'></i>
+                                    <input type='text' class='form-control' id='originalLink' name='originalLink' required placeholder='Original Link' value='" . $row['originalLink'] . "'/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-                                                                            <div class='row'>
-                                                                                <div class='col-md-6 '>
-                                                                                    <div class='form-group mb-0'>
-                                                                                        <div >
-                                                                                            <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
-                                                                                                Update
-                                                                                            </button>
-                                                                                        
-                                                                                
-                                                                                            <button type='reset' class='btn btn-danger waves-effect m-l-5' onclick='goBack()'>
-                                                                                            Cancel
-                                                                                        </button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                        <div class='row'>
+                            <div class='col-md-12'>
+                                <label>Shorten Link</label>
+                            </div>
+                        </div>
+                        <div class='form-control col-md-12' id='customeNameInput'>
+                        <div class='inputIconContainer'>
+                        <svg xmlns='http://www.w3.org/2000/svg' width='15' height='15' fill='#0d42ff' class='bi bi-browser-chrome' viewBox='0 0 16 16'>
+  <path fill-rule='evenodd' d='M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-7.098a2.995 2.995 0 0 0 .05-1.492A2.977 2.977 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8ZM0 8a8 8 0 0 0 7.927 8l1.426-5.321a2.978 2.978 0 0 1-.723.255 2.979 2.979 0 0 1-1.743-.147 2.986 2.986 0 0 1-1.043-.7L.633 4.876A7.975 7.975 0 0 0 0 8Zm5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a2.979 2.979 0 0 0-1.252.243 2.987 2.987 0 0 0-1.81 2.59ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z'/>
+</svg>
+                            <span class='form-group' id='formSpan'>
+                                <label><strong>" . $env_domain . " </strong> </label>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px; max-width: 70%; ' id='shortenLink' name='shortenLink'/></span>
+                            </span>
+                            </div>
+                        </div>
 
-                                                                        </form>
-                                                            
-                                                            
-                                                            ";
-                                        mysqli_free_result($result);
+                        <br>
+
+                        <div class='row'>
+                            <div class='col-md-6 text-center'>
+                                <div class='form-group mb-0'>
+                                    <div>
+                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
+                                            Random Number
+                                        </button>
+
+                                        <button class='btn btn-primary new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class='row'>
+                            <div class='col-md-6'>
+                                <div class='form-group mb-0'>
+                                    <div>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                            Update
+                                        </button>
+
+                                        <button type='reset' class='btn btn-danger waves-effect m-l-5' onclick='goBack()'>
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                ";
+
+                                                mysqli_free_result($result);
+                                            } else {
+                                                echo "<p class='lead'><em>No Record Found.</em></p>";
+                                            }
+                                        } else {
+                                            echo "<script>
+                $(document).ready(function(){
+                    swal('Internal Server Error : 500', '', 'error').then(function() {
+                        window.location = './index.php?username={$username}&uno={$uno}';
+                    });
+                });
+            </script>";
+                                        }
                                     } else {
-                                        echo "<p class='lead'><em>No Record Found.</em></p>";
+                                        echo "<script>
+            $(document).ready(function(){
+                swal('Unauthorized Access.', '', 'error').then(function() {
+                    window.location = './index.php?username={$username}&uno={$uno}';
+                });
+            });
+        </script>";
                                     }
                                 } else {
-                                    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-
+                                    echo "<script>
+        $(document).ready(function(){
+            swal('Internal Server Error : 500', '', 'error').then(function() {
+                window.location = './index.php?username={$username}&uno={$uno}';
+            });
+        });
+    </script>";
                                 }
                                 ?>
+
+
+
 
 
                             </div>
@@ -317,7 +391,7 @@ if (isset($_POST['submit'])) {
         function join() {
             let value = $('#shortenLink').val();
             let new_text = value.split(' ').join('_');
-            let shortlink = "<?php echo $env_domain ?>" + new_text;
+            let shortlink = "<?php echo $env_domain; ?>" + new_text;
             $('#modal').html(shortlink);
             console.log(new_text);
 
@@ -327,7 +401,7 @@ if (isset($_POST['submit'])) {
     <!-- *************************** Get preview modal ends   *****************************  -->
 
 
-    <?php include 'footer.php'; ?>
+    <?php include "footer.php"; ?>
 
     </div>
     <!-- End Right content here -->

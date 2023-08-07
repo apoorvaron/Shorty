@@ -81,7 +81,7 @@
                             <!-- <input type="hidden" name="linkID" id="linkID" value="<?php echo trim($_GET["linkID"]); ?>"/> -->
                             <p>Are you sure you want to delete this record?</p><br>
                             <p>
-                                <input type="submit" onclick="yesDelete()" class="btn btn-danger" >
+                                <input type="submit" onclick="yesDelete()" class="btn btn-danger" aria-label="Delete" aria-describedby="deleteConfirmation" >
                                 <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="btn btn-default">No</a>
                             </p>
                         </div>

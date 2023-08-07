@@ -35,13 +35,13 @@ include(__DIR__ . '/../env.php');
 <meta property="og:website:author" content="Apoorv Aron" />
 
 <!-- TWITTER SEO (0xabdulkhalid) -->
-<meta name="twitter:card" content="<?php echo $env_domain ?>assets/img/inside-header-logo.png" />
+<meta name="twitter:card" content="<?php echo $env_domain ?>assets/img/inside-header-logo.webp />
 <meta name="twitter:site" content="@AronApoorv" />
-<meta name="twitter:image" content="<?php echo $env_domain ?>assets/img/inside-header-logo.png" />
+<meta name="twitter:image" content="<?php echo $env_domain ?>assets/img/inside-header-logo.webp" />
 
 <!-- <meta content="" name="" /> -->
 <meta content="URL shortener, personalized links, trackable links" name="keywords" />
 
 <!-- Favicons -->
-<link href="./assets/img/logo.png" rel="icon" />
+<link href="./assets/img/logo.webp" rel="icon" />
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />

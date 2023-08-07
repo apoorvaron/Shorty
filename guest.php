@@ -107,9 +107,11 @@
   <!-- importing the SEO FROM SEO.PHP FILE -->
   <?php include './includes/seo.php'; ?>
 
+     <!-- Bootsrap icon -->
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- Favicons -->
-  <link href="./assets/img/logo.png" rel="icon" />
+  <link href="./assets/img/logo.webp" rel="icon" />
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
   <!-- Google Fonts -->
@@ -140,11 +142,11 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-    #originalLink {
+     #originalLink {
       border: 0 !important;
       border-bottom: 1px solid #ccc !important;
       padding: 7px 0;
-
+      font-size: .95rem
     }
 
     #shortenLink {
@@ -152,14 +154,42 @@
       padding: 7px 0;
     }
 
+    [type="button"]:active {
+      transform: scale(.92) translateY(.1rem);
+      filter: brightness(1.5) contrast(1.2) !important;
+    }
+    
     #formSpan {
       width: 100%;
       display: flex;
       align-items: baseline;
       border: 0 !important;
-      /* padding: 7px 0; */
       border-bottom: 1px solid #ccc !important;
       margin-bottom: 15px;
+      align-items: center;
+    }
+
+    #formresp {
+      padding: 1rem;
+    }
+    
+    .hero form .btn-primary {
+      margin-top: 1rem;
+    }
+    
+    #formresp h2 {
+      color: #000b;
+      text-align: center;
+      margin-bottom: 1rem !important; 
+    }
+
+    .hero form .btn-primary {
+      padding: .8rem .25rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: .8rem;
+      letter-spacing: .05rem;
+      word-spacing: .1rem;
     }
 
     customName input[type="text"] {
@@ -188,6 +218,27 @@
     img.vert-move {
       -webkit-animation: mover 1s infinite alternate;
       animation: mover 1s infinite alternate;
+    }
+
+    .inputIconContainer{
+	     position: relative;
+	     width: 100%;
+    }
+
+    .inputIconContainer i{
+       position: absolute;
+      top: 18px;
+      left: 5px;
+      color: #0d42ff;
+      font-size: 15px;
+    }
+
+    #linkIcon i{
+     font-size: 20px;
+    }
+
+    #formresp input,  #formSpan{
+        padding-left: 28px;
     }
 
     @-webkit-keyframes mover {
@@ -219,24 +270,32 @@
         align-items: center;
         flex-wrap: wrap;
         gap: 0.5em;
-        /* padding: 1.5em; */
         margin: 0px !important
       }
 
-
       #formresp {
         display: block;
-        /* margin: 0 1.5em; */
       }
 
       .hero form .btn-primary {
-        padding: 15px 8px;
+        padding: 15px 0px;
         width: 48%;
       }
 
-
-
     }
+
+
+    @media (min-width: 767px) {
+        #formresp {
+          padding: .85rem !important;
+        }
+      
+       .hero form .btn-primary {
+          font-size: .9rem;
+          padding: .9rem 1.2rem;
+       }
+    }
+
   </style>
 
 </head>
@@ -280,16 +339,21 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
-            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" style="
-    flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" 
+                  style="flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
               </h2>
               <hr style="color:gray;">
+              <div class="inputIconContainer" id="linkIcon">
+              <i class="bi bi-link-45deg"></i>
               <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink"
                 onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
-              <div class=" style=" padding-left: 0px;">
+              </div>
+            
+              <div class="inputIconContainer" style=" padding-left: 0px;">
+              <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label>
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
@@ -297,7 +361,7 @@ if ($rows == 0) {
                     </p>
                   </label>
                   <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
-                      style="border:0px;padding-left:0px;font-size: 0.9rem;margin: 0px !important;" required
+                      style="border:0px;font-size: 0.9rem;margin: 0px !important;padding:0;" required
                       id="shortenLink" name="shortenLink"
                       onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
                 </span>
@@ -318,9 +382,7 @@ if ($rows == 0) {
           <div id="generateShorty"></div>
 
 
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400" style="
-    height: 0px !important;
-">
+          <div class="row gy-4" data-aos="fade-up" data-aos-delay="400" style="height: 0px !important;">
             <div class="col-lg-3 col-6">
 
             </div>

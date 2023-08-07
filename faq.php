@@ -49,12 +49,11 @@ include('./env.php');
 <body>
     <?php include './includes/header.php'; ?>
 
-
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
         <div class="breadcrumbs"
-            style=" background: #010b1a;background-image: url('../assets/images/hero-bg.png'); background-repeat: no-repeat; background-size: cover;">
+            style=" background: #010b1a;background-image: url('../assets/img/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
@@ -68,7 +67,7 @@ include('./env.php');
             <nav>
                 <div class="container">
                     <ol>
-                        <li><a href="./">Home</a></li>
+                        <li><a href="./" class="homebtn">Home</a></li>
                                                 <li>/</li>
                         <li>FAQ</li>
                     </ol>
@@ -77,164 +76,98 @@ include('./env.php');
         </div><!-- End Breadcrumbs -->
 
 
-
-
-
         <!-- ======= Frequently Asked Questions Section ======= -->
         <section id="faq" class="faq">
             <div class="container" data-aos="fade-up">
 
                 <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-lg-10">
-
                         <div class="accordion accordion-flush" id="faqlist">
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-1">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        How does the link shortening process work?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        The link shortening process takes a long URL and generates a shorter, more
-                                        compact URL that
-                                        redirects to the original long URL. This allows for easier sharing and tracking
-                                        of links.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-2">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        Do I need to create an account to use the link shortening
-                                        service?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        No, you can use the link shortening service without creating an account.
-                                        However, creating an
-                                        account provides additional benefits such as link management, editing options,
-                                        and
-                                        personalized
-                                        features.
-                                    </div>
-                                </div>
-
-
-
-                            </div><!-- # Faq item-->
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-3">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        What are the steps to shorten a link?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        To shorten a link, follow these steps:
-
-                                        <ol>
-                                            <li>Go to the homepage of the link shortening website.</li>
-                                            <li>Locate the input field provided, where you can enter the original long
-                                                URL.</li>
-                                            <li>Enter the long URL into the input field.</li>
-                                            <li>Click on the "Shorten" button or a similar button to initiate the link
-                                                shortening process.
-                                            </li>
-                                            <li>After a brief moment, a shortened link will be generated.</li>
-                                            <li>The shortened link will be displayed below, and you can simply copy it
-                                                to your clipboard.</li>
-                                            <li>The shortened link is now ready to be shared or used as needed.</li>
-                                        </ol>
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-4">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        Can I edit or update my profile details?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        Yes, once you have created an account, you can access your profile settings and
-                                        make changes
-                                        to
-                                        your personal information, such as your name, profile picture, and contact
-                                        details.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-5">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        How do I manage my stored links?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        After logging into your account, you will have access to a link management
-                                        dashboard. From there,
-                                        you can view, edit, delete, or organize your stored links, making it easy to
-                                        manage and
-                                        track your shortened URLs.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item -->
-
-
-                            <div class="accordion-item">
-                                <h3 class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#faq-content-6">
-                                        <i class="bi bi-question-circle question-icon"></i>
-                                        Does it require any money?
-                                    </button>
-                                </h3>
-                                <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
-                                    <div class="accordion-body">
-                                        Its totally free application anyone can use it.
-                                    </div>
-                                </div>
-                            </div><!-- # Faq item-->
-
                         </div>
-
                     </div>
                 </div>
 
             </div>
         </section><!-- End Frequently Asked Questions Section -->
 
-
     </main><!-- End #main -->
+
+
+    <!-- Script for reusable FAQs -->
+    <script>
+
+        // Add faq question and answers with id in this array to render it on screen
+
+        const faqContent = [ 
+          {
+            id: 1,
+            question: "How does the link shortening process work?",
+            answer: ` The link shortening process takes a long URL and generates a shorter, more compact URL that redirects to the original long URL. This allows for easier sharing and tracking of links.`
+          },
+          {
+            id: 2,
+            question: " Do I need to create an account to use the link shortening service?",
+            answer: ` No, you can use the link shortening service without creating an account. However, creating an account provides additional benefits such as link management, editing options, and personalized features.`
+          },
+          {
+            id: 3,
+            question: " What are the steps to shorten a link?",
+            answer: ` To shorten a link, follow these steps:
+            <ol>
+               <li>Go to the homepage of the link shortening website.</li>
+               <li>Locate the input field provided, where you can enter the original long URL.</li>
+               <li>Enter the long URL into the input field.</li>
+               <li>Click on the "Shorten" button or a similar button to initiate the link shortening process.</li>
+               <li>After a brief moment, a shortened link will be generated.</li>
+               <li>The shortened link will be displayed below, and you can simply copy it to your clipboard.</li>
+             <li>The shortened link is now ready to be shared or used as needed.</li>
+            </ol>`
+          },
+          {
+            id: 4,
+            question: " Can I edit or update my profile details?",
+            answer: ` Yes, once you have created an account, you can access your profile settings and make changes to your personal information, such as your name, profile picture, and contact details.`
+          },
+          {
+            id: 5,
+            question: "How do I manage my stored links?",
+            answer: `  After logging into your account, you will have access to a link management dashboard. From there, you can view, edit, delete, or organize your stored links, making it easy to manage and track your shortened URLs.`
+          },
+          {
+            id: 6,
+            question: "Does it require any money?",
+            answer: `Its totally free application anyone can use it.`
+          }
+    ]
+        const faqContainer = document.getElementById("faqlist");
+        let html = "";
+
+        faqContent.forEach((faq)=>{
+            html += `
+            <div class="accordion-item">
+                <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-content-${faq.id}">
+                        <i class="bi bi-question-circle question-icon"></i>
+                        ${faq.question}
+                    </button>
+                </h3>
+
+                <div id="faq-content-${faq.id}" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                    <div class="accordion-body">
+                           ${faq.answer}            
+                    </div>
+                </div>
+             </div>
+            `
+        })
+        faqContainer.innerHTML = html;
+    </script>
 
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->
     <?php include './includes/footer.php'; ?>
 
-
     <!-- importing the CHATBOX && SCROLL BUTTON FROM COMMON PHP FILE -->
     <?php include './includes/chatbotsidebar.php'; ?>
-
-
 
     <div id="preloader"></div>
 

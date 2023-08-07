@@ -37,7 +37,7 @@
         <meta content="themesdesign" name="author" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <link rel="shortcut icon" href="../assets/images/logout-logo.png">
+        <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
@@ -74,7 +74,7 @@
 
                             <div class="form-group row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" id="email" required name="email" placeholder="Enter your Email" >
+                                    <input class="form-control" type="email" id="email" required name="email" placeholder="Enter your Email" aria-label="Email" aria-required="true" >
                                 </div>
                             </div>
 

@@ -17,7 +17,7 @@ include('./env.php');
     <?php include './includes/seo.php'; ?>
 
     <!-- Favicons -->
-    <link href="./assets/img/logo.png" rel="icon" />
+    <link href="./assets/img/logo.webp" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
 
     <!-- Google Fonts -->
@@ -71,7 +71,7 @@ include('./env.php');
             <nav>
                 <div class="container">
                     <ol>
-                        <li><a href="./">Home</a></li>
+                        <li><a href="./" class="homebtn">Home</a></li>
                                                 <li>/</li>
 
                         <li>Privacy Policy</li>
