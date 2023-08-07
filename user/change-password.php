@@ -42,6 +42,10 @@
     #changepassword input{
         padding-left: 32px;
     }
+
+    .hidden{
+            display: none;
+        }
         </style>
     </head>
 
@@ -91,18 +95,23 @@
                                                     <div class="form-group">
                                                         <label>Old Password</label>
                                                         <div class="inputIconContainer">
-                                    <i class="bi bi-key-fill"></i>
-                                                        <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password" aria-label="Old Password" aria-required="true"/>
-</div>
-                                                    </div>
+                                                      <i class="bi bi-key-fill"></i>
+                                                        <input type="password" class="form-control" name="oldPass" id="oldPass" required placeholder="Old Password" aria-label="Old Password" aria-required="true"
+                                                        onkeyup="validate(event)"/>
+                                              </div>
+                                              <p class="error hidden" id="oldPassError">Please fill this  field</p>
+                                        </div>
+                                        
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
                                                         <label>New password</label>
                                                         <div class="inputIconContainer">
                                     <i class="bi bi-lock-fill"></i>
-                                                        <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password" aria-label="New Password" aria-required="true"/>
-</div>
+                                                        <input type="password" class="form-control" name="newPass" id="newPass" required placeholder="New password" aria-label="New Password" aria-required="true"
+                                                        onkeyup="validate(event)"/>
+                                               </div>
+                                               <p class="error hidden" id="newPassError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
@@ -110,8 +119,10 @@
                                                         <label>Confirm Password</label>
                                                         <div class="inputIconContainer">
                                                          <i class="bi bi-check-square-fill"></i>
-                                                        <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password" aria-label="Confirm Password" aria-required="true"/>
-</div>
+                                                        <input type="password" class="form-control" name="cnfrmPass" id="cnfrmPass" required placeholder="Confirm password" aria-label="Confirm Password" aria-required="true"
+                                                        onkeyup="validate(event)"/>
+                                                  </div>
+                                                  <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                                                     </div>
                                                 </div>
                                                
@@ -119,7 +130,7 @@
                                                 <div class="col-md-6">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
+                                                            <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light" onclick="removeValidation()">
                                                                 Update
                                                             </button>
                                                             
@@ -140,6 +151,38 @@
                     </div> <!-- Page content Wrapper -->
 
                 </div> <!-- content -->
+
+              <script>
+                 // Function for inline validation of fields
+        function validate(e){
+            const passwordRegex =/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
+            const error = document.getElementById(`${e.target.name}Error`);
+            if(e.target.name === "oldPass"){
+               (e.target.value)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (e.target.value)?e.target.style.border = "1px solid rgba(170, 170, 170, 0.3)": e.target.style.border = "2px solid red";
+            }else if(e.target.name === "newPass"){
+                const valid = passwordRegex.test(e.target.value);
+                (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
+
+            }else{
+                const passwordVal = document.getElementById("newPass").value;
+                const valid = (passwordVal === e.target.value && e.target.value !== "");
+                (valid)? error.classList.add("hidden") : error.classList.remove("hidden");
+               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
+
+            }
+        }
+
+        function removeValidation(){
+            const errors = [...document.getElementsByClassName("error")]
+            errors.forEach((err)=>{
+                err.classList.add("hidden")
+            })
+
+        }
+              </script>
+
                  <?php
                 function validatePassword($password)
                 {
