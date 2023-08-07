@@ -316,7 +316,7 @@ if (isset($_POST['submit'])) {
     <script>
         document.querySelector('#generateRandom').addEventListener('click', function () {
             var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-            console.log(randNum);
+          //  console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
 
@@ -360,7 +360,7 @@ if (isset($_POST['submit'])) {
             let new_text = value.split(' ').join('_');
             let shortlink = "<?php echo $env_domain ?>" + new_text;
             $('#modal').html(shortlink);
-            console.log(new_text);
+          //  console.log(new_text);
 
         }
     </script>
@@ -379,7 +379,7 @@ if (isset($_POST['submit'])) {
             }
             this.setSelectionRange(c, c);
             var previewBtn = document.querySelector('#previewBtn');
-            console.log(v.trim().length);
+          //  console.log(v.trim().length);
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {

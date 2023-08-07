@@ -456,7 +456,7 @@ if ($rows == 0) {
   <script>
     document.querySelector('#generateRandom').addEventListener('click', function () {
       var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-      console.log(randNum);
+     // console.log(randNum);
       document.querySelector('#shortenLink').value = randNum;
     });
   </script>
