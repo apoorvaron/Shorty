@@ -53,7 +53,7 @@ include(__DIR__ . '/../env.php');
 
     .inputIconContainer i, .inputIconContainer svg{
        position: absolute;
-      top: 5px;
+      top: 3px;
       left: 5px; 
       color: #0d42ff;
       font-size: 15px;
