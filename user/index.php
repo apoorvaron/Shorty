@@ -22,7 +22,7 @@ include(__DIR__ . '/../env.php');
     <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
     <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -64,7 +64,7 @@ if (isset($_GET['short'])) {
                             ?>
 
                             <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
-                                    type="submit" class="btn btn-success waves-effect waves-light"
+                                    type="submit" class="btn btn-success waves-effect waves-light btn-new"
                                     style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
                         </div>
                     </div>
@@ -222,74 +222,74 @@ if (isset($_GET['short'])) {
     </div>
     <!-- END wrapper -->
     <script>
-       
-       function copyLink(word, sno) {
-    // console.log(word);
 
-    // Check if navigator.clipboard is supported or not
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(word).then(() => {
-            // Show copied icon for main copy button
-            const copyIcon = document.getElementById("copyIcon" + sno);
-            copyIcon.classList.remove("fa-files-o");
-            copyIcon.classList.add("fa-check");
+        function copyLink(word, sno) {
+            // console.log(word);
 
-            // Show copied icon for spanWithCopyIcon if it exists
-            const spanWithCopyIcon = document.querySelector(`span.dtr-data i#copyIcon${sno}`);
-            if (spanWithCopyIcon) {
-                spanWithCopyIcon.classList.remove("fa-files-o");
-                spanWithCopyIcon.classList.add("fa-check");
-            }
+            // Check if navigator.clipboard is supported or not
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(word).then(() => {
+                    // Show copied icon for main copy button
+                    const copyIcon = document.getElementById("copyIcon" + sno);
+                    copyIcon.classList.remove("fa-files-o");
+                    copyIcon.classList.add("fa-check");
 
-            setTimeout(() => {
-                // Restore the original icon after 1500ms
-                copyIcon.classList.remove("fa-check");
-                copyIcon.classList.add("fa-files-o");
+                    // Show copied icon for spanWithCopyIcon if it exists
+                    const spanWithCopyIcon = document.querySelector(`span.dtr-data i#copyIcon${sno}`);
+                    if (spanWithCopyIcon) {
+                        spanWithCopyIcon.classList.remove("fa-files-o");
+                        spanWithCopyIcon.classList.add("fa-check");
+                    }
 
-                // Restore the original icon for spanWithCopyIcon if it exists
+                    setTimeout(() => {
+                        // Restore the original icon after 1500ms
+                        copyIcon.classList.remove("fa-check");
+                        copyIcon.classList.add("fa-files-o");
+
+                        // Restore the original icon for spanWithCopyIcon if it exists
+                        if (spanWithCopyIcon) {
+                            spanWithCopyIcon.classList.remove("fa-check");
+                            spanWithCopyIcon.classList.add("fa-files-o");
+                        }
+                    }, 1500);
+                }).catch((error) => {
+                    console.error("Copying failed:", error);
+                });
+            } else {
+                // console.log("2");
+
+                var tempInput = document.createElement("input");
+                tempInput.setAttribute("value", word);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                // Show copied icon for main copy button
+                const copyIcon = document.getElementById("copyIcon" + sno);
+                copyIcon.classList.remove("fa-files-o");
+                copyIcon.classList.add("fa-check");
+
+                // Show copied icon for spanWithCopyIcon if it exists
+                const spanWithCopyIcon = document.querySelector(`span.dtr-data i#copyIcon${sno}`);
                 if (spanWithCopyIcon) {
-                    spanWithCopyIcon.classList.remove("fa-check");
-                    spanWithCopyIcon.classList.add("fa-files-o");
+                    spanWithCopyIcon.classList.remove("fa-files-o");
+                    spanWithCopyIcon.classList.add("fa-check");
                 }
-            }, 1500);
-        }).catch((error) => {
-            console.error("Copying failed:", error);
-        });
-    } else {
-       // console.log("2");
 
-        var tempInput = document.createElement("input");
-        tempInput.setAttribute("value", word);
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
+                setTimeout(() => {
+                    // Restore the original icon after 1500ms
+                    copyIcon.classList.remove("fa-check");
+                    copyIcon.classList.add("fa-files-o");
 
-        // Show copied icon for main copy button
-        const copyIcon = document.getElementById("copyIcon" + sno);
-        copyIcon.classList.remove("fa-files-o");
-        copyIcon.classList.add("fa-check");
-
-        // Show copied icon for spanWithCopyIcon if it exists
-        const spanWithCopyIcon = document.querySelector(`span.dtr-data i#copyIcon${sno}`);
-        if (spanWithCopyIcon) {
-            spanWithCopyIcon.classList.remove("fa-files-o");
-            spanWithCopyIcon.classList.add("fa-check");
-        }
-
-        setTimeout(() => {
-            // Restore the original icon after 1500ms
-            copyIcon.classList.remove("fa-check");
-            copyIcon.classList.add("fa-files-o");
-
-            // Restore the original icon for spanWithCopyIcon if it exists
-            if (spanWithCopyIcon) {
-                spanWithCopyIcon.classList.remove("fa-check");
-                spanWithCopyIcon.classList.add("fa-files-o");
+                    // Restore the original icon for spanWithCopyIcon if it exists
+                    if (spanWithCopyIcon) {
+                        spanWithCopyIcon.classList.remove("fa-check");
+                        spanWithCopyIcon.classList.add("fa-files-o");
+                    }
+                }, 1500);
             }
-        }, 1500);
-    }
-}
+        }
 
     </script>
     <!-- jQuery  -->

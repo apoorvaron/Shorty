@@ -23,6 +23,7 @@
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .swal-overlay {
@@ -32,7 +33,7 @@
         .swal-button {
             padding: 7px 19px;
             border-radius: 2px;
-            background-color: #4962B3;
+            background-color: #04307d;
             font-size: 12px;
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
@@ -48,48 +49,50 @@
             animation: mover 1s infinite alternate;
         }
 
-        .error{
+        .error {
             color: red;
             font-size: 12px;
             margin: 0px;
-            padding-left: 6px; 
+            padding-left: 6px;
         }
 
-        #passwordBorder, #cnfrmPassBorder{
+        #passwordBorder,
+        #cnfrmPassBorder {
             border-radius: 0.25rem;
-        flex-wrap: nowrap;
-             
+            flex-wrap: nowrap;
+
         }
 
-        .hidden{
+        .hidden {
             display: none;
         }
 
-        
-    .inputIconContainer{
-	     position: relative;
-	     width: 100%;
-    }
 
-    #password-iconDiv, #cnfrmPass-iconDiv{
-        width: 89%;
-    }
+        .inputIconContainer {
+            position: relative;
+            width: 100%;
+        }
 
-    .inputIconContainer i{
-       position: absolute;
-      top: 5px;
-      left: 5px;
-      color: #0d42ff;
-      font-size: 15px;
-    }
+        #password-iconDiv,
+        #cnfrmPass-iconDiv {
+            width: 89%;
+        }
 
-    #register input{
-        padding-left: 32px;
-    }
+        .inputIconContainer i {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #0d42ff;
+            font-size: 15px;
+        }
 
-    .eye{
-        width:auto !important;
-    }
+        #register input {
+            padding-left: 32px;
+        }
+
+        .eye {
+            width: auto !important;
+        }
 
         @-webkit-keyframes mover {
             0% {
@@ -110,7 +113,8 @@
                 transform: translateY(-10px);
             }
         }
-        .card-body{
+
+        .card-body {
             padding: 0.75rem;
         }
     </style>
@@ -144,17 +148,18 @@
 
                 <div class="p-3">
 
-                    <form id="register" class="form-horizontal" method="POST" action='./register.php' enctype="multipart/form-data"
-                        aria-label="Register Form">
+                    <form id="register" class="form-horizontal" method="POST" action='./register.php'
+                        enctype="multipart/form-data" aria-label="Register Form">
 
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="inputIconContainer">
-                                <i class="bi bi-envelope-fill"></i>
-                                <input class="form-control" type="email" required name="email" id="email"
-                                    placeholder="Email" aria-required="true" aria-label="Email" onkeyup="validate(event)">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <input class="form-control" type="email" required name="email" id="email"
+                                        placeholder="Email" aria-required="true" aria-label="Email"
+                                        onkeyup="validate(event)">
                                 </div>
-                                    <p class="error hidden" id="emailError">Please enter Valid email</p>
+                                <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
 
@@ -162,38 +167,40 @@
                             <div class="col-12">
                                 <div class="input-group" id="passwordBorder">
                                     <div id="password-iconDiv" class="inputIconContainer">
-                                    <i class="bi bi-lock-fill"></i>
-                                    <input type="password" class="form-control " id="password" required minlength="8"
-                                        name="password" placeholder="Password"
-                                        aria-required="true" aria-label="Password" onkeyup="validate(event)">
-                                    </div>  
+                                        <i class="bi bi-lock-fill"></i>
+                                        <input type="password" class="form-control " id="password" required
+                                            minlength="8" name="password" placeholder="Password" aria-required="true"
+                                            aria-label="Password" onkeyup="validate(event)">
+                                    </div>
                                     <div class="input-group-append eye">
-                                            <span class="input-group-text" onclick="changeType()">
-                                                <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
+                                        <span class="input-group-text" onclick="changeType()">
+                                            <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                     </div>
+                                    </div>
                                 </div>
-                                 <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
-                             </div>
+                                <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1
+                                    lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
+                            </div>
                         </div>
 
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="input-group" id="cnfrmPassBorder">
                                     <div id="cnfrmPass-iconDiv" class="inputIconContainer">
-                                    <i class="bi bi-check-square-fill"></i>
-                                    <input type="password" class="form-control" id="cnfrmPass" required minlength="8"
-                                        name="cnfrmPass" placeholder="Confirm Password" aria-required="true"
-                                        aria-label="Confirm Password" onkeyup="validate(event)">
+                                        <i class="bi bi-check-square-fill"></i>
+                                        <input type="password" class="form-control" id="cnfrmPass" required
+                                            minlength="8" name="cnfrmPass" placeholder="Confirm Password"
+                                            aria-required="true" aria-label="Confirm Password"
+                                            onkeyup="validate(event)">
                                     </div>
-                             
-                                        <div class="input-group-append eye">
-                                            <span class="input-group-text" onclick="changeTypei()">
-                                                <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
+
+                                    <div class="input-group-append eye">
+                                        <span class="input-group-text" onclick="changeTypei()">
+                                            <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                        <p class="error hidden" id="cnfrmPassError">Password does not match</p>
+                                    </div>
+                                </div>
+                                <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                             </div>
                         </div>
 
@@ -213,7 +220,7 @@
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                            <button class="btn  btn-block waves-effect waves-light"
+                                <button class="btn  btn-block waves-effect waves-light btn-new"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
                                     id="submit" name="submit" type="submit" aria-label="Register">Register</button>
                             </div>
@@ -271,27 +278,27 @@
             loopi++;
         }
 
-    // Function for inline validation of fields
-        function validate(e){
+        // Function for inline validation of fields
+        function validate(e) {
             const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
-            const passwordRegex =/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
+            const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
             const error = document.getElementById(`${e.target.name}Error`);
-            if(e.target.name === "email"){
+            if (e.target.name === "email") {
                 const valid = emailRegex.test(e.target.value);
-               (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
-               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
-            }else if(e.target.name === "password"){
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+            } else if (e.target.name === "password") {
                 const div = document.getElementById("passwordBorder").style;
                 const valid = passwordRegex.test(e.target.value);
-                (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
-               (valid)?div.border = "2px solid #04cb04": div.border = "2px solid red";
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? div.border = "2px solid #04cb04" : div.border = "2px solid red";
 
-            }else{
+            } else {
                 const passwordVal = document.getElementById("password").value;
                 const div = document.getElementById("cnfrmPassBorder").style;
                 const valid = (passwordVal === e.target.value);
-                (valid)? error.classList.add("hidden") : error.classList.remove("hidden");
-               (valid)?div.border = "2px solid #04cb04": div.border = "2px solid red";
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? div.border = "2px solid #04cb04" : div.border = "2px solid red";
 
             }
         }
@@ -339,7 +346,7 @@
     <?php
     function validatePassword($password)
     {
-        $passwordRegex ='/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/';
+        $passwordRegex = '/(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/';
         return preg_match($passwordRegex, $password);
     }
     if (isset($_POST["submit"])) {
@@ -356,7 +363,7 @@
         $password = md5($password);
         $randNum = bin2hex(random_bytes(3));
         // $UploadedFileName = $_FILES["UploadImage"]["name"];
-
+    
         $query = "SELECT * from `users` WHERE email='$email'";
         $result = mysqli_query($db, $query);
         if (!mysqli_num_rows($result)) {
@@ -378,7 +385,7 @@
                     //     if (in_array($fileExt, $fileExtStored)) {
                     //         $upload_directory = "../assets/user-img/"; //This is the folder which you created just now
                     //         $TargetPath = time() . $UploadedFileName;
-
+    
                     //         if (
                     //             move_uploaded_file(
                     //                 $_FILES["UploadImage"]["tmp_name"],

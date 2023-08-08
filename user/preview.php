@@ -15,8 +15,8 @@ include __DIR__ . "/../env.php"; ?>
 
     <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
 
-      <!-- Bootstrap Icons -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <link rel="shortcut icon" href="../assets/images/logout-logo.png">
 
@@ -25,6 +25,7 @@ include __DIR__ . "/../env.php"; ?>
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         input:focus {
@@ -38,63 +39,69 @@ include __DIR__ . "/../env.php"; ?>
         .swal-button {
             padding: 7px 19px;
             border-radius: 2px;
-            background-color: #4962B3;
+            background-color: #04307d;
             font-size: 12px;
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
-        .inputIconContainer{
-	     position: relative;
-	     width: 100%;
-    }
 
-    .inputIconContainer i, .inputIconContainer svg{
-       position: absolute;
-      top: 5px;
-      left: 5px; 
-      color: #0d42ff;
-      font-size: 15px;
-    }
-
-    #preview input{
-        padding-left: 32px;
-    }
-
-    #formSpan{
-        display: flex;
-        width: 100%;
-        overflow-x: hidden;
-        margin-left: 32px;
-    }
-
-    #formSpan input{
-        padding-left: 0px
-    } 
-
-    #customeNameInput{
-      padding-left: 0;
-      padding-right: 0;
-    }
-    @media only screen and (max-width: 400px)   {
-        #shortenLink{
-            max-width:70% !important;
+        .inputIconContainer {
+            position: relative;
+            width: 100%;
         }
-    }
-    @media only screen and (max-width: 500px) and (min-width: 400px)  {
-        #shortenLink{
-            width:100% !important;
+
+        .inputIconContainer i,
+        .inputIconContainer svg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #0d42ff;
+            font-size: 15px;
         }
-    }
-    @media only screen and (max-width: 800px) and (min-width: 500px)  {
-        #shortenLink{
-            width:160% !important;
+
+        #preview input {
+            padding-left: 32px;
         }
-    }
-    @media only screen and (min-width: 800px)  {
-        #shortenLink{
-            width:190% !important;
+
+        #formSpan {
+            display: flex;
+            width: 100%;
+            overflow-x: hidden;
+            margin-left: 32px;
         }
-    }
+
+        #formSpan input {
+            padding-left: 0px
+        }
+
+        #customeNameInput {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @media only screen and (max-width: 400px) {
+            #shortenLink {
+                max-width: 70% !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) and (min-width: 400px) {
+            #shortenLink {
+                width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 800px) and (min-width: 500px) {
+            #shortenLink {
+                width: 160% !important;
+            }
+        }
+
+        @media only screen and (min-width: 800px) {
+            #shortenLink {
+                width: 190% !important;
+            }
+        }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -258,11 +265,11 @@ include __DIR__ . "/../env.php"; ?>
                             <div class='col-md-6 text-center'>
                                 <div class='form-group mb-0'>
                                     <div>
-                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
+                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light btn-new'>
                                             Random Number
                                         </button>
 
-                                        <button class='btn btn-primary new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
+                                        <button class='btn btn-primary new btn-new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
                                     </div>
                                 </div>
                             </div>
@@ -273,7 +280,7 @@ include __DIR__ . "/../env.php"; ?>
                             <div class='col-md-6'>
                                 <div class='form-group mb-0'>
                                     <div>
-                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light btn-new'>
                                             Update
                                         </button>
 
@@ -352,7 +359,7 @@ include __DIR__ . "/../env.php"; ?>
     <script>
         document.querySelector('#generateRandom').addEventListener('click', function () {
             var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-           // console.log(randNum);
+            // console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
             if (v.trim().length != 0) {
@@ -413,7 +420,7 @@ include __DIR__ . "/../env.php"; ?>
             let new_text = value.split(' ').join('_');
             let shortlink = "<?php echo $env_domain; ?>" + new_text;
             $('#modal').html(shortlink);
-         //   console.log(new_text);
+            //   console.log(new_text);
 
         }
     </script>

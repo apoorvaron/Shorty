@@ -143,8 +143,8 @@
   <!-- importing the SEO FROM SEO.PHP FILE -->
   <?php include './includes/seo.php'; ?>
 
-     <!-- Bootsrap icon -->
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <!-- Bootsrap icon -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
   <!-- Favicons -->
   <link href="./assets/img/logo.webp" rel="icon" />
@@ -178,7 +178,7 @@
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
   <style>
-     #originalLink {
+    #originalLink {
       border: 0 !important;
       border-bottom: 1px solid #ccc !important;
       padding: 7px 0;
@@ -194,7 +194,7 @@
       transform: scale(.92) translateY(.1rem);
       filter: brightness(1.5) contrast(1.2) !important;
     }
-    
+
     #formSpan {
       width: 100%;
       display: flex;
@@ -208,15 +208,15 @@
     #formresp {
       padding: 1rem;
     }
-    
+
     .hero form .btn-primary {
       margin-top: 1rem;
     }
-    
+
     #formresp h2 {
       color: #000b;
       text-align: center;
-      margin-bottom: 1rem !important; 
+      margin-bottom: 1rem !important;
     }
 
     .hero form .btn-primary {
@@ -256,25 +256,26 @@
       animation: mover 1s infinite alternate;
     }
 
-    .inputIconContainer{
-	     position: relative;
-	     width: 100%;
+    .inputIconContainer {
+      position: relative;
+      width: 100%;
     }
 
-    .inputIconContainer i{
-       position: absolute;
+    .inputIconContainer i {
+      position: absolute;
       top: 18px;
       left: 5px;
       color: #0d42ff;
       font-size: 15px;
     }
 
-    #linkIcon i{
-     font-size: 20px;
+    #linkIcon i {
+      font-size: 20px;
     }
 
-    #formresp input,  #formSpan{
-        padding-left: 28px;
+    #formresp input,
+    #formSpan {
+      padding-left: 28px;
     }
 
     @-webkit-keyframes mover {
@@ -316,24 +317,23 @@
       .hero form .btn-primary {
         padding: 15px 0px;
         width: 48%;
-        margin-top:0%;
+        margin-top: 0%;
       }
 
     }
 
 
     @media (min-width: 767px) {
-        #formresp {
-          padding: .85rem !important;
-        }
-      
-       .hero form .btn-primary {
-          font-size: .9rem;
-          padding: .9rem 1.2rem;
-          margin-top:0%;
-       }
-    }
+      #formresp {
+        padding: .85rem !important;
+      }
 
+      .hero form .btn-primary {
+        font-size: .9rem;
+        padding: .9rem 1.2rem;
+        margin-top: 0%;
+      }
+    }
   </style>
 
 </head>
@@ -377,22 +377,22 @@ if ($rows == 0) {
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center" style="margin-top: 0 !important;">
           <h2 data-aos="fade-up" style="margin-top:1%">Shorty</h2>
           <div>
-            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" 
-                  style="flex-direction: column;" method="POST" data-aos="fade-up" data-aos-delay="200">
+            <form id="formresp" class="form-search align-items-stretch mb-3 d-flex" style="flex-direction: column;"
+              method="POST" data-aos="fade-up" data-aos-delay="200">
 
               <h2 data-aos="fade-up" style="color:gray" class="fs-2 my-2 aos-init aos-animate">Custom Link
               </h2>
               <hr style="color:gray;">
               <div class="inputIconContainer" id="linkIcon">
-	      <label for="originalLink" class="sr-only-labels">Enter your original link: </label>
-              <i class="bi bi-link-45deg"></i>
-              <input type="text" id="originalLink" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
-                id="originalLink" name="originalLink"
-                onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
+                <label for="originalLink" class="sr-only-labels">Enter your original link: </label>
+                <i class="bi bi-link-45deg"></i>
+                <input type="text" id="originalLink" class="form-control mb-3 mt-3" style="font-size: 0.9rem;"
+                  placeholder="Your Link" id="originalLink" name="originalLink"
+                  onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
               </div>
-            
+
               <div class="inputIconContainer" style=" padding-left: 0px;">
-              <i class="bi bi-browser-chrome"></i>
+                <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label for="shortenLink">
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
@@ -400,16 +400,16 @@ if ($rows == 0) {
                     </p>
                   </label>
                   <span><input type="text" id="shortenLink" class="form-control mb-4 mt-3" placeholder="Custom Name"
-                      style="border:0px;font-size: 0.9rem;margin: 0px !important;padding:0;" required
-                      id="shortenLink" name="shortenLink"
+                      style="border:0px;font-size: 0.9rem;margin: 0px !important;padding:0;" required id="shortenLink"
+                      name="shortenLink"
                       onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
                 </span>
 
               </div>
               <div class="d-flex justify-content-between" id="buttonresp">
                 <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
-                <button type="button" role="button" aria-describedby="Click this button to shorten your link" class="btn btn-primary" name="" onclick="generateCustomShorty()"
-                  class="btn-get-started">Shorten
+                <button type="button" role="button" aria-describedby="Click this button to shorten your link"
+                  class="btn btn-primary" name="" onclick="generateCustomShorty()" class="btn-get-started">Shorten
                   Link</button>
 
 
@@ -459,7 +459,7 @@ if ($rows == 0) {
   <script>
     document.querySelector('#generateRandom').addEventListener('click', function () {
       var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-     // console.log(randNum);
+      // console.log(randNum);
       document.querySelector('#shortenLink').value = randNum;
     });
   </script>

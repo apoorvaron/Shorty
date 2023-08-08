@@ -16,6 +16,7 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./assets/css/btn-new.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
@@ -161,7 +162,7 @@ function yesDelete() {
                                                     <div class="form-group mb-0">
                                                         <div>
                                                             <input type="button" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
-                                                            <button type="button" name="submit"  class="btn btn-success waves-effect waves-light">
+                                                            <button type="button" name="submit"  class="btn btn-success waves-effect waves-light btn-new">
                                                                 <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">No</a>
                                                             </button>
 

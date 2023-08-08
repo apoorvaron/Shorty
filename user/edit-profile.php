@@ -17,7 +17,7 @@
     <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
     <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
@@ -39,11 +39,12 @@
         .swal-button {
             padding: 7px 19px;
             border-radius: 2px;
-            background-color: #4962B3;
+            background-color: #04307d;
             font-size: 12px;
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
+
         .file-upload {
             display: none;
         }
@@ -73,7 +74,6 @@
         .uplodInputFileds {
             height: fit-content;
         }
-
     </style>
 </head>
 <?php
@@ -274,7 +274,7 @@ if (isset($_POST['submit'])) {
                                                              
                                                                 <div>
                                                                     
-                                                                    <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light' aria-label='Edit Profile'>
+                                                                    <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light btn-new' aria-label='Edit Profile'>
                                                                         Edit 
                                                                        </button>
                                                                     <a href='./index.php?username=" . $username . "&uno=" . $uno . "'><button type='button' class='btn btn-danger waves-effect m-l-5' aria-label='Cancel'>
