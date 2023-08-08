@@ -23,6 +23,7 @@
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         .swal-overlay {
@@ -112,7 +113,8 @@
                 transform: translateY(-10px);
             }
         }
-        .card-body{
+
+        .card-body {
             padding: 0.75rem;
         }
     </style>
