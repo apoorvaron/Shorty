@@ -21,6 +21,7 @@ if (isset($_GET['short'])) {
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./assets/css/btn-new.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
         <style>
 
@@ -96,7 +97,7 @@ $uno = $_GET['uno'];
                                                  <div class="col-md-12 text-center">
                                                     <div class="form-group mb-0">
                                                         <div>
-                                                            <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light">
+                                                            <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light btn-new">
                                                                 <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">Back to Main Page</a>
                                                             </button>
                                                       

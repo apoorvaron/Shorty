@@ -15,8 +15,8 @@ include __DIR__ . "/../env.php"; ?>
 
     <link rel="shortcut icon" href="../assets/images/logout-logo.webp">
 
-      <!-- Bootstrap Icons -->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <link rel="shortcut icon" href="../assets/images/logout-logo.png">
 
@@ -25,6 +25,7 @@ include __DIR__ . "/../env.php"; ?>
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <style>
         input:focus {
@@ -43,38 +44,40 @@ include __DIR__ . "/../env.php"; ?>
             border: 1px solid #3e549a;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
-        .inputIconContainer{
-	     position: relative;
-	     width: 100%;
-    }
 
-    .inputIconContainer i, .inputIconContainer svg{
-       position: absolute;
-      top: 5px;
-      left: 5px; 
-      color: #0d42ff;
-      font-size: 15px;
-    }
+        .inputIconContainer {
+            position: relative;
+            width: 100%;
+        }
 
-    #preview input{
-        padding-left: 32px;
-    }
+        .inputIconContainer i,
+        .inputIconContainer svg {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            color: #0d42ff;
+            font-size: 15px;
+        }
 
-    #formSpan{
-        display: flex;
-        width: 100%;
-        overflow-x: hidden;
-        margin-left: 32px;
-    }
+        #preview input {
+            padding-left: 32px;
+        }
 
-    #formSpan input{
-        padding-left: 0px
-    } 
+        #formSpan {
+            display: flex;
+            width: 100%;
+            overflow-x: hidden;
+            margin-left: 32px;
+        }
 
-    #customeNameInput{
-      padding-left: 0;
-      padding-right: 0;
-    }
+        #formSpan input {
+            padding-left: 0px
+        }
+
+        #customeNameInput {
+            padding-left: 0;
+            padding-right: 0;
+        }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -238,11 +241,11 @@ include __DIR__ . "/../env.php"; ?>
                             <div class='col-md-6 text-center'>
                                 <div class='form-group mb-0'>
                                     <div>
-                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light'>
+                                        <button type='button' name='generateRandom' id='generateRandom' class='btn btn-success waves-effect waves-light btn-new'>
                                             Random Number
                                         </button>
 
-                                        <button class='btn btn-primary new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
+                                        <button class='btn btn-primary new btn-new' type='button' data-toggle='modal' data-target='#myModal' onclick='join()'>Preview</button>
                                     </div>
                                 </div>
                             </div>
@@ -253,7 +256,7 @@ include __DIR__ . "/../env.php"; ?>
                             <div class='col-md-6'>
                                 <div class='form-group mb-0'>
                                     <div>
-                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light'>
+                                        <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light btn-new'>
                                             Update
                                         </button>
 

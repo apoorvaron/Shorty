@@ -1,4 +1,5 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="./assets/css/btn-new.css">
 
 <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -16,28 +17,28 @@
         text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
     }
 
-    .inputIconContainer{
-	     position: relative;
-	     width: 100%;
+    .inputIconContainer {
+        position: relative;
+        width: 100%;
     }
 
-    #password-iconDiv{
+    #password-iconDiv {
         width: 89%;
     }
 
-    .inputIconContainer i{
-       position: absolute;
-      top: 9px;
-      left: 5px;
-      color: #0d42ff;
-      font-size: 20px;
+    .inputIconContainer i {
+        position: absolute;
+        top: 9px;
+        left: 5px;
+        color: #0d42ff;
+        font-size: 20px;
     }
 
-    #login input{
+    #login input {
         padding-left: 32px;
     }
 
-    .eye{
+    .eye {
         width: auto !important;
     }
 </style>
@@ -143,19 +144,19 @@ if (isset($_POST['submit'])) {
             animation: mover 1s infinite alternate;
         }
 
-        .error{
+        .error {
             color: red;
             font-size: 12px;
             margin: 0px;
-            padding-left: 6px; 
+            padding-left: 6px;
         }
 
-        #passwordBorder{
+        #passwordBorder {
             border-radius: 0.25rem;
             flex-wrap: nowrap;
         }
 
-        .hidden{
+        .hidden {
             display: none;
         }
 
@@ -212,13 +213,14 @@ if (isset($_POST['submit'])) {
                         <div class="form-group row">
                             <div class="col-12">
                                 <div class="inputIconContainer">
-                                <i class="bi bi-envelope-fill"></i>
-                                <input class="form-control  " type="email" required="" name="email" aria-required="true"
-                                    aria-label="Email" data-parsley-type="email" id="email" placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
-                                        echo $_COOKIE['emailcookie'];
-                                    } ?>"  onkeyup="validate(event)">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <input class="form-control  " type="email" required="" name="email"
+                                        aria-required="true" aria-label="Email" data-parsley-type="email" id="email"
+                                        placeholder="Email" value="<?php if (isset($_COOKIE['emailcookie'])) {
+                                            echo $_COOKIE['emailcookie'];
+                                        } ?>" onkeyup="validate(event)">
                                 </div>
-                                    <p class="error hidden" id="emailError">Please enter Valid email</p>
+                                <p class="error hidden" id="emailError">Please enter Valid email</p>
                             </div>
                         </div>
 
@@ -228,11 +230,11 @@ if (isset($_POST['submit'])) {
                             <div class="col-12">
                                 <div class="input-group" id="passwordBorder">
                                     <div class="inputIconContainer" id="password-iconDiv">
-                                    <i class="bi bi-key-fill"></i>
-                                    <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
-                                        echo $_COOKIE['passwordcookie'];
-                                    } ?>" id="password" required name="password" placeholder="Password"
-                                        aria-required="true" aria-label="Password"  onkeyup="validate(event)">
+                                        <i class="bi bi-key-fill"></i>
+                                        <input type="password" class="form-control " value="<?php if (isset($_COOKIE['passwordcookie'])) {
+                                            echo $_COOKIE['passwordcookie'];
+                                        } ?>" id="password" required name="password" placeholder="Password"
+                                            aria-required="true" aria-label="Password" onkeyup="validate(event)">
                                     </div>
                                     <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeType()">
@@ -241,7 +243,7 @@ if (isset($_POST['submit'])) {
                                                 class="fa fa-eye-slash" aria-hidden="true"></i>
                                     </div>
                                 </div>
-                                <p class="error hidden" id="passwordError">Please fill this  field</p>
+                                <p class="error hidden" id="passwordError">Please fill this field</p>
                             </div>
 
                         </div>
@@ -260,7 +262,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                            <button class="btn  btn-block waves-effect waves-light"
+                                <button class="btn  btn-block waves-effect waves-light btn-new"
                                     style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
                                     id="submit" name="submit" type="submit" aria-label="Log In">Log In</button>
                             </div>
@@ -303,17 +305,17 @@ if (isset($_POST['submit'])) {
         }
 
         // Function for inline validation of fields
-        function validate(e){
+        function validate(e) {
             const emailRegex = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/;
             const error = document.getElementById(`${e.target.name}Error`);
-            if(e.target.name === "email"){
+            if (e.target.name === "email") {
                 const valid = emailRegex.test(e.target.value);
-               (valid)?error.classList.add("hidden") : error.classList.remove("hidden");
-               (valid)?e.target.style.border = "2px solid #04cb04": e.target.style.border = "2px solid red";
-            }else{
-             const div = document.getElementById("passwordBorder").style;
-             (!e.target.value)? error.classList.remove("hidden") : error.classList.add("hidden");
-             (!e.target.value)?div.border = "2px solid red": div.border = "none";
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+            } else {
+                const div = document.getElementById("passwordBorder").style;
+                (!e.target.value) ? error.classList.remove("hidden") : error.classList.add("hidden");
+                (!e.target.value) ? div.border = "2px solid red" : div.border = "none";
             }
         }
 

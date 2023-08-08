@@ -14,29 +14,29 @@ if (isset($_GET)) {
 
   }
 
-  if(strlen($new_url)=="0"){
-  //  Nothing
-  }else{
+  if (strlen($new_url) == "0") {
+    //  Nothing
+  } else {
     $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
     $result = mysqli_query($db, $sql);
-  
-  
+
+
     if (mysqli_num_rows($result) > 0) {
       mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
       $row = mysqli_fetch_assoc($result);
       header("Location:" . $row['originalLink']);
-    }else{
-        // var_dump($new_url);
-        if($new_url != "i"){
-            header("Location:404" );
-        }else{
-            header("Location:".$env_domain );
-        }
-     
+    } else {
+      // var_dump($new_url);
+      if ($new_url != "i") {
+        header("Location:404");
+      } else {
+        header("Location:" . $env_domain);
+      }
+
     }
   }
 
-  
+
 }
 ?>
 <!DOCTYPE html>
@@ -72,6 +72,7 @@ if (isset($_GET)) {
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/shorty.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./user/assets/css/btn-new.css">
 
   <!-- =======================================================
   * Template Name: Logis - v1.1.0
@@ -109,13 +110,13 @@ if (isset($_GET)) {
       }
     }
 
-    .inputIconContainer{
-	     position: relative;
-	     width: 100%;
+    .inputIconContainer {
+      position: relative;
+      width: 100%;
     }
 
-    .inputIconContainer i{
-       position: absolute;
+    .inputIconContainer i {
+      position: absolute;
       top: 9px;
       left: 3px;
       color: #0d42ff;
@@ -179,12 +180,13 @@ if ($rows == 0) {
           <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200"
             method="POST">
             <div class="inputIconContainer">
-            <i class="bi bi-link-45deg"></i>
-              <input type="text" class="form-control" style="font-size: 0.9rem; padding-left: 35px;" placeholder="Your Link" id="originalLink"
-              onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
+              <i class="bi bi-link-45deg"></i>
+              <input type="text" class="form-control" style="font-size: 0.9rem; padding-left: 35px;"
+                placeholder="Your Link" id="originalLink"
+                onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
             </div>
 
-            <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
+            <button type="button" class="btn btn-primary btn-new" onclick="generateShorty()">Shorten</button>
           </form>
           <div id="generateShorty"></div>
 
@@ -237,13 +239,13 @@ if ($rows == 0) {
             // count total links
             $sql = "SELECT COUNT(*) as count_links FROM links";
             $result = mysqli_query($link, $sql);
-            
+
             if ($result) {
-                $row = mysqli_fetch_assoc($result);
-                $count_links = $row['count_links'];
-                mysqli_free_result($result);
+              $row = mysqli_fetch_assoc($result);
+              $count_links = $row['count_links'];
+              mysqli_free_result($result);
             } else {
-                echo "Error executing the query: " . mysqli_error($link);
+              echo "Error executing the query: " . mysqli_error($link);
             }
             ?>
             <div class="col-lg-3 col-6">
@@ -271,13 +273,13 @@ if ($rows == 0) {
             $registeredUsers = 0;
             $sql = "SELECT COUNT(*) as registeredUsers FROM users";
             if ($result = mysqli_query($link, $sql)) {
-                if (mysqli_num_rows($result) > 0) {
-                    $row = mysqli_fetch_assoc($result);
-                    $registeredUsers = $row['registeredUsers'];
-                    mysqli_free_result($result);
-                } else {
-                    echo "<p class='lead'><em>No registered users found.</em></p>";
-                }
+              if (mysqli_num_rows($result) > 0) {
+                $row = mysqli_fetch_assoc($result);
+                $registeredUsers = $row['registeredUsers'];
+                mysqli_free_result($result);
+              } else {
+                echo "<p class='lead'><em>No registered users found.</em></p>";
+              }
             }
             ?>
 

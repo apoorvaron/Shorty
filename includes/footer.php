@@ -129,7 +129,8 @@
                                                   data-aos-delay="200"
                                             >
                                                   <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disbaled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
-                                                  <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                                                  <input class="btn btn-primary btn-new" type="button" onclick="copy()" id="copyBtn" value="Copy">
+
                                             </form>
                   `;
 
@@ -220,7 +221,7 @@
                         generateShorty.innerHTML = `
                     <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                         <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" placeholder="" value="<?php echo $env_domain ?>${avail}"/>
-                        <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                        <input class="btn btn-primary btn-new" type="button" onclick="copy()" id="copyBtn" value="Copy">
                     </form>
                 `;
 
