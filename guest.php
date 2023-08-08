@@ -83,7 +83,7 @@
 
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                     <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
-                    <input class="btn btn-primary btn-new" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                    <input class="btn btn-primary btn-new" style="margin-top:0%;" type="button" onclick="copy()" id="copyBtn" value="Copy">
                   </form>
                 `;
 
@@ -318,6 +318,7 @@
       .hero form .btn-primary {
         padding: 15px 0px;
         width: 48%;
+        margin-top: 0%;
       }
 
     }
@@ -331,6 +332,7 @@
       .hero form .btn-primary {
         font-size: .9rem;
         padding: .9rem 1.2rem;
+        margin-top: 0%;
       }
     }
   </style>
@@ -383,21 +385,22 @@ if ($rows == 0) {
               </h2>
               <hr style="color:gray;">
               <div class="inputIconContainer" id="linkIcon">
+                <label for="originalLink" class="sr-only-labels">Enter your original link: </label>
                 <i class="bi bi-link-45deg"></i>
-                <input type="text" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
-                  id="originalLink" name="originalLink"
+                <input type="text" id="originalLink" class="form-control mb-3 mt-3" style="font-size: 0.9rem;"
+                  placeholder="Your Link" id="originalLink" name="originalLink"
                   onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
               </div>
 
               <div class="inputIconContainer" style=" padding-left: 0px;">
                 <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
-                  <label>
+                  <label for="shortenLink">
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $env_domain ?>
                     </p>
                   </label>
-                  <span><input type="text" class="form-control mb-4 mt-3" placeholder="Custom Name"
+                  <span><input type="text" id="shortenLink" class="form-control mb-4 mt-3" placeholder="Custom Name"
                       style="border:0px;font-size: 0.9rem;margin: 0px !important;padding:0;" required id="shortenLink"
                       name="shortenLink"
                       onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" /></span>
@@ -406,7 +409,8 @@ if ($rows == 0) {
               </div>
               <div class="d-flex justify-content-between" id="buttonresp">
                 <button type="button" class="btn btn-primary btn-new" id="generateRandom">Random Number</button>
-                <button type="button" class="btn btn-primary btn-new" name="" onclick="generateCustomShorty()"
+                <button type="button" role="button" aria-describedby="Click this button to shorten your link"
+                  class="btn btn-primary btn-new" name="" onclick="generateCustomShorty()"
                   class="btn-get-started">Shorten
                   Link</button>
 
@@ -457,7 +461,7 @@ if ($rows == 0) {
   <script>
     document.querySelector('#generateRandom').addEventListener('click', function () {
       var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-      console.log(randNum);
+      // console.log(randNum);
       document.querySelector('#shortenLink').value = randNum;
     });
   </script>

@@ -1189,7 +1189,7 @@ $.fn.repeater = function (fig) {
             },
     show: function () {
                 $(this).slideDown();
-     console.log($(this).find('input')[1]);
+    // console.log($(this).find('input')[1]);
       $('#cat-id').val(window.id);
             },
             hide: function (deleteElement) {
@@ -1197,7 +1197,7 @@ $.fn.repeater = function (fig) {
                   window.id--;
                     $('#cat-id').val(window.id);
                   $(this).slideUp(deleteElement);
-                  console.log($('.repeater').repeaterVal());
+            //      console.log($('.repeater').repeaterVal());
                 }
             },
             ready: function (setIndexes) {

@@ -22,13 +22,12 @@ include(__DIR__ . '/../env.php');
     <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
     <!-- Responsive datatable examples -->
     <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-    <link rel="stylesheet" href="./assets/css/btn-new.css">
     <style>
 
 
@@ -175,7 +174,7 @@ if (isset($_GET['short'])) {
                                                                     method: 'GET',
                                                                     dataType: 'JSON',
                                                                     success: function(data) {
-                                                                        console.log("check data ywar",data);
+                                                                       // console.log("check data ywar",data);
                                                                         data.forEach(allEvent);                    
                                                                         function allEvent(event) {
                                                                             
@@ -192,7 +191,7 @@ if (isset($_GET['short'])) {
                                                         
                                                         
                                                                     },error: function(xhr, status, error){
-                                                                        console.log("No");
+                                                                      //  console.log("No");
                                                                     },
                                                                 });
                                                             });
@@ -257,7 +256,7 @@ if (isset($_GET['short'])) {
                     console.error("Copying failed:", error);
                 });
             } else {
-                console.log("2");
+                // console.log("2");
 
                 var tempInput = document.createElement("input");
                 tempInput.setAttribute("value", word);

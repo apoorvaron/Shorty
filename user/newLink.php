@@ -29,8 +29,6 @@ include(__DIR__ . '/../env.php');
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
-
     <style>
         input:focus {
             outline: none;
@@ -57,7 +55,7 @@ include(__DIR__ . '/../env.php');
         .inputIconContainer i,
         .inputIconContainer svg {
             position: absolute;
-            top: 5px;
+            top: 3px;
             left: 5px;
             color: #0d42ff;
             font-size: 15px;
@@ -81,6 +79,30 @@ include(__DIR__ . '/../env.php');
         #customeNameInput {
             padding-left: 0;
             padding-right: 0;
+        }
+
+        @media only screen and (max-width: 400px) {
+            #shortenLink {
+                max-width: 70% !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) and (min-width: 400px) {
+            #shortenLink {
+                width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 800px) and (min-width: 500px) {
+            #shortenLink {
+                width: 160% !important;
+            }
+        }
+
+        @media only screen and (min-width: 800px) {
+            #shortenLink {
+                width: 190% !important;
+            }
         }
     </style>
 </head>
@@ -248,9 +270,8 @@ if (isset($_POST['submit'])) {
                                                         <?php echo $env_domain ?>
                                                     </strong></label>
                                                 <span>
-                                                    <input type="text" placeholder="Custom Name"
-                                                        style="border:0px;max-width:70%;" required id="shortenLink"
-                                                        name="shortenLink" /></span>
+                                                    <input type="text" placeholder="Custom Name" style="border:0px;"
+                                                        required id="shortenLink" name="shortenLink" /></span>
 
                                             </span>
                                         </div>
@@ -323,7 +344,7 @@ if (isset($_POST['submit'])) {
     <script>
         document.querySelector('#generateRandom').addEventListener('click', function () {
             var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-            console.log(randNum);
+            //  console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
 
@@ -367,7 +388,7 @@ if (isset($_POST['submit'])) {
             let new_text = value.split(' ').join('_');
             let shortlink = "<?php echo $env_domain ?>" + new_text;
             $('#modal').html(shortlink);
-            console.log(new_text);
+            //  console.log(new_text);
 
         }
     </script>
@@ -386,7 +407,7 @@ if (isset($_POST['submit'])) {
             }
             this.setSelectionRange(c, c);
             var previewBtn = document.querySelector('#previewBtn');
-            console.log(v.trim().length);
+            //  console.log(v.trim().length);
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {

@@ -2328,3 +2328,14 @@ a:not(.get-a-quote, .social-links a):hover {
 ::-webkit-scrollbar-thumb:hover {
 	background: #0d6eff;
 }
+
+.sr-only-labels {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

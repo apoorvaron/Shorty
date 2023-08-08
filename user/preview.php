@@ -78,6 +78,30 @@ include __DIR__ . "/../env.php"; ?>
             padding-left: 0;
             padding-right: 0;
         }
+
+        @media only screen and (max-width: 400px) {
+            #shortenLink {
+                max-width: 70% !important;
+            }
+        }
+
+        @media only screen and (max-width: 500px) and (min-width: 400px) {
+            #shortenLink {
+                width: 100% !important;
+            }
+        }
+
+        @media only screen and (max-width: 800px) and (min-width: 500px) {
+            #shortenLink {
+                width: 160% !important;
+            }
+        }
+
+        @media only screen and (min-width: 800px) {
+            #shortenLink {
+                width: 190% !important;
+            }
+        }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -230,7 +254,7 @@ include __DIR__ . "/../env.php"; ?>
 </svg>
                             <span class='form-group' id='formSpan'>
                                 <label><strong>" . $env_domain . " </strong> </label>
-                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px; max-width: 70%; ' id='shortenLink' name='shortenLink'/></span>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px;  ' id='shortenLink' name='shortenLink'/></span>
                             </span>
                             </div>
                         </div>
@@ -335,7 +359,7 @@ include __DIR__ . "/../env.php"; ?>
     <script>
         document.querySelector('#generateRandom').addEventListener('click', function () {
             var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-            console.log(randNum);
+            // console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
             if (v.trim().length != 0) {
@@ -360,7 +384,7 @@ include __DIR__ . "/../env.php"; ?>
             }
             this.setSelectionRange(c, c);
             var previewBtn = document.querySelector('#previewBtn');
-            console.log(v.trim().length);
+            // console.log(v.trim().length);
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {
@@ -396,7 +420,7 @@ include __DIR__ . "/../env.php"; ?>
             let new_text = value.split(' ').join('_');
             let shortlink = "<?php echo $env_domain; ?>" + new_text;
             $('#modal').html(shortlink);
-            console.log(new_text);
+            //   console.log(new_text);
 
         }
     </script>

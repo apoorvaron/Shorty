@@ -54,7 +54,7 @@
             width: fit-content;
             padding: 10px 20px;
             cursor: pointer;
-            background-color: #0d6efd;
+            background-color: #04307c;
             color: #fff;
             border-radius: 5px;
         }

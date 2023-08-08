@@ -24,8 +24,9 @@
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
     <link rel="stylesheet" href="./assets/css/btn-new.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+
     <style>
         .inputIconContainer {
             position: relative;
@@ -42,6 +43,10 @@
 
         #changepassword input {
             padding-left: 32px;
+        }
+
+        .hidden {
+            display: none;
         }
     </style>
 </head>
@@ -62,7 +67,7 @@
                         <div class="page-title-box">
                             <h4 class="page-title">Change Your Password</h4>
                             <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
-                                    type="submit" class="btn btn-danger waves-effect waves-light btn-new"
+                                    type="submit" class="btn btn-danger waves-effect waves-light"
                                     style="position: absolute;top: 29px;right: 15px;">My Profile</button></a>
                         </div>
                     </div>
@@ -99,9 +104,12 @@
                                                     <i class="bi bi-key-fill"></i>
                                                     <input type="password" class="form-control" name="oldPass"
                                                         id="oldPass" required placeholder="Old Password"
-                                                        aria-label="Old Password" aria-required="true" />
+                                                        aria-label="Old Password" aria-required="true"
+                                                        onkeyup="validate(event)" />
                                                 </div>
+                                                <p class="error hidden" id="oldPassError">Please fill this field</p>
                                             </div>
+
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
@@ -110,8 +118,11 @@
                                                     <i class="bi bi-lock-fill"></i>
                                                     <input type="password" class="form-control" name="newPass"
                                                         id="newPass" required placeholder="New password"
-                                                        aria-label="New Password" aria-required="true" />
+                                                        aria-label="New Password" aria-required="true"
+                                                        onkeyup="validate(event)" />
                                                 </div>
+                                                <p class="error hidden" id="newPassError">Minimum 8 characters, 1
+                                                    uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -121,8 +132,10 @@
                                                     <i class="bi bi-check-square-fill"></i>
                                                     <input type="password" class="form-control" name="cnfrmPass"
                                                         id="cnfrmPass" required placeholder="Confirm password"
-                                                        aria-label="Confirm Password" aria-required="true" />
+                                                        aria-label="Confirm Password" aria-required="true"
+                                                        onkeyup="validate(event)" />
                                                 </div>
+                                                <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                                             </div>
                                         </div>
 
@@ -131,7 +144,8 @@
                                             <div class="form-group mb-0">
                                                 <div>
                                                     <button type="submit" name="submit" id="submit"
-                                                        class="btn btn-success waves-effect waves-light btn-new">
+                                                        class="btn btn-success waves-effect waves-light btn-new"
+                                                        onclick="removeValidation()">
                                                         Update
                                                     </button>
 
@@ -152,6 +166,38 @@
         </div> <!-- Page content Wrapper -->
 
     </div> <!-- content -->
+
+    <script>
+        // Function for inline validation of fields
+        function validate(e) {
+            const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
+            const error = document.getElementById(`${e.target.name}Error`);
+            if (e.target.name === "oldPass") {
+                (e.target.value) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (e.target.value) ? e.target.style.border = "1px solid rgba(170, 170, 170, 0.3)" : e.target.style.border = "2px solid red";
+            } else if (e.target.name === "newPass") {
+                const valid = passwordRegex.test(e.target.value);
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+
+            } else {
+                const passwordVal = document.getElementById("newPass").value;
+                const valid = (passwordVal === e.target.value && e.target.value !== "");
+                (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
+                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+
+            }
+        }
+
+        function removeValidation() {
+            const errors = [...document.getElementsByClassName("error")]
+            errors.forEach((err) => {
+                err.classList.add("hidden")
+            })
+
+        }
+    </script>
+
     <?php
     function validatePassword($password)
     {
