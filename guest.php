@@ -83,7 +83,7 @@
 
                   <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
                     <input type="text" id="shortInput" disabled style="font-size: 0.9rem;" disabled class="form-control" value="' . $finalLink . '" value=""/>
-                    <input class="btn btn-primary btn-new" style="margin-top:0%;" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                    <input class="btn btn-primary" style="margin-top:0%;" type="button" onclick="copy()" id="copyBtn" value="Copy">
                   </form>
                 `;
 
@@ -168,7 +168,6 @@
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/shorty.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./user/assets/css/btn-new.css">
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
@@ -241,7 +240,7 @@
     .swal-button {
       padding: 7px 19px;
       border-radius: 2px;
-      background-color: #04307d;
+      background-color: #0d6efd;
       font-size: 12px;
       border: 1px solid #0a53be;
       text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
@@ -408,10 +407,9 @@ if ($rows == 0) {
 
               </div>
               <div class="d-flex justify-content-between" id="buttonresp">
-                <button type="button" class="btn btn-primary btn-new" id="generateRandom">Random Number</button>
+                <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
                 <button type="button" role="button" aria-describedby="Click this button to shorten your link"
-                  class="btn btn-primary btn-new" name="" onclick="generateCustomShorty()"
-                  class="btn-get-started">Shorten
+                  class="btn btn-primary" name="" onclick="generateCustomShorty()" class="btn-get-started">Shorten
                   Link</button>
 
 

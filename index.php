@@ -72,7 +72,6 @@ if (isset($_GET)) {
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/shorty.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./user/assets/css/btn-new.css">
 
   <!-- =======================================================
   * Template Name: Logis - v1.1.0
@@ -84,7 +83,7 @@ if (isset($_GET)) {
     .swal-button {
       padding: 7px 19px;
       border-radius: 2px;
-      background-color: #04307d;
+      background-color: #0d6efd;
       font-size: 12px;
       border: 1px solid #0a53be;
       text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
@@ -186,7 +185,7 @@ if ($rows == 0) {
                 onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
             </div>
 
-            <button type="button" class="btn btn-primary btn-new" onclick="generateShorty()">Shorten</button>
+            <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
           </form>
           <div id="generateShorty"></div>
 
