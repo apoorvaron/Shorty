@@ -273,7 +273,7 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-home"
+                                <a href="../" class="text-muted"><i class="mdi mdi-arrow-left-bold"
                                         aria-hidden="true"></i> &nbsp; Home
                                     Page</a>
                             </div>
