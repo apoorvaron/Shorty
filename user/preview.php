@@ -75,6 +75,26 @@ include __DIR__ . "/../env.php"; ?>
       padding-left: 0;
       padding-right: 0;
     }
+    @media only screen and (max-width: 400px)   {
+        #shortenLink{
+            max-width:70% !important;
+        }
+    }
+    @media only screen and (max-width: 500px) and (min-width: 400px)  {
+        #shortenLink{
+            width:100% !important;
+        }
+    }
+    @media only screen and (max-width: 800px) and (min-width: 500px)  {
+        #shortenLink{
+            width:160% !important;
+        }
+    }
+    @media only screen and (min-width: 800px)  {
+        #shortenLink{
+            width:190% !important;
+        }
+    }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -227,7 +247,7 @@ include __DIR__ . "/../env.php"; ?>
 </svg>
                             <span class='form-group' id='formSpan'>
                                 <label><strong>" . $env_domain . " </strong> </label>
-                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px; max-width: 70%; ' id='shortenLink' name='shortenLink'/></span>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px;  ' id='shortenLink' name='shortenLink'/></span>
                             </span>
                             </div>
                         </div>
