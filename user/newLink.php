@@ -78,6 +78,27 @@ include(__DIR__ . '/../env.php');
       padding-left: 0;
       padding-right: 0;
     }
+
+    @media only screen and (max-width: 400px)   {
+        #shortenLink{
+            max-width:70% !important;
+        }
+    }
+    @media only screen and (max-width: 500px) and (min-width: 400px)  {
+        #shortenLink{
+            width:100% !important;
+        }
+    }
+    @media only screen and (max-width: 800px) and (min-width: 500px)  {
+        #shortenLink{
+            width:160% !important;
+        }
+    }
+    @media only screen and (min-width: 800px)  {
+        #shortenLink{
+            width:190% !important;
+        }
+    }
     </style>
 </head>
 <!-- jQuery CDN -->
@@ -242,7 +263,7 @@ if (isset($_POST['submit'])) {
                                               </strong></label>
                                              <span>   
                                                 <input type="text" placeholder="Custom Name"
-                                                style="border:0px;max-width:70%;" required id="shortenLink"
+                                                style="border:0px;" required id="shortenLink"
                                                 name="shortenLink" /></span>
                                                 
                                             </span>
