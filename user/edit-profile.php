@@ -60,7 +60,7 @@
         }
 
         .custom-file-upload:hover {
-            background-color: #2c7df7;
+            background-color: #04307c;
 
         }
 
