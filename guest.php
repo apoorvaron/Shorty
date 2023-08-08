@@ -282,8 +282,7 @@ if ($rows == 0) {
         </div>
 
         <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size"
-            style="margin-top:20%" />
+          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size m-t-p20" />
 
         </div>
       </div>

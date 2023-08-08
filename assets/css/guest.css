@@ -183,3 +183,7 @@ img.vert-move {
 .h-0 {
   height: 0 !important;
 }
+
+.m-t-p20 {
+  margin-top: 20% !important;
+}
