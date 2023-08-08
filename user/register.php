@@ -110,6 +110,9 @@
                 transform: translateY(-10px);
             }
         }
+        .card-body{
+            padding: 0.75rem;
+        }
     </style>
 </head>
 
