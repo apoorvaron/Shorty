@@ -383,8 +383,8 @@ if ($rows == 0) {
               </h2>
               <hr style="color:gray;">
               <div class="inputIconContainer" id="linkIcon">
-              <i class="bi bi-link-45deg"></i>
 	      <label for="originalLink" class="sr-only-labels">Enter your original link: </label>
+              <i class="bi bi-link-45deg"></i>
               <input type="text" id="originalLink" class="form-control mb-3 mt-3" style="font-size: 0.9rem;" placeholder="Your Link"
                 id="originalLink" name="originalLink"
                 onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateCustomShorty(); }" />
