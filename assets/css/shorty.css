@@ -120,7 +120,7 @@ section {
 .navbar .get-a-quote:active {
 	color: white !important;
 	background: #003e7f !important;
-	transform: scale(0.9);
+	/* transform: scale(0.9); */
 	font-weight: 600;
 }
 
