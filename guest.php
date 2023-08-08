@@ -393,7 +393,7 @@ if ($rows == 0) {
               <div class="inputIconContainer" style=" padding-left: 0px;">
               <i class="bi bi-browser-chrome"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
-                  <label for="shortenLink" class="sr-only-labels">
+                  <label for="shortenLink">
                     <p style="margin: 0px !important;color:#555; font-weight: 900;">
                       <?php echo $env_domain ?>
                     </p>
