@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tomorrow&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="./assets/css/404.css">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
     <div class="notfound-copy1">
 
 
-        <h1 style="color: white;">MORE</h1>
+        <h1 class="text-white">MORE</h1>
 
 
         <p><a href="./about">About Us</a></p>
@@ -44,7 +44,7 @@
 
     <div class="notfound-copy">
 
-        <svg aria-labelledby="404" alt="404 Page not found" class="not-found" style="margin-top:100px;">
+        <svg aria-labelledby="404" alt="404 Page not found" class="not-found">
 
 
 
@@ -53,7 +53,7 @@
 
     </div>
 
-    <svg aria-labelledby="Starry sky" alt="Starry sky" class="starry-sky" style="margin-top: 100px;">
+    <svg aria-labelledby="Starry sky" alt="Starry sky" class="starry-sky">
 
 
 
@@ -138,345 +138,7 @@
             alt="" class="src">
     </div>
 
-    <style>
-        <!-- body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Tomorrow', sans-serif;
-            height: 100vh;
-            background-image: linear-gradient(to top, #2e1753, #1f1746, #131537, #0d1028, #050819);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        } -->
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Tomorrow', sans-serif;
-            background-image: linear-gradient(to top, #2e1753, #1f1746, #131537, #0d1028, #050819);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
 
-        /* ... (other existing styles) ... */
-
-        /* Additional styles for responsiveness */
-
-        /* Adjust font size for smaller screens */
-        h1 {
-            font-size: 40px;
-        }
-
-        /* Center the notfound-copy1 div horizontally and add some margin for better spacing */
-        .notfound-copy1 {
-            text-align: center;
-            margin: 20px;
-        }
-
-        /* Adjust the font size for smaller screens in notfound-copy1 */
-        .notfound-copy1 h1 {
-            font-size: 30px;
-        }
-
-        /* Make the links in notfound-copy1 responsive */
-        .notfound-copy1 p {
-            margin: 5px;
-        }
-
-        /* Center the notfound-copy div horizontally and vertically */
-        .notfound-copy {
-            color: #fff;
-            text-align: center;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* ... (other existing styles) ... */
-
-        /* Add responsive styles for the astronaut image */
-        .astronaut img {
-            width: 60px;
-            top: 35%;
-            animation: astronautFly 6s infinite linear;
-        }
-
-        /* ... (existing keyframes and animation styles) ... */
-
-        /* Adjust the astronaut animation for smaller screens */
-        @keyframes astronautFly {
-            0% {
-                left: -100px;
-            }
-            /* ... (existing keyframes) ... */
-            100% {
-                left: 110%;
-            }
-        }
-
-        /* Adjust the star animation for smaller screens */
-        @keyframes starTwinkle {
-            0% {
-                background: rgba(255, 255, 255, 0.4);
-            }
-            /* ... (existing keyframes) ... */
-            100% {
-                background: rgba(255, 255, 255, 0.4);
-            }
-        }
-
-        /* ... (existing styles) ... */
-
-        /* Responsive styles for the button */
-        .btn-cartoon {
-            font-size: 20px;
-            padding: 8px 20px;
-        }
-
-
-        .text {
-            position: absolute;
-            top: 10%;
-            color: #fff;
-            text-align: center;
-            max-widht: 100px;
-        }
-
-        h1 {
-            font-size: 60px;
-        }
-
-        .star {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: #fff;
-            right: 0;
-            animation: starTwinkle 3s infinite linear;
-        }
-
-        .astronaut img {
-            width: 100px;
-            position: absolute;
-            top: 55%;
-            animation: astronautFly 6s infinite linear;
-        }
-
-        @keyframes astronautFly {
-            0% {
-                left: -100px;
-            }
-
-            25% {
-                top: 50%;
-                transform: rotate(30deg);
-            }
-
-            50% {
-                transform: rotate(45deg);
-                top: 55%;
-            }
-
-            75% {
-                top: 60%;
-                transform: rotate(30deg);
-            }
-
-            100% {
-                left: 110%;
-                transform: rotate(45deg);
-            }
-        }
-
-        @keyframes starTwinkle {
-            0% {
-                background: rgba(255, 255, 255, 0.4);
-            }
-
-            25% {
-                background: rgba(255, 255, 255, 0.8);
-            }
-
-            50% {
-                background: rgba(255, 255, 255, 1);
-            }
-
-            75% {
-                background: rgba(255, 255, 255, 0.8);
-            }
-
-            100% {
-                background: rgba(255, 255, 255, 0.4);
-            }
-        }
-
-
-
-
-        /* Botton */
-        .btn-cartoon {
-            color: white;
-            border: 1px #181818 solid;
-            border-radius: 100px;
-            font-size: 29px;
-            font-weight: 600;
-            font-family: 'Inter Tight', Helvetica, Arial, Lucida, sans-serif;
-            border: #0d24ff;
-            padding: 10px 30px;
-            transition: all 600ms ease 0ms;
-            cursor: pointer;
-            display: inline-block;
-
-            transition: transform .3s cubic-bezier(.5, 2.5, .7, .7), box-shadow .3s cubic-bezier(.5, 2.5, .7, .7) !important;
-            transform: translateX(0px) translateY(-5px);
-            box-shadow: 0px 5px 0px 0px white;
-        }
-
-        .btn-cartoon:hover {
-            transition: transform .3s cubic-bezier(.5, 2.5, .7, .7), box-shadow .3s cubic-bezier(.5, 2.5, .7, .7) !important;
-            transform: translateX(0px) translateY(-5px);
-            box-shadow: 0px 5px 0px 0px white;
-        }
-
-        .btn-cartoon:active {
-            background-color: #e1d653 !important;
-            box-shadow: 0px 3px 0px 0px #181818 !important;
-            transform: translateY(-3px) !important;
-        }
-
-
-
-
-
-
-
-
-
-        .not-found {
-            width: 560px;
-            height: 225px;
-            margin-right: -10px;
-        }
-
-        .starry-sky {
-            display: block;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-        }
-
-        .search-icon {
-            display: inline-block;
-        }
-
-
-        .notfound-copy1 {
-            position: fixed;
-            bottom: 0;
-            right: 0;
-            margin-right: 2%;
-            margin-bottom: 2%;
-        }
-
-        .notfound-copy {
-            color: #fff;
-            position: fixed;
-            top: 25px;
-            right: 10%;
-            text-align: right;
-        }
-
-        h1 {
-            font-weight: 700;
-            font-size: 40px;
-        }
-
-        a {
-            font-weight: 300;
-            color: #fff;
-            border-bottom: 1.5px solid #5581d4;
-            text-decoration: none;
-        }
-
-        a:hover {
-            font-weight: 300;
-            color: #fff;
-            border-bottom: 2px solid #fff;
-            text-decoration: none;
-        }
-
-        /* change to alternating star opacities */
-        .all-stars {
-            animation: blinkblink 7s linear infinite;
-        }
-
-        @keyframes blinkblink {
-            50% {
-                opacity: 0.1;
-            }
-        }
-
-        .moon {}
-
-        input[type=text] {
-            color: #fff;
-            background-color: #0a1821;
-            padding: 5px;
-            border: none;
-            border-bottom: 2px solid #ccc;
-            font-size: 18px;
-        }
-
-        input[type=text]:focus {
-            border-color: none;
-            border-bottom: 2px solid #ccc;
-        }
-
-        /* mobile test * /
-@media (max-width: 647px) { 
-  .moon {
-    padding-top: -700px;
-  }
-}
-
-@media (max-width: 767px) {
-  .starry-sky {
-    margin-top: 100px;
-  }
-}
-
-
-/* Hide the SVG image on mobile devices with screen width smaller than 380px */
-@media (max-width: 380px) {
-    .starry-sky {
-        display: none;
-    }
-
-
-    .notfound-404 h1{
-<!-- color: red; -->
-    }
-
-    .notfound-copy1 {
-            color: #fff;
-            position: fixed;
-           
-            text-align: center;
-
-
-            bottom: 0;
-            right: 0;
-            margin-right: 30%;
-            margin-bottom: 2%;
-        }
-
-}
-
-    </style>
 
 
     <script>
