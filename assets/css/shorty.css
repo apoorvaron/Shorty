@@ -120,7 +120,7 @@ section {
 .navbar .get-a-quote:active {
 	color: white !important;
 	background: #003e7f !important;
-	/* transform: scale(0.9); */
+	transform: scale(0.9);
 	font-weight: 600;
 }
 
@@ -2314,12 +2314,12 @@ a:not(.get-a-quote, .social-links a):hover {
 }
 
 .sr-only-labels {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }
