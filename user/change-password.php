@@ -68,7 +68,7 @@
                             <h4 class="page-title">Change Your Password</h4>
                             <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
                                     type="submit" class="btn btn-danger waves-effect waves-light"
-                                    style="position: absolute;top: 29px;right: 15px;">My Profile</button></a>
+                                    style="position: absolute;top: 29px;right: 15px;">Profile</button></a>
                         </div>
                     </div>
                 </div>
