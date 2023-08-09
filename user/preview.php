@@ -26,83 +26,10 @@ include __DIR__ . "/../env.php"; ?>
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
+    <link rel="stylesheet" href="../assets/css/preview.css">
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        input:focus {
-            outline: none;
-        }
 
-        .swal-overlay {
-            background-color: #0e1d34;
-        }
-
-        .swal-button {
-            padding: 7px 19px;
-            border-radius: 2px;
-            background-color: #04307d;
-            font-size: 12px;
-            border: 1px solid #04307d;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        .inputIconContainer {
-            position: relative;
-            width: 100%;
-        }
-
-        .inputIconContainer i,
-        .inputIconContainer svg {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #04307d;
-            font-size: 15px;
-        }
-
-        #preview input {
-            padding-left: 32px;
-        }
-
-        #formSpan {
-            display: flex;
-            width: 100%;
-            overflow-x: hidden;
-            margin-left: 32px;
-        }
-
-        #formSpan input {
-            padding-left: 0px
-        }
-
-        #customeNameInput {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        @media only screen and (max-width: 400px) {
-            #shortenLink {
-                max-width: 70% !important;
-            }
-        }
-
-        @media only screen and (max-width: 500px) and (min-width: 400px) {
-            #shortenLink {
-                width: 100% !important;
-            }
-        }
-
-        @media only screen and (max-width: 800px) and (min-width: 500px) {
-            #shortenLink {
-                width: 160% !important;
-            }
-        }
-
-        @media only screen and (min-width: 800px) {
-            #shortenLink {
-                width: 190% !important;
-            }
-        }
-    </style>
 </head>
 <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -182,8 +109,9 @@ include __DIR__ . "/../env.php"; ?>
                         <div class="page-title-box">
                             <h4 class="page-title">Update Link</h4>
                             <a href="./index.php?username=<?php echo $username; ?>&uno=<?php echo $uno; ?>"><button
-                                    type="" class="btn btn-danger waves-effect waves-light"
-                                    style="position: absolute;top: 29px;right: 15px;">Your Links</button></a>
+                                    type=""
+                                    class="btn btn-danger waves-effect waves-light position-absolute top-29 right-15">Your
+                                    Links</button></a>
                         </div>
                     </div>
                 </div>
@@ -254,7 +182,7 @@ include __DIR__ . "/../env.php"; ?>
 </svg>
                             <span class='form-group' id='formSpan'>
                                 <label><strong>" . $env_domain . " </strong> </label>
-                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' style='border:0px;  ' id='shortenLink' name='shortenLink'/></span>
+                                <span><input type='text' value='" . $row['shortenLink'] . "' required placeholder='Custom Name' class='border-0' id='shortenLink' name='shortenLink'/></span>
                             </span>
                             </div>
                         </div>

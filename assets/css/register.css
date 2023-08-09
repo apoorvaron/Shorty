@@ -1,7 +1,93 @@
-.divider:after,
-.divider:before {
-  content: "";
-  flex: 1;
-  height: 1px;
-  background: #eee;
+.fixed-left {
+  background-image: url("../../assets/img/hero-bg.webp");
+  background-color: #0e1d34;
+  background-size: cover;
+  background-position: center;
+}
+img.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+img.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin: 0px;
+  padding-left: 6px;
+}
+
+#passwordBorder,
+#cnfrmPassBorder {
+  border-radius: 0.25rem;
+  flex-wrap: nowrap;
+}
+
+.hidden {
+  display: none;
+}
+
+.inputIconContainer {
+  position: relative;
+  width: 100%;
+}
+
+#password-iconDiv,
+#cnfrmPass-iconDiv {
+  width: 89%;
+}
+
+.inputIconContainer i {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color: #04307d;
+  font-size: 15px;
+}
+
+#register input {
+  padding-left: 32px;
+}
+
+.eye {
+  width: auto !important;
+}
+
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+.card-body {
+  padding: 0.75rem;
+}
+
+.ml-np15 {
+  margin-left: -15% !important;
+}
+.mt-p4 {
+  margin-top: 4% !important;
+}
+
+.zIndexTop {
+  z-index: 9999 !important;
 }

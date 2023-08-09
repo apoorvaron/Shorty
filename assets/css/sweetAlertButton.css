@@ -6,3 +6,7 @@
   border: 1px solid #0a53be;
   text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
 }
+.swal-overlay {
+  background-color: #0e1d34;
+}
+

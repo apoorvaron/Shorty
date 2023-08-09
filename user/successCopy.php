@@ -23,13 +23,8 @@ if (isset($_GET['short'])) {
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="./assets/css/btn-new.css">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-        <style>
+        <link rel="stylesheet" href="../assets/css/successCopy.css">
 
-            input:focus {
-                outline: none;
-            } 
-
-        </style>
     </head>
 
 <script>
@@ -68,9 +63,9 @@ $uno = $_GET['uno'];
                                                 <!-- <h1 >Your Links</h1> -->
                                                 <br>
                                                 <br>
-                                                <h1 class="text-muted  font-30">Your Link for  <span style="font-weight:bold; color:#5b6be8"><?php echo $_GET['for'] ?></span>  has been copied !!</h1>
+                                                <h1 class="text-muted font-30 ">Your Link for  <span class="font-weight-bold text-5b6be8"></span><?php echo $_GET['for'] ?></span>  has been copied !!</h1>
             <br>
-            <h3 class="text-muted  font-30" >Back to Panel in <span style="font-weight:bold; color:#5b6be8" id="countdown"></span> Sec !!</h3>
+            <h3 class="text-muted  font-30" >Back to Panel in <span class="font-weight-bold text-5b6be8" id="countdown"></span> Sec !!</h3>
             <br>
                                             </center>
 
@@ -98,7 +93,7 @@ $uno = $_GET['uno'];
                                                     <div class="form-group mb-0">
                                                         <div>
                                                             <button type="submit" name="submit"  class="btn btn-success waves-effect waves-light btn-new">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">Back to Main Page</a>
+                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="text-white">Back to Main Page</a>
                                                             </button>
                                                       
                                                         </div>
