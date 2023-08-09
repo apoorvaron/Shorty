@@ -2212,26 +2212,10 @@ a:not(.get-a-quote, .social-links a):hover {
 	transition: 0.3s;
 }
 
-.footer .social-links a:hover:nth-child(1) {
-	color: #000000;
-	border-color: #000000;
+.footer .social-links a:hover {
+	color: #2D5AFF;
+	border-color: #2D5AFF;
 }
-
-.footer .social-links a:hover:nth-child(2) {
-	color: #0a66c2;
-	border-color: #0a66c2;
-}
-
-.footer .social-links a:hover:nth-child(3) {
-	color: #1d9bf0;
-	border-color: #1d9bf0
-}
-
-.footer .social-links a:hover:nth-child(4) {
-	color: rgb(5, 183, 5);
-	border-color: rgb(5, 183, 5);
-}
-
 
 .footer h4 {
 	font-size: 16px;
@@ -2330,12 +2314,12 @@ a:not(.get-a-quote, .social-links a):hover {
 }
 
 .sr-only-labels {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }

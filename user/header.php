@@ -139,11 +139,12 @@
                
 
                 <div class="sidebar-inner slimscrollleft" id="sidebar-main">
-
+                    <!-- Sidebar starts -->
                     <div id="sidebar-menu">
                         <ul>
                             <li class="menu-title">Menu</li>
 <!--
+
                             <li>
                                 <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
                             </li>

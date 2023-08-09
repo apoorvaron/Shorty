@@ -43,7 +43,7 @@ include(__DIR__ . '/../env.php');
             border-radius: 2px;
             background-color: #04307d;
             font-size: 12px;
-            border: 1px solid #3e549a;
+            border: 1px solid #04307d;
             text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
         }
 
@@ -216,7 +216,7 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center"
                                     role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style = "padding: 1rem 1.75rem;">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong>
