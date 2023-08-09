@@ -89,9 +89,7 @@
                                                     </div> -->
 
                                 <h4 class="mt-0 header-title">Change Password</h4>
-                                <p class="text-muted font-14">Regularly updating your passwords means that even if
-                                    someone finds an old or saved password, it will no longer be useful, and your data
-                                    will be secure.</p>
+                                <p class="text-muted font-14">Frequently changing passwords renders old or saved ones useless, enhancing data security.</p>
 
                                 <form method="POST" id="changepassword">
                                     <div class="row">
