@@ -142,7 +142,7 @@
 
                     <div id="sidebar-menu">
                         <ul>
-                            <li class="menu-title">Menu</li>
+                            <!-- <li class="menu-title">Menu</li> -->
 <!--
                             <li>
                                 <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
