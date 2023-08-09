@@ -216,7 +216,7 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center"
                                     role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style = "padding: 1rem 1.75rem;">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong>
