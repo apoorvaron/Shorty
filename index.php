@@ -72,66 +72,14 @@ if (isset($_GET)) {
 
   <!-- Template Main CSS File -->
   <link href="./assets/css/shorty.css" rel="stylesheet" />
-
+  <link rel="stylesheet" href="./assets/css/homePage.css">
+  <link rel="stylesheet" href="./assets/css/sweetAlertButton.css">
   <!-- =======================================================
   * Template Name: Logis - v1.1.0
   * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
-  <style>
-    .swal-button {
-      padding: 7px 19px;
-      border-radius: 2px;
-      background-color: #0d6efd;
-      font-size: 12px;
-      border: 1px solid #0a53be;
-      text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-    }
-
-    img.vert-move {
-      -webkit-animation: mover 1s infinite alternate;
-      animation: mover 1s infinite alternate;
-    }
-
-    img.vert-move {
-      -webkit-animation: mover 1s infinite alternate;
-      animation: mover 1s infinite alternate;
-    }
-
-    @-webkit-keyframes mover {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-50px);
-      }
-    }
-
-    .inputIconContainer {
-      position: relative;
-      width: 100%;
-    }
-
-    .inputIconContainer i {
-      position: absolute;
-      top: 9px;
-      left: 3px;
-      color: #0d42ff;
-      font-size: 25px
-    }
-
-    @keyframes mover {
-      0% {
-        transform: translateY(0);
-      }
-
-      100% {
-        transform: translateY(-50px);
-      }
-    }
-  </style>
 </head>
 <?php
 // require('./admin/dBconn/database.php');
@@ -169,7 +117,7 @@ if ($rows == 0) {
     <div class="container">
       <div class="row gy-4 d-flex justify-content-between">
         <div class="col-lg-6  order-lg-1 d-flex flex-column justify-content-center">
-          <h2 data-aos="fade-up" style="margin-top:4%">Shorty</h2>
+          <h2 data-aos="fade-up" class="mt-p4">Shorty</h2>
           <p data-aos="fade-up" data-aos-delay="100">
             To help you grow, scale, and dominate through the power of link management.Whether you’re sharing one link
             or millions, Shorty lets you personalize, share, and track your content links, while capturing data with
@@ -180,9 +128,8 @@ if ($rows == 0) {
             method="POST">
             <div class="inputIconContainer">
               <i class="bi bi-link-45deg"></i>
-              <input type="text" class="form-control" style="font-size: 0.9rem; padding-left: 35px;"
-                placeholder="Your Link" id="originalLink"
-                onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
+              <input type="text" class="form-control bg-black fontSize9rem pl-35" placeholder="Your Link"
+                id="originalLink" onkeydown="if(event.keyCode === 13) { event.preventDefault(); generateShorty(); }">
             </div>
 
             <button type="button" class="btn btn-primary" onclick="generateShorty()">Shorten</button>
@@ -301,8 +248,7 @@ if ($rows == 0) {
         </div>
 
         <div class="col-lg-5 order-1 order-lg-2 hero-img" data-aos="zoom-out">
-          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size"
-            style="margin-top:20%" />
+          <img src="assets/img/hero-img.svg" class="img-fluid mb-3 mb-lg-0 vert-move mobile-size mt-p20" />
 
         </div>
       </div>

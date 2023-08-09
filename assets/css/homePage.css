@@ -1,0 +1,58 @@
+img.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+img.vert-move {
+  -webkit-animation: mover 1s infinite alternate;
+  animation: mover 1s infinite alternate;
+}
+
+@-webkit-keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+.inputIconContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inputIconContainer i {
+  position: absolute;
+  top: 9px;
+  left: 3px;
+  color: #0d42ff;
+  font-size: 25px;
+}
+
+@keyframes mover {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-50px);
+  }
+}
+
+.mt-p4 {
+  margin-top: 4% !important;
+}
+
+.fontSize9rem {
+  font-size: 0.9rem !important;
+}
+
+.pl-35 {
+  padding-left: 35px !important;
+}
+
+.mt-p20 {
+  margin-top: 20% !important;
+}
