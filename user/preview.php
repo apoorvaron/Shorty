@@ -55,7 +55,7 @@ include __DIR__ . "/../env.php"; ?>
             position: absolute;
             top: 5px;
             left: 5px;
-            color: #0d42ff;
+            color: #04307d;
             font-size: 15px;
         }
 
