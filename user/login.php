@@ -30,7 +30,7 @@
         position: absolute;
         top: 9px;
         left: 5px;
-        color: #0d42ff;
+        color: #04307d;
         font-size: 20px;
     }
 
