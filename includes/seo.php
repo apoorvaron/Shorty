@@ -63,7 +63,7 @@ include(__DIR__ . '/../env.php');
 />
 
 <!-- BROWSER BAR THEME -->
-<meta name="theme-color" content="#0D42FE" />
+<meta name="theme-color" content="#0e1d34" />
 <meta name="msapplication-navbutton-color" content="#151515" />
 <meta name="msapplication-TileColor" content="#0D42FE" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
