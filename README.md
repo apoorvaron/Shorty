@@ -77,10 +77,19 @@ This project is <a href="https://github.com/apoorvaron/Shorty/blob/main/LICENSE"
 
 ## 🚀 Getting Started
 
-- Shorty Project Setup Tutorial - https://www.youtube.com/watch?v=L5HdDeYaKd0
-- PHP Installation (Mandatory for Windows and Mac) - https://www.youtube.com/watch?v=mVBe75aGBHQ (Version used -> 8.1.9)
-- XAMPP Installation (Mandatory for Windows and Mac) - https://www.youtube.com/watch?v=at19OmH2Bg4
-- LAMPP (Mandatory for Linux) - https://youtu.be/HJl2ILUfBoA
+- [Setup] Shorty Project Setup Tutorial
+- Tutorial - [https://www.youtube.com/watch?v=rHiFSNm6hbU](https://www.youtube.com/watch?v=rHiFSNm6hbU)
+
+- Must install PHP version (FOR WINDOWS) & (FOR MAC) Both
+- Tutorial - https://www.youtube.com/watch?v=mVBe75aGBHQ
+- PHP version used -> ( 8.1.9 )
+
+- Must install xampp (FOR WINDOWS) and MAMP (FOR MAC)
+- Tutorial - https://www.youtube.com/watch?v=at19OmH2Bg4
+
+- Must install LAMPP ( For Linux)
+- Tutorial - https://youtu.be/HJl2ILUfBoA
+
 - MySQL version used -> ( 8.0.29 )
 
 -------_---------_---------_---------_---------\*---------
