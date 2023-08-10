@@ -97,8 +97,7 @@ include('./env.php');
                     <div class="col-lg-6 content order-last order-lg-first">
                         <h3>About</h3>
                         <p class="about">
-                            To help you grow, scale, and dominate through the power of link management.Whether you’re
-                            sharing one link ,lets you personalize, track.
+                            To help you grow, scale, and dominate through the power of link management. Whether you’re sharing a single link or multiple links, Shorty lets you personalize and track your links with ease.
                         </p>
                         <ul>
 
