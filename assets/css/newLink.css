@@ -1,0 +1,72 @@
+.top-29 {
+  top: 29px !important;
+}
+
+.right-15 {
+  right: 15px !important;
+}
+
+.custom-padding {
+  padding: 1rem 1.75rem !important;
+}
+
+input:focus {
+  outline: none;
+}
+.inputIconContainer {
+  position: relative;
+  width: 100%;
+}
+
+.inputIconContainer i,
+.inputIconContainer svg {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  color: #04307c;
+  font-size: 15px;
+}
+
+#newLink input {
+  padding-left: 32px;
+}
+
+#formSpan {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+  margin-left: 32px;
+}
+
+#formSpan input {
+  padding-left: 0px;
+}
+
+#customeNameInput {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 400px) {
+  #shortenLink {
+    max-width: 70% !important;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 400px) {
+  #shortenLink {
+    width: 100% !important;
+  }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 500px) {
+  #shortenLink {
+    width: 160% !important;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  #shortenLink {
+    width: 190% !important;
+  }
+}
