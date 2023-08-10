@@ -23,13 +23,8 @@
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
-    <style>
-        .table_wrapper {
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
-    </style>
+    <link rel="stylesheet" href="../assets/css/profile.css">
+
 </head>
 
 
@@ -93,7 +88,7 @@
                 
                                                                 <div class='col-sm-10'>
                                                        
-                                                                    <img style='border-radius:50%; height:10rem;' src='" . $row['img'] . "' alt=''>
+                                                                    <img class='border-radius-p50 height-10' src='" . $row['img'] . "' alt=''>
                                                                 </div>
                                                             </div>
 

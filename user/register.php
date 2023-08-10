@@ -24,110 +24,12 @@
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
+    <link rel="stylesheet" href="../assets/css/register.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        .swal-overlay {
-            background-color: #0e1d34;
-        }
 
-        .swal-button {
-            padding: 7px 19px;
-            border-radius: 2px;
-            background-color: #04307d;
-            font-size: 12px;
-            border: 1px solid #3e549a;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        img.vert-move {
-            -webkit-animation: mover 1s infinite alternate;
-            animation: mover 1s infinite alternate;
-        }
-
-        img.vert-move {
-            -webkit-animation: mover 1s infinite alternate;
-            animation: mover 1s infinite alternate;
-        }
-
-        .error {
-            color: red;
-            font-size: 12px;
-            margin: 0px;
-            padding-left: 6px;
-        }
-
-        #passwordBorder,
-        #cnfrmPassBorder {
-            border-radius: 0.25rem;
-            flex-wrap: nowrap;
-
-        }
-
-        .hidden {
-            display: none;
-        }
-
-
-        .inputIconContainer {
-            position: relative;
-            width: 100%;
-        }
-
-        #password-iconDiv,
-        #cnfrmPass-iconDiv {
-            width: 89%;
-        }
-
-        .inputIconContainer i {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #04307d;
-            font-size: 15px;
-        }
-
-        #register input {
-            padding-left: 32px;
-        }
-
-        .eye {
-            width: auto !important;
-        }
-
-        @-webkit-keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .card-body {
-            padding: 0.75rem;
-        }
-    </style>
 </head>
 
-
-<!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
-
-<body class="fixed-left" style="   background-color: #0e1d34;
-                                        background-image: url('../assets/img/hero-bg.webp');
-                                        background-size: cover;
-                                        background-position: center;">
-
+<body class="fixed-left">
     <!-- Begin page -->
     <!--<div class="accountbg"></div>-->
     <div id="stars"></div>
@@ -174,8 +76,8 @@
                                     </div>
                                     <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeType()">
-                                            <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
-                                                class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <p class="error hidden" id="passwordError">Minimum 8 characters, 1 uppercase, 1
@@ -196,8 +98,8 @@
 
                                     <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeTypei()">
-                                            <i id="eyeii" style="margin-left:-15%;margin-top:4%;z-index:9999;"
-                                                class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            <i id="eyeii" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <p class="error hidden" id="cnfrmPassError">Password does not match</p>
@@ -220,16 +122,16 @@
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light btn-new"
-                                    style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
+                                <button
+                                    class="btn  btn-block waves-effect waves-light btn-new bg-black bg-primary text-white p-3 border-primary"
                                     id="submit" name="submit" type="submit" aria-label="Register">Register</button>
                             </div>
                         </div>
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-home"
-                                        aria-hidden="true"></i> &nbsp; Home Page</a>
+                                <a href="../" class="text-muted"><i class="mdi mdi-home" aria-hidden="true"></i> &nbsp;
+                                    Home Page</a>
                             </div>
                             <div class="col-sm-5 m-t-20">
                                 <a href="./login" class="text-muted"><i class="mdi mdi-account-circle"
