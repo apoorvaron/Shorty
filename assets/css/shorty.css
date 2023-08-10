@@ -582,7 +582,7 @@ a:not(.get-a-quote, .social-links a):hover {
 		padding: 10px 0 10px 30px;
 		font-family: var(--font-primary);
 		font-size: 16px;
-		font-weight: 400;
+		font-weight: 400 !important;
 		/* color: white; */
 		color: rgba(255, 255, 255, 0.7);
 		white-space: nowrap;
