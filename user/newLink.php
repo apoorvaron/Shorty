@@ -27,59 +27,11 @@ include(__DIR__ . '/../env.php');
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
+    <link rel="stylesheet" href="../assets/css/newLink.css">
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        input:focus {
-            outline: none;
-        }
 
-        .swal-overlay {
-            background-color: #0e1d34;
-        }
-
-        .swal-button {
-            padding: 7px 19px;
-            border-radius: 2px;
-            background-color: #4962B3;
-            font-size: 12px;
-            border: 1px solid #3e549a;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        .inputIconContainer {
-            position: relative;
-            width: 100%;
-        }
-
-        .inputIconContainer i,
-        .inputIconContainer svg {
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            color: #0d42ff;
-            font-size: 15px;
-        }
-
-        #newLink input {
-            padding-left: 32px;
-        }
-
-        #formSpan {
-            display: flex;
-            width: 100%;
-            overflow-x: hidden;
-            margin-left: 32px;
-        }
-
-        #formSpan input {
-            padding-left: 0px
-        }
-
-        #customeNameInput {
-            padding-left: 0;
-            padding-right: 0;
-        }
-    </style>
 </head>
 <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -177,7 +129,10 @@ if (isset($_POST['submit'])) {
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Make New Link</h4>
-                            <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button type="" class="btn btn-success waves-effect waves-light" style="position: absolute;top: 29px;right: 15px;">Shorten Links</button></a>
+                            <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                                    type=""
+                                    class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Shorten
+                                    Links</button></a>
                         </div>
                     </div>
                 </div>
@@ -187,8 +142,10 @@ if (isset($_POST['submit'])) {
                     <div class="col-md-12 col-xl-12">
                         <div class="card m-b-30">
                             <div class="card-body">
-                                <div class="alert alert-success alert-dismissible fade show d-flex align-items-center" role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <div class="alert alert-success alert-dismissible fade show d-flex align-items-center"
+                                    role="alert">
+                                    <button type="button" class="close custom-padding" data-dismiss="alert"
+                                        aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong>
@@ -204,7 +161,9 @@ if (isset($_POST['submit'])) {
                                                 <label></label>
                                                 <div class="inputIconContainer">
                                                     <i class="bi bi-globe"></i>
-                                                    <input type='text' class='form-control' id='linkIsFor' name='linkIsFor' required placeholder='Link is for' maxlength='50' />
+                                                    <input type='text' class='form-control' id='linkIsFor'
+                                                        name='linkIsFor' required placeholder='Link is for'
+                                                        maxlength='50' />
                                                 </div>
                                             </div>
                                         </div>
@@ -214,7 +173,8 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group">
                                                 <div class="inputIconContainer">
                                                     <i class="bi bi-link-45deg"></i>
-                                                    <input type="text" class="form-control" id="originalLink" name="originalLink" required placeholder="Original Link" />
+                                                    <input type="text" class="form-control" id="originalLink"
+                                                        name="originalLink" required placeholder="Original Link" />
                                                 </div>
                                             </div>
                                         </div>
@@ -228,8 +188,10 @@ if (isset($_POST['submit'])) {
                                     <!-- <div class="row"> -->
                                     <div class=" form-control col-md-12" id="customeNameInput">
                                         <div class="inputIconContainer">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="#0d42ff" class="bi bi-browser-chrome" viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-7.098a2.995 2.995 0 0 0 .05-1.492A2.977 2.977 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8ZM0 8a8 8 0 0 0 7.927 8l1.426-5.321a2.978 2.978 0 0 1-.723.255 2.979 2.979 0 0 1-1.743-.147 2.986 2.986 0 0 1-1.043-.7L.633 4.876A7.975 7.975 0 0 0 0 8Zm5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a2.979 2.979 0 0 0-1.252.243 2.987 2.987 0 0 0-1.81 2.59ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15"
+                                                fill="#04307c" class="bi bi-browser-chrome" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M16 8a8.001 8.001 0 0 1-7.022 7.94l1.902-7.098a2.995 2.995 0 0 0 .05-1.492A2.977 2.977 0 0 0 10.237 6h5.511A8 8 0 0 1 16 8ZM0 8a8 8 0 0 0 7.927 8l1.426-5.321a2.978 2.978 0 0 1-.723.255 2.979 2.979 0 0 1-1.743-.147 2.986 2.986 0 0 1-1.043-.7L.633 4.876A7.975 7.975 0 0 0 0 8Zm5.004-.167L1.108 3.936A8.003 8.003 0 0 1 15.418 5H8.066a2.979 2.979 0 0 0-1.252.243 2.987 2.987 0 0 0-1.81 2.59ZM8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
                                             </svg>
 
                                             <span class="form-group" id="formSpan">
@@ -237,7 +199,8 @@ if (isset($_POST['submit'])) {
                                                         <?php echo $env_domain ?>
                                                     </strong></label>
                                                 <span>
-                                                    <input type="text" placeholder="Custom Name" style="border:0px;max-width:70%;" required id="shortenLink" name="shortenLink" /></span>
+                                                    <input type="text" placeholder="Custom Name" class="border-0"
+                                                        required id="shortenLink" name="shortenLink" /></span>
 
                                             </span>
                                         </div>
@@ -256,11 +219,14 @@ if (isset($_POST['submit'])) {
                                         <div class="col-md-6 text-center">
                                             <div class="form-group mb-0">
                                                 <div>
-                                                    <button type="button" name="generateRandom" id="generateRandom" class="btn  btn-success float-left mr-2 waves-effect waves-light">
+                                                    <button type="button" name="generateRandom" id="generateRandom"
+                                                        class="btn btn-success waves-effect waves-light btn-new">
                                                         Random Number
                                                     </button>
 
-                                                    <button class=' btn float-left btn-primary new' type='button' id="previewBtn" hidden data-toggle='modal' data-target='#myModal' onclick=join()>Preview</button>
+                                                    <button class=' btn btn-primary new btn-new' type='button'
+                                                        id="previewBtn" hidden data-toggle='modal'
+                                                        data-target='#myModal' onclick=join()>Preview</button>
 
                                                 </div>
                                             </div>
@@ -272,7 +238,8 @@ if (isset($_POST['submit'])) {
                                         <div class="col-md-6 ">
                                             <div class="form-group mb-0">
                                                 <div>
-                                                    <button type="submit" name="submit" id="submit" class="btn btn-success waves-effect waves-light">
+                                                    <button type="submit" name="submit" id="submit"
+                                                        class="btn btn-success waves-effect waves-light btn-new">
                                                         Create
                                                     </button>
 
@@ -304,11 +271,9 @@ if (isset($_POST['submit'])) {
     <!-- *************************** Generate Random Number   *****************************  -->
 
     <script>
-        document.querySelector('#generateRandom').addEventListener('click', function() {
-            var randNum = Array.from({
-                length: 6
-            }, () => Math.floor(Math.random() * 16).toString(16)).join('');
-            console.log(randNum);
+        document.querySelector('#generateRandom').addEventListener('click', function () {
+            var randNum = Array.from({ length: 6 }, () => Math.floor(Math.random() * 16).toString(16)).join('');
+            //  console.log(randNum);
             let v = document.querySelector('#shortenLink').value = randNum;
             var previewBtn = document.querySelector('#previewBtn');
 
@@ -346,12 +311,13 @@ if (isset($_POST['submit'])) {
     </div>
 
     <script>
+
         function join() {
             let value = $('#shortenLink').val();
             let new_text = value.split(' ').join('_');
             let shortlink = "<?php echo $env_domain ?>" + new_text;
             $('#modal').html(shortlink);
-            console.log(new_text);
+            //  console.log(new_text);
 
         }
     </script>
@@ -359,7 +325,7 @@ if (isset($_POST['submit'])) {
     <!-- *************************** Get preview modal ends   *****************************  -->
     <!-- *************************** Block SpecialChar   *****************************  -->
     <script>
-        $("#shortenLink").on("input", function() {
+        $("#shortenLink").on("input", function () {
             var c = this.selectionStart,
                 r = /[^a-z0-9 ]/gi,
                 v = $(this).val();
@@ -370,7 +336,7 @@ if (isset($_POST['submit'])) {
             }
             this.setSelectionRange(c, c);
             var previewBtn = document.querySelector('#previewBtn');
-            console.log(v.trim().length);
+            //  console.log(v.trim().length);
             if (v.trim().length != 0) {
                 previewBtn.removeAttribute("hidden");
             } else {
