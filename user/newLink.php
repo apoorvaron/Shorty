@@ -263,11 +263,11 @@ if (isset($_POST['submit'])) {
                                             <div class="form-group mb-0">
                                                 <div>
                                                     <button type="button" name="generateRandom" id="generateRandom"
-                                                        class="btn btn-success waves-effect waves-light">
+                                                        class="btn  btn-success float-left mr-2 waves-effect waves-light">
                                                         Random Number
                                                     </button>
 
-                                                    <button class=' btn btn-primary new' type='button' id="previewBtn"
+                                                    <button class=' btn float-left btn-primary new' type='button' id="previewBtn"
                                                         hidden data-toggle='modal' data-target='#myModal'
                                                         onclick=join()>Preview</button>
 
