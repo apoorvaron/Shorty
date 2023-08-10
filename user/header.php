@@ -325,6 +325,9 @@ $imgPath = $row['img'];
 
 
                     </li>
+                    <li class="mobile-hello-text app-search mt-4">
+                        <h4 class="text-white">Hello User !</h4>
+                    </li>
                 </ul>
                 <div class="clearfix"></div>
             </nav>
