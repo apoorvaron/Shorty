@@ -4117,6 +4117,10 @@ body.fixed-left .side-menu.left {
   margin-left: 26px;
 }
 
+.mobile-hello-text{
+  display: none;
+}
+
 .app-search input.form-control::-webkit-input-placeholder {
   color: rgba(255, 255, 255, 0.7);
 }
@@ -4343,7 +4347,7 @@ File: Responsive
   }
   .button-menu-mobile {
     display: inline-block;
-    top: 0;
+    top: -10px;
   }
   .navbar-custom {
     padding-left: 10px;
@@ -4460,7 +4464,7 @@ File: Responsive
   }
   .button-menu-mobile {
     display: block;
-    top: 15px;
+    top: -10px;
   }
   .button-menu-mobile-topbar {
     top: 0px;
@@ -4473,6 +4477,10 @@ File: Responsive
   }
   .page-content-wrapper {
     margin: 30px -10px 0px;
+  }
+
+  .mobile-hello-text{
+    display: block;
   }
 }
 

@@ -1,184 +1,108 @@
+<link rel="stylesheet" href="./assets/css/header.css">
+<?php
+$username = $_GET['username'];
+$uno = $_GET['uno'];
+session_start();
+if ($_SESSION["" . $username . ""] == "") {
+    echo "<script>window.location.replace('./logout.php?username=" . $_SESSION['username'] . "&uno=" . $_SESSION['uno'] . "')</script>";
+}
+if ($_SESSION["" . $uno . ""] == "") {
+    echo "<script>window.location.replace('./logout.php?username=" . $_SESSION['username'] . "&uno=" . $_SESSION['uno'] . "')</script>";
+    // header('location: ./login');
+}
 
-<?php 
-    $username = $_GET['username'];
-    $uno = $_GET['uno'];
-    session_start();
-    if($_SESSION["".$username.""]==""){
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-    }
-    if($_SESSION["".$uno.""]==""){
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-        // header('location: ./login');
-    }
+$now = time(); // Checking the time now when home page starts.
 
-    $now = time(); // Checking the time now when home page starts.
-
-    if ($now > $_SESSION['expire']) {
-        session_destroy();
-        echo "<script>window.location.replace('./logout.php?username=".$_SESSION['username']."&uno=".$_SESSION['uno']."')</script>";
-        // header('location: ../');
-    }
+if ($now > $_SESSION['expire']) {
+    session_destroy();
+    echo "<script>window.location.replace('./logout.php?username=" . $_SESSION['username'] . "&uno=" . $_SESSION['uno'] . "')</script>";
+    // header('location: ../');
+}
 
 ?>
-<style>
 
-#sstSessionModal {
-    text-align: center;
-    white-space: nowrap;
-}
-
-#sstSessionModal:before {
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-}
-
-#sstSessionModal .modal-dialog {
-    display: inline-block;
-    vertical-align: middle;
-}
-
-#sstSessionModal.shown {
-    margin-top: 30px;
-    opacity: 1;
-}
-
-#sstSessionModal .modal-header,
-#sstSessionModal .modal-body,
-#sstSessionModal .modal-footer {
-    text-align: center;
-}
-
-#sstSessionModal .modal-footer {
-    border-top: 0;
-    padding-top: 0;
-}
-
-#sstSessionModal .modal-footer button {
-    margin: 0 20px;
-}
-
-#sstSessionModal .modal-footer .btn {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #fff;
-}
-
-#sstSessionModal .modal-footer .btn:focus,
-#sstSessionModal .modal-footer .btn:hover {
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: #eee;
-}
-
-#sstSessionModal .modal-footer .btn-primary {
-    background: #434371;
-}
-
-#sstSessionModal .modal-footer .btn-primary:focus,
-#sstSessionModal .modal-footer .btn-primary:hover {
-    background: #292a51;
-}
-
-#sstSessionModal .modal-footer .btn-default {
-    background: #ea8ab3;
-}
-
-#sstSessionModal .modal-footer .btn-default:focus,
-#sstSessionModal .modal-footer .btn-default:hover {
-    background: #e45e98;
-}
-
-#sstSessionModal #sstSessionModalExpire {
-    color: #434371;
-}
-
-@media(min-width:768px) {
-    #sstSessionModal .modal-dialog {
-        width: 400px;
-    }
-}
-
-    .modal-footer{
-        display: block;
-    }
-/* For Demo Purposes Only */
-    .modal-header{
-        display: block;
-    }
-
-</style>
 <?php
-        include_once '../admin/dBconn/database.php';
-        $database = new Database();
-        $db = $database->connect();
+include_once '../admin/dBconn/database.php';
+$database = new Database();
+$db = $database->connect();
 
-        $username = $_GET['username'];
-        $uniqueNo = $_GET['uno'];
+$username = $_GET['username'];
+$uniqueNo = $_GET['uno'];
 
-        $sql = "SELECT * from users WHERE username='".$username."'";
-        $result = mysqli_query($db,$sql);
+$sql = "SELECT * from users WHERE username='" . $username . "'";
+$result = mysqli_query($db, $sql);
 
-        $row = mysqli_fetch_array($result);
-        $imgPath = $row['img'];
-    
+$row = mysqli_fetch_array($result);
+$imgPath = $row['img'];
+
 ?>
 
 <!-- ========== Left Sidebar Start ========== -->
-            <div class="left side-menu">
-                <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left">
-                    <i class="ion-close"></i>
-                </button>
+<div class="left side-menu">
+    <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left">
+        <i class="ion-close"></i>
+    </button>
 
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <div class="text-center">
-                        <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
-                        <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="logo"><img style="margin-top: 10%; border-radius: 30%;" src="../assets/img/inside-header-logo.webp" height="100" alt="logo"></a>
-                    </div>
-                </div>
-               
+    <!-- LOGO -->
+    <div class="topbar-left">
+        <div class="text-center">
+            <!--<a href="index.html" class="logo"><i class="fa fa-paw"></i> Aplomb</a>-->
+            <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="logo"><img
+                    class="mt-p10 border-radius-p30 " src="../assets/img/inside-header-logo.webp" height="100"
+                    alt="logo"></a>
+        </div>
+    </div>
 
-                <div class="sidebar-inner slimscrollleft" id="sidebar-main">
 
-                    <div id="sidebar-menu">
-                        <ul>
-                            <li class="menu-title">Menu</li>
-<!--
+    <div class="sidebar-inner slimscrollleft" id="sidebar-main">
+        <!-- Sidebar starts -->
+        <div id="sidebar-menu">
+            <ul>
+                <li class="menu-title">Menu</li>
+                <!--
+
                             <li>
                                 <a href="index.php" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Dashboard </span></a>
                             </li>
 -->
-                            <li>
-                                <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortened Links</span></a>
-                            </li>
-                            <li>
-                                <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New Link</span></a>
-                            </li>
-<!--
+                <li>
+                    <a href="index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"
+                        class="waves-effect waves-light"><i class="mdi mdi-view-dashboard"></i><span> Shortened
+                            Links</span></a>
+                </li>
+                <li>
+                    <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"
+                        class="waves-effect waves-light"><i class="mdi mdi-tooltip-outline-plus"></i><span> Make New
+                            Link</span></a>
+                </li>
+                <!--
                             <li>
                                 <a href="member.php" class="waves-effect waves-light"><i class="mdi mdi-account-star"></i><span> Members </span></a>
                             </li>
 -->
-                            
-<!--
+
+                <!--
                             <li>
                                 <a href="renewal.php" class="waves-effect waves-light"><i class="mdi mdi-alert-circle-outline"></i><span> Renew </span></a>
                             </li>
 -->
-                            <!-- <li>
+                <!-- <li>
                                 <a href="transcations.php" class="waves-effect waves-light"><i class="mdi mdi-wallet"></i><span> Transaction </span></a>
                             </li> -->
-                            <li>
-                                <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="mdi mdi-account"></i><span>  Profile </span></a>
-                            </li>
-                            <li>
-                                <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno?>" class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
-                            </li>
-                            <li>
-                                <a href="./logout.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
-                            </li>
+                <li>
+                    <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"
+                        class="waves-effect waves-light"><i class="mdi mdi-account"></i><span> Profile </span></a>
+                </li>
+                <li>
+                    <a href="change-password.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"
+                        class="waves-effect waves-light"><i class="ti-lock"></i><span> Change password </span></a>
+                </li>
+                <li>
+                    <a href="./logout.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"
+                        class="waves-effect waves-light"><i class="mdi mdi-logout"></i><span> Logout </span></a>
+                </li>
 
-<!--
+                <!--
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect waves-light"><i class="mdi mdi-email"></i><span> Email </span><span class="float-right"><i class="mdi mdi-chevron-right"></i></span></a>
                                 <ul class="list-unstyled">
@@ -287,23 +211,23 @@
                                 </ul>
                             </li>
 -->
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                </div> <!-- end sidebarinner -->
-            </div>
-            <!-- Left Sidebar End -->
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </div> <!-- end sidebarinner -->
+</div>
+<!-- Left Sidebar End -->
 <!-- Start right Content here -->
 
-            <div class="content-page">
-                <!-- Start content -->
-                <div class="content">
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
 
-                    <!-- Top Bar Start -->
-                    <div class="topbar">
-                        <nav class="navbar-custom">
-                            <ul class="list-inline float-right mb-0">
-<!--
+        <!-- Top Bar Start -->
+        <div class="topbar">
+            <nav class="navbar-custom">
+                <ul class="list-inline float-right mb-0">
+                    <!--
                                 <li class="list-inline-item dropdown notification-list">
                                     <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="dropdown" href="#" role="button"
                                        aria-haspopup="false" aria-expanded="false">
@@ -342,70 +266,77 @@
                                 </li>
 -->
 
-                               
 
-                                <li class="list-inline-item dropdown notification-list">
-                                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user" data-toggle="dropdown" href="" role="button"
-                                        aria-haspopup="false" aria-expanded="false">
-                                        <img src="<?php echo $imgPath ?>" alt="user" class="rounded-circle">
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                                        <!-- item-->
-                                        <div class="dropdown-item noti-title">
-                                            <h5>Welcome</h5>
-                                        </div>
-                                        
-                                        <a class="dropdown-item text-dark" href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno?>"><i style="color:red;"class="	far fa-address-card text-dark" aria-hidden="true"></i> Profile</a>                                       
-                                        <a class="dropdown-item text-danger" href="./logout.php"><i style="color:black;" class="mdi mdi-power text-danger"></i> Logout</a>
-                                       
-                                       
-                                  
-                                    </div>
-                                </li>
-                            </ul>
 
-                            <ul class="list-inline menu-left mb-0">
-                                <li class="float-left">
-                                    <button class="button-menu-mobile open-left waves-light waves-effect">
-                                        <i class="mdi mdi-menu"></i>
-                                    </button>
-                                </li>
-                                <li class="hide-phone app-search mt-4">
-                                <?php 
-                                                    // require('../admin/dBconn/database.php');
-                                                    $database = new Database();
-                                                    $link = $database->connect();
-                                                    $sql = "SELECT * FROM users WHERE uniqueNo='".$uno."'";
-                                                    if($result = mysqli_query($db, $sql)){
-                                                        if(mysqli_num_rows($result) > 0){
-                                                                while($row = mysqli_fetch_array($result)){  
-                                                                    $row['email'] =strstr($row['email'] , '@', true);
-                                                                        echo "
-                                                                        <h4 style='color:#fff;'>Hello ".$row['email']." !</h4>
-                                                                            ";  
-                                                                       
-                                                                }
-                                                            mysqli_free_result($result);
-                                                        } else{
-                                                            echo "<p class='lead'><em></em></p>";
-                                                        }
-                                                    } else{
-                                                        echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-                                
-                                                    }
-                                                ?>
+                    <li class="list-inline-item dropdown notification-list">
+                        <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light nav-user"
+                            data-toggle="dropdown" href="" role="button" aria-haspopup="false" aria-expanded="false">
+                            <img src="<?php echo $imgPath ?>" alt="user" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                            <!-- item-->
+                            <div class="dropdown-item noti-title">
+                                <h5>Welcome</h5>
+                            </div>
 
-                       
-                                </li>
-                            </ul>
-                            <div class="clearfix"></div>
-                        </nav>
-                    </div>
-                 
-            <!-- Session expired model-->           
-                    
-                    
-<!-- <div id="sstSessionModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
+                            <a class="dropdown-item text-dark"
+                                href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><i
+                                    class="	far fa-address-card text-dark" aria-hidden="true"></i>
+                                Profile</a>
+                            <a class="dropdown-item text-danger" href="./logout.php"><i
+                                    class="mdi mdi-power text-danger"></i> Logout</a>
+
+
+
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="list-inline menu-left mb-0">
+                    <li class="float-left">
+                        <button class="button-menu-mobile open-left waves-light waves-effect">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+                    </li>
+                    <li class="hide-phone app-search mt-4">
+                        <?php
+                        // require('../admin/dBconn/database.php');
+                        $database = new Database();
+                        $link = $database->connect();
+                        $sql = "SELECT * FROM users WHERE uniqueNo='" . $uno . "'";
+                        if ($result = mysqli_query($db, $sql)) {
+                            if (mysqli_num_rows($result) > 0) {
+                                while ($row = mysqli_fetch_array($result)) {
+                                    $row['email'] = strstr($row['email'], '@', true);
+                                    echo "
+                                                                        <h4 class='text-white'>Hello " . $row['email'] . " !</h4>
+                                                                            ";
+
+                                }
+                                mysqli_free_result($result);
+                            } else {
+                                echo "<p class='lead'><em></em></p>";
+                            }
+                        } else {
+                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+
+                        }
+                        ?>
+
+
+                    </li>
+                    <li class="mobile-hello-text app-search mt-4">
+                        <h4 class="text-white">Hello User !</h4>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </nav>
+        </div>
+
+        <!-- Session expired model-->
+
+
+        <!-- <div id="sstSessionModal" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -425,186 +356,189 @@
         </div>
     </div>
 </div> -->
-<!-- /.modal -->
+        <!-- /.modal -->
 
-<!--<button id="OpenModalButton" type="button" class="btn btn-primary">Open Session Modal</button>-->
- <script>
-var timeoutToken = 50, // in minutes
-    maxSession = 60, // in minutes,
-    secondDuration = 17, // in milliseconds
-    countDown = maxSession,
-    modalID = "sstSessionModal",
-    sessionModalHeight = 0,
-    modalMsgSuccess = "<p>Your session has been succesfully extended!</p>",
-    modalMsgDefault,
-    sessionModalInterval,
-    sessionModalTimer;
+        <!--<button id="OpenModalButton" type="button" class="btn btn-primary">Open Session Modal</button>-->
+        <script>
+            var timeoutToken = 50, // in minutes
+                maxSession = 60, // in minutes,
+                secondDuration = 17, // in milliseconds
+                countDown = maxSession,
+                modalID = "sstSessionModal",
+                sessionModalHeight = 0,
+                modalMsgSuccess = "<p>Your session has been succesfully extended!</p>",
+                modalMsgDefault,
+                sessionModalInterval,
+                sessionModalTimer;
 
-window.SSTIsUserActive = false;
+            window.SSTIsUserActive = false;
 
-function isMobileTouch() {
-    return 'ontouchstart' in window && (navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
-}
-
-document.addEventListener("DOMContentLoaded", function() {
-    jQuery(function($) {
-        function sessionModalToggle(which) {
-            if (which) {
-                $("#" + modalID).modal("show");
-            } else {
-                setTimeout(function() {
-                    $("#" + modalID).modal("hide");
-                }, 2000);
+            function isMobileTouch() {
+                return 'ontouchstart' in window && (navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0);
             }
-        }
 
-        function sessionModalMsgUpdate(newMsg, closeAfter, closeCB) {
-            $("#" + modalID + " .modal-body").animate(
-                {
-                    opacity: "0"
-                },
-                250,
-                function() {
-                    $(this).html(newMsg);
-                    $(this).animate(
-                        {
-                            opacity: "1"
-                        },
-                        250,
-                        function() {
-                            if (closeAfter && typeof closeAfter !== "undefined")
-                                sessionModalToggle(false);
-                            if (typeof closeCB !== "undefined") closeCB();
+            document.addEventListener("DOMContentLoaded", function () {
+                jQuery(function ($) {
+                    function sessionModalToggle(which) {
+                        if (which) {
+                            $("#" + modalID).modal("show");
+                        } else {
+                            setTimeout(function () {
+                                $("#" + modalID).modal("hide");
+                            }, 2000);
                         }
-                    );
-                }
-            );
-        }
+                    }
 
-        function modalFooterToggle(mode) {
-            var footer = $("#" + modalID + " .modal-footer");
-            if (mode) footer.show();
-            else footer.hide();
-        }
+                    function sessionModalMsgUpdate(newMsg, closeAfter, closeCB) {
+                        $("#" + modalID + " .modal-body").animate(
+                            {
+                                opacity: "0"
+                            },
+                            250,
+                            function () {
+                                $(this).html(newMsg);
+                                $(this).animate(
+                                    {
+                                        opacity: "1"
+                                    },
+                                    250,
+                                    function () {
+                                        if (closeAfter && typeof closeAfter !== "undefined")
+                                            sessionModalToggle(false);
+                                        if (typeof closeCB !== "undefined") closeCB();
+                                    }
+                                );
+                            }
+                        );
+                    }
 
-        function sessionModalTimer() {
-            countDown = maxSession;
-            clearInterval(sessionModalInterval);
-            sessionModalInterval = setInterval(function() {
-                countDown--;
-                $("#sstSessionModalExpire").text(countDown);
-                // console.log(countDown);
-                if (countDown === timeoutToken) {
-                    if( window.SSTIsUserActive ){
-                        sessionModalRequest();
-                        sessionModalTimer();
-                    } else
-                        sessionModalToggle(true);
-                } else if (countDown <= 1) {
-                    clearInterval(sessionModalInterval);
-                    // $("#sstSessionModalLogout")[0].click();
-                }
-            }, 60 * secondDuration);
-        }
+                    function modalFooterToggle(mode) {
+                        var footer = $("#" + modalID + " .modal-footer");
+                        if (mode) footer.show();
+                        else footer.hide();
+                    }
 
-        // function sessionModalEvents() {
-        //     $("#sstSessionModalContinue," + "#" + modalID + " .close").on(
-        //         "click.sst",
-        //         sessionModalRequest
-        //     );
-        //     $("#sstSessionModalLogout").on("click.sst", function(evt) {
-        //         modalFooterToggle(false);
-        //         sessionModalMsgUpdate(
-        //             "Closing session. Please wait...",
-        //             true,
-        //             function() {
-        //                     setTimeout(function(){
-        //                         window.location.href = "login.php";
-        //                     }, 2000);                           
-        //             }
-        //         );
-        //     });
-        //     $("#" + modalID)
-        //         .on("show.bs.modal.sst", function() {
-        //             $("#sstSessionModalExpire").text(countDown);
-        //         })
-        //         .on("shown.bs.modal.sst", function() {
-        //             sessionModalHeight = $(
-        //                 "#" + modalID + " .modal-dialog"
-        //             ).height();
-        //         })
-        //         .on("hidden.bs.modal.sst", function() {
-        //             if (typeof modalMsgDefault !== "undefined")
-        //                 $("#" + modalID + " .modal-body").html(modalMsgDefault);
-        //             $("#" + modalID + " .modal-footer").show();
-        //             sessionModalTimer();
-        //             $("#" + modalID).removeClass("shown");
-        //         });
-            
-        //     var usrEvts = ["scroll", "keyup"],
-        //         touchOrClick = isMobileTouch() ? ["touchend", "touchmove"] : ["click", "mouseover"];
-        //     usrEvts = usrEvts.concat(touchOrClick);
-        //     $(usrEvts).each(function(i,v){
-        //         usrEvts[i] = v + ".sst";
-        //     });
-        //     usrEvts = usrEvts.join(" ");
-        //     var activeTimeout;
-        //     $(document).on(usrEvts, function(evt){
-        //         // console.log(evt.type);
-        //         window.SSTIsUserActive = true;
-        //         if(activeTimeout === undefined){
-        //             // console.log("timeout UNDEFINED");
-        //             activeTimeout = setTimeout(function(){
-        //                 window.SSTIsUserActive = false;
-        //             }, 3 * 1000);
-        //         } else {
-        //             // console.log("CLEAR Timeout");
-        //             clearTimeout(activeTimeout);
-        //             activeTimeout = undefined;
-        //         }
+                    function sessionModalTimer() {
+                        countDown = maxSession;
+                        clearInterval(sessionModalInterval);
+                        sessionModalInterval = setInterval(function () {
+                            countDown--;
+                            $("#sstSessionModalExpire").text(countDown);
 
-        //     });
+                            // console.log(countDown);
+                            if (countDown === timeoutToken) {
+                                if (window.SSTIsUserActive) {
+                                    sessionModalRequest();
+                                    sessionModalTimer();
+                                } else
+                                    sessionModalToggle(true);
+                            } else if (countDown <= 1) {
+                                clearInterval(sessionModalInterval);
+                                // $("#sstSessionModalLogout")[0].click();
+                            }
+                        }, 60 * secondDuration);
+                    }
 
-        //     // FOR DEMO ONLY 
-        //     // $(window).load(function() {
-        //     //     $("#OpenModalButton").on("click", function() {
-        //     //         $("#" + modalID).modal("show");
-        //     //     });
-        //     // });
-        // }
-        
-        // function sessionModalRequest() {
-        //     var request = $.ajax({
-        //             url: "https://codepen.io/Marventus/pen/KmdGJp.html",
-        //             method: "GET",
-        //             dataType: "html"
-        //         })
-        //         .done(function(data) {
-        //             if (typeof modalMsgDefault === "undefined")
-        //                 modalMsgDefault = $("#" + modalID + " .modal-body").html();
-        //             $("#" + modalID + " .modal-footer").hide();
-        //             sessionModalMsgUpdate(modalMsgSuccess);
-        //         })
-        //         .fail(function(fail, textStatus) {
-        //             console.log(fail, textStatus);
-        //         })
-        //         .always(function(jqXHR, textStatus) {
-        //             console.log("request executed!");
-        //             setTimeout(function() {
-                        
-        //                 sessionModalToggle(false);
-        //                 sessionModalMsgUpdate(modalMsgDefault);
-        //             }, 2000);
-        //         });
-        // }
-        
-        // function sessionModalInit() {
-        //     sessionModalTimer();
-        //     sessionModalEvents();
-        // }
+                    // function sessionModalEvents() {
+                    //     $("#sstSessionModalContinue," + "#" + modalID + " .close").on(
+                    //         "click.sst",
+                    //         sessionModalRequest
+                    //     );
+                    //     $("#sstSessionModalLogout").on("click.sst", function(evt) {
+                    //         modalFooterToggle(false);
+                    //         sessionModalMsgUpdate(
+                    //             "Closing session. Please wait...",
+                    //             true,
+                    //             function() {
+                    //                     setTimeout(function(){
+                    //                         window.location.href = "login.php";
+                    //                     }, 2000);                           
+                    //             }
+                    //         );
+                    //     });
+                    //     $("#" + modalID)
+                    //         .on("show.bs.modal.sst", function() {
+                    //             $("#sstSessionModalExpire").text(countDown);
+                    //         })
+                    //         .on("shown.bs.modal.sst", function() {
+                    //             sessionModalHeight = $(
+                    //                 "#" + modalID + " .modal-dialog"
+                    //             ).height();
+                    //         })
+                    //         .on("hidden.bs.modal.sst", function() {
+                    //             if (typeof modalMsgDefault !== "undefined")
+                    //                 $("#" + modalID + " .modal-body").html(modalMsgDefault);
+                    //             $("#" + modalID + " .modal-footer").show();
+                    //             sessionModalTimer();
+                    //             $("#" + modalID).removeClass("shown");
+                    //         });
 
-        // Init Session Modal
-        // sessionModalInit();
-    });
-});  
-</script>                   
+                    //     var usrEvts = ["scroll", "keyup"],
+                    //         touchOrClick = isMobileTouch() ? ["touchend", "touchmove"] : ["click", "mouseover"];
+                    //     usrEvts = usrEvts.concat(touchOrClick);
+                    //     $(usrEvts).each(function(i,v){
+                    //         usrEvts[i] = v + ".sst";
+                    //     });
+                    //     usrEvts = usrEvts.join(" ");
+                    //     var activeTimeout;
+                    //     $(document).on(usrEvts, function(evt){
+
+                    //         // console.log(evt.type);
+                    //         window.SSTIsUserActive = true;
+                    //         if(activeTimeout === undefined){
+                    //             // console.log("timeout UNDEFINED");
+                    //             activeTimeout = setTimeout(function(){
+                    //                 window.SSTIsUserActive = false;
+                    //             }, 3 * 1000);
+                    //         } else {
+
+                    //             // console.log("CLEAR Timeout");
+                    //             clearTimeout(activeTimeout);
+                    //             activeTimeout = undefined;
+                    //         }
+
+                    //     });
+
+                    //     // FOR DEMO ONLY 
+                    //     // $(window).load(function() {
+                    //     //     $("#OpenModalButton").on("click", function() {
+                    //     //         $("#" + modalID).modal("show");
+                    //     //     });
+                    //     // });
+                    // }
+
+                    // function sessionModalRequest() {
+                    //     var request = $.ajax({
+                    //             url: "https://codepen.io/Marventus/pen/KmdGJp.html",
+                    //             method: "GET",
+                    //             dataType: "html"
+                    //         })
+                    //         .done(function(data) {
+                    //             if (typeof modalMsgDefault === "undefined")
+                    //                 modalMsgDefault = $("#" + modalID + " .modal-body").html();
+                    //             $("#" + modalID + " .modal-footer").hide();
+                    //             sessionModalMsgUpdate(modalMsgSuccess);
+                    //         })
+                    //         .fail(function(fail, textStatus) {
+                    //             console.log(fail, textStatus);
+                    //         })
+                    //         .always(function(jqXHR, textStatus) {
+                    //             console.log("request executed!");
+                    //             setTimeout(function() {
+
+                    //                 sessionModalToggle(false);
+                    //                 sessionModalMsgUpdate(modalMsgDefault);
+                    //             }, 2000);
+                    //         });
+                    // }
+
+                    // function sessionModalInit() {
+                    //     sessionModalTimer();
+                    //     sessionModalEvents();
+                    // }
+
+                    // Init Session Modal
+                    // sessionModalInit();
+                });
+            });  
+        </script>

@@ -37,6 +37,7 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
+    <link href="./assets/css/privacy.css" rel="stylesheet" />
 
 
 
@@ -56,15 +57,16 @@ include('./env.php');
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs"
-            style=" background: #0e1d34;background-image: url('../assets/images/hero-bg.png'); background-repeat: no-repeat; background-size: cover;">
+        <div class="breadcrumbs">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-lg-6 text-center">
-                            <h2>Privacy Policy</h2>
-
+                       <div class="col-lg-6 text-center">
+                          <div class="position-relative" id="typingContainer">
+                            <h2 id="privacy-Typing"> </h2>
+                             <div class="typing-cursor"></div>
                         </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -72,7 +74,7 @@ include('./env.php');
                 <div class="container">
                     <ol>
                         <li><a href="./" class="homebtn">Home</a></li>
-                                                <li>/</li>
+                        <li>/</li>
 
                         <li>Privacy Policy</li>
                     </ol>
@@ -106,15 +108,17 @@ include('./env.php');
 
                     <div class="col-lg-8">
                         <!-- <img src="assets/img/service-details.jpg" alt="" class="img-fluid services-img"> -->
-                        <div id="active" style="text-align: justify;align-items:center;">
+                        <div id="active" class="text-justify">
                             <h3>Privacy Policy for shorty</h3>
                             <p>
-                                At shorty, accessible from <?php echo $env_domain ?>, one of our main priorities is the
+                                At shorty, accessible from
+                                <?php echo $env_domain ?>, one of our main priorities is the
                                 privacy of our visitors. This Privacy Policy document contains types of information that
                                 is collected and recorded by shorty and how we use it.
                             </p>
                             <ul>
-                                <li><i class="bi bi-check-circle"></i> <span>If you have additional questions or require
+                                <li><i class=" bi bi-check-circle"></i> <span>If you have additional questions or
+                                        require
                                         more information about our Privacy Policy, do not hesitate to contact us.</span>
                                 </li>
                                 <li><i class="bi bi-check-circle"></i> <span>Assumenda et porro nisi nihil nesciunt
@@ -144,7 +148,7 @@ include('./env.php');
                             </p>
                         </div>
 
-                        <div id="p1" style="text-align: justify;align-items:center;">
+                        <div id="p1" class="text-justify">
                             <h3>Information we collect and receive</h3>
                             <p>
                                 At shorty, we prioritize the privacy and security of our visitors. We want to assure you
@@ -182,7 +186,7 @@ include('./env.php');
 
 
 
-                        <div id="p2" style="text-align: justify;align-items:center;">
+                        <div id="p2" class="text-justify">
                             <h3>Security</h3>
                             <p>
                                 At Shorty, we prioritize the security of your information. We understand the
@@ -221,7 +225,7 @@ include('./env.php');
 
 
 
-                        <div id="p3" style="text-align: justify;align-items:center;">
+                        <div id="p3" class="text-justify">
                             <h3> Children's Information</h3>
                             <p>
                                 At shorty, we are committed to providing a safe online environment for children. We
@@ -258,7 +262,7 @@ include('./env.php');
 
 
 
-                        <div id="p4" style="text-align: justify;align-items:center;">
+                        <div id="p4" class="text-justify">
                             <h3>Age limitations</h3>
                             <p>
                                 At shorty, we prioritize the safety and privacy of all users, especially children.
@@ -292,7 +296,7 @@ include('./env.php');
 
 
 
-                        <div id="p5" style="text-align: justify;align-items:center;">
+                        <div id="p5" class="text-justify">
                             <h3>Your rights</h3>
                             <p>
                                 At shorty, we respect your privacy and value your rights as a user. We are committed to
@@ -352,6 +356,35 @@ include('./env.php');
                 behavior: 'smooth'
             });
         });
+    </script>
+
+        <!-- Typing Animation -->
+    <script>
+    const word = "Privacy Policy";
+const typingSpeed = 180; //(in milliseconds)
+
+const typingWordElement = document.getElementById("privacy-Typing");
+const typingCursor = document.querySelector(".typing-cursor");
+let currentIndex = 0;
+
+function typeWord() {
+  if (currentIndex < word.length) {
+    typingWordElement.textContent += word[currentIndex];
+    currentIndex++;
+    setTimeout(typeWord, typingSpeed);
+  }else {
+    // Word typed completely, remove cursor
+    typingCursor.style.display = "none";
+  }
+}
+
+// Start typing animation when the page is loaded
+window.onload = () => {
+    setTimeout(() => {
+        typeWord();
+    }, 1000);
+};
+
     </script>
 
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->

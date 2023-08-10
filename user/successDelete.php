@@ -16,21 +16,12 @@
         <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
         <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="./assets/css/btn-new.css">
+        <link rel="stylesheet" href="../assets/css/successDelete.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
         <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
-
-        <style>
-            /* ::placeholder {
-                text-align: center;
-            }*/
-
-            input:focus {
-                outline: none;
-            } 
-
-        </style>
     </head>
 
 
@@ -161,8 +152,8 @@ function yesDelete() {
                                                     <div class="form-group mb-0">
                                                         <div>
                                                             <input type="button" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
-                                                            <button type="button" name="submit"  class="btn btn-success waves-effect waves-light">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" style="color:white">No</a>
+                                                            <button type="button" name="submit"  class="btn btn-success waves-effect waves-light btn-new">
+                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="text-white">No</a>
                                                             </button>
 
                                                       
@@ -1243,7 +1234,7 @@ $.fn.repeater = function (fig) {
             },
     show: function () {
                 $(this).slideDown();
-     console.log($(this).find('input')[1]);
+   //  console.log($(this).find('input')[1]);
       $('#cat-id').val(window.id);
             },
             hide: function (deleteElement) {
@@ -1251,7 +1242,7 @@ $.fn.repeater = function (fig) {
                   window.id--;
                     $('#cat-id').val(window.id);
                   $(this).slideUp(deleteElement);
-                  console.log($('.repeater').repeaterVal());
+               //   console.log($('.repeater').repeaterVal());
                 }
             },
             ready: function (setIndexes) {

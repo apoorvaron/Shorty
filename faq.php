@@ -13,10 +13,10 @@ include('./env.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
-<!-- importing the SEO FROM SEO.PHP FILE (mrprayag) -->
-<?php include './includes/seo.php'; ?>
+    <!-- importing the SEO FROM SEO.PHP FILE (mrprayag) -->
+    <?php include './includes/seo.php'; ?>
 
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,6 +34,8 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
+    <link href="./assets/css/faq.css" rel="stylesheet" />
+    
 
 
 
@@ -52,14 +54,15 @@ include('./env.php');
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs"
-            style=" background: #010b1a;background-image: url('../assets/img/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
+        <div class="breadcrumbs">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <h2>FAQ</h2>
-
+                        <div class="position-relative" id="typingContainer">
+                            <h2 id="faq-Typing"> </h2>
+                             <div class="typing-cursor"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -68,7 +71,7 @@ include('./env.php');
                 <div class="container">
                     <ol>
                         <li><a href="./" class="homebtn">Home</a></li>
-                                                <li>/</li>
+                        <li>/</li>
                         <li>FAQ</li>
                     </ol>
                 </div>
@@ -98,21 +101,21 @@ include('./env.php');
 
         // Add faq question and answers with id in this array to render it on screen
 
-        const faqContent = [ 
-          {
-            id: 1,
-            question: "How does the link shortening process work?",
-            answer: ` The link shortening process takes a long URL and generates a shorter, more compact URL that redirects to the original long URL. This allows for easier sharing and tracking of links.`
-          },
-          {
-            id: 2,
-            question: " Do I need to create an account to use the link shortening service?",
-            answer: ` No, you can use the link shortening service without creating an account. However, creating an account provides additional benefits such as link management, editing options, and personalized features.`
-          },
-          {
-            id: 3,
-            question: " What are the steps to shorten a link?",
-            answer: ` To shorten a link, follow these steps:
+        const faqContent = [
+            {
+                id: 1,
+                question: "How does the link shortening process work?",
+                answer: ` The link shortening process takes a long URL and generates a shorter, more compact URL that redirects to the original long URL. This allows for easier sharing and tracking of links.`
+            },
+            {
+                id: 2,
+                question: " Do I need to create an account to use the link shortening service?",
+                answer: ` No, you can use the link shortening service without creating an account. However, creating an account provides additional benefits such as link management, editing options, and personalized features.`
+            },
+            {
+                id: 3,
+                question: " What are the steps to shorten a link?",
+                answer: ` To shorten a link, follow these steps:
             <ol>
                <li>Go to the homepage of the link shortening website.</li>
                <li>Locate the input field provided, where you can enter the original long URL.</li>
@@ -122,27 +125,27 @@ include('./env.php');
                <li>The shortened link will be displayed below, and you can simply copy it to your clipboard.</li>
              <li>The shortened link is now ready to be shared or used as needed.</li>
             </ol>`
-          },
-          {
-            id: 4,
-            question: " Can I edit or update my profile details?",
-            answer: ` Yes, once you have created an account, you can access your profile settings and make changes to your personal information, such as your name, profile picture, and contact details.`
-          },
-          {
-            id: 5,
-            question: "How do I manage my stored links?",
-            answer: `  After logging into your account, you will have access to a link management dashboard. From there, you can view, edit, delete, or organize your stored links, making it easy to manage and track your shortened URLs.`
-          },
-          {
-            id: 6,
-            question: "Does it require any money?",
-            answer: `Its totally free application anyone can use it.`
-          }
-    ]
+            },
+            {
+                id: 4,
+                question: " Can I edit or update my profile details?",
+                answer: ` Yes, once you have created an account, you can access your profile settings and make changes to your personal information, such as your name, profile picture, and contact details.`
+            },
+            {
+                id: 5,
+                question: "How do I manage my stored links?",
+                answer: `  After logging into your account, you will have access to a link management dashboard. From there, you can view, edit, delete, or organize your stored links, making it easy to manage and track your shortened URLs.`
+            },
+            {
+                id: 6,
+                question: "Does it require any money?",
+                answer: `Its totally free application anyone can use it.`
+            }
+        ]
         const faqContainer = document.getElementById("faqlist");
         let html = "";
 
-        faqContent.forEach((faq)=>{
+        faqContent.forEach((faq) => {
             html += `
             <div class="accordion-item">
                 <h3 class="accordion-header">
@@ -161,6 +164,37 @@ include('./env.php');
             `
         })
         faqContainer.innerHTML = html;
+    </script>
+
+<!-- Typing Animation -->
+    <script>
+    const word = "FAQ";
+const typingSpeed = 180; //(in milliseconds)
+
+const typingWordElement = document.getElementById("faq-Typing");
+const typingCursor = document.querySelector(".typing-cursor");
+let currentIndex = 0;
+
+function typeWord() {
+  if (currentIndex < word.length) {
+    typingWordElement.textContent += word[currentIndex];
+    currentIndex++;
+    setTimeout(typeWord, typingSpeed);
+  }else {
+    // Word typed completely, remove cursor
+    typingCursor.style.display = "none";
+  }
+}
+
+// Start typing animation when the page is loaded
+window.onload = () => {
+    setTimeout(() => {
+        typeWord();
+    }, 1000);
+};
+
+</script>
+       
     </script>
 
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->

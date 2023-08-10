@@ -27,6 +27,7 @@ include(__DIR__ . '/../env.php');
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
+    <link rel="stylesheet" href="./assets/css/btn-new.css">
 
 </head>
 
@@ -59,7 +60,7 @@ if (isset($_GET['short'])) {
                             ?>
 
                             <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
-                                    type="submit" class="btn btn-success waves-effect waves-light"
+                                    type="submit" class="btn btn-success waves-effect waves-light btn-new"
                                     style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
                         </div>
                     </div>
@@ -165,32 +166,32 @@ if (isset($_GET['short'])) {
 
     </div>
     <!-- END wrapper -->
-<script>
-    function copyLink(word) {
-//   console.log(word);
+    <script>
+        function copyLink(word) {
+            //   console.log(word);
 
-  //check if navigator.clipboard is supported or not 
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(word);
-    document.getElementById("copyIcon").classList.add("copied-icon");
-    setTimeout(() => {
-      document.getElementById("copyIcon").classList.remove("copied-icon");
-    }, 1500);
-  } else {
-    var tempInput = document.createElement("input");
-    tempInput.setAttribute("value", word);
-    document.body.appendChild(tempInput);
-    tempInput.select();
-    document.execCommand("copy");
-    document.body.removeChild(tempInput);
-    document.getElementById("copyIcon").classList.add("copied-icon");
-    setTimeout(() => {
-      document.getElementById("copyIcon").classList.remove("copied-icon");
-    }, 1500);
-  }
-}
+            //check if navigator.clipboard is supported or not 
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(word);
+                document.getElementById("copyIcon").classList.add("copied-icon");
+                setTimeout(() => {
+                    document.getElementById("copyIcon").classList.remove("copied-icon");
+                }, 1500);
+            } else {
+                var tempInput = document.createElement("input");
+                tempInput.setAttribute("value", word);
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+                document.getElementById("copyIcon").classList.add("copied-icon");
+                setTimeout(() => {
+                    document.getElementById("copyIcon").classList.remove("copied-icon");
+                }, 1500);
+            }
+        }
 
-</script>
+    </script>
 
     <!-- jQuery  -->
     <script src="assets/js/jquery.min.js"></script>

@@ -58,8 +58,8 @@
             type: 'POST',
             dataType: 'json',
             success: function (data, textStatus, xhr) {
-                console.log(data);
-                console.log("mii");
+               // console.log(data);
+               // console.log("mii");
                 window.location.replace("./successDelete.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
             },
             error: function (xhr, textStatus, errorThrown) {

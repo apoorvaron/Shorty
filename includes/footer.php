@@ -104,8 +104,8 @@
                     dataType: 'JSON',
                     success: function (data) {
                         let avail = generateString(5);
-                        console.log(data.length);
-                        console.log(data);
+                      //  console.log(data.length);
+                       // console.log(data);
 
                         // if link is previusly shortened 
                         if (data.length > 0) {
@@ -155,10 +155,10 @@
                                 processData: false,
                                 contentType: false,
                                 success: function (data) {
-                                    console.log("success");
+                                  //  console.log("success");
                                 },
                                 error: function (xhr, status, error) {
-                                    console.log("No");
+                                    // console.log("No");
                                 },
                             });
 
@@ -174,7 +174,7 @@
                         }
 
                     }, error: function (xhr, status, error) {
-                        console.log("No");
+                     //   console.log("No");
                     },
                 });
             });
@@ -189,8 +189,8 @@
                 return;
             }
             shortenLink = shortenLink.replace(/ /g, "_");
-            console.log(originalLink);
-            console.log(shortenLink);
+          //  console.log(originalLink);
+            // console.log(shortenLink);
             let avail = shortenLink;
 
             // Check if the original link has been previously shortened
@@ -200,7 +200,7 @@
                 method: 'GET',
                 dataType: 'JSON',
                 success: function (data) {
-                    console.log("this is datt", data);
+                   // console.log("this is datt", data);
                     // If the link is previously shortened
                     if (data) {
                         swal("Custom Name Not Available !!", "", "error");
@@ -238,10 +238,10 @@
                             processData: false,
                             contentType: false,
                             success: function (data) {
-                                console.log("success");
+                             //   console.log("success");
                             },
                             error: function (xhr, status, error) {
-                                console.log("No");
+                             //   console.log("No");
                             },
                         });
                     } else {
@@ -249,7 +249,7 @@
                     }
                 },
                 error: function (xhr, status, error) {
-                    console.log("No");
+                 //   console.log("No");
                 },
             });
         }

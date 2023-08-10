@@ -1,0 +1,32 @@
+.breadcrumbs {
+  background: #010b1a;
+  background-image: url("../assets/img/hero-bg.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#typingContainer{
+  width: fit-content;
+  margin: auto;
+  height: 56px;
+}
+
+.typing-cursor {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 0;
+width: 2px;
+height: 56px;
+background-color: white;
+animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+0%, 100% {
+opacity: 0;
+}
+50% {
+opacity: 1;
+}
+}

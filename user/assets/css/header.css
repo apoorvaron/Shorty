@@ -1,0 +1,92 @@
+.mt-p10 {
+  margin-top: 10% !important;
+}
+
+.border-radius-p30 {
+  border-radius: 30% !important;
+}
+
+#sstSessionModal {
+  text-align: center;
+  white-space: nowrap;
+}
+
+#sstSessionModal:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+#sstSessionModal .modal-dialog {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#sstSessionModal.shown {
+  margin-top: 30px;
+  opacity: 1;
+}
+
+#sstSessionModal .modal-header,
+#sstSessionModal .modal-body,
+#sstSessionModal .modal-footer {
+  text-align: center;
+}
+
+#sstSessionModal .modal-footer {
+  border-top: 0;
+  padding-top: 0;
+}
+
+#sstSessionModal .modal-footer button {
+  margin: 0 20px;
+}
+
+#sstSessionModal .modal-footer .btn {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+#sstSessionModal .modal-footer .btn:focus,
+#sstSessionModal .modal-footer .btn:hover {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #eee;
+}
+
+#sstSessionModal .modal-footer .btn-primary {
+  background: #434371;
+}
+
+#sstSessionModal .modal-footer .btn-primary:focus,
+#sstSessionModal .modal-footer .btn-primary:hover {
+  background: #292a51;
+}
+
+#sstSessionModal .modal-footer .btn-default {
+  background: #ea8ab3;
+}
+
+#sstSessionModal .modal-footer .btn-default:focus,
+#sstSessionModal .modal-footer .btn-default:hover {
+  background: #e45e98;
+}
+
+#sstSessionModal #sstSessionModalExpire {
+  color: #434371;
+}
+
+@media (min-width: 768px) {
+  #sstSessionModal .modal-dialog {
+    width: 400px;
+  }
+}
+
+.modal-footer {
+  display: block;
+}
+
+/* For Demo Purposes Only */
+.modal-header {
+  display: block;
+}

@@ -38,7 +38,7 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
-
+    <link href="./assets/css/about.css" rel="stylesheet" />
 
 
     <!-- =======================================================
@@ -59,14 +59,15 @@ include('./env.php');
     <main id="main">
 
         <!-- ======= Breadcrumbs ======= -->
-        <div class="breadcrumbs"
-            style=" background: #010b1a;background-image: url('../assets/img/hero-bg.webp'); background-repeat: no-repeat; background-size: cover;">
+        <div class="breadcrumbs">
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <h2>ABOUT</h2>
-
+                            <div class="position-relative" id="typingContainer">
+                            <h2 id="about-Typing"> </h2>
+                             <div class="typing-cursor"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,16 +90,14 @@ include('./env.php');
 
                 <div class="row gy-4">
                     <div class="col-lg-6 position-relative align-self-start order-lg-last order-first">
-                        <img src="./assets/img/guest.webp"
-                            class="img-fluid" alt="">
+                        <img src="./assets/img/guest.webp" class="img-fluid" alt="">
                         <!-- <a href="https://github.com/Mrprayag077/Shorty/blob/main/assets/images/about.png?raw=true"
                             class="glightbox play-btn"></a> -->
                     </div>
-                    <div class="col-lg-6 content order-last  order-lg-first">
+                    <div class="col-lg-6 content order-last order-lg-first">
                         <h3>About</h3>
-                        <p style="justify-content: center;">
-                            To help you grow, scale, and dominate through the power of link management.Whether you’re
-                            sharing one link ,lets you personalize, track.
+                        <p class="about">
+                            To help you grow, scale, and dominate through the power of link management. Whether you’re sharing a single link or multiple links, Shorty lets you personalize and track your links with ease.
                         </p>
                         <ul>
 
@@ -203,71 +202,6 @@ include('./env.php');
                         <h2>WHAT WE PROVIDE</h2>
 
                     </div>
-
-
-
-
-
-
-
-                    <style>
-                        #Frames,
-                        .Frame {
-                            list-style: none;
-                            list-style-type: none;
-                            margin: 0px;
-                            padding: 0px;
-                            text-align: center;
-                        }
-
-                        #Frames {
-                            margin: 5% 0;
-                            width: 100%;
-                        }
-
-                        .Frame {
-                            display: inline-block;
-                            padding: 30px;
-                            border-width: 15px;
-                            border-style: solid;
-                            border-color: #2F2D2D #434040 #4F4C4C #434040;
-                            background: #f5f5f5;
-                            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E5E4DF), to(#CDCDC6));
-                            background-image: -webkit-linear-gradient(#E5E4DF, #CDCDC6);
-                            background-image: -moz-linear-gradient(#E5E4DF, #CDCDC6);
-                            background-image: -o-linear-gradient(#E5E4DF, #CDCDC6);
-                            background-image: linear-gradient(#E5E4DF, #CDCDC6);
-                            box-shadow: inset 0 2px 5px rgba(0, 0, 0, .6), 0 5px 2px rgba(0, 0, 0, .1), 0 10px 20px rgba(0, 0, 0, .8);
-                            position: relative;
-                            overflow: hidden;
-                        }
-
-                        .Frame::before {
-                            content: "";
-                            position: absolute;
-                            top: -175px;
-                            right: -20%;
-                            width: 200px;
-                            height: 200px;
-                            transform: rotateZ(-40deg);
-                            -webkit-transform: rotateZ(-40deg);
-                            -moz-transform: rotateZ(-40deg);
-                            -o-transform: rotateZ(-40deg);
-                            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, .4)), to(rgba(255, 255, 255, 0)));
-                            background-image: -webkit-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
-                            background-image: -moz-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
-                            background-image: -o-linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
-                            background-image: linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, 0));
-                        }
-
-                        .Frame img {
-                            border-width: 2px;
-                            border-style: solid;
-                            border-color: #BBBAB4 #C7C7BF #E5E4DF #C7C7BF;
-                            box-shadow: 0 -1px 1px rgba(0, 0, 0, .1), 0 1px 1px 1px rgba(255, 255, 255, .7);
-                        }
-                    </style>
-
                     <div class="wrapper">
                         <div class="title">an orange and white cat yawns in the leaves</div>
                         <div class="img-wrapper">
@@ -300,7 +234,7 @@ include('./env.php');
 
                             </a>
                         </div>
-                        <div class="col-md-7" style="justify-content: center;">
+                        <div class="col-md-7">
                             <h3>
                                 Efficient Link Management
                             </h3>
@@ -344,7 +278,7 @@ include('./env.php');
                                     class="img-fluid" id="img-hover__img" alt=""> -->
                             </a>
                         </div>
-                        <div class="col-md-7 order-2 order-md-1" style="justify: center;">
+                        <div class="col-md-7 order-2 order-md-1">
                             <h3>
                                 Track and Analyze Performance:
 
@@ -397,8 +331,7 @@ include('./env.php');
 
                                 <li class="Frame"><a href="#">
                                         <img src="https://www.searchfit.com/wp-content/uploads/2017/10/10-effective-ways-online-presence.png"
-                                            class="img-fluid" style="width:100%;heigth:100%;" id="img-hover__img"
-                                            alt="">
+                                            class="img-fluid img-frame" id="img-hover__img" alt="">
                                     </a></li>
 
                                 <!-- <img src="https://brand24.com/blog/wp-content/uploads/2021/05/How-to-increase-Instagram-reach.png"
@@ -442,8 +375,6 @@ include('./env.php');
     </main><!-- End #main -->
 
 
-
-
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->
     <?php include './includes/footer.php'; ?>
 
@@ -452,6 +383,34 @@ include('./env.php');
     <?php include './includes/chatbotsidebar.php'; ?>
 
     <div id="preloader"></div>
+
+<script>
+    const word = "ABOUT";
+const typingSpeed = 180; //(in milliseconds)
+
+const typingWordElement = document.getElementById("about-Typing");
+const typingCursor = document.querySelector(".typing-cursor");
+let currentIndex = 0;
+
+function typeWord() {
+  if (currentIndex < word.length) {
+    typingWordElement.textContent += word[currentIndex];
+    currentIndex++;
+    setTimeout(typeWord, typingSpeed);
+  }else {
+    // Word typed completely, remove cursor
+    typingCursor.style.display = "none";
+  }
+}
+
+// Start typing animation when the page is loaded
+window.onload = () => {
+    setTimeout(() => {
+        typeWord();
+    }, 1000);
+};
+
+</script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
