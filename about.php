@@ -38,7 +38,7 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/about.css">
+    <link href="./assets/css/about.css" rel="stylesheet" />
 
 
     <!-- =======================================================
@@ -48,36 +48,6 @@ include('./env.php');
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 ======================================================== -->
-
-<!-- Typing Animation Style -->
-
-<style>
- #typingContainer{
-       width: fit-content;
-       margin: auto;
-       height: 56px;
- }
-
-.typing-cursor {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 0;
-  width: 2px;
-  height: 56px;
-  background-color: white;
-  animation: blinkCursor 0.8s infinite;
-}
-
-@keyframes blinkCursor {
-  0%, 100% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-</style>
 </head>
 
 <body>
@@ -416,8 +386,8 @@ include('./env.php');
     <div id="preloader"></div>
 
 <script>
-    const word = "ABOUT US";
-const typingSpeed = 350; //(in milliseconds)
+    const word = "ABOUT";
+const typingSpeed = 180; //(in milliseconds)
 
 const typingWordElement = document.getElementById("about-Typing");
 const typingCursor = document.querySelector(".typing-cursor");

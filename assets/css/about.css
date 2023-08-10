@@ -8,6 +8,32 @@
   justify-content: center;
 }
 
+#typingContainer{
+  width: fit-content;
+  margin: auto;
+  height: 56px;
+}
+
+.typing-cursor {
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+right: 0;
+width: 2px;
+height: 56px;
+background-color: white;
+animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+0%, 100% {
+opacity: 0;
+}
+50% {
+opacity: 1;
+}
+}
+
 #Frames,
 .Frame {
   list-style: none;
@@ -90,7 +116,7 @@
     0 1px 1px 1px rgba(255, 255, 255, 0.7);
 }
 
-img-frame {
+.img-frame {
   width: 100%;
   height: 100%;
 }

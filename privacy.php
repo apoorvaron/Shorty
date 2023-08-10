@@ -37,7 +37,7 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/privacy.css">
+    <link href="./assets/css/privacy.css" rel="stylesheet" />
 
 
 
@@ -61,10 +61,12 @@ include('./env.php');
             <div class="page-header d-flex align-items-center">
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
-                        <div class="col-lg-6 text-center">
-                            <h2>Privacy Policy</h2>
-
+                       <div class="col-lg-6 text-center">
+                          <div class="position-relative" id="typingContainer">
+                            <h2 id="privacy-Typing"> </h2>
+                             <div class="typing-cursor"></div>
                         </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -354,6 +356,35 @@ include('./env.php');
                 behavior: 'smooth'
             });
         });
+    </script>
+
+        <!-- Typing Animation -->
+    <script>
+    const word = "Privacy Policy";
+const typingSpeed = 180; //(in milliseconds)
+
+const typingWordElement = document.getElementById("privacy-Typing");
+const typingCursor = document.querySelector(".typing-cursor");
+let currentIndex = 0;
+
+function typeWord() {
+  if (currentIndex < word.length) {
+    typingWordElement.textContent += word[currentIndex];
+    currentIndex++;
+    setTimeout(typeWord, typingSpeed);
+  }else {
+    // Word typed completely, remove cursor
+    typingCursor.style.display = "none";
+  }
+}
+
+// Start typing animation when the page is loaded
+window.onload = () => {
+    setTimeout(() => {
+        typeWord();
+    }, 1000);
+};
+
     </script>
 
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->
