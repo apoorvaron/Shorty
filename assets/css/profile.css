@@ -1,0 +1,12 @@
+.table_wrapper {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.border-radius-p50 {
+  border-radius: 50% !important;
+}
+
+.height-10 {
+  height: 10rem !important;
+}
