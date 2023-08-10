@@ -27,11 +27,9 @@ include(__DIR__ . '/../env.php');
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../assets/css/index.css">
+    <link rel="stylesheet" href="../assets/css/index.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-    <style>
-
-
-    </style>
 
 </head>
 
@@ -64,8 +62,9 @@ if (isset($_GET['short'])) {
                             ?>
 
                             <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
-                                    type="submit" class="btn btn-success waves-effect waves-light btn-new"
-                                    style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
+                                    type="submit"
+                                    class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Make
+                                    New Link</button></a>
                         </div>
                     </div>
                 </div>
@@ -84,8 +83,7 @@ if (isset($_GET['short'])) {
                                 </p>
 
                                 <table id="datatable-buttons"
-                                    class="table table-striped table-bordered dt-responsive nowrap"
-                                    style="border-collapse: collapse; border-spacing: 0; width: 100%; text-align:center;">
+                                    class="table table-striped table-bordered dt-responsive nowrap table table-bordered w-full text-align-center">
 
                                     <thead>
                                         <tr>
@@ -118,12 +116,12 @@ if (isset($_GET['short'])) {
                 <td>" . $sno . "</td>
                 <td>" . $row['linkIsFor'] . "</td>
                 <td>" . $row['originalLink'] . "...</td>
-                <td><a style='color:green;' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
+                <td><a class='text-green' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
                 <td class='text-center'>
-                      <i id='copyIcon" . $sno . "' class='fa fa-files-o copy-icon' aria-hidden='true' style='cursor: pointer;' onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\", " . $sno . ")'></i>
+                      <i id='copyIcon" . $sno . "' class='fa fa-files-o copy-icon cursor-pointer' aria-hidden='true'  onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\", " . $sno . ")'></i>
                 </td>
-                <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
-                <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "' class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+                <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-ligh float-none m-5px'><span class='ti-pencil'></span></button></a></td>
+                <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "' class='tabledit-delete-button btn btn-sm btn-light float-none m-5px' ><span class='ti-trash text-danger'></span></a></td>
             </tr>";
                                                 $sno++;
                                             }

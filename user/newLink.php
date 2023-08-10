@@ -28,83 +28,10 @@ include(__DIR__ . '/../env.php');
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
+    <link rel="stylesheet" href="../assets/css/newLink.css">
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <style>
-        input:focus {
-            outline: none;
-        }
 
-        .swal-overlay {
-            background-color: #0e1d34;
-        }
-
-        .swal-button {
-            padding: 7px 19px;
-            border-radius: 2px;
-            background-color: #04307d;
-            font-size: 12px;
-            border: 1px solid #04307d;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        .inputIconContainer {
-            position: relative;
-            width: 100%;
-        }
-
-        .inputIconContainer i,
-        .inputIconContainer svg {
-            position: absolute;
-            top: 3px;
-            left: 5px;
-            color: #04307c;
-            font-size: 15px;
-        }
-
-        #newLink input {
-            padding-left: 32px;
-        }
-
-        #formSpan {
-            display: flex;
-            width: 100%;
-            overflow-x: hidden;
-            margin-left: 32px;
-        }
-
-        #formSpan input {
-            padding-left: 0px
-        }
-
-        #customeNameInput {
-            padding-left: 0;
-            padding-right: 0;
-        }
-
-        @media only screen and (max-width: 400px) {
-            #shortenLink {
-                max-width: 70% !important;
-            }
-        }
-
-        @media only screen and (max-width: 500px) and (min-width: 400px) {
-            #shortenLink {
-                width: 100% !important;
-            }
-        }
-
-        @media only screen and (max-width: 800px) and (min-width: 500px) {
-            #shortenLink {
-                width: 160% !important;
-            }
-        }
-
-        @media only screen and (min-width: 800px) {
-            #shortenLink {
-                width: 190% !important;
-            }
-        }
-    </style>
 </head>
 <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -203,8 +130,9 @@ if (isset($_POST['submit'])) {
                         <div class="page-title-box">
                             <h4 class="page-title">Make New Link</h4>
                             <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
-                                    type="" class="btn btn-success waves-effect waves-light btn-new"
-                                    style="position: absolute;top: 29px;right: 15px;">Shorten Links</button></a>
+                                    type=""
+                                    class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Shorten
+                                    Links</button></a>
                         </div>
                     </div>
                 </div>
@@ -216,7 +144,8 @@ if (isset($_POST['submit'])) {
                             <div class="card-body">
                                 <div class="alert alert-success alert-dismissible fade show d-flex align-items-center"
                                     role="alert">
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style = "padding: 1rem 1.75rem;">
+                                    <button type="button" class="close custom-padding" data-dismiss="alert"
+                                        aria-label="Close">
                                         <span aria-hidden="true">×</span>
                                     </button>
                                     <i class="mdi mdi-information-outline font-32"></i><strong>Shorty</strong>
@@ -270,7 +199,7 @@ if (isset($_POST['submit'])) {
                                                         <?php echo $env_domain ?>
                                                     </strong></label>
                                                 <span>
-                                                    <input type="text" placeholder="Custom Name" style="border:0px;"
+                                                    <input type="text" placeholder="Custom Name" class="border-0"
                                                         required id="shortenLink" name="shortenLink" /></span>
 
                                             </span>

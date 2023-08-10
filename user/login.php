@@ -1,47 +1,10 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="../assets/css/login.css">
 <link rel="stylesheet" href="./assets/css/btn-new.css">
 
 <!-- jQuery CDN -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<style>
-    .swal-overlay {
-        background-color: #0e1d34;
-    }
 
-    .swal-button {
-        padding: 7px 19px;
-        border-radius: 2px;
-        background-color: #04307d;
-        font-size: 12px;
-        border: 1px solid #3e549a;
-        text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-    }
-
-    .inputIconContainer {
-        position: relative;
-        width: 100%;
-    }
-
-    #password-iconDiv {
-        width: 89%;
-    }
-
-    .inputIconContainer i {
-        position: absolute;
-        top: 9px;
-        left: 5px;
-        color: #04307d;
-        font-size: 20px;
-    }
-
-    #login input {
-        padding-left: 32px;
-    }
-
-    .eye {
-        width: auto !important;
-    }
-</style>
 
 <?php
 
@@ -133,65 +96,13 @@ if (isset($_POST['submit'])) {
     <link href="assets/plugins/animate/animate.css" rel="stylesheet" type="text/css">
     <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <style>
-        img.vert-move {
-            -webkit-animation: mover 1s infinite alternate;
-            animation: mover 1s infinite alternate;
-        }
 
-        img.vert-move {
-            -webkit-animation: mover 1s infinite alternate;
-            animation: mover 1s infinite alternate;
-        }
-
-        .error {
-            color: red;
-            font-size: 12px;
-            margin: 0px;
-            padding-left: 6px;
-        }
-
-        #passwordBorder {
-            border-radius: 0.25rem;
-            flex-wrap: nowrap;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @-webkit-keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-
-        @keyframes mover {
-            0% {
-                transform: translateY(0);
-            }
-
-            100% {
-                transform: translateY(-10px);
-            }
-        }
-        .card-body{
-            padding: 0.75rem;
-        }
-    </style>
 </head>
 
 
 <!-- <body class="fixed-left" style="background-image:url(assets/images/background.jpg)"> -->
 
-<body class="fixed-left" style="  background-color: #0e1d34;
-  background-image: url('../assets/img/hero-bg.webp');
-  background-size: cover;
-  background-position: center;">
+<body class="fixed-left" style="  ">
 
     <!-- Begin page -->
     <!--<div class="accountbg"></div>-->
@@ -242,8 +153,8 @@ if (isset($_POST['submit'])) {
                                     <div class="input-group-append eye">
                                         <span class="input-group-text" onclick="changeType()">
                                             <!-- <img id="eyei" src="https://gvaprofile.com/app/show_hide_eye.png" onclick="changeType()"  style="height:20px; width: 20px;"/></span> -->
-                                            <i id="eyei" style="margin-left:-15%;margin-top:4%;z-index:9999;" onclick=""
-                                                class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                aria-hidden="true"></i>
                                     </div>
                                 </div>
                                 <p class="error hidden" id="passwordError">Please fill this field</p>
@@ -265,16 +176,15 @@ if (isset($_POST['submit'])) {
 
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
-                                <button class="btn  btn-block waves-effect waves-light btn-new"
-                                    style="background-color: #0d42ff; color:white; border: 1px solid #0d42ff;"
-                                    id="submit" name="submit" type="submit" aria-label="Log In">Log In</button>
+                                <button class="btn  btn-block waves-effect waves-light btn-new btn-Login" id="submit"
+                                    name="submit" type="submit" aria-label="Log In">Log In</button>
                             </div>
                         </div>
 
                         <div class="form-group m-t-10 mb-0 row">
                             <div class="col-sm-7 m-t-20">
-                                <a href="../" class="text-muted"><i class="mdi mdi-home"
-                                        aria-hidden="true"></i> &nbsp; Home
+                                <a href="../" class="text-muted"><i class="mdi mdi-home" aria-hidden="true"></i> &nbsp;
+                                    Home
                                     Page</a>
                             </div>
                             <div class="col-sm-5 m-t-20">
