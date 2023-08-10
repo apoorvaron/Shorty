@@ -38,7 +38,7 @@ include('./env.php');
 
     <!-- Template Main CSS File -->
     <link href="./assets/css/shorty.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/css/about.css">
+    <link href="./assets/css/about.css" rel="stylesheet" />
 
 
     <!-- =======================================================
@@ -64,8 +64,10 @@ include('./env.php');
                 <div class="container position-relative">
                     <div class="row d-flex justify-content-center">
                         <div class="col-lg-12 text-center">
-                            <h2>ABOUT</h2>
-
+                            <div class="position-relative" id="typingContainer">
+                            <h2 id="about-Typing"> </h2>
+                             <div class="typing-cursor"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -374,8 +376,6 @@ include('./env.php');
     </main><!-- End #main -->
 
 
-
-
     <!-- importing the FOOTER CODE FROM FOOTER PHP FILE -->
     <?php include './includes/footer.php'; ?>
 
@@ -384,6 +384,34 @@ include('./env.php');
     <?php include './includes/chatbotsidebar.php'; ?>
 
     <div id="preloader"></div>
+
+<script>
+    const word = "ABOUT";
+const typingSpeed = 180; //(in milliseconds)
+
+const typingWordElement = document.getElementById("about-Typing");
+const typingCursor = document.querySelector(".typing-cursor");
+let currentIndex = 0;
+
+function typeWord() {
+  if (currentIndex < word.length) {
+    typingWordElement.textContent += word[currentIndex];
+    currentIndex++;
+    setTimeout(typeWord, typingSpeed);
+  }else {
+    // Word typed completely, remove cursor
+    typingCursor.style.display = "none";
+  }
+}
+
+// Start typing animation when the page is loaded
+window.onload = () => {
+    setTimeout(() => {
+        typeWord();
+    }, 1000);
+};
+
+</script>
 
     <!-- Vendor JS Files -->
     <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
