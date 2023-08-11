@@ -90,6 +90,7 @@ if (isset($_GET['short'])) {
                                             <th>Link is For</th>
                                             <th>Original Link</th>
                                             <th>Shorted Link</th>
+                                            <th>Clicks</th>
                                             <th>Copy</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -116,6 +117,7 @@ if (isset($_GET['short'])) {
                 <td>" . $row['linkIsFor'] . "</td>
                 <td>" . $row['originalLink'] . "...</td>
                 <td><a class='text-green' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
+                <td>" . $row['clicks'] . "</td>
                 <td class='text-center'>
                       <i id='copyIcon" . $sno . "' class='fa fa-files-o copy-icon cursor-pointer' aria-hidden='true'  onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\", " . $sno . ")'></i>
                 </td>

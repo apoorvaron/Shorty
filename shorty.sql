@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.7
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Aug 17, 2022 at 05:04 PM
--- Server version: 5.7.32
--- PHP Version: 7.4.12
+-- Generation Time: Aug 11, 2023 at 03:44 PM
+-- Server version: 5.7.39
+-- PHP Version: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -23,44 +24,27 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `counter_table`
+-- Table structure for table `chatbot`
 --
-
-CREATE TABLE `counter_table` (
-  `id` int(11) NOT NULL,
-  `ip_address` text NOT NULL,
-  `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 CREATE TABLE `chatbot` (
   `id` int(11) NOT NULL,
   `queries` varchar(300) DEFAULT NULL,
   `replies` varchar(300) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
---
--- Dumping data for table `counter_table`
---
 
-INSERT INTO `counter_table` (`id`, `ip_address`, `visit_date`) VALUES
-(2, '12:!2:12:12', '2022-07-26 11:13:20'),
-(3, '::1', '2022-07-26 11:16:14'),
-(4, '54:45:45', '2022-07-26 11:17:05'),
-(5, '54:54:54:54', '2022-07-26 11:18:20'),
-(6, '54:54:24:54', '2022-08-07 19:19:21'),
-(7, '54:54:24:54', '2022-08-07 19:19:21'),
-(8, '54:54:24:54', '2022-08-07 19:19:21'),
-(9, '54:54:24:54', '2022-08-07 19:19:21');
-
+--
+-- Dumping data for table `chatbot`
+--
 
 INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (2, 'Why should I use a link shortener?', ' Link shorteners are useful for several reasons. They make long URLs more manageable and easier to share, particularly on platforms with character limitations like social media.'),
 (3, ' Can I delete or edit a shortened URL?', ' Unfortunately, once a URL is shortened using our service, it cannot be edited or deleted. We recommend double-checking the URL before shortening it to avoid any inconveniences later.'),
 (4, 'hi', 'hey shorty user!!'),
 (5, 'what does this website do?', 'Hi! This website shortens URL of any Webpage and the best part - ITS FREE!'),
-(6, 'what is the advantage of this service?', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
-(7, 'advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
-(8, 'what is the advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type "example" to get an example'),
+(6, 'what is the advantage of this service?', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type \"example\" to get an example'),
+(7, 'advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type \"example\" to get an example'),
+(8, 'what is the advantage', 'The advantage is that your link will be shorter. This is important for platforms having character limit, like twitter. Type \"example\" to get an example'),
 (9, 'help', 'Sure! This website shortens any link. This can be the URL of a website, a link to a youtube video, and all other possibilities. Type any of the following to get more info: 1.time 2.price 3.example 4.another example 5.advantage'),
 (10, 'price?', 'This is the best part: ITS FREE!!'),
 (11, 'what is the price?', 'This is the best part: ITS FREE!!'),
@@ -72,14 +56,14 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (17, 'time?', 'Within the blink of an eye! Its fast!'),
 (18, 'fast?', 'Within the blink of an eye! Its fast!'),
 (19, 'Is it slow?', 'Within the blink of an eye! Its fast!'),
-(20, 'is it anonymous', "YES! it is 100 % anonymous. This is an open source project. Don't worry !"),
-(21, 'privacy', "It is 100% anonymous. Don't worry!"),
+(20, 'is it anonymous', 'YES! it is 100 % anonymous. This is an open source project. Don\'t worry !'),
+(21, 'privacy', 'It is 100% anonymous. Don\'t worry!'),
 (22, 'is data stored?', 'No data about the user is stored!'),
-(23, 'can others see my data?','No, your data is 100% private. No worries!'),
+(23, 'can others see my data?', 'No, your data is 100% private. No worries!'),
 (24, 'is it safe?', 'YES it is absolutely safe! It is an open source project. No worries !'),
 (25, 'is it legal?', 'YES it is legal. It is an open source project. No worries!'),
 (26, 'is it illegal?', 'NO, it is ABSOLUTELY legal. It is an open source project. No worries!'),
-(27, 'thanks', "you're Welcome!"),
+(27, 'thanks', 'you\'re Welcome!'),
 (28, 'example', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
 (29, 'give me an example', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
 (30, 'show me', 'Original: https://www.youtube.com/watch?v=dQw4w9WgXcQ , Short Version: http://shrty.rf.gd/zvUci'),
@@ -97,9 +81,9 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (42, 'show login page', 'Sure: http://shrty.rf.gd/user/login'),
 (43, 'login page', 'Sure: http://shrty.rf.gd/user/login'),
 (44, 'login', 'Sure: http://shrty.rf.gd/user/login'),
-(45, 'goto login page','Sure: http://shrty.rf.gd/user/login'),
+(45, 'goto login page', 'Sure: http://shrty.rf.gd/user/login'),
 (46, 'Upload profile pic in register page meaning', 'This is your account picture. It will be shown when you are logged in'),
-(47, 'profile pic','This is your account picture. It will be shown when you are logged in'),
+(47, 'profile pic', 'This is your account picture. It will be shown when you are logged in'),
 (48, 'profile pic meaning', 'This is your account picture. It will be shown when you are logged in'),
 (49, 'can i customize link without registering', 'No, You must be registered user in order to customize links'),
 (50, 'how are you', 'Hey shorty user! I am fine, How are you? Nice to have you here'),
@@ -110,11 +94,31 @@ INSERT INTO `chatbot` (`id`, `queries`, `replies`) VALUES
 (55, 'How are you', 'Hey shorty user ! Nice to have you here'),
 (56, 'hlw', 'Hey shorty user ! Nice to have you here');
 
+-- --------------------------------------------------------
 
+--
+-- Table structure for table `counter_table`
+--
 
+CREATE TABLE `counter_table` (
+  `id` int(11) NOT NULL,
+  `ip_address` text NOT NULL,
+  `visit_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `counter_table`
+--
 
-
+INSERT INTO `counter_table` (`id`, `ip_address`, `visit_date`) VALUES
+(2, '12:!2:12:12', '2022-07-26 11:13:20'),
+(3, '::1', '2022-07-26 11:16:14'),
+(4, '54:45:45', '2022-07-26 11:17:05'),
+(5, '54:54:54:54', '2022-07-26 11:18:20'),
+(6, '54:54:24:54', '2022-08-07 19:19:21'),
+(7, '54:54:24:54', '2022-08-07 19:19:21'),
+(8, '54:54:24:54', '2022-08-07 19:19:21'),
+(9, '54:54:24:54', '2022-08-07 19:19:21');
 
 -- --------------------------------------------------------
 
@@ -127,17 +131,17 @@ CREATE TABLE `links` (
   `uniqueNo` varchar(255) DEFAULT NULL,
   `linkIsFor` varchar(255) DEFAULT NULL,
   `originalLink` varchar(255) DEFAULT NULL,
-  `shortenLink` varchar(255) DEFAULT NULL
+  `shortenLink` varchar(255) DEFAULT NULL,
+  `clicks` varchar(1000) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 
 --
 -- Dumping data for table `links`
 --
 
-INSERT INTO `links` (`linkID`, `uniqueNo`, `linkIsFor`, `originalLink`, `shortenLink`) VALUES
-(1, 'shorty', NULL, 'https://meet.google.com/', 'V15Ez'),
-(6, 'shorty', NULL, 'https://code.tutsplus.com/tutorials/10-best-php-url-shortener-scripts--cms-28675', 'czox6');
+INSERT INTO `links` (`linkID`, `uniqueNo`, `linkIsFor`, `originalLink`, `shortenLink`, `clicks`) VALUES
+(1, 'shorty', NULL, 'https://meet.google.com/', 'V15Ez', '0'),
+(6, 'shorty', NULL, 'https://code.tutsplus.com/tutorials/10-best-php-url-shortener-scripts--cms-28675', 'czox6', '0');
 
 -- --------------------------------------------------------
 
@@ -155,7 +159,7 @@ CREATE TABLE `total_clicks` (
 --
 
 INSERT INTO `total_clicks` (`id`, `total_clicks`) VALUES
-(1, 36);
+(1, 38);
 
 -- --------------------------------------------------------
 
@@ -187,12 +191,15 @@ INSERT INTO `users` (`uniqueNo`, `username`, `email`, `password`, `img`) VALUES
 --
 
 --
+-- Indexes for table `chatbot`
+--
+ALTER TABLE `chatbot`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `counter_table`
 --
 ALTER TABLE `counter_table`
-  ADD PRIMARY KEY (`id`);
-
-ALTER TABLE `chatbot`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -221,18 +228,23 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `chatbot`
+--
+ALTER TABLE `chatbot`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
 -- AUTO_INCREMENT for table `counter_table`
 --
 ALTER TABLE `counter_table`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-ALTER TABLE `chatbot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `links`
 --
 ALTER TABLE `links`
   MODIFY `linkID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

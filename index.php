@@ -11,7 +11,6 @@ if (isset($_GET)) {
   foreach ($_GET as $key => $val) {
     $u = mysqli_real_escape_string($db, $key);
     $new_url = str_replace('/', '', $u);
-
   }
 
   if (strlen($new_url) == "0") {
@@ -20,25 +19,29 @@ if (isset($_GET)) {
     $sql = "SELECT * from links WHERE shortenLink='" . $new_url . "'";
     $result = mysqli_query($db, $sql);
 
-
     if (mysqli_num_rows($result) > 0) {
-      mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
       $row = mysqli_fetch_assoc($result);
+
+      // Update clicks column
+      $updatedClicks = intval($row['clicks']) + 1;
+      mysqli_query($db, "UPDATE links SET clicks = '" . $updatedClicks . "' WHERE shortenLink='" . $new_url . "'");
+
+      // Update total_clicks table
+      mysqli_query($db, "UPDATE total_clicks SET total_clicks = total_clicks+1 WHERE id=1");
+
+      // Redirect to the original link
       header("Location:" . $row['originalLink']);
     } else {
-      // var_dump($new_url);
       if ($new_url != "i") {
         header("Location:404");
       } else {
         header("Location:" . $env_domain);
       }
-
     }
   }
-
-
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
