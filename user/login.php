@@ -1,4 +1,5 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
 <link rel="stylesheet" href="../assets/css/login.css">
 <link rel="stylesheet" href="./assets/css/btn-new.css">
 

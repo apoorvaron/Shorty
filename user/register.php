@@ -25,6 +25,7 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="./assets/css/btn-new.css">
     <link rel="stylesheet" href="../assets/css/register.css">
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
