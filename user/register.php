@@ -124,7 +124,7 @@
                         <div class="form-group text-center row m-t-20">
                             <div class="col-12">
                                 <button
-                                    class="btn  btn-block waves-effect waves-light btn-new bg-black bg-primary text-white p-3 border-primary"
+                                    class="btn  btn-block waves-effect waves-light btn-new bg-black text-white border-primary "
                                     id="submit" name="submit" type="submit" aria-label="Register">Register</button>
                             </div>
                         </div>
