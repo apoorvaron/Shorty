@@ -96,7 +96,7 @@ if (isset($_POST['submit'])) {
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
-                if ($row['img'] != '../assets/img/inside-header-logo.webp') {
+                if ($row['img'] != '../assets/user-img/dummy.webp') {
                     unlink("" . $row['img'] . "");
                 }
 
