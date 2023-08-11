@@ -238,7 +238,7 @@ if ($rows == 0) {
               </div>
 
               <div class="inputIconContainer pl-0">
-                <i class="bi bi-browser-chrome"></i>
+                <i class="bi bi-browser-chrome" style="top: 14px;"></i>
                 <span class="form-group mt-3 mb-4" id="formSpan">
                   <label for="shortenLink">
                     <p class="m-0 text-555 fw-900">
