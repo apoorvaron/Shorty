@@ -29,6 +29,13 @@ include(__DIR__ . '/../env.php');
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
     <link rel="stylesheet" href="./assets/css/btn-new.css">
 
+    <!-- sweet alert css -->
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
+    
+    <!-- sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <?php
@@ -109,10 +116,20 @@ if (isset($_GET['short'])) {
                                         $db = $database->connect();
                                         $sno = 1;
                                         $uno = $_GET['uno'];
+                                        $linkID = $_GET['linkID'];
                                         // echo $uno;
-                                        $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' AND linkID='" . $_GET['linkID'] . "'";
-                                        // echo $sql;
-                                        
+                                        if (!ctype_digit($linkID)) {
+                                            echo "  <script>
+                                                        $(document).ready(function(){
+                                                            swal('Unauthorized Access.', '', 'error').then(function() {
+                                                                window.location = './index.php?username={$username}&uno={$uno}';
+                                                            });
+                                                        });
+                                                    </script>";
+                                        }
+                                        $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' AND linkID='" . $linkID . "'";
+                                    
+
                                         if ($result = mysqli_query($db, $sql)) {
                                             if (mysqli_num_rows($result) > 0) {
                                                 while ($row = mysqli_fetch_array($result)) {
@@ -136,7 +153,13 @@ if (isset($_GET['short'])) {
                                                 }
                                                 mysqli_free_result($result);
                                             } else {
-                                                echo "<p class='lead'><em>No Record Found.</em></p>";
+                                                echo "  <script>
+                                                            $(document).ready(function(){
+                                                                swal('Unauthorized Access.', '', 'error').then(function() {
+                                                                    window.location = './index.php?username={$username}&uno={$uno}';
+                                                                });
+                                                            });
+                                                        </script>";
                                             }
                                         } else {
                                             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
