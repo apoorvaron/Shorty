@@ -52,18 +52,15 @@
       $count_rows = mysqli_num_rows($result);
       if ($count_rows > 0) {
 
-
-        echo "  <script>
-                              $(document).ready(function(){
-                                  swal('Custom Name Not Available !!','','error');
-                              });
-                          </script>";
+        //Alert Message 
+        $msz = "Custom Name Not Available !!";
+        $type = "error";
+        include "./user/swal.php";
 
 
       } else {
 
         $query = "SELECT * FROM links WHERE uniqueNo='shorty' AND originalLink='" . $originalLink . "'";
-
 
 
         $result = mysqli_query($db, $query);
@@ -76,66 +73,46 @@
         $result = mysqli_query($db, $sql);
         if ($result) {
 
-          echo '<script>
-              $(document).ready(function(){
-                
-              let generateShorty = document.querySelector("#generateShorty");
-              let full_shortlink = "' . $env_domain . '";
-              generateShorty.innerHTML = `
+          echo '  <script>
+                    $(document).ready(function(){
+                      
+                      let generateShorty = document.querySelector("#generateShorty");
+                      let full_shortlink = "' . $env_domain . '";
+                      generateShorty.innerHTML = `
 
-              <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
-                <input type="text" id="shortInput" disabled class="form-control" value="' . $finalLink . '" value=""/>
-                <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
-              </form>
-                `;
+                      <form class="form-search d-flex align-items-stretch mb-3" data-aos="fade-up" data-aos-delay="200">
+                        <input type="text" id="shortInput" disabled class="form-control" value="' . $finalLink . '" value=""/>
+                        <input class="btn btn-primary" type="button" onclick="copy()" id="copyBtn" value="Copy">
+                      </form>
+                        `;
 
-                  let originalLink = document.querySelector("#originalLink").value;
+                          let originalLink = document.querySelector("#originalLink").value;
 
-                  var formData = new FormData();
-                  formData.append("originalLink", originalLink);
-  
-});
-</script>';
+                          var formData = new FormData();
+                          formData.append("originalLink", originalLink);
+          
+                    });
+                  </script>';
 
 
         } else {
-          echo "  <script>
-                                          $(document).ready(function(){
-                                              swal('Try Again !!','','error');
-                                          });
-                                     </script>";
-
+          //Alert Message 
+          $msz = "Try Again !!";
+          $type = "error";
+          include "./user/swal.php";
 
         }
 
-
-
-
       }
 
-
-
-
-
-
-
-
-
     } else {
-      echo "  <script>
-                          $(document).ready(function(){
-                              swal('Enter Valid URL !!','','info');
-                          });
-                      </script>";
 
+          //Alert Message 
+          $msz = "Enter Valid URL !!";
+          $type = "error";
+          include "./user/swal.php";
 
     }
-
-
-
-    // echo "<br><br><br><br><br><br><br>eqfwgretgfnerwqedgnretrqthdgjrwteqwrhdgtehryw".$result;
-  
-
   }
   ?>
 
