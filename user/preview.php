@@ -199,7 +199,7 @@ include __DIR__ . "/../env.php"; ?>
                                             Random Number
                                         </button>
 
-                                        <button class='btn btn-primary new btn-new' type='button' data-toggle='modal' id='previewBtn' hidden data-target='#myModal' onclick='join()'>Preview</button>
+                                        <button class='btn btn-primary new btn-new' type='button' data-toggle='modal' id='previewBtn'  data-target='#myModal' onclick='join()'>Preview</button>
                                     </div>
                                 </div>
                             </div>
