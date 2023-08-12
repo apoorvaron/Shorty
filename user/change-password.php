@@ -27,6 +27,14 @@
     <link rel="stylesheet" href="./assets/css/btn-new.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
 
+
+    <!-- sweet alert css -->
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
+    
+    <!-- sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <style>
         .inputIconContainer {
             position: relative;
@@ -257,23 +265,58 @@
                         $_GET["username"] .
                         "';";
                     if (mysqli_query($db, $sql)) {
-                        $alertMsz = "Password Changed !!";
-                        include "../user/alertModal.php";
+                        echo "  <script>
+                                    $(document).ready(function(){
+                                        swal('Password Changed !!', '', 'success').then(function() {
+                                            window.location = './index.php?username={$username}&uno={$uno}';
+                                        });
+                                    });
+                                </script>";
+                        // $alertMsz = "Password Changed !!";
+                        // include "../user/alertModal.php";
                     } else {
-                        $alertMsz = "Try Again !!";
-                        include "../user/alertModal-red.php";
+                        echo "  <script>
+                                    $(document).ready(function(){
+                                        swal('Try Again !!', '', 'error').then(function() {
+                                            window.location = './change-password.php?username={$username}&uno={$uno}';
+                                        });
+                                    });
+                                </script>";
+                        // $alertMsz = "Try Again !!";
+                        // include "../user/alertModal-red.php";
                     }
                 } else {
-                    $alertMsz = "Enter Same Password !!";
-                    include "../user/alertModal-red.php";
+                    echo "  <script>
+                                $(document).ready(function(){
+                                    swal('Enter Same Password !!', '', 'error').then(function() {
+                                        window.location = './change-password.php?username={$username}&uno={$uno}';
+                                    });
+                                });
+                            </script>";
+                    // $alertMsz = "Enter Same Password !!";
+                    // include "../user/alertModal-red.php";
                 }
             } else {
-                $alertMsz = "Pls choose strong password !!";
-                include "../user/alertModal-red.php";
+                // $alertMsz = "Enter Strong Password !!";
+                // include "../user/alertModal-red.php";
+                echo "  <script>
+                            $(document).ready(function(){
+                                swal('Enter Strong Password !!', '', 'error').then(function() {
+                                    window.location = './change-password.php?username={$username}&uno={$uno}';
+                                });
+                            });
+                        </script>";
             }
         } else {
-            $alertMsz = "Incorrect old password !!";
-            include "../user/alertModal-red.php";
+            echo "  <script>
+                        $(document).ready(function(){
+                            swal('Incorrect Old password !!', '', 'error').then(function() {
+                                window.location = './change-password.php?username={$username}&uno={$uno}';
+                            });
+                        });
+                    </script>";
+            // $alertMsz = "Incorrect old password !!";
+            // include "../user/alertModal-red.php";
         }
     }
     ?>
