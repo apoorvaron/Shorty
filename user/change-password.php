@@ -35,6 +35,8 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
+
     <style>
         .inputIconContainer {
             position: relative;
@@ -55,6 +57,9 @@
 
         .hidden {
             display: none;
+        }
+        .error{
+            margin-top: -15px;
         }
     </style>
 </head>
@@ -103,47 +108,78 @@
                                     <div class="row">
 
 
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Old Password</label>
-                                                <div class="inputIconContainer">
-                                                    <i class="bi bi-key-fill"></i>
-                                                    <input type="password" class="form-control" name="oldPass"
-                                                        id="oldPass" required placeholder="Old Password"
-                                                        aria-label="Old Password" aria-required="true"
-                                                        onkeyup="validate(event)" />
-                                                </div>
-                                                <p class="error hidden" id="oldPassError">Please fill this field</p>
-                                            </div>
 
+                                        <div class="col-12">
+                                            <label>Old Password</label>
+                                            <div class="input-group form-group" id="passwordBorderOld" style="flex-wrap: nowrap;">
+
+                                                <div class="inputIconContainer" id="password-iconDiv">
+                                                    <i class="bi bi-key-fill"></i>
+                                                    <input type="password" class="form-control" name="oldPass"  id="oldPass" required placeholder="Old Password" aria-required="true" aria-label="Old Password" onkeyup="validate(event)">
+                                                </div>
+                                                <div class="input-group-append eye">
+                                                    <span class="input-group-text" onclick="changeType()">
+                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                            aria-hidden="true"></i>
+                                                </div>
+                                            </div>
+                                            <p class="error hidden" id="oldPassError">Please fill this field</p>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>New password</label>
-                                                <div class="inputIconContainer">
+
+
+
+
+
+
+
+
+
+
+
+
+                                        <div class="col-12">
+                                            <label>New password</label>
+                                            <div class="input-group form-group" id="passwordBorderNew" style="flex-wrap: nowrap;">
+
+                                                <div class="inputIconContainer" id="password-iconDiv">
                                                     <i class="bi bi-lock-fill"></i>
-                                                    <input type="password" class="form-control" name="newPass"
-                                                        id="newPass" required placeholder="New password"
-                                                        aria-label="New Password" aria-required="true"
-                                                        onkeyup="validate(event)" />
+                                                    <input type="password" class="form-control" name="newPass"  id="newPass" required placeholder="New Password" aria-required="true" aria-label="New Password" onkeyup="validate(event)">
                                                 </div>
-                                                <p class="error hidden" id="newPassError">Minimum 8 characters, 1
-                                                    uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
+                                                <div class="input-group-append eye">
+                                                    <span class="input-group-text" onclick="changeType()">
+                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                            aria-hidden="true"></i>
+                                                </div>
                                             </div>
+                                                <p class="error hidden" id="newPassError">Minimum 8 characters, 1 uppercase, 1 lowercase, 1 symbol (@$%#^&*), 1 number (0-9)</p>
                                         </div>
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Confirm Password</label>
-                                                <div class="inputIconContainer">
+
+              
+
+
+
+
+
+
+                                        <div class="col-12">
+                                            <label>Confirm password</label>
+                                            <div class="input-group form-group" id="passwordBorderCnfrm" style="flex-wrap: nowrap;">
+
+                                                <div class="inputIconContainer" id="password-iconDiv">
                                                     <i class="bi bi-check-square-fill"></i>
-                                                    <input type="password" class="form-control" name="cnfrmPass"
-                                                        id="cnfrmPass" required placeholder="Confirm password"
-                                                        aria-label="Confirm Password" aria-required="true"
-                                                        onkeyup="validate(event)" />
+                                                    <input type="password" class="form-control" name="cnfrmPass"  id="cnfrmPass" required placeholder="Confirm Password" aria-required="true" aria-label="Confirm Password" onkeyup="validate(event)">
                                                 </div>
-                                                <p class="error hidden" id="cnfrmPassError">Password does not match</p>
+                                                <div class="input-group-append eye">
+                                                    <span class="input-group-text" onclick="changeType()">
+                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                            aria-hidden="true"></i>
+                                                </div>
                                             </div>
+                                            <p class="error hidden" id="cnfrmPassError">Password does not match</p>
                                         </div>
+
+
+
 
 
                                         <div class="col-md-6">
@@ -179,18 +215,26 @@
             const passwordRegex = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})/
             const error = document.getElementById(`${e.target.name}Error`);
             if (e.target.name === "oldPass") {
+                const div = document.getElementById("passwordBorderOld").style;
+
                 (e.target.value) ? error.classList.add("hidden") : error.classList.remove("hidden");
-                (e.target.value) ? e.target.style.border = "1px solid rgba(170, 170, 170, 0.3)" : e.target.style.border = "2px solid red";
+                (e.target.value) ? div.border = "2px solid rgba(170, 170, 170, 0.3)" : div.border = "2px solid red";
+                (e.target.value) ? div.borderRadius = "5px" : div.borderRadius = "5px" ;
+
             } else if (e.target.name === "newPass") {
+                const div = document.getElementById("passwordBorderNew").style;
                 const valid = passwordRegex.test(e.target.value);
                 (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
-                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+                (valid) ? div.border = "2px solid #04cb04" : div.border = "2px solid red";
+                (valid) ? div.borderRadius = "5px" : div.borderRadius = "5px";
 
             } else {
+                const div = document.getElementById("passwordBorderCnfrm").style;
                 const passwordVal = document.getElementById("newPass").value;
                 const valid = (passwordVal === e.target.value && e.target.value !== "");
                 (valid) ? error.classList.add("hidden") : error.classList.remove("hidden");
-                (valid) ? e.target.style.border = "2px solid #04cb04" : e.target.style.border = "2px solid red";
+                (valid) ? div.border = "2px solid #04cb04" : div.border = "2px solid red";
+                (valid) ? div.borderRadius = "5px" : div.borderRadius = "5px";
 
             }
         }
