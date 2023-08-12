@@ -26,7 +26,7 @@ include(__DIR__ . '/../env.php');
 <!-- LINKS SEO (mrprayag077) -->
 <link rel="canonical" href="<?php echo $env_domain ?>" />
 <meta
-  name="og:description"
+  property="og:description"
   content="Shorty is a powerful URL shortener that allows you to personalize, share, and track your content links, capturing valuable data with every click"
 />
 
@@ -41,8 +41,9 @@ include(__DIR__ . '/../env.php');
 />
 <meta
   property="og:image"
-  content="<?php echo $env_domain ?>assets/img/inside-header-logo.png"
+  content="<?php echo $env_domain ?>assets/img/hero-img.svg"
 />
+<meta property="fb:app_id" content="655344323220625">
 <meta property="og:url" content="<?php echo $env_domain ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Shorty" />
@@ -50,16 +51,20 @@ include(__DIR__ . '/../env.php');
 <meta property="og:author" content="apoorvaron" />
 <meta property="og:locale" content="en_IN" />
 <meta property="og:website:author" content="Apoorv Aron" />
+<meta property="og:image:width" content="400" /> 
+<meta property="og:image:height" content="300" />
+<!-- Add the fb:app_id meta tag -->
+
 
 <!-- TWITTER SEO (0xabdulkhalid) -->
 <meta
   name="twitter:card"
-  content="<?php echo $env_domain ?>assets/img/inside-header-logo.webp>"
+  content="<?php echo $env_domain ?>assets/img/hero-img.svg"
 />
 <meta name="twitter:site" content="@AronApoorv" />
 <meta
   name="twitter:image"
-  content="<?php echo $env_domain ?>assets/img/inside-header-logo.webp>"
+  content="<?php echo $env_domain ?>assets/img/hero-img.svg"
 />
 
 <!-- BROWSER BAR THEME -->
