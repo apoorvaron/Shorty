@@ -147,6 +147,8 @@ img.vert-move {
     padding: 15px 0px;
     width: 48%;
     margin-top: 0%;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
   }
 }
 
@@ -169,9 +171,11 @@ img.vert-move {
 .text-gray {
   color: gray !important;
 }
+
 .text-555 {
   color: #555 !important;
 }
+
 .fontSize9rem {
   font-size: 0.9rem !important;
 }

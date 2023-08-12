@@ -253,7 +253,7 @@ if ($rows == 0) {
 
               </div>
               <div class="d-flex justify-content-between" id="buttonresp">
-                <button type="button" class="btn btn-primary" id="generateRandom">Random Number</button>
+                <button type="button" class="btn btn-primary" id="generateRandom">Random No.</button>
                 <button type="button" role="button" aria-describedby="Click this button to shorten your link"
                   class="btn btn-primary" name="" onclick="generateCustomShorty()" class="btn-get-started">Shorten
                   Link</button>
