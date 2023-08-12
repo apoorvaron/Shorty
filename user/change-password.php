@@ -265,58 +265,48 @@
                         $_GET["username"] .
                         "';";
                     if (mysqli_query($db, $sql)) {
-                        echo "  <script>
-                                    $(document).ready(function(){
-                                        swal('Password Changed !!', '', 'success').then(function() {
-                                            window.location = './index.php?username={$username}&uno={$uno}';
-                                        });
-                                    });
-                                </script>";
-                        // $alertMsz = "Password Changed !!";
-                        // include "../user/alertModal.php";
+
+
+                        //Alert Message 
+                        $msz = "Password Changed !!";
+                        $type = "success";
+                        $redirection = "./index.php?username={$username}&uno={$uno}";
+                        include "./swal.php";
+
+
                     } else {
-                        echo "  <script>
-                                    $(document).ready(function(){
-                                        swal('Try Again !!', '', 'error').then(function() {
-                                            window.location = './change-password.php?username={$username}&uno={$uno}';
-                                        });
-                                    });
-                                </script>";
-                        // $alertMsz = "Try Again !!";
-                        // include "../user/alertModal-red.php";
+
+                        //Alert Message 
+                        $msz = "Try Again !!";
+                        $type = "error";
+                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        include "./swal.php";
+
                     }
                 } else {
-                    echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Enter Same Password !!', '', 'error').then(function() {
-                                        window.location = './change-password.php?username={$username}&uno={$uno}';
-                                    });
-                                });
-                            </script>";
-                    // $alertMsz = "Enter Same Password !!";
-                    // include "../user/alertModal-red.php";
+
+                        //Alert Message 
+                        $msz = "Enter Same Password !!";
+                        $type = "error";
+                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        include "./swal.php";
+
                 }
             } else {
-                // $alertMsz = "Enter Strong Password !!";
-                // include "../user/alertModal-red.php";
-                echo "  <script>
-                            $(document).ready(function(){
-                                swal('Enter Strong Password !!', '', 'error').then(function() {
-                                    window.location = './change-password.php?username={$username}&uno={$uno}';
-                                });
-                            });
-                        </script>";
+
+                        //Alert Message 
+                        $msz = "Enter Strong Password !!";
+                        $type = "error";
+                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        include "./swal.php";
             }
         } else {
-            echo "  <script>
-                        $(document).ready(function(){
-                            swal('Incorrect Old password !!', '', 'error').then(function() {
-                                window.location = './change-password.php?username={$username}&uno={$uno}';
-                            });
-                        });
-                    </script>";
-            // $alertMsz = "Incorrect old password !!";
-            // include "../user/alertModal-red.php";
+
+                        //Alert Message 
+                        $msz = "Incorrect Old Password !!";
+                        $type = "error";
+                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        include "./swal.php";
         }
     }
     ?>
