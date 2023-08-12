@@ -18,14 +18,19 @@
         <link href="assets/css/style.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="./assets/css/btn-new.css">
         <link rel="stylesheet" href="../assets/css/successDelete.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css'>
-        <script src='https://unpkg.com/sweetalert/dist/sweetalert.min.js'></script>
+    
+        <!-- sweet alert css -->
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
+    
+    <!-- sweet alert js -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 
 
-    <?php
+<?php
     $username = $_GET['username'];
     $uno = $_GET['uno'];
     $linkID = $_GET["linkID"];
@@ -60,7 +65,7 @@
     </script>";
         exit;
     }
-    ?>
+?>
 
         <script>
 function yesDelete() {
@@ -71,7 +76,9 @@ function yesDelete() {
         dataType: 'json',
         success: function (data, textStatus, xhr) {
             if (data.message === "Link Deleted Successfully") {
+                swal('Successfully Deleted !!', '', 'success').then(function() {
                     window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                });
             } else if (data.message === "Unauthorized Access") {
                 swal('Unauthorized Access', '', 'error').then(function() {
                     window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
