@@ -24,57 +24,13 @@
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <!-- sweet alert css -->
+    <link rel="stylesheet" href="../assets/css/sweetAlertButton.css">
 
-    <style>
-        .table_wrapper {
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
-        }
+    <!-- Css for edit profile  -->
+    <link rel="stylesheet" href="../assets/css/editProfile.css">
 
-        .swal-overlay {
-            background-color: #0e1d34;
-        }
-
-        .swal-button {
-            padding: 7px 19px;
-            border-radius: 2px;
-            background-color: #04307d;
-            font-size: 12px;
-            border: 1px solid #04307d;
-            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
-        }
-
-        .file-upload {
-            display: none;
-        }
-
-        .custom-file-upload {
-            display: inline-block;
-            width: fit-content;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #04307c;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        .custom-file-upload:hover {
-            background-color: #04307c;
-
-        }
-
-        .selected-file {
-            display: inline-block;
-            margin-left: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .uplodInputFileds {
-            height: fit-content;
-        }
-    </style>
 </head>
 <?php
 if (isset($_POST['submit'])) {
