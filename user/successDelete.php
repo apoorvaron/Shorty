@@ -43,26 +43,23 @@
     if ($CheckResult = mysqli_query($link, $checkValidity)) {
         if (mysqli_num_rows($CheckResult) > 0) {
         } else {
-            // Show SweetAlert message and redirect
-            echo "<script>
-            $(document).ready(function(){
-                swal('Unauthorized Access !!','','error').then(function() {
-                    window.location = './index.php?username={$username}&uno={$uno}';
-                });
 
-            });
-        </script>";
+            //Alert Message 
+            $msz = "Unauthorized Access !!";
+            $type = "error";
+            $redirection = "./index.php?username={$username}&uno={$uno}";
+            include "./swal.php";
+
             exit;
         }
     } else {
-        echo "<script>
-        $(document).ready(function(){
-            swal('Unauthorized Access !!','','error').then(function() {
-                window.location = './index.php?username={$username}&uno={$uno}';
-            });
 
-        });
-    </script>";
+        //Alert Message 
+        $msz = "Unauthorized Access !!";
+        $type = "error";
+        $redirection = "./index.php?username={$username}&uno={$uno}";
+        include "./swal.php";
+
         exit;
     }
 ?>
@@ -80,18 +77,18 @@ function yesDelete() {
                     window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
                 });
             } else if (data.message === "Unauthorized Access") {
-                swal('Unauthorized Access', '', 'error').then(function() {
+                swal('Unauthorized Access !!', '', 'error').then(function() {
                     window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
                 });
                 } else {
                 // Internal Server Error
-                swal('Internal Server Error : 500', '', 'error').then(function() {
+                swal('Internal Server Error : 500 !!', '', 'error').then(function() {
                     window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
                 });
             }
         },
         error: function (xhr, textStatus, errorThrown) {
-            swal('Internal Server Error : 500', '', 'error').then(function() {
+            swal('Internal Server Error : 500 !!', '', 'error').then(function() {
                 window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
             });
         }
