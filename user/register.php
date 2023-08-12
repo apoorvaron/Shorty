@@ -316,21 +316,35 @@
                     // } else {
                     $queryIns = "INSERT INTO `users` (`uniqueNo`,`username`, `password`, `img`,`email`) VALUES ('$randNum','$username', '$password', '$upload_directory','$email')";
                     if (mysqli_query($db, $queryIns)) {
-                        echo "  <script>
-                        swal('Registration Successful !!','* Please Login *','success').then(function() {
-                            window.location = './login';
-                        });
-                        </script>";
+
+                        //Alert Message 
+                        $msz = "Registration Successful !!";
+                        $type = "success";
+                        $redirection = "./login";
+                        include "./swal.php";
+
                     }
                     // }
                 } else {
-                    echo "<script>swal('Passwords are not Matching !!', '', 'error');</script>";
+
+                        //Alert Message 
+                        $msz = "Passwords are not Matching !!";
+                        $type = "error";
+                        include "./swal.php";
                 }
             } else {
-                echo "<script>swal('Weak Password !!', '', 'error');</script>";
+
+                //Alert Message 
+                $msz = "Weak Password !!";
+                $type = "error";
+                include "./swal.php";
             }
         } else {
-            echo "<script>swal('Email Already Registered!!', '', 'info');</script>";
+
+            //Alert Message 
+            $msz = "Email Already Registered !!";
+            $type = "error";
+            include "./swal.php";
         }
     }
 
