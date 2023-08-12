@@ -94,8 +94,8 @@ if (isset($_GET['short'])) {
                                         <tr>
                                             <th>Sl.No</th>
                                             <th>Link is For</th>
-                                            <th>Original Link</th>
-                                            <th>Shorted Link</th>
+                                            <th>Original</th>
+                                            <th>Shortened</th>
                                             <th>Clicks</th>
                                             <th>Copy</th>
                                             <th>Edit</th>
@@ -133,12 +133,15 @@ if (isset($_GET['short'])) {
                                         if ($result = mysqli_query($db, $sql)) {
                                             if (mysqli_num_rows($result) > 0) {
                                                 while ($row = mysqli_fetch_array($result)) {
-                                                    $row['originalLink'] = substr($row['originalLink'], 0, 30);
+                                                    if(strlen($row['originalLink'])>30){
+                                                        $row['originalLink'] = substr($row['originalLink'], 0, 20);
+                                                        $row['originalLink'] .="...";
+                                                    }
                                                     echo "
                                                                         <tr>
                                                                         <td>" . $sno . "</td>
                                                                         <td>" . $row['linkIsFor'] . "</td>
-                                                                        <td>" . $row['originalLink'] . "...</td>
+                                                                        <td>" . $row['originalLink'] . "</td>
                                                                         <td ><a style='color:green;' target='_blank' href='" . $env_domain . "" . $row['shortenLink'] . "'>" . $env_domain . "" . $row['shortenLink'] . "</a></td>
                                                                         <td>" . $row['clicks'] . "</td>
                                                                         <td class='text-center'>
