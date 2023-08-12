@@ -51,20 +51,18 @@ if (isset($_POST['submit'])) {
         $result = mysqli_query($db, $query);
 
         if (mysqli_num_rows($result) == 1) {
-            echo "  <script>
-                        $(document).ready(function(){
-                            swal('Wrong Password !!','','error').then(function() {
-                            });
-                        });
-                    </script>";
+                //Alert Message 
+                $msz = "Wrong Password !!";
+                $type = "error";
+                $redirection = "./login";
+                include "./swal.php";
         } else {
-            echo "  <script>
-                        $(document).ready(function(){
-                            swal('Please Register First !!','','error').then(function() {
-                                window.location='./register';
-                            });
-                        });
-                    </script>";
+
+                //Alert Message 
+                $msz = "Please Register First !!";
+                $type = "error";
+                $redirection = "./register";
+                include "./swal.php";
         }
 
     }
