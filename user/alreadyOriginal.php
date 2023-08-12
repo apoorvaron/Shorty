@@ -119,13 +119,12 @@ if (isset($_GET['short'])) {
                                         $linkID = $_GET['linkID'];
                                         // echo $uno;
                                         if (!ctype_digit($linkID)) {
-                                            echo "  <script>
-                                                        $(document).ready(function(){
-                                                            swal('Unauthorized Access.', '', 'error').then(function() {
-                                                                window.location = './index.php?username={$username}&uno={$uno}';
-                                                            });
-                                                        });
-                                                    </script>";
+
+                                                //Alert Message 
+                                                $msz = "Unauthorized Access !!";
+                                                $type = "error";
+                                                $redirection = "./index.php?username={$username}&uno={$uno}";
+                                                include "./swal.php";
                                         }
                                         $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' AND linkID='" . $linkID . "'";
                                     
@@ -153,13 +152,13 @@ if (isset($_GET['short'])) {
                                                 }
                                                 mysqli_free_result($result);
                                             } else {
-                                                echo "  <script>
-                                                            $(document).ready(function(){
-                                                                swal('Unauthorized Access.', '', 'error').then(function() {
-                                                                    window.location = './index.php?username={$username}&uno={$uno}';
-                                                                });
-                                                            });
-                                                        </script>";
+
+                                                    //Alert Message 
+                                                    $msz = "Unauthorized Access !!";
+                                                    $type = "error";
+                                                    $redirection = "./index.php?username={$username}&uno={$uno}";
+                                                    include "./swal.php";
+
                                             }
                                         } else {
                                             echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
