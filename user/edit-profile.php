@@ -129,21 +129,21 @@ if (isset($_POST['submit'])) {
 
 
             if ($result == 1) {
-                echo "  <script>
-                                    $(document).ready(function(){
-                                        swal('Successfully Updated !!','','success').then(function() {
-                                            window.location = './profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "';
-                                        });
-                                    });
-                                </script>";
+
+                //Alert Message 
+                $msz = "Successfully Updated !!";
+                $type = "success";
+                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                include "./swal.php";
 
 
             } else {
-                echo "  <script>
-                                    $(document).ready(function(){
-                                        swal('Email Already Exist !!','','error');
-                                    });
-                                </script>";
+
+                //Alert Message 
+                $msz = "Email Already Exist !!";
+                $type = "error";
+                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                include "./swal.php";
             }
 
         }
@@ -158,27 +158,21 @@ if (isset($_POST['submit'])) {
 
         // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$result;
         if ($result == 1) {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Successfully Updated !!','','success').then(function() {
-                                        window.location = './profile.php?username=" . $username . "&uno=" . $_GET['uno'] . "';
-                                    });
-                                });
-                            </script>";
+
+                //Alert Message 
+                $msz = "Successfully Updated !!";
+                $type = "success";
+                $redirection = "./profile.php?username=" . $username . "&uno=" . $_GET['uno'] . "";
+                include "./swal.php";
 
         } else {
-            echo "  <script>
-                                $(document).ready(function(){
-                                    swal('Email Already Exist !!','','error');
-                                });
-                            </script>";
+                //Alert Message 
+                $msz = "Email Already Exist !!";
+                $type = "error";
+                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                include "./swal.php";
         }
     }
-
-
-
-
-
 
 }
 ?>
