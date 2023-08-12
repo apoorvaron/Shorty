@@ -53,11 +53,12 @@ if (isset($_POST['submit'])) {
 
     // Validate "Link is for" field (name for the shortened link)
     if (strlen($linkIsFor) > 50) {
-        echo "<script>
-            $(document).ready(function(){
-                swal('Error: Link Name Exceeds 50 Characters! 🚫🔗');
-            });
-        </script>";
+        
+            //Alert Message 
+            $msz = "Link Name Exceeds 50 Characters !!";
+            $type = "error";
+            include "./swal.php";
+
     } else {
         // Validate the originalLink as a valid URL format
         if (filter_var($originalLink, FILTER_VALIDATE_URL)) {
@@ -67,11 +68,12 @@ if (isset($_POST['submit'])) {
             $count_rows = mysqli_num_rows($result);
 
             if ($count_rows > 0) {
-                echo "<script>
-                    $(document).ready(function(){
-                        swal('Custom Name Not Available !!','','error');
-                    });
-                </script>";
+
+                //Alert Message 
+                $msz = "Custom Name Not Available !!";
+                $type = "error";
+                include "./swal.php";
+
             } else {
                 $query = "SELECT * FROM links WHERE uniqueNo = '$uno' AND originalLink = '$originalLink'";
                 $result = mysqli_query($db, $query);
@@ -85,28 +87,29 @@ if (isset($_POST['submit'])) {
                     $result = mysqli_query($db, $sql);
 
                     if ($result) {
-                        echo "<script>
-                            $(document).ready(function(){
-                                swal('Successfully Created !!','','success').then(function() {
-                                    window.location = './index.php?username={$_GET['username']}&uno={$_GET['uno']}';
-                                });
-                            });
-                        </script>";
+
+                        //Alert Message 
+                        $msz = "Successfully Created !!";
+                        $type = "success";
+                        $redirection = "./index.php?username={$_GET['username']}&uno={$_GET['uno']}";
+                        include "./swal.php";
+
                     } else {
-                        echo "<script>
-                            $(document).ready(function(){
-                                swal('Try Again !!','','error');
-                            });
-                        </script>";
+
+                        //Alert Message 
+                        $msz = "Try Again !!";
+                        $type = "error";
+                        include "./swal.php";
+
                     }
                 }
             }
         } else {
-            echo "<script>
-                $(document).ready(function(){
-                    swal('Enter a Valid URL !!','','info');
-                });
-            </script>";
+
+            //Alert Message 
+            $msz = "Enter a Valid URL !!";
+            $type = "error";
+            include "./swal.php";
         }
     }
 }
