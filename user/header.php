@@ -24,7 +24,7 @@ $db = $database->connect();
 
 $uniqueNo = $_SESSION["uno"];
 
-$sql = "SELECT * from users WHERE uno='" . $uniqueNo . "'";
+$sql = "SELECT * from users WHERE uniqueNo='" . $uniqueNo . "'";
 $result = mysqli_query($db, $sql);
 
 $row = mysqli_fetch_array($result);
