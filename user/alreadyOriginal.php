@@ -114,7 +114,7 @@ include(__DIR__ . '/../env.php');
                                                 //Alert Message 
                                                 $msz = "Unauthorized Access !!";
                                                 $type = "error";
-                                                $redirection = "./index";
+                                                $redirection = "./";
                                                 include "./swal.php";
                                         }
                                         $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' AND linkID='" . $linkID . "'";
@@ -151,7 +151,7 @@ include(__DIR__ . '/../env.php');
                                                     //Alert Message 
                                                     $msz = "Unauthorized Access !!";
                                                     $type = "error";
-                                                    $redirection = "./index";
+                                                    $redirection = "./";
                                                     include "./swal.php";
 
                                             }

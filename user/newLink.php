@@ -93,7 +93,7 @@ if (isset($_POST['submit'])) {
                         //Alert Message 
                         $msz = "Successfully Created !!";
                         $type = "success";
-                        $redirection = "./index";
+                        $redirection = "./";
                         include "./swal.php";
 
                     } else {
