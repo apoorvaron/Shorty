@@ -1,3 +1,7 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,8 +35,8 @@
 
 
 <?php
-    $username = $_GET['username'];
-    $uno = $_GET['uno'];
+    $uno = $_SESSION["uno"];
+
     $linkID = $_GET["linkID"];
 
     require "../admin/dBconn/database.php";
@@ -47,7 +51,7 @@
             //Alert Message 
             $msz = "Unauthorized Access !!";
             $type = "error";
-            $redirection = "./index.php?username={$username}&uno={$uno}";
+            $redirection = "./";
             include "./swal.php";
 
             exit;
@@ -57,7 +61,7 @@
         //Alert Message 
         $msz = "Unauthorized Access !!";
         $type = "error";
-        $redirection = "./index.php?username={$username}&uno={$uno}";
+        $redirection = "./";
         include "./swal.php";
 
         exit;
@@ -68,28 +72,28 @@
 function yesDelete() {
     event.preventDefault()
     $.ajax({
-        url: '../admin/dBconn/api.php?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>&uno=<?php echo $_GET["uno"]; ?>',
+        url: '../admin/dBconn/api.php?q=deleteLink&linkID=<?php echo $_GET["linkID"]; ?>&uno=<?php echo $uno; ?>',
         type: 'POST',
         dataType: 'json',
         success: function (data, textStatus, xhr) {
             if (data.message === "Link Deleted Successfully") {
                 swal('Successfully Deleted !!', '', 'success').then(function() {
-                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                    window.location.replace("./");
                 });
             } else if (data.message === "Unauthorized Access") {
                 swal('Unauthorized Access !!', '', 'error').then(function() {
-                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                    window.location.replace("./");
                 });
                 } else {
                 // Internal Server Error
                 swal('Internal Server Error : 500 !!', '', 'error').then(function() {
-                    window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                    window.location.replace("./");
                 });
             }
         },
         error: function (xhr, textStatus, errorThrown) {
             swal('Internal Server Error : 500 !!', '', 'error').then(function() {
-                window.location.replace("./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>");
+                window.location.replace("./");
             });
         }
     });
@@ -157,7 +161,7 @@ function yesDelete() {
                                                         <div>
                                                             <input type="button" value="Yes" onclick="yesDelete()" class="btn btn-danger" >
                                                             <button type="button" name="submit"  class="btn btn-success waves-effect waves-light btn-new">
-                                                                <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>" class="text-white">No</a>
+                                                                <a href="./" class="text-white">No</a>
                                                             </button>
 
                                                       

@@ -1,5 +1,8 @@
 <?php
 
+session_start();
+error_reporting(0);
+
 header('Access-Control-Allow-Origin: *');
 header('Content-Type: application/json');
 header("Content-Type: application/json; charset=UTF-8");
@@ -14,7 +17,6 @@ function submitReg()
     // print_r('dsfghj');
     $db = $database->connect();
 
-    $username = $_POST["username"];
     $password = $_POST["password"];
     $randNum = bin2hex(random_bytes(3));
 
@@ -40,7 +42,7 @@ function submitReg()
         move_uploaded_file($filetemppath, $uploadLocation);
 
 
-        $sql = "INSERT INTO `users` (`uniqueNo`,`username`, `password`,`img`) VALUES ('$randNum','$username', '$password','$destinationfile')";
+        $sql = "INSERT INTO `users` (`uniqueNo`, `password`,`img`) VALUES ('$randNum', '$password','$destinationfile')";
         // print_r($sql);
         // $result = $db -> query($sql) ;
         $result = mysqli_query($db, $sql);
@@ -63,8 +65,6 @@ function submitReg()
         );
     }
 
-    // $query = "SELECT * from users WHERE username=".$username;
-    // $res =  mysqli_query($db,$query);
 
 
 }
@@ -79,7 +79,8 @@ function addLink()
     $linkIsFor = $_POST["linkIsFor"];
     $originalLink = $_POST["originalLink"];
     $shortenLink = $_POST["shortenLink"];
-    $uno = $_GET["uno"];
+    $uno = $_SESSION["uno"];
+
     // $randNum = bin2hex(random_bytes(3));
 
 
@@ -106,7 +107,7 @@ function deleteLink()
     $db = $database->connect();
 
     $linkID = $_GET['linkID'];
-    $uno = $_GET['uno'];
+    $uno = $_SESSION["uno"];
     // Check if the uniqueNo and linkID combination is valid
     $checkValidity = "SELECT * FROM links WHERE uniqueNo = '$uno' AND linkID = $linkID";
     $CheckResult = mysqli_query($db, $checkValidity);

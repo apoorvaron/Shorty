@@ -37,12 +37,11 @@
     $db = $database->connect();
 
     $uno = "shorty";
-    $username = "shorty";
     $linkIsFor = "guestUser";
     $originalLink = $_POST['originalLink'];
     $shortenLink = $_POST['shortenLink'];
-    // $originalLink = $_POST['originalLink'];
-    // $shortenLink = $_POST['shortenLink'];
+
+    
     $shortenLink = explode(" ", $shortenLink);
     $shortenLink = join("_", $shortenLink);
     $finalLink = $env_domain . $shortenLink;

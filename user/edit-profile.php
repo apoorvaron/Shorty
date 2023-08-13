@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,15 +45,13 @@ if (isset($_POST['submit'])) {
     $database = new Database();
     $link = $database->connect();
 
-    $username = $_GET['username'];
     $email = $_POST['email'];
-    $user = $_GET['username'];
-    $uno = $_GET['uno'];
+    $uno = $_SESSION["uno"];
     $UploadedFileName = $_FILES['UploadImage']['name'];
 
 
     if ($UploadedFileName != '') {
-        $sql = "SELECT * FROM users WHERE username='" . $_GET['username'] . "'";
+        $sql = "SELECT * FROM users WHERE uniqueNo='" . $uno . "'";
         if ($result = mysqli_query($link, $sql)) {
             if (mysqli_num_rows($result) > 0) {
                 $row = mysqli_fetch_array($result);
@@ -75,13 +78,12 @@ if (isset($_POST['submit'])) {
 
 
 
-            $sql = "UPDATE users SET username = '" . $username . "' ,email = '" . $email . "',img = '" . $upload_directory . "' WHERE username='" . $user . "';";
+            $sql = "UPDATE users SET email = '" . $email . "',img = '" . $upload_directory . "' WHERE uniqueNo='" . $uno . "';";
             // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$sql;
             $result = mysqli_query($link, $sql);
 
             session_start();
             ob_start();
-            $_SESSION["" . $username . ""] = "" . $username . "";
 
 
             if ($result == 1) {
@@ -89,7 +91,7 @@ if (isset($_POST['submit'])) {
                 //Alert Message 
                 $msz = "Successfully Updated !!";
                 $type = "success";
-                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                $redirection = "./profile";
                 include "./swal.php";
 
 
@@ -98,18 +100,17 @@ if (isset($_POST['submit'])) {
                 //Alert Message 
                 $msz = "Email Already Exist !!";
                 $type = "error";
-                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                $redirection = "./profile";
                 include "./swal.php";
             }
 
         }
     } else {
-        $sql = "UPDATE users SET username = '" . $username . "' ,email = '" . $email . "' WHERE username='" . $user . "';";
+        $sql = "UPDATE users SET email = '" . $email . "' WHERE uniqueNo='" . $uno . "';";
         $result = mysqli_query($link, $sql);
 
         session_start();
         ob_start();
-        $_SESSION["" . $username . ""] = "" . $username . "";
 
 
         // echo "<br><br><br><br><br><br><br><br>erthjg,hgrwetqrtjfhkmjgdeqrw  etsjfhkmjgdrtwerjfhkg,hkfte".$result;
@@ -118,14 +119,14 @@ if (isset($_POST['submit'])) {
                 //Alert Message 
                 $msz = "Successfully Updated !!";
                 $type = "success";
-                $redirection = "./profile.php?username=" . $username . "&uno=" . $_GET['uno'] . "";
+                $redirection = "./profile";
                 include "./swal.php";
 
         } else {
                 //Alert Message 
                 $msz = "Email Already Exist !!";
                 $type = "error";
-                $redirection = "./profile.php?username=" . $_GET['username'] . "&uno=" . $_GET['uno'] . "";
+                $redirection = "./profile";
                 include "./swal.php";
         }
     }
@@ -173,13 +174,13 @@ if (isset($_POST['submit'])) {
                                 // require('../admin/dBconn/database.php');
                                 $database = new Database();
                                 $db = $database->connect();
-
-                                $sql = "SELECT * FROM users WHERE username='" . $_GET['username'] . "'";
+                                $uno = $_SESSION["uno"];
+                                $sql = "SELECT * FROM users WHERE uniqueNo='" . $uno. "'";
                                 if ($result = mysqli_query($db, $sql)) {
                                     if (mysqli_num_rows($result) > 0) {
                                         $row = mysqli_fetch_array($result);
                                         echo "
-                                                        <form method='POST' action='./edit-profile.php?username=" . $username . "&uno=" . $uno . "' enctype='multipart/form-data'>
+                                                        <form method='POST' action='./edit-profile' enctype='multipart/form-data'>
                                                             
                                                             <div class='form-group row'>
                                                                 <label for='example-text-input' class='col-sm-2 col-form-label'>Email</label>
@@ -227,7 +228,7 @@ if (isset($_POST['submit'])) {
                                                                     <button type='submit' name='submit' id='submit' class='btn btn-success waves-effect waves-light btn-new' aria-label='Edit Profile'>
                                                                         Edit 
                                                                        </button>
-                                                                    <a href='./index.php?username=" . $username . "&uno=" . $uno . "'><button type='button' class='btn btn-danger waves-effect m-l-5' aria-label='Cancel'>
+                                                                    <a href='./'><button type='button' class='btn btn-danger waves-effect m-l-5' aria-label='Cancel'>
                                                                         Cancel
                                                                         </button></a>
                                                                 </div>

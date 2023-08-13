@@ -1,6 +1,7 @@
 <?php
 include(__DIR__ . '/../env.php');
-
+session_start();
+error_reporting(0);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,7 +45,7 @@ if (isset($_POST['submit'])) {
     $database = new Database();
     $db = $database->connect();
 
-    $uno = $_GET['uno'];
+    $uno = $_SESSION["uno"];
     $linkIsFor = $_POST['linkIsFor'];
     $originalLink = $_POST['originalLink'];
     $shortenLink = $_POST['shortenLink'];
@@ -75,15 +76,16 @@ if (isset($_POST['submit'])) {
                 include "./swal.php";
 
             } else {
-                $query = "SELECT * FROM links WHERE uniqueNo = '$uno' AND originalLink = '$originalLink'";
+                $uno = $_SESSION["uno"];
+                $query = "SELECT * FROM links WHERE uniqueNo = '{$_SESSION['uno']}' AND originalLink = '$originalLink'";
                 $result = mysqli_query($db, $query);
                 $row = mysqli_fetch_array($result);
                 $count_rows = mysqli_num_rows($result);
 
                 if ($count_rows > 0) {
-                    echo "<script>window.location.replace('./alreadyOriginal.php?username={$_GET['username']}&uno={$_GET['uno']}&linkID={$row['linkID']}')</script>";
+                    echo "<script>window.location.replace('./alreadyOriginal?linkID={$row['linkID']}')</script>";
                 } else {
-                    $sql = "INSERT INTO links (uniqueNo, linkIsFor, originalLink, shortenLink) VALUES ('$uno', '$linkIsFor', '$originalLink', '$shortenLink')";
+                    $sql = "INSERT INTO links (uniqueNo, linkIsFor, originalLink, shortenLink) VALUES ('{$_SESSION['uno']}', '$linkIsFor', '$originalLink', '$shortenLink')";
                     $result = mysqli_query($db, $sql);
 
                     if ($result) {
@@ -91,7 +93,7 @@ if (isset($_POST['submit'])) {
                         //Alert Message 
                         $msz = "Successfully Created !!";
                         $type = "success";
-                        $redirection = "./index.php?username={$_GET['username']}&uno={$_GET['uno']}";
+                        $redirection = "./index";
                         include "./swal.php";
 
                     } else {
@@ -132,7 +134,7 @@ if (isset($_POST['submit'])) {
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Make New Link</h4>
-                            <a href="./index.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                            <a href="./"><button
                                     type=""
                                     class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Shorten
                                     Links</button></a>
