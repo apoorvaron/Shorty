@@ -38,13 +38,7 @@ include(__DIR__ . '/../env.php');
 
 </head>
 
-<?php
 
-if (isset($_GET['short'])) {
-    $short = $_GET['short'];
-    echo "<script>  navigator.clipboard.writeText('" . $short . "');</script>";
-}
-?>
 
 <body class="fixed-left">
     <!-- Begin page -->
@@ -61,12 +55,8 @@ if (isset($_GET['short'])) {
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h1 class="page-title text-center">Your Link has been shortened previously.</h1>
-                            <?php
-                            $username = $_GET['username'];
-                            $uno = $_GET['uno'];
-                            ?>
 
-                            <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                            <a href="newLink"><button
                                     type="submit" class="btn btn-success waves-effect waves-light btn-new"
                                     style="position: absolute;top: 29px;right: 15px;">Make New Link</button></a>
                         </div>
@@ -116,15 +106,15 @@ if (isset($_GET['short'])) {
                                         $database = new Database();
                                         $db = $database->connect();
                                         $sno = 1;
-                                        $uno = $_GET['uno'];
+                                        $uno = $_SESSION["uno"];
                                         $linkID = $_GET['linkID'];
-                                        // echo $uno;
+
                                         if (!ctype_digit($linkID)) {
 
                                                 //Alert Message 
                                                 $msz = "Unauthorized Access !!";
                                                 $type = "error";
-                                                $redirection = "./index.php?username={$username}&uno={$uno}";
+                                                $redirection = "./index";
                                                 include "./swal.php";
                                         }
                                         $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' AND linkID='" . $linkID . "'";
@@ -148,8 +138,8 @@ if (isset($_GET['short'])) {
                                                                             <i id='copyIcon' class='fa fa-files-o copy-icon' aria-hidden='true' style='cursor: pointer;' onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\")'></i>
                                                                         </td>
                                                                       
-                                                                        <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
-                                                                        <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
+                                                                        <td><a href='./preview?linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-light' style='float: none; margin: 5px'><span class='ti-pencil'></span></button></a></td>
+                                                                        <td><a href='./successDelete?linkID=" . $row['linkID'] . "'  class='tabledit-delete-button btn btn-sm btn-light' style='float: none; margin: 5px;'><span class='ti-trash text-danger'></span></a></td>
                                                                         
                                                                         </tr>
                                                                             ";
@@ -161,7 +151,7 @@ if (isset($_GET['short'])) {
                                                     //Alert Message 
                                                     $msz = "Unauthorized Access !!";
                                                     $type = "error";
-                                                    $redirection = "./index.php?username={$username}&uno={$uno}";
+                                                    $redirection = "./index";
                                                     include "./swal.php";
 
                                             }

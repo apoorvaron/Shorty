@@ -18,8 +18,9 @@ if (isset($_POST['submit'])) {
     $database = new Database();
     $db = $database->connect();
 
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = mysqli_real_escape_string($db,$_POST['email']);
+    $password = mysqli_real_escape_string($db,$_POST['password']);
+    
     $originalPass = $password;
     $password = md5($password);
 
@@ -35,16 +36,12 @@ if (isset($_POST['submit'])) {
         }
 
         $row = mysqli_fetch_array($result);
-        $_SESSION["" . $row['username'] . ""] = "" . $row['username'] . "";
-        $_SESSION["" . $row['uniqueNo'] . ""] = "" . $row['uniqueNo'] . "";
-
-        $_SESSION["username"] = "" . $row['username'] . "";
         $_SESSION["uno"] = "" . $row['uniqueNo'] . "";
 
 
         $_SESSION['start'] = time();
         $_SESSION['expire'] = $_SESSION['start'] + (60 * 60);
-        echo "<script>window.location.replace('./index?username=" . $row['username'] . "&uno=" . $row['uniqueNo'] . "')</script>";
+        echo "<script>window.location.replace('./')</script>";
     } else {
 
         $query = "SELECT * from users where email='$email'";

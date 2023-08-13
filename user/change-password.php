@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -79,7 +84,7 @@
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Change Your Password</h4>
-                            <a href="profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                            <a href="profile"><button
                                     type="submit" class="btn btn-danger waves-effect waves-light"
                                     style="position: absolute;top: 29px;right: 15px;">Profile</button></a>
                         </div>
@@ -118,8 +123,8 @@
                                                     <input type="password" class="form-control" name="oldPass"  id="oldPass" required placeholder="Old Password" aria-required="true" aria-label="Old Password" onkeyup="validate(event)">
                                                 </div>
                                                 <div class="input-group-append eye">
-                                                    <span class="input-group-text" onclick="changeType()">
-                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                    <span class="input-group-text" onclick="changeTypeOld()">
+                                                        <i id="eyeOld" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
                                                             aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -146,8 +151,8 @@
                                                     <input type="password" class="form-control" name="newPass"  id="newPass" required placeholder="New Password" aria-required="true" aria-label="New Password" onkeyup="validate(event)">
                                                 </div>
                                                 <div class="input-group-append eye">
-                                                    <span class="input-group-text" onclick="changeType()">
-                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                    <span class="input-group-text" onclick="changeTypeNew()">
+                                                        <i id="eyeNew" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
                                                             aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -170,8 +175,8 @@
                                                     <input type="password" class="form-control" name="cnfrmPass"  id="cnfrmPass" required placeholder="Confirm Password" aria-required="true" aria-label="Confirm Password" onkeyup="validate(event)">
                                                 </div>
                                                 <div class="input-group-append eye">
-                                                    <span class="input-group-text" onclick="changeType()">
-                                                        <i id="eyei" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
+                                                    <span class="input-group-text" onclick="changeTypeCnfrm()">
+                                                        <i id="eyeCnfrm" onclick="" class="fa fa-eye-slash ml-np15 mt-p4 zIndexTop"
                                                             aria-hidden="true"></i>
                                                 </div>
                                             </div>
@@ -246,6 +251,69 @@
             })
 
         }
+
+
+
+
+
+
+        // eye control
+        let loopOld = 0;
+        passwordOld = document.querySelector('#oldPass');
+        let eyeOld = document.querySelector('#eyeOld');
+
+        function changeTypeOld() {
+            if (loopOld % 2 == 0) {
+                eyeOld.classList.remove("fa-eye-slash");
+                eyeOld.classList.add("fa-eye");
+                passwordOld.type = "text";
+            } else {
+                eyeOld.classList.remove("fa-eye");
+                eyeOld.classList.add("fa-eye-slash");
+                passwordOld.type = "password";
+            }
+            loopOld++;
+        }
+
+
+
+        // eye control
+        let loopNew = 0;
+        passwordNew = document.querySelector('#newPass');
+        let eyeNew = document.querySelector('#eyeNew');
+
+        function changeTypeNew() {
+            if (loopNew % 2 == 0) {
+                eyeNew.classList.remove("fa-eye-slash");
+                eyeNew.classList.add("fa-eye");
+                passwordNew.type = "text";
+            } else {
+                eyeNew.classList.remove("fa-eye");
+                eyeNew.classList.add("fa-eye-slash");
+                passwordNew.type = "password";
+            }
+            loopNew++;
+        }
+
+
+        // eye control Confirm Password
+        let loopCnfrm = 0;
+        passwordCnfrm = document.querySelector('#cnfrmPass');
+        let eyeCnfrm = document.querySelector('#eyeCnfrm');
+
+        function changeTypeCnfrm() {
+            if (loopCnfrm % 2 == 0) {
+                eyeCnfrm.classList.remove("fa-eye-slash");
+                eyeCnfrm.classList.add("fa-eye");
+                passwordCnfrm.type = "text";
+            } else {
+                eyeCnfrm.classList.remove("fa-eye");
+                eyeCnfrm.classList.add("fa-eye-slash");
+                passwordCnfrm.type = "password";
+            }
+            loopCnfrm++;
+        }
+
     </script>
 
     <?php
@@ -284,6 +352,7 @@
         $database = new Database();
         $db = $database->connect();
 
+        $uno = $_SESSION["uno"];
         $oldPass = $_POST["oldPass"];
         $newPass = $_POST["newPass"];
         $valid = validatePassword($newPass);
@@ -292,29 +361,19 @@
         $newPass = md5($newPass);
         $cnfrmPass = md5($cnfrmPass);
 
-        $query =
-            "SELECT * from users WHERE username='" .
-            $_GET["username"] .
-            "' and password='" .
-            $oldPass .
-            "'";
+        $query = "SELECT * from users WHERE uniqueNo='" . $uno . "' and password='" . $oldPass . "'";
         $result = mysqli_query($db, $query);
         if (mysqli_num_rows($result)) {
             if ($valid) {
                 if ($cnfrmPass == $newPass) {
-                    $sql =
-                        "UPDATE users SET password = '" .
-                        $newPass .
-                        "' WHERE username='" .
-                        $_GET["username"] .
-                        "';";
+                    $sql = "UPDATE users SET password = '" . $newPass . "' WHERE uniqueNo='" . $uno. "';";
                     if (mysqli_query($db, $sql)) {
 
 
                         //Alert Message 
                         $msz = "Password Changed !!";
                         $type = "success";
-                        $redirection = "./index.php?username={$username}&uno={$uno}";
+                        $redirection = "./";
                         include "./swal.php";
 
 
@@ -323,7 +382,7 @@
                         //Alert Message 
                         $msz = "Try Again !!";
                         $type = "error";
-                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        $redirection = "./change-password";
                         include "./swal.php";
 
                     }
@@ -332,7 +391,7 @@
                         //Alert Message 
                         $msz = "Enter Same Password !!";
                         $type = "error";
-                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        $redirection = "./change-password";
                         include "./swal.php";
 
                 }
@@ -341,7 +400,7 @@
                         //Alert Message 
                         $msz = "Enter Strong Password !!";
                         $type = "error";
-                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        $redirection = "./change-password";
                         include "./swal.php";
             }
         } else {
@@ -349,7 +408,7 @@
                         //Alert Message 
                         $msz = "Incorrect Old Password !!";
                         $type = "error";
-                        $redirection = "./change-password.php?username={$username}&uno={$uno}";
+                        $redirection = "./change-password";
                         include "./swal.php";
         }
     }

@@ -32,13 +32,7 @@ include(__DIR__ . '/../env.php');
 
 </head>
 
-<?php
 
-if (isset($_GET['short'])) {
-    $short = $_GET['short'];
-    echo "<script>  navigator.clipboard.writeText('" . $short . "');</script>";
-}
-?>
 
 <body class="fixed-left">
     <!-- Begin page -->
@@ -55,15 +49,10 @@ if (isset($_GET['short'])) {
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Shortened Links</h4>
-                            <?php
-                            $username = $_GET['username'];
-                            $uno = $_GET['uno'];
-                            ?>
 
-                            <a href="newLink.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>"><button
+                            <a href="newLink"><button
                                     type="submit"
-                                    class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Make
-                                    New Link</button></a>
+                                    class="btn btn-success waves-effect waves-light btn-new position-absolute top-29 right-15">Make New Link</button></a>
                         </div>
                     </div>
                 </div>
@@ -105,7 +94,7 @@ if (isset($_GET['short'])) {
                                     $database = new Database();
                                     $db = $database->connect();
                                     $sno = 1;
-                                    $uno = $_GET['uno'];
+                                    $uno = $_SESSION["uno"];
                                     $sql = "SELECT * FROM links WHERE uniqueNo='" . $uno . "' ORDER BY linkID DESC ";
                                     if ($result = mysqli_query($db, $sql)) {
                                         if (mysqli_num_rows($result) > 0) {
@@ -125,8 +114,8 @@ if (isset($_GET['short'])) {
                 <td class='text-center'>
                       <i id='copyIcon" . $sno . "' class='fa fa-files-o copy-icon cursor-pointer' aria-hidden='true'  onclick='copyLink(\"" . $env_domain . "" . $row['shortenLink'] . "\", " . $sno . ")'></i>
                 </td>
-                <td><a href='./preview.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-ligh float-none m-5px'><span class='ti-pencil'></span></button></a></td>
-                <td><a href='./successDelete.php?username=" . $username . "&uno=" . $uno . "&linkID=" . $row['linkID'] . "' class='tabledit-delete-button btn btn-sm btn-light float-none m-5px' ><span class='ti-trash text-danger'></span></a></td>
+                <td><a href='./preview?linkID=" . $row['linkID'] . "'> <button type='button' class='tabledit-edit-button btn btn-sm btn-ligh float-none m-5px'><span class='ti-pencil'></span></button></a></td>
+                <td><a href='./successDelete?linkID=" . $row['linkID'] . "' class='tabledit-delete-button btn btn-sm btn-light float-none m-5px' ><span class='ti-trash text-danger'></span></a></td>
             </tr>";
                                                 $sno++;
                                             }

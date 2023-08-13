@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    error_reporting(0);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,8 +73,10 @@
                                 // require('../admin/dBconn/database.php');
                                 $database = new Database();
                                 $db = $database->connect();
+                                
+                                $uno = $_SESSION["uno"];
 
-                                $sql = "SELECT * FROM users WHERE username='" . $_GET['username'] . "'";
+                                $sql = "SELECT * FROM users WHERE uniqueNo='" . $uno. "'";
                                 if ($result = mysqli_query($db, $sql)) {
                                     if (mysqli_num_rows($result) > 0) {
                                         $row = mysqli_fetch_array($result);
@@ -117,7 +124,7 @@
                                         <div>
 
                                             <a
-                                                href="./edit-profile.php?username=<?php echo $username ?>&uno=<?php echo $uno ?>">
+                                                href="./edit-profile">
                                                 <button type="submit"
                                                     class="btn btn-success waves-effect waves-light btn-new">
                                                     Want to Update ??

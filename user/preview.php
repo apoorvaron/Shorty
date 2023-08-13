@@ -72,7 +72,7 @@ include __DIR__ . "/../env.php"; ?>
                 //Alert Message 
                 $msz = "Successfully Updated !!";
                 $type = "success";
-                $redirection = "./index.php?username={$_GET["username"]}&uno={$_GET["uno"]}";
+                $redirection = "./";
                 include "./swal.php";
 
             } else {
@@ -86,7 +86,7 @@ include __DIR__ . "/../env.php"; ?>
         } else {
 
             //Alert Message 
-            $msz = "Enter a Valid URL !!";
+            $msz = "Enter Valid URL !!";
             $type = "error";
             include "./swal.php";
         }
@@ -110,7 +110,7 @@ include __DIR__ . "/../env.php"; ?>
                     <div class="col-sm-12">
                         <div class="page-title-box">
                             <h4 class="page-title">Update Link</h4>
-                            <a href="./index.php?username=<?php echo $username; ?>&uno=<?php echo $uno; ?>"><button
+                            <a href="./"><button
                                     type=""
                                     class="btn btn-danger waves-effect waves-light position-absolute top-29 right-15">Your
                                     Links</button></a>
@@ -129,8 +129,7 @@ include __DIR__ . "/../env.php"; ?>
                                     and protect your brand.</p>
 
                                 <?php
-                                $username = $_GET["username"];
-                                $uno = $_GET["uno"];
+                                $uno = $_SESSION["uno"];
                                 $linkID = $_GET["linkID"];
 
                                 // include '../admin/dBconn/database.php';
@@ -233,7 +232,7 @@ include __DIR__ . "/../env.php"; ?>
                                             //Alert Message 
                                             $msz = "Internal Server Error : 500 !!";
                                             $type = "error";
-                                            $redirection = "./index.php?username={$username}&uno={$uno}";
+                                            $redirection = "./";
                                             include "./swal.php";
                                         }
                                     } else {
@@ -241,7 +240,7 @@ include __DIR__ . "/../env.php"; ?>
                                         //Alert Message 
                                         $msz = "Unauthorized Access !!";
                                         $type = "error";
-                                        $redirection = "./index.php?username={$username}&uno={$uno}";
+                                        $redirection = "./";
                                         include "./swal.php";
                                     }
                                 } else {
@@ -249,7 +248,7 @@ include __DIR__ . "/../env.php"; ?>
                                         //Alert Message 
                                         $msz = "Internal Server Error : 500 !!";
                                         $type = "error";
-                                        $redirection = "./index.php?username={$username}&uno={$uno}";
+                                        $redirection = "./";
                                         include "./swal.php";
                                 }
                                 ?>
